@@ -2,18 +2,12 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
 DROP TABLE public.typen_herkunft;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 31659)
+-- Name: typen_herkunft; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE typen_herkunft (
@@ -24,6 +18,8 @@ CREATE TABLE typen_herkunft (
 
 
 --
+-- Data for TOC entry 3 (OID 31659)
+-- Name: typen_herkunft; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY typen_herkunft (typ, land, kultwaffe) FROM stdin;
@@ -42,23 +38,6 @@ As	Rawindra	\N
 As	Tegarische Steppe	\N
 As	Valian	\N
 As	Ywerddon	\N
-BN	Alba	\N
-BN	Clanngadarn	\N
-BN	Fuardain	\N
-BN	Moravod	\N
-BN	Tegarische Steppe	\N
-BN	Waeland	\N
-BS	Aran	\N
-BS	Buluga	\N
-BS	Eschar	\N
-BS	Tegarische Steppe	\N
-BW	Ikengabecken	\N
-BW	KanThaiPan	\N
-BW	Medjis	\N
-BW	Minangpahit	\N
-BW	Moravod	\N
-BW	Nahuatlan	\N
-BW	Rawindra	\N
 Ba	Alba	\N
 Ba	Aran	\N
 Ba	Buluga	\N
@@ -82,12 +61,62 @@ Ba	Urruti	\N
 Ba	Valian	\N
 Ba	Vesternesse	\N
 Ba	Ywerddon	\N
+BN	Alba	\N
+BN	Clanngadarn	\N
+BN	Fuardain	\N
+BN	Moravod	\N
+BN	Tegarische Steppe	\N
+BN	Waeland	\N
+BS	Aran	\N
+BS	Buluga	\N
+BS	Eschar	\N
+BS	Tegarische Steppe	\N
+BW	Ikengabecken	\N
+BW	KanThaiPan	\N
+BW	Medjis	\N
+BW	Minangpahit	\N
+BW	Moravod	\N
+BW	Nahuatlan	\N
+BW	Rawindra	\N
+dBe	Alba	\N
+dBe	Aran	\N
+dBe	Buluga	\N
+dBe	Chryseia	\N
+dBe	Eschar	\N
+dBe	Ikengabecken	\N
+dBe	KanThaiPan	\N
+dBe	Küstenstaaten	\N
+dBe	Medjis	\N
+dBe	Moravod	\N
+dBe	Nahuatlan	\N
+dBe	Rawindra	\N
+dBe	Tegarische Steppe	\N
+dBe	Urruti	\N
+dBe	Valian	\N
+dBe	Ywerddon	\N
 De	Eschar	\N
 Dr	Alba	\N
 Dr	Clanngadarn	\N
 Dr	Fuardain	\N
 Dr	Ywerddon	\N
 Dt	Nahuatlan	\N
+eBe	Alba	\N
+eBe	Aran	\N
+eBe	Buluga	\N
+eBe	Chryseia	\N
+eBe	Eschar	\N
+eBe	Ikengabecken	\N
+eBe	KanThaiPan	\N
+eBe	Küstenstaaten	\N
+eBe	Medjis	\N
+eBe	Moravod	\N
+eBe	Nahuatlan	\N
+eBe	Rawindra	\N
+eBe	Tegarische Steppe	\N
+eBe	Urruti	\N
+eBe	Valian	\N
+eBe	Waeland	\N
+eBe	Ywerddon	\N
 Er	Alba	\N
 Er	Aran	\N
 Er	Chryseia	\N
@@ -100,6 +129,27 @@ Er	Valian	\N
 Er	Ywerddon	\N
 Fi	Erainn	Langschwert
 Fi	Ywerddon	Langschwert
+gHx	Alba	\N
+gHx	Aran	\N
+gHx	Buluga	\N
+gHx	Chryseia	\N
+gHx	Clanngadarn	\N
+gHx	Erainn	\N
+gHx	Eschar	\N
+gHx	Fuardain	\N
+gHx	Ikengabecken	\N
+gHx	KanThaiPan	\N
+gHx	Küstenstaaten	\N
+gHx	Medjis	\N
+gHx	Minangpahit	\N
+gHx	Moravod	\N
+gHx	Nahuatlan	\N
+gHx	Rawindra	\N
+gHx	Tegarische Steppe	\N
+gHx	Urruti	\N
+gHx	Valian	\N
+gHx	Waeland	\N
+gHx	Ywerddon	\N
 Gl	Alba	\N
 Gl	Aran	\N
 Gl	Chryseia	\N
@@ -114,6 +164,30 @@ Gl	Nahuatlan	\N
 Gl	Rawindra	\N
 Gl	Valian	\N
 Gl	Ywerddon	\N
+Hä	Alba	\N
+Hä	Aran	\N
+Hä	Buluga	\N
+Hä	Chryseia	\N
+Hä	Clanngadarn	\N
+Hä	Dvarheim	\N
+Hä	Erainn	\N
+Hä	Eschar	\N
+Hä	Feuerinseln	\N
+Hä	Halfdal	\N
+Hä	Inseln unter dem Westwind	\N
+Hä	KanThaiPan	\N
+Hä	Küstenstaaten	\N
+Hä	Medjis	\N
+Hä	Minangpahit	\N
+Hä	Moravod	\N
+Hä	Nahuatlan	\N
+Hä	Rawindra	\N
+Hä	Tegarische Steppe	\N
+Hä	Urruti	\N
+Hä	Valian	\N
+Hä	Vesternesse	\N
+Hä	Waeland	\N
+Hä	Ywerddon	\N
 Hj	Alba	\N
 Hj	Aran	\N
 Hj	Buluga	\N
@@ -153,30 +227,6 @@ Hl	Urruti	\N
 Hl	Valian	\N
 Hl	Waeland	\N
 Hl	Ywerddon	\N
-Hä	Alba	\N
-Hä	Aran	\N
-Hä	Buluga	\N
-Hä	Chryseia	\N
-Hä	Clanngadarn	\N
-Hä	Dvarheim	\N
-Hä	Erainn	\N
-Hä	Eschar	\N
-Hä	Feuerinseln	\N
-Hä	Halfdal	\N
-Hä	Inseln unter dem Westwind	\N
-Hä	KanThaiPan	\N
-Hä	Küstenstaaten	\N
-Hä	Medjis	\N
-Hä	Minangpahit	\N
-Hä	Moravod	\N
-Hä	Nahuatlan	\N
-Hä	Rawindra	\N
-Hä	Tegarische Steppe	\N
-Hä	Urruti	\N
-Hä	Valian	\N
-Hä	Vesternesse	\N
-Hä	Waeland	\N
-Hä	Ywerddon	\N
 Kd	KanThaiPan	\N
 Kr	Alba	\N
 Kr	Aran	\N
@@ -209,7 +259,6 @@ Ku	Fuardain	\N
 Ku	Tegarische Steppe	\N
 Ku	Urruti	\N
 Ku	Waeland	\N
-MMa	Valian	\N
 Ma	Alba	\N
 Ma	Aran	\N
 Ma	Chryseia	\N
@@ -229,6 +278,7 @@ Mg	Alba	\N
 Mg	Eschar	\N
 Mg	Küstenstaaten	\N
 Mg	Valian	\N
+MMa	Valian	\N
 Ny	KanThaiPan	\N
 Or	Alba	\N
 Or	Aran	\N
@@ -245,17 +295,17 @@ Or	Tegarische Steppe	\N
 Or	Urruti	\N
 Or	Valian	\N
 PC	Aran	Dolch
-PC	Clanngadarn	Wurfspeer
 PC	Clanngadarn	leichter Speer
+PC	Clanngadarn	Wurfspeer
 PC	Eschar	Dolch
-PC	Fuardain	Wurfspeer
 PC	Fuardain	leichter Speer
+PC	Fuardain	Wurfspeer
 PC	KanThaiPan	Dolch
 PC	KanThaiPan	Magierstab
 PC	KanThaiPan	waffenloser Kampf
 PC	Nahuatlan	Dolch
-PC	Ywerddon	Wurfspeer
 PC	Ywerddon	leichter Speer
+PC	Ywerddon	Wurfspeer
 PF	Alba	Sichel
 PF	Chryseia	Magierstab
 PF	Clanngadarn	Bogen
@@ -395,7 +445,51 @@ Se	Rawindra	\N
 Se	Valian	\N
 Se	Waeland	\N
 Se	Ywerddon	\N
+sHx	Alba	\N
+sHx	Aran	\N
+sHx	Buluga	\N
+sHx	Chryseia	\N
+sHx	Clanngadarn	\N
+sHx	Erainn	\N
+sHx	Eschar	\N
+sHx	Fuardain	\N
+sHx	Ikengabecken	\N
+sHx	KanThaiPan	\N
+sHx	Küstenstaaten	\N
+sHx	Medjis	\N
+sHx	Minangpahit	\N
+sHx	Moravod	\N
+sHx	Nahuatlan	\N
+sHx	Rawindra	\N
+sHx	Tegarische Steppe	\N
+sHx	Urruti	\N
+sHx	Valian	\N
+sHx	Waeland	\N
+sHx	Ywerddon	\N
 Sk	Waeland	\N
+Sö	Alba	\N
+Sö	Aran	\N
+Sö	Chryseia	\N
+Sö	Clanngadarn	\N
+Sö	Dvarheim	\N
+Sö	Erainn	\N
+Sö	Eschar	\N
+Sö	Feuerinseln	\N
+Sö	Halfdal	\N
+Sö	Inseln unter dem Westwind	\N
+Sö	KanThaiPan	\N
+Sö	Küstenstaaten	\N
+Sö	Medjis	\N
+Sö	Minangpahit	\N
+Sö	Moravod	\N
+Sö	Nahuatlan	\N
+Sö	Rawindra	\N
+Sö	Tegarische Steppe	\N
+Sö	Urruti	\N
+Sö	Valian	\N
+Sö	Vesternesse	\N
+Sö	Waeland	\N
+Sö	Ywerddon	\N
 Sp	Alba	\N
 Sp	Aran	\N
 Sp	Chryseia	\N
@@ -447,29 +541,22 @@ Sw	Valian	\N
 Sw	Vesternesse	\N
 Sw	Waeland	\N
 Sw	Ywerddon	\N
-Sö	Alba	\N
-Sö	Aran	\N
-Sö	Chryseia	\N
-Sö	Clanngadarn	\N
-Sö	Dvarheim	\N
-Sö	Erainn	\N
-Sö	Eschar	\N
-Sö	Feuerinseln	\N
-Sö	Halfdal	\N
-Sö	Inseln unter dem Westwind	\N
-Sö	KanThaiPan	\N
-Sö	Küstenstaaten	\N
-Sö	Medjis	\N
-Sö	Minangpahit	\N
-Sö	Moravod	\N
-Sö	Nahuatlan	\N
-Sö	Rawindra	\N
-Sö	Tegarische Steppe	\N
-Sö	Urruti	\N
-Sö	Valian	\N
-Sö	Vesternesse	\N
-Sö	Waeland	\N
-Sö	Ywerddon	\N
+tBe	Alba	\N
+tBe	Aran	\N
+tBe	Buluga	\N
+tBe	Chryseia	\N
+tBe	Eschar	\N
+tBe	Ikengabecken	\N
+tBe	KanThaiPan	\N
+tBe	Küstenstaaten	\N
+tBe	Medjis	\N
+tBe	Moravod	\N
+tBe	Nahuatlan	\N
+tBe	Rawindra	\N
+tBe	Tegarische Steppe	\N
+tBe	Urruti	\N
+tBe	Valian	\N
+tBe	Ywerddon	\N
 Th	Alba	\N
 Th	Aran	\N
 Th	Chryseia	\N
@@ -517,100 +604,6 @@ Wa	Nahuatlan	\N
 Wa	Rawindra	\N
 Wa	Waeland	\N
 Wa	Ywerddon	\N
-Wi	Alba	\N
-Wi	Clanngadarn	\N
-Wi	Moravod	\N
-dBe	Alba	\N
-dBe	Aran	\N
-dBe	Buluga	\N
-dBe	Chryseia	\N
-dBe	Eschar	\N
-dBe	Ikengabecken	\N
-dBe	KanThaiPan	\N
-dBe	Küstenstaaten	\N
-dBe	Medjis	\N
-dBe	Moravod	\N
-dBe	Nahuatlan	\N
-dBe	Rawindra	\N
-dBe	Tegarische Steppe	\N
-dBe	Urruti	\N
-dBe	Valian	\N
-dBe	Ywerddon	\N
-eBe	Alba	\N
-eBe	Aran	\N
-eBe	Buluga	\N
-eBe	Chryseia	\N
-eBe	Eschar	\N
-eBe	Ikengabecken	\N
-eBe	KanThaiPan	\N
-eBe	Küstenstaaten	\N
-eBe	Medjis	\N
-eBe	Moravod	\N
-eBe	Nahuatlan	\N
-eBe	Rawindra	\N
-eBe	Tegarische Steppe	\N
-eBe	Urruti	\N
-eBe	Valian	\N
-eBe	Waeland	\N
-eBe	Ywerddon	\N
-gHx	Alba	\N
-gHx	Aran	\N
-gHx	Buluga	\N
-gHx	Chryseia	\N
-gHx	Clanngadarn	\N
-gHx	Erainn	\N
-gHx	Eschar	\N
-gHx	Fuardain	\N
-gHx	Ikengabecken	\N
-gHx	KanThaiPan	\N
-gHx	Küstenstaaten	\N
-gHx	Medjis	\N
-gHx	Minangpahit	\N
-gHx	Moravod	\N
-gHx	Nahuatlan	\N
-gHx	Rawindra	\N
-gHx	Tegarische Steppe	\N
-gHx	Urruti	\N
-gHx	Valian	\N
-gHx	Waeland	\N
-gHx	Ywerddon	\N
-sHx	Alba	\N
-sHx	Aran	\N
-sHx	Buluga	\N
-sHx	Chryseia	\N
-sHx	Clanngadarn	\N
-sHx	Erainn	\N
-sHx	Eschar	\N
-sHx	Fuardain	\N
-sHx	Ikengabecken	\N
-sHx	KanThaiPan	\N
-sHx	Küstenstaaten	\N
-sHx	Medjis	\N
-sHx	Minangpahit	\N
-sHx	Moravod	\N
-sHx	Nahuatlan	\N
-sHx	Rawindra	\N
-sHx	Tegarische Steppe	\N
-sHx	Urruti	\N
-sHx	Valian	\N
-sHx	Waeland	\N
-sHx	Ywerddon	\N
-tBe	Alba	\N
-tBe	Aran	\N
-tBe	Buluga	\N
-tBe	Chryseia	\N
-tBe	Eschar	\N
-tBe	Ikengabecken	\N
-tBe	KanThaiPan	\N
-tBe	Küstenstaaten	\N
-tBe	Medjis	\N
-tBe	Moravod	\N
-tBe	Nahuatlan	\N
-tBe	Rawindra	\N
-tBe	Tegarische Steppe	\N
-tBe	Urruti	\N
-tBe	Valian	\N
-tBe	Ywerddon	\N
 wHx	Alba	\N
 wHx	Aran	\N
 wHx	Buluga	\N
@@ -632,8 +625,7 @@ wHx	Urruti	\N
 wHx	Valian	\N
 wHx	Waeland	\N
 wHx	Ywerddon	\N
+Wi	Alba	\N
+Wi	Clanngadarn	\N
+Wi	Moravod	\N
 \.
---
--- PostgreSQL database dump complete
---
-

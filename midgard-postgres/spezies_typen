@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.spezies_typen_spezies;
 ALTER TABLE ONLY public.spezies_typen DROP CONSTRAINT spezies_typen_pkey;
+DROP INDEX public.spezies_typen_spezies;
 DROP TABLE public.spezies_typen;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 30895)
+-- Name: spezies_typen; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE spezies_typen (
@@ -26,38 +20,40 @@ CREATE TABLE spezies_typen (
 
 
 --
+-- Data for TOC entry 5 (OID 30895)
+-- Name: spezies_typen; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY spezies_typen (spezies, typen, maxgrad) FROM stdin;
 Berggnom	As	\N
 Berggnom	Dr	\N
+Berggnom	gHx	\N
 Berggnom	Gl	\N
 Berggnom	Hl	\N
 Berggnom	Ma	\N
+Berggnom	sHx	\N
 Berggnom	Sp	\N
 Berggnom	Sw	\N
 Berggnom	Th	\N
 Berggnom	To	\N
 Berggnom	Wa	\N
-Berggnom	gHx	\N
-Berggnom	sHx	\N
 Berggnom	wHx	\N
 Elf	Ba	\N
 Elf	Dr	\N
+Elf	gHx	\N
 Elf	Gl	\N
 Elf	Hl	\N
 Elf	Km	\N
 Elf	Kr	\N
 Elf	Ma	\N
+Elf	sHx	\N
 Elf	To	\N
 Elf	Wa	\N
-Elf	Wi	\N
-Elf	gHx	\N
-Elf	sHx	\N
 Elf	wHx	\N
+Elf	Wi	\N
 Halbling	Ba	\N
-Halbling	Hl	\N
 Halbling	Hä	\N
+Halbling	Hl	\N
 Halbling	PF	\N
 Halbling	PW	\N
 Halbling	Sp	\N
@@ -68,16 +64,17 @@ Mensch	-Sw	\N
 Mensch	-Wi	\N
 Waldgnom	As	\N
 Waldgnom	Dr	\N
+Waldgnom	gHx	\N
 Waldgnom	Gl	\N
 Waldgnom	Hl	\N
 Waldgnom	Ma	\N
+Waldgnom	sHx	\N
 Waldgnom	Sp	\N
 Waldgnom	Th	\N
 Waldgnom	To	\N
 Waldgnom	Wa	\N
-Waldgnom	gHx	\N
-Waldgnom	sHx	\N
 Waldgnom	wHx	\N
+Zwerg	eBe	\N
 Zwerg	Hä	\N
 Zwerg	Kr	\N
 Zwerg	PF	\N
@@ -87,22 +84,21 @@ Zwerg	PK	\N
 Zwerg	Sö	\N
 Zwerg	Th	\N
 Zwerg	To	\N
-Zwerg	eBe	\N
 \.
 --
---
-
-ALTER TABLE ONLY spezies_typen
-    ADD CONSTRAINT spezies_typen_pkey PRIMARY KEY (spezies, typen);
-
-
---
+-- TOC entry 4 (OID 30961)
+-- Name: spezies_typen_spezies; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE INDEX spezies_typen_spezies ON spezies_typen USING btree (spezies);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 3 (OID 30959)
+-- Name: spezies_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY spezies_typen
+    ADD CONSTRAINT spezies_typen_pkey PRIMARY KEY (spezies, typen);
+
 

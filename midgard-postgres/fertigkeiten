@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.fertigkeiten_fertigkeit_region;
 ALTER TABLE ONLY public.fertigkeiten DROP CONSTRAINT fertigkeit_pkey;
+DROP INDEX public.fertigkeiten_fertigkeit_region;
 DROP TABLE public.fertigkeiten;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 19040)
+-- Name: fertigkeiten; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE fertigkeiten (
@@ -38,167 +32,27 @@ CREATE TABLE fertigkeiten (
 
 
 --
+-- Data for TOC entry 5 (OID 19040)
+-- Name: fertigkeiten; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert, fp, region, region_zusatz, attribut, ungelernt, berufsklasse, maxwert, maxunterweisung, zusaetze) FROM stdin;
+1	1	1	4	Sprechen: Sprache(+4)	4	0	\N	\N	In	\N	\N	20	17	5
+1	\N	\N	4	Brettspiel	2	20	E	\N	In	\N	\N	18	18	\N
+1	\N	\N	5	Pyromantie	4	100	E	\N	Zt	\N	1	12	11	\N
 1	\N	\N	\N	+1 KiDo-Technik	\N	0	K	\N	\N	\N	\N	18	18	\N
 1	\N	\N	\N	+1 KiDo-Technik 	\N	0	K	\N	\N	\N	\N	18	18	\N
 1	\N	\N	\N	+1 KiDo-Technik  	\N	0	K	\N	\N	\N	\N	18	18	\N
-6	4	\N	8	Abrichten	6	400	\N	\N	pA	\N	3	18	13	1
-99	\N	\N	\N	Adlersprung	\N	200	N	\N	Ge	\N	\N	\N	\N	\N
-99	\N	\N	17	Akribie	\N	100	N	\N	In	\N	\N	\N	\N	\N
-5	\N	\N	15	Akrobatik	10	120	\N	\N	Gw	8	2	18	16	\N
-8	\N	\N	5	Alchimie	4	100	\N	\N	In	\N	2	18	13	\N
-6	\N	\N	1	Askese	1	1500	R	\N	Sb	\N	2	18	18	\N
-4	\N	\N	5	Astrologie	4	400	R	\N	Zt	\N	2	12	11	\N
-4	\N	\N	4	Athletik	4	50	\N	\N	St	\N	1	16	11	\N
-99	\N	\N	15	Augensalbe herstellen	12	200	R	\N	\N	\N	\N	18	18	\N
-3	\N	\N	15	Balancieren	10	60	\N	\N	Gw	8	1	18	18	\N
-8	\N	\N	4	Ballista bedienen	4	100	\N	\N	Gs	\N	1	16	16	\N
-99	\N	\N	10	Ballspiel	10	60	N	\N	Gw	\N	\N	\N	\N	\N
-4	\N	\N	6	Baukunde	4	100	\N	\N	In	0	2	16	12	\N
-6	\N	\N	3	Beidhändiger Kampf	3	1500	\N	\N	Gw	\N	\N	16	15	\N
-5	\N	4	8	Beredsamkeit	6	200	\N	\N	pA	3	3	18	10	\N
-4	\N	\N	8	Beschatten	6	300	\N	\N	Gw	3	\N	18	13	\N
-99	\N	\N	-1	Betäuben	\N	0	\N	\N	In	6	\N	20	16	\N
-8	\N	\N	15	Bogenkampf zu Pferd	10	200	\N	\N	Gs	\N	\N	18	18	\N
-1	\N	\N	4	Brettspiel	2	20	E	\N	In	\N	\N	18	18	\N
-4	\N	\N	12	Dichten	8	80	\N	\N	In	\N	1	20	16	\N
-99	\N	\N	5	Dämonenkunde	4	100	N	\N	In	\N	\N	\N	\N	\N
-6	\N	\N	15	Elefanten lenken	10	1000	R	\N	Gw	\N	\N	18	18	\N
-99	3	3	8	Erste Hilfe	6	100	\N	\N	Gs	\N	2	18	13	\N
-3	\N	1	12	Erzählen	8	80	\N	\N	In	4	1	20	16	\N
-4	\N	\N	6	Fallen entdecken	4	400	\N	\N	In	0	\N	16	13	\N
-4	\N	\N	4	Fallenmechanik	4	600	\N	\N	Gs	0	\N	16	12	\N
-3	2	\N	4	Fallenstellen	4	200	\N	\N	Gs	1	3	16	12	\N
-3	\N	\N	15	Fangen	10	60	\N	\N	Gs	8	\N	18	18	\N
-6	\N	\N	4	Fechten	4	800	\N	\N	\N	\N	\N	16	15	\N
-6	\N	\N	\N	Fechten tevarrischer Stil	\N	400	\N	\N	\N	\N	\N	16	15	\N
-99	\N	\N	\N	Federflechten	\N	800	N	\N	Gs	\N	\N	\N	\N	\N
-4	\N	\N	4	FengSchui	10	100	K	\N	In	\N	\N	18	18	\N
-8	\N	\N	15	FengTsu	10	300	K	\N	\N	\N	\N	18	18	\N
-6	\N	\N	15	Fälschen	12	150	\N	\N	Gs	\N	3	20	19	\N
-3	\N	3	5	Gassenwissen	4	200	\N	\N	In	\N	3	16	12	\N
-99	0	0	-1	Gastlandsprache	9	0	\N	\N	In	\N	\N	18	17	5
-3	\N	2	12	Gaukeln	8	80	\N	\N	Gs	\N	1	20	16	\N
-4	\N	\N	6	Geheimmechanismen öffnen	4	400	\N	\N	In	1	\N	16	13	\N
-3	\N	2	12	Geheimzeichen	6	20	\N	\N	In	\N	1	14	12	1
-3	3	\N	15	Geländelauf	10	60	\N	\N	Gw	8	1	18	18	\N
-4	\N	\N	5	Geomantie	4	100	TuT	\N	In	\N	\N	12	11	\N
-5	\N	\N	8	Geschenke machen	6	200	K	\N	pA	\N	\N	18	18	\N
-8	\N	\N	8	Geschäftstüchtigkeit	6	2000	\N	\N	In	\N	4	18	14	\N
-5	\N	\N	5	Giftmischen	4	100	\N	\N	In	\N	2	16	13	\N
-4	\N	3	15	Glücksspiel	15	200	\N	\N	Gs	\N	\N	18	16	\N
-5	\N	3	5	Heilkunde	4	100	\N	\N	In	\N	2	16	13	\N
 2	1	1	5	Himmelskunde	4	50	\N	\N	In	\N	1	16	14	\N
-3	\N	\N	15	Kamelreiten	10	100	E	\N	Gw	5	\N	18	18	\N
-6	\N	\N	2	Kampf in Dunkelheit	2	300	\N	\N	Gw	\N	3	16	14	\N
-5	\N	\N	5	Kampf in Schlachtreihe	4	50	\N	\N	\N	\N	\N	16	15	\N
-8	\N	\N	15	Kampf in Vollrüstung	10	4000	\N	\N	St	\N	\N	18	16	\N
-8	\N	\N	15	Kampf vom Streitwagen	10	200	\N	\N	Gw	\N	\N	18	18	\N
-8	\N	\N	15	Kampf zu Elefant	10	200	R	\N	Gw	\N	\N	18	18	\N
-8	\N	\N	15	Kampf zu Kamel	10	200	E	\N	Gw	\N	\N	18	18	\N
-8	\N	\N	15	Kampf zu Pferd	10	200	\N	\N	Gw	\N	3	18	18	\N
-8	\N	\N	8	Kampftaktik	6	150	\N	\N	pA	5	\N	20	16	\N
-3	\N	\N	15	KarumiJutsu	12	100	K	\N	Gw	\N	\N	18	18	\N
-8	\N	\N	4	Katapult bedienen	4	100	\N	\N	Gs	\N	\N	16	16	\N
-5	\N	\N	\N	Kenntnis der fünf Klassiker	\N	2500	K	\N	\N	\N	\N	18	18	\N
-8	\N	\N	\N	KentoYobu	\N	100	K	\N	\N	\N	\N	18	18	\N
-8	\N	\N	10	KiDo	10	800	K	\N	Zt	\N	\N	18	18	\N
-3	3	\N	15	Klettern	10	60	\N	\N	Gw	8	1	18	18	\N
-4	\N	\N	5	Kräuterkunde	4	100	\N	\N	In	\N	2	16	13	\N
-4	\N	\N	1	KujKuri	1	20	K	\N	\N	\N	\N	18	18	\N
-8	\N	\N	\N	KujNoIu	\N	400	K	\N	\N	\N	\N	18	18	\N
-3	\N	\N	15	Körperkontrolle	12	150	R	\N		\N	\N	18	18	\N
-99	\N	\N	5	Landeskunde	4	100	\N	\N	In	\N	2	16	13	2
-99	2	2	10	Landeskunde (Heimat)	9	100	\N	\N	In	8	2	16	13	2
-3	\N	\N	4	Laufen	4	50	\N	\N	Ko	\N	1	8	8	\N
-8	\N	\N	12	Lesen von Geisterschrift	6	20	K	\N	In	\N	\N	18	15	\N
-99	\N	\N	12	Lesen von Zauberrunen	6	20	W	\N	In	\N	\N	18	15	\N
-8	\N	\N	12	Lesen von Zauberschrift	6	20	\N	\N	In	\N	\N	18	15	\N
-5	\N	\N	4	LiYao	2	100	K	\N	In	\N	\N	18	18	\N
-3	\N	\N	6	Lippenlesen	4	250	\N	\N	In	\N	\N	16	11	\N
-5	\N	\N	8	Meditieren	6	200	\N	\N	Wk	\N	\N	18	13	\N
-3	\N	3	5	Menschenkenntnis	4	250	\N	\N	In	3	3	16	11	\N
-6	\N	\N	8	Meucheln	6	800	\N	\N	Gs	0	4	20	16	\N
-8	\N	\N	\N	MiChen	\N	500	K	\N	\N	\N	\N	18	18	\N
-4	\N	\N	\N	Mumifizieren	\N	200	E	\N	In	\N	\N	18	18	\N
-99	2	2	12	Musizieren	8	80	\N	\N	Gs	\N	1	20	16	1
-99	0	0	-1	Muttersprache	10	0	\N	\N	In	\N	\N	18	17	5
-4	3	\N	5	Naturkunde	4	100	\N	\N	In	0	1	16	13	\N
-7	\N	\N	\N	Natya	\N	100	R	\N		\N	\N	18	18	\N
-4	\N	\N	4	NinJutsu	2	600	K	\N	Gw	\N	\N	18	18	\N
-\N	\N	\N	5	Orakelkunst	4	60	E	\N	In	\N	\N	12	11	\N
-4	3	\N	5	Pflanzenkunde	4	100	\N	\N	In	0	2	16	13	\N
-1	\N	\N	5	Pyromantie	4	100	E	\N	Zt	\N	1	12	11	\N
-4	\N	3	8	Rechnen	6	100	\N	\N	In	\N	2	18	16	\N
+2	2	2	9	Sprechen: Sprache(+9)	9	0	\N	\N	In	\N	\N	20	17	5
 3	2	2	15	Reiten	10	60	\N	\N	Gw	5	1	18	18	\N
+3	2	2	15	Wagenlenken	10	60	\N	\N	Gs	3	1	18	18	\N
+3	2	\N	4	Fallenstellen	4	200	\N	\N	Gs	1	3	16	12	\N
 3	2	\N	15	Rudern	10	60	\N	\N	St	3	1	18	18	\N
-99	3	3	5	Sagenkunde	4	100	\N	\N	In	0	2	16	13	\N
-6	\N	\N	5	Scharfschießen	4	800	\N	\N	Gs	\N	\N	16	16	3
-5	\N	3	8	Schauspielern	6	50	\N	\N	pA	\N	1	18	13	\N
-8	\N	\N	15	Schießen vom Streitwagen	10	200	\N	\N	Gs	\N	\N	18	18	\N
-6	\N	\N	8	Schiffsführung	6	150	\N	\N	In	\N	2	20	16	\N
-8	\N	\N	\N	SchiyoKi	\N	100	K	\N	\N	\N	\N	18	18	\N
-99	\N	\N	\N	Schlachtruf	\N	100	N	\N	Gw	\N	\N	\N	\N	\N
-4	\N	\N	8	Schlangen beschwören	8	200	R	\N	Sb	\N	\N	18	18	\N
-4	\N	\N	8	Schleichen	6	400	\N	\N	Gw	3	3	18	14	\N
 3	2	\N	15	Schlittenfahren	10	60	\N	\N	Gs	3	3	18	18	\N
 3	2	\N	15	Schlittschuhlaufen	10	60	X	Smaskrifter	Gs	\N	\N	18	18	\N
-4	\N	\N	8	Schlösser öffnen	6	400	\N	\N	Gs	0	3	18	14	\N
-8	\N	\N	15	Schmerzen ertragen	12	200	R	\N	Sb	\N	3	18	18	\N
-3	\N	\N	9	Schreiben	4	20	\N	\N	In	\N	\N	20	17	6
-99	\N	\N	12	Schreiben: Alte Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	6
-99	3	3	12	Schreiben: Muttersprache(+12)	12	0	\N	\N	In	\N	1	20	17	6
-99	1	1	4	Schreiben: Muttersprache(+4)	4	0	\N	\N	In	\N	\N	20	17	6
-99	2	2	9	Schreiben: Muttersprache(+9)	9	0	\N	\N	In	\N	\N	20	17	6
-8	\N	\N	14	Schwerttanz	12	100	K	\N	Gw	\N	3	18	18	\N
-3	3	\N	15	Schwimmen	10	60	\N	\N	Gw	3	1	18	18	\N
-4	\N	3	5	Schätzen	4	100	\N	\N	In	\N	2	16	13	\N
-6	\N	\N	15	Seemannsgang	10	100	\N	\N	Gw	\N	2	18	18	\N
-99	2	2	8	Seilkunst	6	50	\N	\N	Gs	4	1	18	14	\N
-99	\N	\N	2	Siebter Sinn	2	500	N	\N	\N	\N	\N	\N	\N	\N
-99	1	1	12	Singen	8	80	\N	\N	pA	4	\N	20	16	\N
 3	2	\N	15	Skifahren	10	60	\N	\N	Gw	\N	\N	18	18	\N
-99	\N	\N	12	Sprache	4	10	\N	\N	In	\N	2	20	17	5
-99	\N	\N	12	Sprechen: Alte Sprache	12	0	\N	\N	In	\N	\N	20	17	5
-99	\N	\N	12	Sprechen: Alte Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	5
-3	3	3	12	Sprechen: Sprache(+12)	12	0	\N	\N	In	\N	2	20	17	5
-1	1	1	4	Sprechen: Sprache(+4)	4	0	\N	\N	In	\N	\N	20	17	5
-2	2	2	9	Sprechen: Sprache(+9)	9	0	\N	\N	In	\N	\N	20	17	5
-3	\N	\N	15	Springen	10	60	\N	\N	St	8	1	18	18	\N
 3	3	3	6	Spurenlesen	4	400	\N	\N	In	0	3	16	13	\N
-6	\N	\N	15	Srimara lenken	12	1000	R	\N	Gw	\N	\N	18	18	\N
-5	\N	4	8	Stehlen	8	300	\N	\N	Gs	3	3	20	16	\N
-4	\N	\N	4	Steinabreibungen machen	4	60	K	\N	\N	\N	1	18	18	\N
-4	4	\N	15	Steuern	10	60	\N	\N	Gs	\N	1	18	18	\N
-4	\N	\N	15	Stimmen nachahmen	12	50	\N	\N	In	\N	1	20	18	\N
-6	\N	\N	15	Streitwagen lenken	10	60	\N	\N	Gs	\N	1	18	18	\N
-4	\N	\N	8	Suchen	6	300	\N	\N	In	3	3	18	13	\N
-5	\N	\N	4	TaiTschi	4	100	K	\N	\N	\N	\N	18	18	\N
-99	1	1	15	Tanzen	10	50	\N	\N	Gw	8	1	18	16	\N
-4	\N	\N	8	Tarnen	6	400	\N	\N	Gw	3	3	18	14	\N
-3	\N	\N	15	Tauchen	10	120	\N	\N	Ko	9	\N	18	16	\N
-5	\N	\N	8	Teezeremonie	6	50	K	\N	pA	\N	\N	18	18	\N
-8	\N	\N	6	Thaumatographie	8	2000	\N	\N	In	\N	\N	16	13	\N
-4	3	3	5	Tierkunde	4	100	\N	\N	In	0	2	16	13	\N
-3	\N	\N	1	Trinken	1	100	\N	\N	Ko	0	2	6	1	\N
-5	\N	\N	15	Tätowieren	12	50	N	\N	Gs	\N	\N	\N	\N	\N
-4	\N	\N	8	Verbergen	6	300	\N	\N	In	3	3	18	13	\N
-99	4	4	8	Verführen	6	30	\N	\N	pA	3	1	18	13	\N
-4	\N	\N	8	Verhören	6	150	\N	\N	pA	3	3	18	13	\N
-5	\N	\N	15	Verkleiden	12	50	\N	\N	Gs	5	1	20	19	\N
-3	2	2	15	Wagenlenken	10	60	\N	\N	Gs	3	1	18	18	\N
-4	\N	\N	4	Wahrnehmung	4	300	\N	\N	In	2	\N	6	6	\N
-99	\N	\N	\N	Wahrsagekalender führen	\N	1000	N	\N	In	\N	\N	\N	\N	\N
-99	\N	\N	5	Wetterkunde	4	50	H&D	\N	In	\N	\N	16	14	\N
-4	\N	\N	4	Winden	4	250	\N	\N	Gw	0	3	8	7	\N
-5	\N	\N	1	YangScheng	1	100	K	\N	\N	\N	\N	18	18	\N
-8	\N	\N	\N	YubeChian	\N	200	K	\N	\N	\N	1	18	18	\N
-4	\N	\N	5	Zauberkunde	4	100	\N	\N	In	0	2	16	13	\N
-99	\N	\N	10	Zaubern	10	5000	\N	\N	\N	\N	\N	18	18	\N
-4	\N	\N	6	Zeichensprache	4	20	\N	\N	In	\N	\N	12	11	\N
-4	\N	\N	8	Zunge verschlucken	8	200	K	\N	\N	\N	\N	18	18	\N
 3	3	3	8	Überleben im Dschungel	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben im Gebirge	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben im Schnee	6	50	\N	\N	In	\N	1	18	14	\N
@@ -206,21 +60,163 @@ COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert,
 3	3	3	8	Überleben im Wald	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben in der Steppe	6	50	\N	\N	In	\N	1	18	14	\N
 3	3	3	8	Überleben in der Wüste	6	50	\N	\N	In	\N	1	18	14	\N
+3	3	3	12	Sprechen: Sprache(+12)	12	0	\N	\N	In	\N	2	20	17	5
+3	3	\N	15	Geländelauf	10	60	\N	\N	Gw	8	1	18	18	\N
+3	3	\N	15	Klettern	10	60	\N	\N	Gw	8	1	18	18	\N
+3	3	\N	15	Schwimmen	10	60	\N	\N	Gw	3	1	18	18	\N
+3	\N	1	12	Erzählen	8	80	\N	\N	In	4	1	20	16	\N
+3	\N	2	12	Gaukeln	8	80	\N	\N	Gs	\N	1	20	16	\N
+3	\N	2	12	Geheimzeichen	6	20	\N	\N	In	\N	1	14	12	1
+3	\N	3	5	Gassenwissen	4	200	\N	\N	In	\N	3	16	12	\N
+3	\N	3	5	Menschenkenntnis	4	250	\N	\N	In	3	3	16	11	\N
+3	\N	\N	1	Trinken	1	100	\N	\N	Ko	0	2	6	1	\N
+3	\N	\N	4	Laufen	4	50	\N	\N	Ko	\N	1	8	8	\N
+3	\N	\N	6	Lippenlesen	4	250	\N	\N	In	\N	\N	16	11	\N
+3	\N	\N	9	Schreiben	4	20	\N	\N	In	\N	\N	20	17	6
+3	\N	\N	15	Balancieren	10	60	\N	\N	Gw	8	1	18	18	\N
+3	\N	\N	15	Fangen	10	60	\N	\N	Gs	8	\N	18	18	\N
+3	\N	\N	15	Kamelreiten	10	100	E	\N	Gw	5	\N	18	18	\N
+3	\N	\N	15	KarumiJutsu	12	100	K	\N	Gw	\N	\N	18	18	\N
+3	\N	\N	15	Körperkontrolle	12	150	R	\N		\N	\N	18	18	\N
+3	\N	\N	15	Springen	10	60	\N	\N	St	8	1	18	18	\N
+3	\N	\N	15	Tauchen	10	120	\N	\N	Ko	9	\N	18	16	\N
+4	3	3	5	Tierkunde	4	100	\N	\N	In	0	2	16	13	\N
+4	3	\N	5	Naturkunde	4	100	\N	\N	In	0	1	16	13	\N
+4	3	\N	5	Pflanzenkunde	4	100	\N	\N	In	0	2	16	13	\N
+4	4	\N	15	Steuern	10	60	\N	\N	Gs	\N	1	18	18	\N
+4	\N	3	5	Schätzen	4	100	\N	\N	In	\N	2	16	13	\N
+4	\N	3	8	Rechnen	6	100	\N	\N	In	\N	2	18	16	\N
+4	\N	3	15	Glücksspiel	15	200	\N	\N	Gs	\N	\N	18	16	\N
+4	\N	\N	1	KujKuri	1	20	K	\N	\N	\N	\N	18	18	\N
+4	\N	\N	4	Athletik	4	50	\N	\N	St	\N	1	16	11	\N
+4	\N	\N	4	Fallenmechanik	4	600	\N	\N	Gs	0	\N	16	12	\N
+4	\N	\N	4	FengSchui	10	100	K	\N	In	\N	\N	18	18	\N
+4	\N	\N	4	NinJutsu	2	600	K	\N	Gw	\N	\N	18	18	\N
+4	\N	\N	4	Steinabreibungen machen	4	60	K	\N	\N	\N	1	18	18	\N
+4	\N	\N	4	Wahrnehmung	4	300	\N	\N	In	2	\N	6	6	\N
+4	\N	\N	4	Winden	4	250	\N	\N	Gw	0	3	8	7	\N
+4	\N	\N	5	Astrologie	4	400	R	\N	Zt	\N	2	12	11	\N
+4	\N	\N	5	Geomantie	4	100	TuT	\N	In	\N	\N	12	11	\N
+4	\N	\N	5	Kräuterkunde	4	100	\N	\N	In	\N	2	16	13	\N
+4	\N	\N	5	Zauberkunde	4	100	\N	\N	In	0	2	16	13	\N
+4	\N	\N	6	Baukunde	4	100	\N	\N	In	0	2	16	12	\N
+4	\N	\N	6	Fallen entdecken	4	400	\N	\N	In	0	\N	16	13	\N
+4	\N	\N	6	Geheimmechanismen öffnen	4	400	\N	\N	In	1	\N	16	13	\N
+4	\N	\N	6	Zeichensprache	4	20	\N	\N	In	\N	\N	12	11	\N
+4	\N	\N	8	Beschatten	6	300	\N	\N	Gw	3	\N	18	13	\N
+4	\N	\N	8	Schlangen beschwören	8	200	R	\N	Sb	\N	\N	18	18	\N
+4	\N	\N	8	Schleichen	6	400	\N	\N	Gw	3	3	18	14	\N
+4	\N	\N	8	Schlösser öffnen	6	400	\N	\N	Gs	0	3	18	14	\N
+4	\N	\N	8	Suchen	6	300	\N	\N	In	3	3	18	13	\N
+4	\N	\N	8	Tarnen	6	400	\N	\N	Gw	3	3	18	14	\N
+4	\N	\N	8	Verbergen	6	300	\N	\N	In	3	3	18	13	\N
+4	\N	\N	8	Verhören	6	150	\N	\N	pA	3	3	18	13	\N
+4	\N	\N	8	Zunge verschlucken	8	200	K	\N	\N	\N	\N	18	18	\N
+4	\N	\N	12	Dichten	8	80	\N	\N	In	\N	1	20	16	\N
+4	\N	\N	15	Stimmen nachahmen	12	50	\N	\N	In	\N	1	20	18	\N
+4	\N	\N	\N	Mumifizieren	\N	200	E	\N	In	\N	\N	18	18	\N
+5	\N	3	5	Heilkunde	4	100	\N	\N	In	\N	2	16	13	\N
+5	\N	3	8	Schauspielern	6	50	\N	\N	pA	\N	1	18	13	\N
+5	\N	4	8	Beredsamkeit	6	200	\N	\N	pA	3	3	18	10	\N
+5	\N	4	8	Stehlen	8	300	\N	\N	Gs	3	3	20	16	\N
+5	\N	\N	1	YangScheng	1	100	K	\N	\N	\N	\N	18	18	\N
+5	\N	\N	4	LiYao	2	100	K	\N	In	\N	\N	18	18	\N
+5	\N	\N	4	TaiTschi	4	100	K	\N	\N	\N	\N	18	18	\N
+5	\N	\N	5	Giftmischen	4	100	\N	\N	In	\N	2	16	13	\N
+5	\N	\N	5	Kampf in Schlachtreihe	4	50	\N	\N	\N	\N	\N	16	15	\N
+5	\N	\N	8	Geschenke machen	6	200	K	\N	pA	\N	\N	18	18	\N
+5	\N	\N	8	Meditieren	6	200	\N	\N	Wk	\N	\N	18	13	\N
+5	\N	\N	8	Teezeremonie	6	50	K	\N	pA	\N	\N	18	18	\N
+5	\N	\N	15	Akrobatik	10	120	\N	\N	Gw	8	2	18	16	\N
+5	\N	\N	15	Tätowieren	12	50	N	\N	Gs	\N	\N	\N	\N	\N
+5	\N	\N	15	Verkleiden	12	50	\N	\N	Gs	5	1	20	19	\N
+5	\N	\N	\N	Kenntnis der fünf Klassiker	\N	2500	K	\N	\N	\N	\N	18	18	\N
+6	4	\N	8	Abrichten	6	400	\N	\N	pA	\N	3	18	13	1
+6	\N	\N	1	Askese	1	1500	R	\N	Sb	\N	2	18	18	\N
+6	\N	\N	2	Kampf in Dunkelheit	2	300	\N	\N	Gw	\N	3	16	14	\N
+6	\N	\N	3	Beidhändiger Kampf	3	1500	\N	\N	Gw	\N	\N	16	15	\N
+6	\N	\N	4	Fechten	4	800	\N	\N	\N	\N	\N	16	15	\N
+6	\N	\N	5	Scharfschießen	4	800	\N	\N	Gs	\N	\N	16	16	3
+6	\N	\N	8	Meucheln	6	800	\N	\N	Gs	0	4	20	16	\N
+6	\N	\N	8	Schiffsführung	6	150	\N	\N	In	\N	2	20	16	\N
+6	\N	\N	15	Elefanten lenken	10	1000	R	\N	Gw	\N	\N	18	18	\N
+6	\N	\N	15	Fälschen	12	150	\N	\N	Gs	\N	3	20	19	\N
+6	\N	\N	15	Seemannsgang	10	100	\N	\N	Gw	\N	2	18	18	\N
+6	\N	\N	15	Srimara lenken	12	1000	R	\N	Gw	\N	\N	18	18	\N
+6	\N	\N	15	Streitwagen lenken	10	60	\N	\N	Gs	\N	1	18	18	\N
+6	\N	\N	\N	Fechten tevarrischer Stil	\N	400	\N	\N	\N	\N	\N	16	15	\N
+7	\N	\N	\N	Natya	\N	100	R	\N		\N	\N	18	18	\N
+8	\N	\N	4	Ballista bedienen	4	100	\N	\N	Gs	\N	1	16	16	\N
+8	\N	\N	4	Katapult bedienen	4	100	\N	\N	Gs	\N	\N	16	16	\N
+8	\N	\N	5	Alchimie	4	100	\N	\N	In	\N	2	18	13	\N
+8	\N	\N	6	Thaumatographie	8	2000	\N	\N	In	\N	\N	16	13	\N
+8	\N	\N	8	Geschäftstüchtigkeit	6	2000	\N	\N	In	\N	4	18	14	\N
+8	\N	\N	8	Kampftaktik	6	150	\N	\N	pA	5	\N	20	16	\N
+8	\N	\N	10	KiDo	10	800	K	\N	Zt	\N	\N	18	18	\N
+8	\N	\N	12	Lesen von Geisterschrift	6	20	K	\N	In	\N	\N	18	15	\N
+8	\N	\N	12	Lesen von Zauberschrift	6	20	\N	\N	In	\N	\N	18	15	\N
+8	\N	\N	14	Schwerttanz	12	100	K	\N	Gw	\N	3	18	18	\N
+8	\N	\N	15	Bogenkampf zu Pferd	10	200	\N	\N	Gs	\N	\N	18	18	\N
+8	\N	\N	15	FengTsu	10	300	K	\N	\N	\N	\N	18	18	\N
+8	\N	\N	15	Kampf in Vollrüstung	10	4000	\N	\N	St	\N	\N	18	16	\N
+8	\N	\N	15	Kampf vom Streitwagen	10	200	\N	\N	Gw	\N	\N	18	18	\N
+8	\N	\N	15	Kampf zu Elefant	10	200	R	\N	Gw	\N	\N	18	18	\N
+8	\N	\N	15	Kampf zu Kamel	10	200	E	\N	Gw	\N	\N	18	18	\N
+8	\N	\N	15	Kampf zu Pferd	10	200	\N	\N	Gw	\N	3	18	18	\N
+8	\N	\N	15	Schießen vom Streitwagen	10	200	\N	\N	Gs	\N	\N	18	18	\N
+8	\N	\N	15	Schmerzen ertragen	12	200	R	\N	Sb	\N	3	18	18	\N
+8	\N	\N	\N	KentoYobu	\N	100	K	\N	\N	\N	\N	18	18	\N
+8	\N	\N	\N	KujNoIu	\N	400	K	\N	\N	\N	\N	18	18	\N
+8	\N	\N	\N	MiChen	\N	500	K	\N	\N	\N	\N	18	18	\N
+8	\N	\N	\N	SchiyoKi	\N	100	K	\N	\N	\N	\N	18	18	\N
+8	\N	\N	\N	YubeChian	\N	200	K	\N	\N	\N	1	18	18	\N
+99	0	0	-1	Gastlandsprache	9	0	\N	\N	In	\N	\N	18	17	5
+99	0	0	-1	Muttersprache	10	0	\N	\N	In	\N	\N	18	17	5
+99	1	1	4	Schreiben: Muttersprache(+4)	4	0	\N	\N	In	\N	\N	20	17	6
+99	1	1	12	Singen	8	80	\N	\N	pA	4	\N	20	16	\N
+99	1	1	15	Tanzen	10	50	\N	\N	Gw	8	1	18	16	\N
+99	2	2	8	Seilkunst	6	50	\N	\N	Gs	4	1	18	14	\N
+99	2	2	9	Schreiben: Muttersprache(+9)	9	0	\N	\N	In	\N	\N	20	17	6
+99	2	2	10	Landeskunde (Heimat)	9	100	\N	\N	In	8	2	16	13	2
+99	2	2	12	Musizieren	8	80	\N	\N	Gs	\N	1	20	16	1
+99	3	3	5	Sagenkunde	4	100	\N	\N	In	0	2	16	13	\N
+99	3	3	8	Erste Hilfe	6	100	\N	\N	Gs	\N	2	18	13	\N
+99	3	3	12	Schreiben: Muttersprache(+12)	12	0	\N	\N	In	\N	1	20	17	6
+99	4	4	8	Verführen	6	30	\N	\N	pA	3	1	18	13	\N
+99	\N	\N	-1	Betäuben	\N	0	\N	\N	In	6	\N	20	16	\N
+99	\N	\N	2	Siebter Sinn	2	500	N	\N	\N	\N	\N	\N	\N	\N
+99	\N	\N	5	Dämonenkunde	4	100	N	\N	In	\N	\N	\N	\N	\N
+99	\N	\N	5	Landeskunde	4	100	\N	\N	In	\N	2	16	13	2
+99	\N	\N	5	Wetterkunde	4	50	H&D	\N	In	\N	\N	16	14	\N
+99	\N	\N	10	Ballspiel	10	60	N	\N	Gw	\N	\N	\N	\N	\N
+99	\N	\N	10	Zaubern	10	5000	\N	\N	\N	\N	\N	18	18	\N
+99	\N	\N	12	Lesen von Zauberrunen	6	20	W	\N	In	\N	\N	18	15	\N
+99	\N	\N	12	Schreiben: Alte Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	6
+99	\N	\N	12	Sprache	4	10	\N	\N	In	\N	2	20	17	5
+99	\N	\N	12	Sprechen: Alte Sprache	12	0	\N	\N	In	\N	\N	20	17	5
+99	\N	\N	12	Sprechen: Alte Sprache(+12)	12	0	\N	\N	In	\N	\N	20	17	5
+99	\N	\N	15	Augensalbe herstellen	12	200	R	\N	\N	\N	\N	18	18	\N
+99	\N	\N	17	Akribie	\N	100	N	\N	In	\N	\N	\N	\N	\N
+99	\N	\N	\N	Adlersprung	\N	200	N	\N	Ge	\N	\N	\N	\N	\N
+99	\N	\N	\N	Federflechten	\N	800	N	\N	Gs	\N	\N	\N	\N	\N
+99	\N	\N	\N	Schlachtruf	\N	100	N	\N	Gw	\N	\N	\N	\N	\N
+99	\N	\N	\N	Wahrsagekalender führen	\N	1000	N	\N	In	\N	\N	\N	\N	\N
+\N	\N	\N	5	Orakelkunst	4	60	E	\N	In	\N	\N	12	11	\N
 \.
 --
---
-
-ALTER TABLE ONLY fertigkeiten
-    ADD CONSTRAINT fertigkeit_pkey PRIMARY KEY (fertigkeit);
-
-
---
+-- TOC entry 4 (OID 19212)
+-- Name: fertigkeiten_fertigkeit_region; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX fertigkeiten_fertigkeit_region ON fertigkeiten USING btree (fertigkeit, region);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 3 (OID 19210)
+-- Name: fertigkeit_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY fertigkeiten
+    ADD CONSTRAINT fertigkeit_pkey PRIMARY KEY (fertigkeit);
+
 

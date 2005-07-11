@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.steigern_fertigkeiten_mit_name;
 ALTER TABLE ONLY public.steigern_fertigkeiten_mit DROP CONSTRAINT steigern_fertigkeiten_mit_pkey;
+DROP INDEX public.steigern_fertigkeiten_mit_name;
 DROP TABLE public.steigern_fertigkeiten_mit;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 31308)
+-- Name: steigern_fertigkeiten_mit; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE steigern_fertigkeiten_mit (
@@ -25,6 +19,8 @@ CREATE TABLE steigern_fertigkeiten_mit (
 
 
 --
+-- Data for TOC entry 5 (OID 31308)
+-- Name: steigern_fertigkeiten_mit; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY steigern_fertigkeiten_mit (name, ep) FROM stdin;
@@ -63,21 +59,21 @@ Kamelreiten	KEP
 Kampf in Dunkelheit	KEP
 Kampf in Schlachtreihe	KEP
 Kampf in Vollrüstung	KEP
+Kampftaktik	KEP
 Kampf vom Streitwagen	KEP
 Kampf zu Elefant	KEP
 Kampf zu Kamel	KEP
 Kampf zu Pferd	KEP
 Kampf zu Srimara	KEP
-Kampftaktik	KEP
 KarumiJutsu	KEP
 Katapult bedienen	KEP
 KentoYobu	KEP
 KiDo	KEP
 KiDo	ZEP
 Klettern	KEP
+Körperkontrolle	ZEP
 Kräuterkunde	ZEP
 KujNoIu	ZEP
-Körperkontrolle	ZEP
 Laufen	KEP
 Lesen von Zauberschrift	ZEP
 Meditieren	ZEP
@@ -93,6 +89,7 @@ Reiten	KEP
 Rudern	KEP
 Sagenkunde	ZEP
 Scharfschießen	KEP
+Schätzen	ZEP
 Schießen vom Streitwagen	KEP
 Schiffsführung	KEP
 SchiyoKi	KEP
@@ -103,7 +100,6 @@ Schlittschuhlaufen	KEP
 Schmerzen ertragen	ZEP
 Schwerttanz	KEP
 Schwimmen	KEP
-Schätzen	ZEP
 Seemannsgang	KEP
 Skifahren	KEP
 Springen	KEP
@@ -117,6 +113,13 @@ Tarnen	KEP
 Tauchen	KEP
 Thaumatographie	ZEP
 Tierkunde	ZEP
+Überleben im Dschungel	ZEP
+Überleben im Gebirge	ZEP
+Überleben im Schnee	ZEP
+Überleben im Sumpf	ZEP
+Überleben im Wald	ZEP
+Überleben in der Steppe	ZEP
+Überleben in der Wüste	ZEP
 Waffen	KEP
 Wagenlenken	KEP
 Winden	KEP
@@ -125,28 +128,21 @@ Zauber	ZEP
 Zauberkunde	ZEP
 Zaubern	ZEP
 Zeichensprache	ZEP
-Überleben im Dschungel	ZEP
-Überleben im Gebirge	ZEP
-Überleben im Schnee	ZEP
-Überleben im Sumpf	ZEP
-Überleben im Wald	ZEP
-Überleben in der Steppe	ZEP
-Überleben in der Wüste	ZEP
 \.
 --
---
-
-ALTER TABLE ONLY steigern_fertigkeiten_mit
-    ADD CONSTRAINT steigern_fertigkeiten_mit_pkey PRIMARY KEY (name, ep);
-
-
---
+-- TOC entry 3 (OID 31419)
+-- Name: steigern_fertigkeiten_mit_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE INDEX steigern_fertigkeiten_mit_name ON steigern_fertigkeiten_mit USING btree (name);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 4 (OID 31417)
+-- Name: steigern_fertigkeiten_mit_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY steigern_fertigkeiten_mit
+    ADD CONSTRAINT steigern_fertigkeiten_mit_pkey PRIMARY KEY (name, ep);
+
 

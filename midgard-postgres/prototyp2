@@ -2,19 +2,13 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
 ALTER TABLE ONLY public.prototyp2 DROP CONSTRAINT prototyp2_pkey;
 DROP TABLE public.prototyp2;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 52615)
+-- Name: prototyp2; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE prototyp2 (
@@ -26,6 +20,8 @@ CREATE TABLE prototyp2 (
 
 
 --
+-- Data for TOC entry 4 (OID 52615)
+-- Name: prototyp2; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY prototyp2 (bezeichnung, name, art, faktor) FROM stdin;
@@ -41,9 +37,9 @@ Abenteurer	Geländelauf	F	0.70
 Abenteurer	Klettern	F	0.70
 Abenteurer	Menschenkenntnis	F	0.70
 Abenteurer	Reiten	F	0.70
+Abenteurer	Schätzen	F	0.90
 Abenteurer	Schleichen	F	0.60
 Abenteurer	Schwimmen	F	0.60
-Abenteurer	Schätzen	F	0.90
 Abenteurer	Seilkunst	F	0.80
 Abenteurer	Spurenlesen	F	0.90
 Abenteurer	Suchen	F	0.80
@@ -67,10 +63,10 @@ Halbseidenes	Klettern	F	0.90
 Halbseidenes	Lippenlesen	F	0.90
 Halbseidenes	Menschenkenntnis	F	0.80
 Halbseidenes	Meucheln	F	0.60
+Halbseidenes	Schätzen	F	0.70
 Halbseidenes	Schauspielern	F	0.90
 Halbseidenes	Schleichen	F	0.70
 Halbseidenes	Schlösser öffnen	F	0.50
-Halbseidenes	Schätzen	F	0.70
 Halbseidenes	Seilkunst	F	0.70
 Halbseidenes	Stehlen	F	0.50
 Halbseidenes	Stimmen nachahmen	F	0.90
@@ -106,11 +102,11 @@ Kampf	Kamelreiten	F	0.60
 Kampf	Kampf in Dunkelheit	F	0.60
 Kampf	Kampf in Schlachtreihe	F	0.60
 Kampf	Kampf in Vollrüstung	F	0.60
+Kampf	Kampftaktik	F	0.50
 Kampf	Kampf vom Streitwagen	F	0.70
 Kampf	Kampf zu Elefant	F	0.60
 Kampf	Kampf zu Kamel	F	0.60
 Kampf	Kampf zu Pferd	F	0.60
-Kampf	Kampftaktik	F	0.50
 Kampf	Katapult bedienen	F	0.60
 Kampf	Reiten	F	0.70
 Kampf	Schießen vom Streitwagen	F	0.70
@@ -167,8 +163,6 @@ Natur	Spurenlesen	F	0.60
 Natur	Tarnen	F	0.70
 Natur	Tauchen	F	0.70
 Natur	Tierkunde	F	0.50
-Natur	Wahrnehmung	F	0.70
-Natur	Wetterkunde	F	0.50
 Natur	Überleben im Dschungel	F	0.50
 Natur	Überleben im Gebirge	F	0.50
 Natur	Überleben im Schnee	F	0.50
@@ -176,6 +170,8 @@ Natur	Überleben im Sumpf	F	0.50
 Natur	Überleben im Wald	F	0.50
 Natur	Überleben in der Steppe	F	0.50
 Natur	Überleben in der Wüste	F	0.50
+Natur	Wahrnehmung	F	0.70
+Natur	Wetterkunde	F	0.50
 Schutz	Abwenden von Blicken	Z	0.50
 Schutz	Bruchbann	Z	0.50
 Schutz	Dschinni-Auge	Z	0.50
@@ -184,8 +180,8 @@ Schutz	Entgiften	Z	0.50
 Schutz	Flammenkreis	Z	0.50
 Schutz	Geistesschild	Z	0.50
 Schutz	Goldener Panzer	Z	0.50
-Schutz	Göttlicher Schutz vor Magie	Z	0.50
 Schutz	Göttlicher Schutz vor dem Bösen	Z	0.50
+Schutz	Göttlicher Schutz vor Magie	Z	0.50
 Schutz	Heimstein	Z	0.50
 Schutz	Hitzeschutz	Z	0.50
 Schutz	Kälteschutz	Z	0.50
@@ -199,9 +195,9 @@ Schutz	Reinigen	Z	0.50
 Schutz	Schildrune	Z	0.50
 Schutz	Schutzgeist	Z	0.50
 Schutz	Schutzgeste	Z	0.50
+Schutz	Schutzkreis gegen Dämonen	Z	0.50
 Schutz	Schutzkreis gegen Dunebargen	Z	0.50
 Schutz	Schutzkreis gegen Dvergar	Z	0.50
-Schutz	Schutzkreis gegen Dämonen	Z	0.50
 Schutz	Schutzkreis gegen Elementarwesen	Z	0.50
 Schutz	Schutzkreis gegen Geisterwesen	Z	0.50
 Schutz	Schutzkreis gegen Hrimfolk	Z	0.50
@@ -230,8 +226,8 @@ Soziales	Erzählen	F	0.50
 Soziales	Gassenwissen	F	0.50
 Soziales	Gaukeln	F	0.60
 Soziales	Geheimzeichen	F	0.60
-Soziales	Geschenke machen	F	0.60
 Soziales	Geschäftstüchtigkeit	F	0.60
+Soziales	Geschenke machen	F	0.60
 Soziales	Glücksspiel	F	0.60
 Soziales	Lippenlesen	F	0.80
 Soziales	Menschenkenntnis	F	0.40
@@ -260,9 +256,9 @@ Untersuchen	Lippenlesen	F	0.90
 Untersuchen	Menschenkenntnis	F	0.60
 Untersuchen	Naturkunde	F	0.60
 Untersuchen	Pflanzenkunde	F	0.70
+Untersuchen	Schätzen	F	0.90
 Untersuchen	Schleichen	F	0.70
 Untersuchen	Schlösser öffnen	F	0.70
-Untersuchen	Schätzen	F	0.90
 Untersuchen	Spurenlesen	F	0.50
 Untersuchen	Suchen	F	0.50
 Untersuchen	Tierkunde	F	0.70
@@ -308,13 +304,11 @@ Wissen	Zauberkunde	F	0.50
 Wissen	Zeichensprache	F	0.60
 \.
 --
+-- TOC entry 3 (OID 52897)
+-- Name: prototyp2_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 
 ALTER TABLE ONLY prototyp2
     ADD CONSTRAINT prototyp2_pkey PRIMARY KEY (bezeichnung, name, art);
 
-
---
--- PostgreSQL database dump complete
---
 

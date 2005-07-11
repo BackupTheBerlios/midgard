@@ -2,19 +2,13 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
 DROP INDEX public.zauberwerk_voraussetzung_name;
 DROP TABLE public.zauberwerk_voraussetzung;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 40071)
+-- Name: zauberwerk_voraussetzung; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE zauberwerk_voraussetzung (
@@ -26,6 +20,8 @@ CREATE TABLE zauberwerk_voraussetzung (
 
 
 --
+-- Data for TOC entry 4 (OID 40071)
+-- Name: zauberwerk_voraussetzung; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY zauberwerk_voraussetzung (name, voraussetzung, verbindung, fertigkeit) FROM stdin;
@@ -85,12 +81,10 @@ Werwesenamulett verzaubern	Silberstaub	\N	\N
 Zauberpergament beschriften	\N	\N	Lesen von Zauberschrift
 \.
 --
+-- TOC entry 3 (OID 40130)
+-- Name: zauberwerk_voraussetzung_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE INDEX zauberwerk_voraussetzung_name ON zauberwerk_voraussetzung USING btree (name);
 
-
---
--- PostgreSQL database dump complete
---
 

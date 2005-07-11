@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.steigern_fertigkeiten_name;
 ALTER TABLE ONLY public.steigern_fertigkeiten DROP CONSTRAINT steigern_fertigkeiten_pkey;
+DROP INDEX public.steigern_fertigkeiten_name;
 DROP TABLE public.steigern_fertigkeiten;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 31147)
+-- Name: steigern_fertigkeiten; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE steigern_fertigkeiten (
@@ -25,6 +19,8 @@ CREATE TABLE steigern_fertigkeiten (
 
 
 --
+-- Data for TOC entry 5 (OID 31147)
+-- Name: steigern_fertigkeiten; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY steigern_fertigkeiten (name, wie) FROM stdin;
@@ -43,23 +39,23 @@ Baukunde	Baukunde
 Beidhändiger Kampf	Beidhändiger Kampf
 Beredsamkeit	Beredsamkeit
 Beschatten	Beschatten
-Bogen vom Streitwagen	Bogenkampf zu Pferd
 Bogenkampf zu Pferd	Bogenkampf zu Pferd
+Bogen vom Streitwagen	Bogenkampf zu Pferd
 Brettspiel	Brettspiel
-Dichten	Dichten
 Dämonenkunde	Wissen
+Dichten	Dichten
 Elefanten lenken	Elefanten lenken
 Erste Hilfe	Erste Hilfe
 Erzählen	Dichten
 Fallen entdecken	Fallen entdecken
 Fallenmechanik	Fallenmechanik
 Fallenstellen	Fallenstellen
+Fälschen	Verkleiden
 Fangen	Bewegung
 Fechten	Fechten
 Fechten tevarrischer Stil	-
 FengSchui	Wissen
 FengTsu	Bewegung
-Fälschen	Verkleiden
 Gassenwissen	Gassenwissen
 Gastlandsprache	Sprache
 Gaukeln	Dichten
@@ -67,8 +63,8 @@ Geheimmechanismen öffnen	Geheimmechanismen öffnen
 Geheimzeichen	Geheimzeichen
 Geländelauf	Bewegung
 Geomantie	Geomantie
-Geschenke machen	Beredsamkeit
 Geschäftstüchtigkeit	Geschäftstüchtigkeit
+Geschenke machen	Beredsamkeit
 Giftmischen	Wissen
 Glücksspiel	Glücksspiel
 Heilkunde	Wissen
@@ -80,29 +76,29 @@ Kamelreiten	Bewegung
 Kampf in Dunkelheit	Kampf in Dunkelheit
 Kampf in Schlachtreihe	Kampf in Schlachtreihe
 Kampf in Vollrüstung	Kampf in Vollrüstung
+Kampftaktik	Kampftaktik
 Kampf vom Streitwagen	Kampf vom Streitwagen
 Kampf zu Elefant	Kampf zu Pferd
 Kampf zu Kamel	Kampf zu Pferd
 Kampf zu Pferd	Kampf zu Pferd
-Kampftaktik	Kampftaktik
 KarumiJutsu	Bewegung
 Katapult bedienen	Ballista bedienen
-Kenntnis der Fünf Klassiker	-
 Kenntnis der fünf Klassiker	Wissen
+Kenntnis der Fünf Klassiker	-
 KentoYobu	-
 KiDo	KiDo
 Klettern	Bewegung
+Körperkontrolle	Bewegung
 Kräuterkunde	Wissen
 KujKuri	Zeichensprache
 KujNoIu	-
-Körperkontrolle	Bewegung
 Landeskunde	Wissen
 Laufen	Laufen
 Lesen von Geisterschrift	Lesen von Zauberschrift
 Lesen von Zauberrunen	Lesen von Zauberschrift
 Lesen von Zauberschrift	Lesen von Zauberschrift
-LiYao	LiYao
 Lippenlesen	Lippenlesen
+LiYao	LiYao
 Meditieren	Verhören
 Menschenkenntnis	Menschenkenntnis
 Meucheln	Meucheln
@@ -122,6 +118,7 @@ Reiten	Bewegung
 Rudern	Bewegung
 Sagenkunde	Wissen
 Scharfschießen	Scharfschießen
+Schätzen	Schätzen
 Schauspielern	Schauspielern
 Schießen vom Streitwagen	Schießen vom Streitwagen
 Schiffsführung	Kampftaktik
@@ -135,7 +132,6 @@ Schmerzen ertragen	Bewegung
 Schreiben	Schreiben
 Schwerttanz	Bewegung
 Schwimmen	Bewegung
-Schätzen	Schätzen
 Seemannsgang	Bewegung
 Seilkunst	Seilkunst
 Siebter Sinn	Siebter Sinn
@@ -154,12 +150,19 @@ Suchen	Suchen
 TaiTschi	Wissen
 Tanzen	Tanzen
 Tarnen	Schleichen
+Tätowieren	Verkleiden
 Tauchen	Tauchen
 Teezeremonie	Überleben
 Thaumatographie	Thaumatographie
 Tierkunde	Wissen
 Trinken	Trinken
-Tätowieren	Verkleiden
+Überleben im Dschungel	Überleben
+Überleben im Gebirge	Überleben
+Überleben im Schnee	Überleben
+Überleben im Sumpf	Überleben
+Überleben im Wald	Überleben
+Überleben in der Steppe	Überleben
+Überleben in der Wüste	Überleben
 Verbergen	Suchen
 Verführen	Verführen
 Verhören	Verhören
@@ -174,28 +177,21 @@ YubeChian	-
 Zauberkunde	Wissen
 Zeichensprache	Zeichensprache
 Zunge verschlucken	Zunge verschlucken
-Überleben im Dschungel	Überleben
-Überleben im Gebirge	Überleben
-Überleben im Schnee	Überleben
-Überleben im Sumpf	Überleben
-Überleben im Wald	Überleben
-Überleben in der Steppe	Überleben
-Überleben in der Wüste	Überleben
 \.
 --
---
-
-ALTER TABLE ONLY steigern_fertigkeiten
-    ADD CONSTRAINT steigern_fertigkeiten_pkey PRIMARY KEY (name);
-
-
---
+-- TOC entry 3 (OID 31307)
+-- Name: steigern_fertigkeiten_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX steigern_fertigkeiten_name ON steigern_fertigkeiten USING btree (name);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 4 (OID 31305)
+-- Name: steigern_fertigkeiten_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY steigern_fertigkeiten
+    ADD CONSTRAINT steigern_fertigkeiten_pkey PRIMARY KEY (name);
+
 

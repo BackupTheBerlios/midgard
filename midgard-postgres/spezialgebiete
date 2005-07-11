@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.spezialgebiete_spezialgebiet;
 ALTER TABLE ONLY public.spezialgebiete DROP CONSTRAINT spezialgebiete_pkey;
+DROP INDEX public.spezialgebiete_spezialgebiet;
 DROP TABLE public.spezialgebiete;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 40131)
+-- Name: spezialgebiete; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE spezialgebiete (
@@ -28,9 +22,22 @@ CREATE TABLE spezialgebiete (
 
 
 --
+-- Data for TOC entry 5 (OID 40131)
+-- Name: spezialgebiete; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY spezialgebiete (typ, nr, spezialgebiet, spezial, spezial2) FROM stdin;
+eBe	0	Primär- und Sekundärelement	\N	\N
+eBe	1	Eis Erde	Eis	Erde
+eBe	2	Erde Eis	Erde	Eis
+eBe	3	Eis Wasser	Eis	Wasser
+eBe	4	Wasser Eis	Wasser	Eis
+eBe	5	Erde Feuer	Erde	Feuer
+eBe	6	Feuer Erde	Feuer	Erde
+eBe	7	Feuer Luft	Feuer	Luft
+eBe	8	Luft Feuer	Luft	Feuer
+eBe	9	Luft Wasser	Luft	Wasser
+eBe	10	Wasser Luft	Wasser	Luft
 Ma	0	Spezialgebiet	\N	\N
 Ma	1	Adept der Herrschaft	beherrscht	\N
 Ma	2	Adept der Bewegung	bewegt	\N
@@ -47,32 +54,21 @@ Ma	12	Eismagier	Eis	\N
 Ma	13	Adept der göttlichen Ordnung	Metall	\N
 Ma	14	Adept des formbaren Chaos	Magan	\N
 Ma	15	Adept des Todes	Eis	\N
-eBe	0	Primär- und Sekundärelement	\N	\N
-eBe	1	Eis Erde	Eis	Erde
-eBe	2	Erde Eis	Erde	Eis
-eBe	3	Eis Wasser	Eis	Wasser
-eBe	4	Wasser Eis	Wasser	Eis
-eBe	5	Erde Feuer	Erde	Feuer
-eBe	6	Feuer Erde	Feuer	Erde
-eBe	7	Feuer Luft	Feuer	Luft
-eBe	8	Luft Feuer	Luft	Feuer
-eBe	9	Luft Wasser	Luft	Wasser
-eBe	10	Wasser Luft	Wasser	Luft
 \.
 --
---
-
-ALTER TABLE ONLY spezialgebiete
-    ADD CONSTRAINT spezialgebiete_pkey PRIMARY KEY (typ, nr);
-
-
---
+-- TOC entry 4 (OID 40165)
+-- Name: spezialgebiete_spezialgebiet; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX spezialgebiete_spezialgebiet ON spezialgebiete USING btree (spezialgebiet);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 3 (OID 40163)
+-- Name: spezialgebiete_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY spezialgebiete
+    ADD CONSTRAINT spezialgebiete_pkey PRIMARY KEY (typ, nr);
+
 

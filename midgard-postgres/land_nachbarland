@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.land_nachbarland_land_1_land_2;
 ALTER TABLE ONLY public.land_nachbarland DROP CONSTRAINT land_nachbarland_pkey;
+DROP INDEX public.land_nachbarland_land_1_land_2;
 DROP TABLE public.land_nachbarland;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 28195)
+-- Name: land_nachbarland; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE land_nachbarland (
@@ -25,6 +19,8 @@ CREATE TABLE land_nachbarland (
 
 
 --
+-- Data for TOC entry 5 (OID 28195)
+-- Name: land_nachbarland; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY land_nachbarland (land_1, land_2) FROM stdin;
@@ -71,19 +67,19 @@ Moravod	Waeland
 Tegarische Steppe	Valian
 \.
 --
---
-
-ALTER TABLE ONLY land_nachbarland
-    ADD CONSTRAINT land_nachbarland_pkey PRIMARY KEY (land_1, land_2);
-
-
---
+-- TOC entry 3 (OID 28243)
+-- Name: land_nachbarland_land_1_land_2; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX land_nachbarland_land_1_land_2 ON land_nachbarland USING btree (land_1, land_2);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 4 (OID 28241)
+-- Name: land_nachbarland_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY land_nachbarland
+    ADD CONSTRAINT land_nachbarland_pkey PRIMARY KEY (land_1, land_2);
+
 

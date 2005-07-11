@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public."Preise_name";
 ALTER TABLE ONLY public.preise DROP CONSTRAINT "Preise_pkey";
+DROP INDEX public."Preise_name";
 DROP TABLE public.preise;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 30636)
+-- Name: preise; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE preise (
@@ -29,180 +23,182 @@ CREATE TABLE preise (
 
 
 --
+-- Data for TOC entry 5 (OID 30636)
+-- Name: preise; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY preise (art, art2, name, gewicht, kosten, einheit) FROM stdin;
-Ausrüstung	Licht und Feuer	1 Holzkohle	1	5	SS
-Ausrüstung	Behälter	1 Liter-Keramikamphore	0.4	7	SS
-Ausrüstung	Behälter	1/2 Liter-Metallflasche	0.5	10	GS
-Ausrüstung	Behälter	1/2 Liter-Tonkrug	0.2	3	SS
-Ausrüstung	Schreibmaterial	1/20 Liter Tusche	0.05	2	GS
-Ausrüstung	Behälter	1/20 Liter-Tuschegefäß	0.1	1	GS
-Ausrüstung	Licht und Feuer	1/4 Liter Lampenöl	0.3	5	SS
-Ausrüstung	Heiler- und Priesterbedarf	1/4 Liter Weihwasser	0.25	10	GS
-Ausrüstung	Licht und Feuer	1/4 Liter Zauberöl	0.2	20	GS
-Ausrüstung	Behälter	1/4 Liter-Glasflasche	0.2	5	GS
-Ausrüstung	Behälter	1/4 Liter-Holzbecher	0.05	1	SS
-Ausrüstung	Behälter	1/4 Liter-Keramikamphore	0.2	5	SS
-Ausrüstung	Behälter	1/4 Liter-Zinnbecher	0.2	2	GS
-Waffen		10 Armbrustbolzen	1.5	3	GS
-Waffen		10 Blasrohrnadeln	0.05	1	GS
-Waffen		10 Bleikugeln	0.2	1	GS
-Ausrüstung	Licht und Feuer	10 Fackeln	5	3	SS
 Ausrüstung	Behälter	10 Liter-Holzeimer	1	1	GS
-Waffen		10 Pfeile	1.5	2	GS
+Ausrüstung	Behälter	1/20 Liter-Tuschegefäß	0.10000000000000001	1	GS
+Ausrüstung	Behälter	1/2 Liter-Metallflasche	0.5	10	GS
+Ausrüstung	Behälter	1/2 Liter-Tonkrug	0.20000000000000001	3	SS
+Ausrüstung	Behälter	1/4 Liter-Glasflasche	0.20000000000000001	5	GS
+Ausrüstung	Behälter	1/4 Liter-Holzbecher	0.050000000000000003	1	SS
+Ausrüstung	Behälter	1/4 Liter-Keramikamphore	0.20000000000000001	5	SS
+Ausrüstung	Behälter	1/4 Liter-Zinnbecher	0.20000000000000001	2	GS
+Ausrüstung	Behälter	1 Liter-Keramikamphore	0.40000000000000002	7	SS
+Ausrüstung	Behälter	200 Liter-Faß	12	4	GS
+Ausrüstung	Behälter	20 Liter-Korb	0.5	8	SS
+Ausrüstung	Behälter	50 Liter-Faß	5	3	GS
+Ausrüstung	Behälter	5 Liter-Wasserschlauch	0.10000000000000001	1	GS
+Ausrüstung	Behälter	großer Sack für 50	0.14999999999999999	5	SS
+Ausrüstung	Behälter	Gußeisentopf für 2 Liter	2	4	GS
+Ausrüstung	Behälter	kleiner Sack für 25	0.050000000000000003	2	SS
+Ausrüstung	Behälter	Lederbeutel für 20 Münzen	0	5	SS
+Ausrüstung	Behälter	Ledergürteltasche für 20 Münzen	0	2	GS
+Ausrüstung	Behälter	Lederrucksack für 25	0.5	4	GS
+Ausrüstung	Behälter	metallbeschl. 20 Liter-Holztruhe	10	5	GS
+Ausrüstung	Behälter	wasserdichte Lederhülle für Schriftrollen	0	3	GS
+Ausrüstung	Heiler- und Priesterbedarf	1/4 Liter Weihwasser	0.25	10	GS
+Ausrüstung	Heiler- und Priesterbedarf	Erste Hilfe-Ausrüstung	1	30	GS
+Ausrüstung	Heiler- und Priesterbedarf	Erste Hilfe-Heilmittel	0	20	GS
+Ausrüstung	Heiler- und Priesterbedarf	religiöses Symbol an Kette (Edelmetall)	0	10	GS
+Ausrüstung	Heiler- und Priesterbedarf	religiöses Symbol an Kette (unedles Metall)	0	5	SS
+Ausrüstung	Licht und Feuer	10 Fackeln	5	3	SS
 Ausrüstung	Licht und Feuer	10 Talgkerzen	0.5	1	SS
 Ausrüstung	Licht und Feuer	10 Wachskerzen	0.5	2	GS
-Ausrüstung	Werkzeug	10 große Nägel	0.25	1	SS
-Ausrüstung	Stoff. Draht usw.	1m Kupferdraht	0.05	1	GS
+Ausrüstung	Licht und Feuer	1/4 Liter Lampenöl	0.29999999999999999	5	SS
+Ausrüstung	Licht und Feuer	1/4 Liter Zauberöl	0.20000000000000001	20	GS
+Ausrüstung	Licht und Feuer	1 Holzkohle	1	5	SS
+Ausrüstung	Licht und Feuer	Feuerstein und Zunder	0	1	GS
+Ausrüstung	Licht und Feuer	Feuertopf aus Ton	0.5	5	SS
+Ausrüstung	Licht und Feuer	Laterne	1.5	10	GS
+Ausrüstung	Licht und Feuer	Laterne. abblendbar	1.5	15	GS
+Ausrüstung	Musikinstrumente	Bronzehorn	3	20	GS
+Ausrüstung	Musikinstrumente	Flöte	0.29999999999999999	5	GS
+Ausrüstung	Musikinstrumente	Harfe	5	100	GS
+Ausrüstung	Musikinstrumente	Laute	2	30	GS
+Ausrüstung	Musikinstrumente	Trommel	2	5	GS
+Ausrüstung	Präzisionsinstrumente	Fernrohr (x2) 	0.5	800	GS
+Ausrüstung	Präzisionsinstrumente	Handwaage mit Waagschalen	0.5	5	GS
+Ausrüstung	Präzisionsinstrumente	kleines Bronzeglöckchen	0.050000000000000003	2	GS
+Ausrüstung	Präzisionsinstrumente	Kristallspiegel	1	200	GS
+Ausrüstung	Präzisionsinstrumente	Sanduhr	0.5	50	GS
+Ausrüstung	Präzisionsinstrumente	Signalpfeife aus Metall	0.050000000000000003	1	GS
+Ausrüstung	Präzisionsinstrumente	Spiegel aus poliertem Metall	2	10	GS
+Ausrüstung	Präzisionsinstrumente	Vergrößerungsglas (x2) 	0.050000000000000003	100	GS
+Ausrüstung	Schreibmaterial	1/20 Liter Tusche	0.050000000000000003	2	GS
+Ausrüstung	Schreibmaterial	30cmx30cm Papyrus	0.01	2	SS
+Ausrüstung	Schreibmaterial	30cmx30cm Pergament	0.050000000000000003	1	GS
+Ausrüstung	Schreibmaterial	Kreidestück	0.02	2	SS
+Ausrüstung	Schreibmaterial	Schreibfeder	0.0050000000000000001	2	SS
+Ausrüstung	Schreibmaterial	Schreibpinsel	0.02	5	SS
+Ausrüstung	Schreibmaterial	Siegelwachs	0.25	1	GS
+Ausrüstung	Schreibmaterial	Zeichenkohle	0.029999999999999999	1	SS
+Ausrüstung	Stoff. Draht usw.	1m Kupferdraht	0.050000000000000003	1	GS
 Ausrüstung	Stoff. Draht usw.	1m Metallkette	2	10	GS
 Ausrüstung	Stoff. Draht usw.	1mx1m Segeltuch	1	5	SS
-Ausrüstung	Stoff. Draht usw.	1mx1m Stoff	0.3	1	SS
-Ausrüstung	Behälter	20 Liter-Korb	0.5	8	SS
-Ausrüstung	Behälter	200 Liter-Faß	12	4	GS
+Ausrüstung	Stoff. Draht usw.	1mx1m Stoff	0.29999999999999999	1	SS
 Ausrüstung	Stoff. Draht usw.	20m Angelschnur	0	1	GS
 Ausrüstung	Stoff. Draht usw.	20m Garn	0	1	SS
 Ausrüstung	Stoff. Draht usw.	20m Seil	1.5	1	GS
 Ausrüstung	Stoff. Draht usw.	2mx2m Fischernetz	1	1	GS
-Ausrüstung	Schreibmaterial	30cmx30cm Papyrus	0.01	2	SS
-Ausrüstung	Schreibmaterial	30cmx30cm Pergament	0.05	1	GS
-Ausrüstung	Behälter	5 Liter-Wasserschlauch	0.1	1	GS
-Ausrüstung	Behälter	50 Liter-Faß	5	3	GS
 Ausrüstung	Stoff. Draht usw.	5m Strickleiter	1.5	2	GS
-Ausrüstung	Werkzeug	Angelhaken	0.05	2	SS
-Ausrüstung	Werkzeug	Brecheisen	2	4	GS
-Ausrüstung	Musikinstrumente	Bronzehorn	3	20	GS
-Ausrüstung	Werkzeug	Einbrecherwerkzeug	1.5	50	GS
-Ausrüstung	Werkzeug	Eisenkeil	0.25	5	SS
-Ausrüstung	Heiler- und Priesterbedarf	Erste Hilfe-Ausrüstung	1	30	GS
-Ausrüstung	Heiler- und Priesterbedarf	Erste Hilfe-Heilmittel	0	20	GS
-Ausrüstung	Tiere	Esel (60 kg)	0	40	GS
-Ausrüstung	Präzisionsinstrumente	Fernrohr (x2) 	0.5	800	GS
-Ausrüstung	Licht und Feuer	Feuerstein und Zunder	0	1	GS
-Ausrüstung	Licht und Feuer	Feuertopf aus Ton	0.5	5	SS
-Ausrüstung	Musikinstrumente	Flöte	0.3	5	GS
-Ausrüstung	Tiere	Greifvogel	0	50	GS
-Waffenzubehör		Gurt für 5 Wurfpfeile	0.3	5	GS
-Ausrüstung	Behälter	Gußeisentopf für 2 Liter	2	4	GS
-Kleidung		Gürtel	0	2	GS
-Rüstung		Hals- und Nackenschutz	0.7	20	GS
-Ausrüstung	Werkzeug	Hammer	1.5	5	GS
 Ausrüstung	Stoff. Draht usw.	Hand- oder Fußfessel mit Kette	2	30	GS
-Ausrüstung	Präzisionsinstrumente	Handwaage mit Waagschalen	0.5	5	GS
-Ausrüstung	Musikinstrumente	Harfe	5	100	GS
-Neu	Gebäude	Haus	0	100000	GS
-Magische Gegenstände		Heiltrank (2W6)	0.2	100	GS
-Magische Gegenstände		Heiltrank (W6)	0.2	10	GS
-Kleidung		Hemd	0	3	GS
 Ausrüstung	Stoff. Draht usw.	Holzbalken (3mx10cmx10cm)	20	1	GS
-Ausrüstung	Werkzeug	Holzpflock	0.05	2	KS
-Kleidung		Hose	0	5	GS
+Ausrüstung	Tiere	Esel (60 kg)	0	40	GS
+Ausrüstung	Tiere	Greifvogel	0	50	GS
 Ausrüstung	Tiere	Huhn	0	5	SS
 Ausrüstung	Tiere	Jagdhund	0	20	GS
-Waffen		Kampfgabeln Paar	1.5	15	GS
 Ausrüstung	Tiere	Kampfhund	0	50	GS
-Ausrüstung	Transportmittel	Karren (einspännig)	0	70	GS
-Ausrüstung	Transportmittel	Karren (zweispännig)	0	150	GS
-Kleidung		Kilt	0	3	GS
-Kleidung		Kleid	0	15	GS
-Ausrüstung	Transportmittel	Kleinsegler (10m lang)	0	800	GS
-Ausrüstung	Transportmittel	Kleinsegler (5m lang)	0	200	GS
-Ausrüstung	Schreibmaterial	Kreidestück	0.02	2	SS
-Ausrüstung	Präzisionsinstrumente	Kristallspiegel	1	200	GS
-Kleidung		Kutte	0	15	GS
-Waffenzubehör		Köcher für 20 Pfeile	0.3	2	GS
-Waffenzubehör		Köcher für 30 Bolzen	0.3	2	GS
 Ausrüstung	Tiere	Lastkamel (150 kg)	0	120	GS
-Ausrüstung	Licht und Feuer	Laterne	1.5	10	GS
-Ausrüstung	Licht und Feuer	Laterne. abblendbar	1.5	15	GS
-Ausrüstung	Musikinstrumente	Laute	2	30	GS
-Rüstung		Lederarmschienen	1	8	GS
-Rüstung		Lederbeinschienen	1.2	10	GS
-Ausrüstung	Behälter	Lederbeutel für 20 Münzen	0	5	SS
-Ausrüstung	Behälter	Ledergürteltasche für 20 Münzen	0	2	GS
-Kleidung		Lederhandschuhe	0	3	GS
-Rüstung		Lederhelm	0.5	5	GS
-Ausrüstung	Behälter	Lederrucksack für 25	0.5	4	GS
-Waffenzubehör		Ledertasche für 50 Bleikugeln	0.2	3	GS
 Ausrüstung	Tiere	Maultier (90 kg)	0	60	GS
 Ausrüstung	Tiere	Maus	0	1	SS
-Rüstung		Metallarmschienen	1.5	20	GS
-Rüstung		Metallbeinschienen	2.5	25	GS
-Rüstung		Metallhandschuhe	0.7	30	GS
-Rüstung		Metallhelm mit Visier	2	75	GS
-Rüstung		Metallhelm ohne Visier	1.5	35	GS
-Ausrüstung	Werkzeug	Nähnadel	0	8	SS
 Ausrüstung	Tiere	Packpferd (100 kg)	0	80	GS
-Neu	Tiere	Pferd	0	100	GS
 Ausrüstung	Tiere	Pony (70 kg)	0	50	GS
 Ausrüstung	Tiere	Reitkamel	0	150	GS
 Ausrüstung	Tiere	Reitpferd (100 kg)	0	150	GS
 Ausrüstung	Tiere	Reitpferd, kampferprobt	0	300	GS
-Rüstung		Ritterrüstung	60	2000	GS
-Kleidung		Robe	0	15	GS
-Kleidung		Rock	0	3	GS
-Ausrüstung	Transportmittel	Ruderboot (4m lang)	0	100	GS
-Kleidung		Sandalen	0	5	GS
-Ausrüstung	Präzisionsinstrumente	Sanduhr	0.5	50	GS
-Ausrüstung	Transportmittel	Sattel	0	30	GS
-Ausrüstung	Transportmittel	Satteltaschen	0	8	GS
-Ausrüstung	Werkzeug	Schaufel	1.5	5	GS
 Ausrüstung	Tiere	Schlachtroß	0	600	GS
-Ausrüstung	Transportmittel	Schlitten (sechsspännig)	0	80	GS
 Ausrüstung	Tiere	Schlittenhund (30 kg)	0	20	GS
-Ausrüstung	Schreibmaterial	Schreibfeder	0.005	2	SS
-Ausrüstung	Schreibmaterial	Schreibpinsel	0.02	5	SS
-Kleidung		Schuhe	0	5	GS
-Ausrüstung	Schreibmaterial	Siegelwachs	0.25	1	GS
-Ausrüstung	Präzisionsinstrumente	Signalpfeife aus Metall	0.05	1	GS
-Ausrüstung	Transportmittel	Skier	0	8	GS
-Ausrüstung	Präzisionsinstrumente	Spiegel aus poliertem Metall	2	10	GS
-Kleidung		Stiefel (bis zum Knie)	0	15	GS
-Kleidung		Stiefel (halbhoch)	0	8	GS
-Ausrüstung	Musikinstrumente	Trommel	2	5	GS
-Kleidung		Tunika	0	5	GS
-Kleidung		Umhang	0	8	GS
-Ausrüstung	Präzisionsinstrumente	Vergrößerungsglas (x2) 	0.05	100	GS
-Ausrüstung	Übernachtung	Vierpersonenzelt	5	30	GS
-Ausrüstung	Transportmittel	Wagen (vierspännig)	0	250	GS
-Ausrüstung	Werkzeug	Wurfanker	1	10	GS
-Ausrüstung	Transportmittel	Zaumzeug	0	3	GS
-Ausrüstung	Schreibmaterial	Zeichenkohle	0.03	1	SS
 Ausrüstung	Tiere	Zugochse (250 kg)	0	120	GS
 Ausrüstung	Tiere	Zugpferd (150 kg)	0	80	GS
-Ausrüstung	Übernachtung	Zweipersonenzelt	3	20	GS
-Waffenzubehör		einfache Dolchscheide	0.1	2	GS
-Waffenzubehör		einfache Schwertscheide	0.7	5	GS
-Waffenzubehör		einfacher Waffengürtel	0.3	2	GS
-Rüstung		gepolstertes Unterkleid	2.5	5	GS
-Ausrüstung	Behälter	großer Sack für 50	0.15	5	SS
-Ausrüstung	Behälter	kleiner Sack für 25	0.05	2	SS
-Ausrüstung	Präzisionsinstrumente	kleines Bronzeglöckchen	0.05	2	GS
-Ausrüstung	Behälter	metallbeschl. 20 Liter-Holztruhe	10	5	GS
-Ausrüstung	Heiler- und Priesterbedarf	religiöses Symbol an Kette (Edelmetall)	0	10	GS
-Ausrüstung	Heiler- und Priesterbedarf	religiöses Symbol an Kette (unedles Metall)	0	5	SS
-Waffen		starker Langbogen	1.2	120	GS
-Waffenzubehör		verzierte Dolchscheide	0.2	6	GS
-Waffenzubehör		verzierte Schwertscheide	1	20	GS
-Waffenzubehör		verzierter Waffengürtel	1	3	GS
+Ausrüstung	Transportmittel	Karren (einspännig)	0	70	GS
+Ausrüstung	Transportmittel	Karren (zweispännig)	0	150	GS
+Ausrüstung	Transportmittel	Kleinsegler (10m lang)	0	800	GS
+Ausrüstung	Transportmittel	Kleinsegler (5m lang)	0	200	GS
+Ausrüstung	Transportmittel	Ruderboot (4m lang)	0	100	GS
+Ausrüstung	Transportmittel	Sattel	0	30	GS
+Ausrüstung	Transportmittel	Satteltaschen	0	8	GS
+Ausrüstung	Transportmittel	Schlitten (sechsspännig)	0	80	GS
+Ausrüstung	Transportmittel	Skier	0	8	GS
+Ausrüstung	Transportmittel	Wagen (vierspännig)	0	250	GS
+Ausrüstung	Transportmittel	Zaumzeug	0	3	GS
+Ausrüstung	Übernachtung	Vierpersonenzelt	5	30	GS
 Ausrüstung	Übernachtung	warme Decke	2	4	GS
+Ausrüstung	Übernachtung	Zweipersonenzelt	3	20	GS
+Ausrüstung	Werkzeug	10 große Nägel	0.25	1	SS
+Ausrüstung	Werkzeug	Angelhaken	0.050000000000000003	2	SS
+Ausrüstung	Werkzeug	Brecheisen	2	4	GS
+Ausrüstung	Werkzeug	Einbrecherwerkzeug	1.5	50	GS
+Ausrüstung	Werkzeug	Eisenkeil	0.25	5	SS
+Ausrüstung	Werkzeug	Hammer	1.5	5	GS
+Ausrüstung	Werkzeug	Holzpflock	0.050000000000000003	2	KS
+Ausrüstung	Werkzeug	Nähnadel	0	8	SS
+Ausrüstung	Werkzeug	Schaufel	1.5	5	GS
+Ausrüstung	Werkzeug	Wurfanker	1	10	GS
+Kleidung		Gürtel	0	2	GS
+Kleidung		Hemd	0	3	GS
+Kleidung		Hose	0	5	GS
+Kleidung		Kilt	0	3	GS
+Kleidung		Kleid	0	15	GS
+Kleidung		Kutte	0	15	GS
+Kleidung		Lederhandschuhe	0	3	GS
+Kleidung		Robe	0	15	GS
+Kleidung		Rock	0	3	GS
+Kleidung		Sandalen	0	5	GS
+Kleidung		Schuhe	0	5	GS
+Kleidung		Stiefel (bis zum Knie)	0	15	GS
+Kleidung		Stiefel (halbhoch)	0	8	GS
+Kleidung		Tunika	0	5	GS
+Kleidung		Umhang	0	8	GS
 Kleidung		warme Oberbekleidung	0	30	GS
-Ausrüstung	Behälter	wasserdichte Lederhülle für Schriftrollen	0	3	GS
+Magische Gegenstände		Heiltrank (2W6)	0.20000000000000001	100	GS
+Magische Gegenstände		Heiltrank (W6)	0.20000000000000001	10	GS
+Neu	Gebäude	Haus	0	100000	GS
+Neu	Tiere	Pferd	0	100	GS
+Rüstung		gepolstertes Unterkleid	2.5	5	GS
+Rüstung		Hals- und Nackenschutz	0.69999999999999996	20	GS
+Rüstung		Lederarmschienen	1	8	GS
+Rüstung		Lederbeinschienen	1.2	10	GS
+Rüstung		Lederhelm	0.5	5	GS
+Rüstung		Metallarmschienen	1.5	20	GS
+Rüstung		Metallbeinschienen	2.5	25	GS
+Rüstung		Metallhandschuhe	0.69999999999999996	30	GS
+Rüstung		Metallhelm mit Visier	2	75	GS
+Rüstung		Metallhelm ohne Visier	1.5	35	GS
+Rüstung		Ritterrüstung	60	2000	GS
+Waffen		10 Armbrustbolzen	1.5	3	GS
+Waffen		10 Blasrohrnadeln	0.050000000000000003	1	GS
+Waffen		10 Bleikugeln	0.20000000000000001	1	GS
+Waffen		10 Pfeile	1.5	2	GS
+Waffen		Kampfgabeln Paar	1.5	15	GS
+Waffen		starker Langbogen	1.2	120	GS
+Waffenzubehör		einfache Dolchscheide	0.10000000000000001	2	GS
+Waffenzubehör		einfacher Waffengürtel	0.29999999999999999	2	GS
+Waffenzubehör		einfache Schwertscheide	0.69999999999999996	5	GS
+Waffenzubehör		Gurt für 5 Wurfpfeile	0.29999999999999999	5	GS
+Waffenzubehör		Köcher für 20 Pfeile	0.29999999999999999	2	GS
+Waffenzubehör		Köcher für 30 Bolzen	0.29999999999999999	2	GS
+Waffenzubehör		Ledertasche für 50 Bleikugeln	0.20000000000000001	3	GS
+Waffenzubehör		verzierte Dolchscheide	0.20000000000000001	6	GS
+Waffenzubehör		verzierter Waffengürtel	1	3	GS
+Waffenzubehör		verzierte Schwertscheide	1	20	GS
 \.
 --
---
-
-ALTER TABLE ONLY preise
-    ADD CONSTRAINT "Preise_pkey" PRIMARY KEY (name);
-
-
---
+-- TOC entry 3 (OID 30799)
+-- Name: Preise_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX "Preise_name" ON preise USING btree (name);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 4 (OID 30797)
+-- Name: Preise_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY preise
+    ADD CONSTRAINT "Preise_pkey" PRIMARY KEY (name);
+
 

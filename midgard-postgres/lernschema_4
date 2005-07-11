@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.lernschema_4_typ_name_wert;
 ALTER TABLE ONLY public.lernschema_4 DROP CONSTRAINT lernschema_4_pkey;
+DROP INDEX public.lernschema_4_typ_name_wert;
 DROP TABLE public.lernschema_4;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 28244)
+-- Name: lernschema_4; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE lernschema_4 (
@@ -29,2139 +23,2141 @@ CREATE TABLE lernschema_4 (
 
 
 --
+-- Data for TOC entry 5 (OID 28244)
+-- Name: lernschema_4; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 0	BN	f	Kampf in Schlachtreihe	Fachkenntnisse	5
-0	Kr	f	Kampf in Schlachtreihe	Fachkenntnisse	5
-0	Or	f	Kampf in Schlachtreihe	Fachkenntnisse	5
-0	RiN	f	Kampf in Schlachtreihe	Fachkenntnisse	5
-0	Sö	f	Kampf in Schlachtreihe	Fachkenntnisse	5
-0	Ny	t	KujKuri	Fachkenntnisse	1
 0	dBe	f	Lehrersuche	Zauberkünste	\N
 0	eBe	f	Lehrersuche	Zauberkünste	\N
-0	Mg	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
-0	PC	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
-0	PF	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
-0	PHa	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
-0	PHe	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
-0	PK	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
-0	PM	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
-0	PT	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
-0	PW	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
-0	MMa	f	Sprechen: Alte Sprache	Fachkenntnisse	9
-0	Mg	f	Sprechen: Alte Sprache	Fachkenntnisse	12
-0	PC	f	Sprechen: Alte Sprache	Fachkenntnisse	12
-0	PF	f	Sprechen: Alte Sprache	Fachkenntnisse	12
-0	PHa	f	Sprechen: Alte Sprache	Fachkenntnisse	12
-0	PHe	f	Sprechen: Alte Sprache	Fachkenntnisse	12
-0	PK	f	Sprechen: Alte Sprache	Fachkenntnisse	12
-0	PM	f	Sprechen: Alte Sprache	Fachkenntnisse	12
-0	PT	f	Sprechen: Alte Sprache	Fachkenntnisse	12
-0	PW	f	Sprechen: Alte Sprache	Fachkenntnisse	12
 0	Fi	f	Zeichensprache	Fachkenntnisse	6
-1	Kd	f	+1 KiDo-Technik	Fachkenntnisse	\N
-1	Ny	f	+1 KiDo-Technik	Fachkenntnisse	\N
-1	Kd	f	+1 KiDo-Technik 	Fachkenntnisse	\N
-1	Ny	f	+1 KiDo-Technik 	Fachkenntnisse	\N
-1	Kd	f	+1 KiDo-Technik  	Fachkenntnisse	\N
-1	Tm	t	Abrichten	Fachkenntnisse	8
-1	Wi	t	Abrichten	Fachkenntnisse	8
-1	Dt	t	Akribie	Fachkenntnisse	17
-1	Dt	f	Angst	Zauberkünste	\N
-1	Sa	f	Askese	Fachkenntnisse	1
-1	Kd	f	Balancieren	Fachkenntnisse	15
-1	Ny	f	Balancieren	Fachkenntnisse	15
-1	PHe	f	Bannen von Dunkelheit	Zauberkünste	0
-1	PW	f	Bannen von Dunkelheit	Zauberkünste	0
-1	PF	f	Bannen von Finsterwerk	Zauberkünste	0
-1	PHa	f	Bannen von Finsterwerk	Zauberkünste	0
-1	PHe	f	Bannen von Finsterwerk	Zauberkünste	0
-1	PK	f	Bannen von Finsterwerk	Zauberkünste	0
-1	PM	f	Bannen von Finsterwerk	Zauberkünste	0
-1	PW	f	Bannen von Finsterwerk	Zauberkünste	0
-1	PT	f	Bannen von Licht	Zauberkünste	0
-1	Sw	f	Befestigen	Zauberkünste	0
-1	Th	f	Befestigen	Zauberkünste	0
-1	Hä	f	Beredsamkeit	Fachkenntnisse	8
-1	Er	f	Beschatten	Fachkenntnisse	8
-1	gHx	f	Binden des Vertrauten	Zauberkünste	0
-1	sHx	f	Binden des Vertrauten	Zauberkünste	0
-1	wHx	f	Binden des Vertrauten	Zauberkünste	0
-1	Sw	f	Bittersalz	Zauberkünste	0
-1	Th	f	Bittersalz	Zauberkünste	0
+0	Kr	f	Kampf in Schlachtreihe	Fachkenntnisse	5
+0	Mg	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	Mg	f	Sprechen: Alte Sprache	Fachkenntnisse	12
+0	MMa	f	Sprechen: Alte Sprache	Fachkenntnisse	9
+0	Ny	t	KujKuri	Fachkenntnisse	1
+0	Or	f	Kampf in Schlachtreihe	Fachkenntnisse	5
+0	PC	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	PC	f	Sprechen: Alte Sprache	Fachkenntnisse	12
+0	PF	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	PF	f	Sprechen: Alte Sprache	Fachkenntnisse	12
+0	PHa	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	PHa	f	Sprechen: Alte Sprache	Fachkenntnisse	12
+0	PHe	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	PHe	f	Sprechen: Alte Sprache	Fachkenntnisse	12
+0	PK	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	PK	f	Sprechen: Alte Sprache	Fachkenntnisse	12
+0	PM	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	PM	f	Sprechen: Alte Sprache	Fachkenntnisse	12
+0	PT	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	PT	f	Sprechen: Alte Sprache	Fachkenntnisse	12
+0	PW	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
+0	PW	f	Sprechen: Alte Sprache	Fachkenntnisse	12
+0	RiN	f	Kampf in Schlachtreihe	Fachkenntnisse	5
+0	Sö	f	Kampf in Schlachtreihe	Fachkenntnisse	5
 1	As	f	Blasrohr	Waffenfertigkeiten	5
-1	Ny	f	Blasrohr	Waffenfertigkeiten	5
-1	Sw	f	Blicksalz	Zauberkünste	0
-1	Th	f	Blicksalz	Zauberkünste	0
-1	BS	f	Bogenkampf zu Pferd	Fachkenntnisse	15
-1	PF	f	Brot und Wasser	Zauberkünste	0
-1	Gl	f	Buckler	Waffenfertigkeiten	1
-1	Hj	f	Buckler	Waffenfertigkeiten	1
-1	Kr	f	Buckler	Waffenfertigkeiten	1
-1	Mg	f	Buckler	Waffenfertigkeiten	1
-1	Or	f	Buckler	Waffenfertigkeiten	1
-1	RiN	f	Buckler	Waffenfertigkeiten	1
-1	RiS	f	Buckler	Waffenfertigkeiten	1
-1	Sr	f	Buckler	Waffenfertigkeiten	5
-1	Sö	f	Buckler	Waffenfertigkeiten	1
+1	As	f	Dolch	Waffenfertigkeiten	5
+1	As	f	Fallenmechanik	Fachkenntnisse	4
+1	As	f	Geheimzeichen	Fachkenntnisse	12
+1	As	f	Keule	Waffenfertigkeiten	5
+1	As	f	Kurzschwert	Waffenfertigkeiten	5
+1	As	f	Parierdolch	Waffenfertigkeiten	1
+1	As	f	Schleichen	Fachkenntnisse	8
+1	As	f	Stimmen nachahmen	Fachkenntnisse	15
+1	As	f	Tarnen	Fachkenntnisse	8
+1	As	f	Wurfmesser	Waffenfertigkeiten	5
+1	As	f	Wurfpfeil	Waffenfertigkeiten	5
+1	As	f	Wurfstern	Waffenfertigkeiten	5
+1	As	t	Meucheln	Fachkenntnisse	8
 1	Ba	f	Das Lied der Tapferkeit	Zauberkünste	0
 1	Ba	f	Dichten	Fachkenntnisse	12
-1	Gl	f	Dichten	Fachkenntnisse	12
-1	RiS	f	Dichten	Dichten	12
-1	Ru	t	Dichten	Fachkenntnisse	12
-1	Sk	t	Dichten	Fachkenntnisse	12
-1	As	f	Dolch	Waffenfertigkeiten	5
-1	BN	f	Dolch	Waffenfertigkeiten	5
-1	BS	f	Dolch	Waffenfertigkeiten	5
-1	BW	f	Dolch	Waffenfertigkeiten	5
 1	Ba	f	Dolch	Waffenfertigkeiten	5
-1	Er	f	Dolch	Waffenfertigkeiten	5
-1	Fi	f	Dolch	Waffenfertigkeiten	5
-1	Gl	f	Dolch	Waffenfertigkeiten	5
-1	Hj	f	Dolch	Waffenfertigkeiten	5
-1	Hä	f	Dolch	Waffenfertigkeiten	5
-1	Kd	f	Dolch	Waffenfertigkeiten	5
-1	Km	f	Dolch	Waffenfertigkeiten	5
-1	Kr	f	Dolch	Waffenfertigkeiten	5
-1	Ku	f	Dolch	Waffenfertigkeiten	5
-1	Mg	f	Dolch	Waffenfertigkeiten	5
-1	Ny	f	Dolch	Waffenfertigkeiten	5
-1	Or	f	Dolch	Waffenfertigkeiten	5
-1	RiN	f	Dolch	Waffenfertigkeiten	5
-1	RiS	f	Dolch	Waffenfertigkeiten	5
-1	Ru	f	Dolch	Waffenfertigkeiten	5
-1	Se	f	Dolch	Waffenfertigkeiten	5
-1	Sk	f	Dolch	Waffenfertigkeiten	5
-1	Sp	f	Dolch	Waffenfertigkeiten	5
-1	Sr	f	Dolch	Waffenfertigkeiten	5
-1	Sw	f	Dolch	Waffenfertigkeiten	5
-1	Sö	f	Dolch	Waffenfertigkeiten	5
-1	Tm	f	Dolch	Waffenfertigkeiten	5
-1	To	f	Dolch	Waffenfertigkeiten	5
-1	Tr	f	Dolch	Waffenfertigkeiten	5
-1	Tt	f	Dolch	Waffenfertigkeiten	5
-1	Wa	f	Dolch	Waffenfertigkeiten	5
-1	Wi	f	Dolch	Waffenfertigkeiten	5
-1	Dt	t	Dämonenkunde	Fachkenntnisse	4
-1	PC	f	Dämonische Zaubermacht	Zauberkünste	0
-1	PW	f	Erkennen der Aura	Zauberkünste	0
-1	Dt	f	Erkennen von Krankheit	Zauberkünste	\N
-1	Hl	f	Erkennen von Krankheit	Zauberkünste	0
-1	Km	f	Erkennen von Leben	Zauberkünste	0
-1	MMa	f	Erkennen von Leben	Zauberkünste	0
-1	Ma	f	Erkennen von Leben	Zauberkünste	0
-1	Hl	f	Erste Hilfe	Fachkenntnisse	8
-1	Kd	f	Erste Hilfe	Fachkenntnisse	8
-1	PF	f	Erste Hilfe	Fachkenntnisse	8
 1	Ba	f	Erzählen	Fachkenntnisse	12
-1	Gl	f	Erzählen	Fachkenntnisse	12
-1	RiS	f	Erzählen	Fachkenntnisse	12
-1	Se	f	Erzählen	Fachkenntnisse	12
-1	As	f	Fallenmechanik	Fachkenntnisse	4
-1	Sp	f	Fallenmechanik	Fachkenntnisse	4
-1	Sw	f	Fallenmechanik	Fachkenntnisse	4
-1	To	f	Fallenmechanik	Fachkenntnisse	4
+1	Ba	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	Ba	f	Musizieren	Fachkenntnisse	12
+1	Ba	f	Parierdolch	Waffenfertigkeiten	1
+1	Ba	f	Sagenkunde	Fachkenntnisse	5
+1	Ba	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Ba	f	Singen	Fachkenntnisse	12
+1	Ba	f	Stimmen nachahmen	Fachkenntnisse	15
+1	Ba	f	Tanzen	Fachkenntnisse	15
+1	BN	f	Dolch	Waffenfertigkeiten	5
+1	BN	f	großer Schild	Waffenfertigkeiten	1
+1	BN	f	Handaxt	Waffenfertigkeiten	5
+1	BN	f	Himmelskunde	Fachkenntnisse	5
+1	BN	f	kleiner Schild	Waffenfertigkeiten	1
+1	BN	f	Langschwert	Waffenfertigkeiten	5
+1	BN	f	leichter Speer	Waffenfertigkeiten	5
+1	BN	f	Rudern	Fachkenntnisse	15
+1	BN	f	Schlachtbeil	Waffenfertigkeiten	5
+1	BN	f	Schwimmen	Fachkenntnisse	15
+1	BN	f	Stoßspeer	Waffenfertigkeiten	5
+1	BN	f	Streitaxt	Waffenfertigkeiten	5
+1	BN	f	Tauchen	Fachkenntnisse	15
+1	BN	f	Trinken	Fachkenntnisse	1
+1	BN	f	Überleben im Schnee	Fachkenntnisse	8
+1	BN	f	Wurfaxt	Waffenfertigkeiten	5
+1	BN	f	Wurfhammer	Waffenfertigkeiten	5
+1	BN	f	Wurfspeer	Waffenfertigkeiten	5
+1	BS	f	Bogenkampf zu Pferd	Fachkenntnisse	15
+1	BS	f	Dolch	Waffenfertigkeiten	5
+1	BS	f	Handaxt	Waffenfertigkeiten	5
+1	BS	f	Himmelskunde	Fachkenntnisse	5
+1	BS	f	Kampf zu Pferd	Fachkenntnisse	15
+1	BS	f	Keule	Waffenfertigkeiten	5
+1	BS	f	kleiner Schild	Waffenfertigkeiten	1
+1	BS	f	Krummsäbel	Waffenfertigkeiten	5
+1	BS	f	leichter Speer	Waffenfertigkeiten	5
+1	BS	f	Reiten	Fachkenntnisse	15
+1	BS	f	Stoßspeer	Waffenfertigkeiten	5
+1	BS	f	Streitkolben	Waffenfertigkeiten	5
+1	BS	f	Überleben in der Steppe	Fachkenntnisse	8
+1	BS	f	Überleben in der Wüste	Fachkenntnisse	8
+1	BS	f	Wurfaxt	Waffenfertigkeiten	5
+1	BS	f	Wurfspeer	Waffenfertigkeiten	5
+1	BW	f	Dolch	Waffenfertigkeiten	5
 1	BW	f	Fallenstellen	Fachkenntnisse	4
-1	Ku	f	Fallenstellen	Fachkenntnisse	4
-1	Wa	f	Fallenstellen	Fachkenntnisse	4
-1	Tr	f	Federflechten	Fachkenntnisse	\N
-1	Kd	f	FengSchui	Fachkenntnisse	4
-1	Ny	f	FengSchui	Fachkenntnisse	4
-1	PHa	f	Feuerfinger	Zauberkünste	0
-1	Sw	f	Fälschen	Fachkenntnisse	15
+1	BW	f	Handaxt	Waffenfertigkeiten	5
+1	BW	f	Keule	Waffenfertigkeiten	5
+1	BW	f	kleiner Schild	Waffenfertigkeiten	1
+1	BW	f	Kurzschwert	Waffenfertigkeiten	5
+1	BW	f	leichter Speer	Waffenfertigkeiten	5
+1	BW	f	Schwimmen	Fachkenntnisse	15
+1	BW	f	Speerschleuder	Waffenfertigkeiten	5
+1	BW	f	Spurenlesen	Fachkenntnisse	6
+1	BW	f	Stimmen nachahmen	Fachkenntnisse	15
+1	BW	f	Stoßspeer	Waffenfertigkeiten	5
+1	BW	f	Tanzen	Fachkenntnisse	15
+1	BW	f	Überleben im Dschungel	Fachkenntnisse	8
+1	BW	f	Überleben im Wald	Fachkenntnisse	8
+1	BW	f	Wurfaxt	Waffenfertigkeiten	5
+1	BW	f	Wurfkeule	Waffenfertigkeiten	5
+1	BW	f	Wurfspeer	Waffenfertigkeiten	5
+1	dBe	f	Halebant 1 beschwören	Zauberkünste	\N
+1	dBe	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	dBe	f	Sagenkunde	Fachkenntnisse	5
+1	dBe	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	dBe	t	Wissen von der Magie	Fachkenntnisse	\N
+1	De	f	Haram fil-Din	Zauberkünste	0
+1	De	f	Heiliger Zorn	Zauberkünste	0
+1	De	f	Kamelreiten	Fachkenntnisse	15
+1	De	f	Tanzen	Fachkenntnisse	15
+1	De	f	Überleben in der Wüste	Fachkenntnisse	8
+1	De	t	Springen	Fachkenntnisse	15
+1	Dr	f	Geheimzeichen	Fachkenntnisse	12
+1	Dr	f	Liniensicht	Zauberkünste	0
+1	Dr	f	Naturkunde	Fachkenntnisse	5
+1	Dr	f	Pflanzenkunde	Fachkenntnisse	5
+1	Dr	f	Sagenkunde	Fachkenntnisse	5
+1	Dr	f	Tierkunde	Fachkenntnisse	5
+1	Dr	f	Wandeln wie der Wind	Zauberkünste	0
+1	Dt	f	Angst	Zauberkünste	\N
+1	Dt	f	Erkennen von Krankheit	Zauberkünste	\N
+1	Dt	f	Macht über das Selbst	Zauberkünste	\N
+1	Dt	f	Spurenlesen	Fachkenntnisse	4
+1	Dt	f	Zauberkunde	Fachkenntnisse	4
+1	Dt	t	Akribie	Fachkenntnisse	17
+1	Dt	t	Dämonenkunde	Fachkenntnisse	4
+1	Dt	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Dt	t	Siebter Sinn	Fachkenntnisse	4
+1	Dt	t	Wahrsagekalender führen	Fachkenntnisse	\N
+1	eBe	f	Kallbjargi beschwören	Zauberkünste	\N
+1	eBe	f	Karing beschwören	Zauberkünste	\N
+1	eBe	f	Lergris beschwören	Zauberkünste	\N
+1	eBe	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	eBe	f	Ljosfang beschwören	Zauberkünste	\N
+1	eBe	f	Mokkurbjargi beschwören	Zauberkünste	\N
+1	eBe	f	Sagenkunde	Fachkenntnisse	5
+1	eBe	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	eBe	t	Wissen von der Magie	Fachkenntnisse	\N
+1	Er	f	Beschatten	Fachkenntnisse	8
+1	Er	f	Dolch	Waffenfertigkeiten	5
+1	Er	f	Geheimzeichen	Fachkenntnisse	12
+1	Er	f	Keule	Waffenfertigkeiten	5
+1	Er	f	Landeskunde	Fachkenntnisse	10
+1	Er	f	Lippenlesen	Fachkenntnisse	6
+1	Er	f	Menschenkenntnis	Fachkenntnisse	5
+1	Er	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Er	f	Suchen	Fachkenntnisse	8
+1	Er	f	Verhören	Fachkenntnisse	8
+1	Er	f	Zeichensprache	Fachkenntnisse	6
+1	Fi	f	Dolch	Waffenfertigkeiten	5
+1	Fi	f	kleiner Schild	Waffenfertigkeiten	1
+1	Fi	f	Klettern	Fachkenntnisse	15
+1	Fi	f	leichter Speer	Waffenfertigkeiten	5
+1	Fi	f	Schwimmen	Fachkenntnisse	15
+1	Fi	f	Springen	Fachkenntnisse	15
+1	Fi	f	Stoßspeer	Waffenfertigkeiten	5
+1	Fi	f	Wurfaxt	Waffenfertigkeiten	5
+1	Fi	f	Wurfkeule	Waffenfertigkeiten	5
+1	gHx	f	Binden des Vertrauten	Zauberkünste	0
+1	gHx	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	gHx	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Gl	f	Buckler	Waffenfertigkeiten	1
+1	Gl	f	Dichten	Fachkenntnisse	12
+1	Gl	f	Dolch	Waffenfertigkeiten	5
+1	Gl	f	Erzählen	Fachkenntnisse	12
 1	Gl	f	Gassenwissen	Fachkenntnisse	5
 1	Gl	f	Gaukeln	Fachkenntnisse	12
-1	Sp	f	Gaukeln	Fachkenntnisse	12
-1	Sw	f	Gaukeln	Fachkenntnisse	12
-1	As	f	Geheimzeichen	Fachkenntnisse	12
-1	Dr	f	Geheimzeichen	Fachkenntnisse	12
-1	Er	f	Geheimzeichen	Fachkenntnisse	12
 1	Gl	f	Geheimzeichen	Fachkenntnisse	12
-1	Sp	f	Geheimzeichen	Fachkenntnisse	12
-1	Sw	f	Geheimzeichen	Fachkenntnisse	12
-1	To	f	Geheimzeichen	Fachkenntnisse	12
-1	ScN	f	Geländelauf	Fachkenntnisse	15
-1	Tm	f	Geländelauf	Fachkenntnisse	15
-1	Wi	f	Geländelauf	Fachkenntnisse	15
-1	Tr	f	Geschenke machen	Fachkenntnisse	\N
-1	Hä	f	Geschäftstüchtigkeit	Fachkenntnisse	8
-1	To	f	Giftmischen	Fachkenntnisse	5
 1	Gl	f	Glücksspiel	Fachkenntnisse	15
-1	dBe	f	Halebant 1 beschwören	Zauberkünste	\N
-1	Hl	f	Handauflegen	Zauberkünste	0
-1	PF	f	Handauflegen	Zauberkünste	0
-1	PHa	f	Handauflegen	Zauberkünste	0
-1	PHe	f	Handauflegen	Zauberkünste	0
-1	PK	f	Handauflegen	Zauberkünste	0
-1	BN	f	Handaxt	Waffenfertigkeiten	5
-1	BS	f	Handaxt	Waffenfertigkeiten	5
-1	BW	f	Handaxt	Waffenfertigkeiten	5
+1	Gl	f	großer Schild	Waffenfertigkeiten	1
 1	Gl	f	Handaxt	Waffenfertigkeiten	5
-1	Hj	f	Handaxt	Waffenfertigkeiten	5
-1	Km	f	Handaxt	Waffenfertigkeiten	5
-1	Kr	f	Handaxt	Waffenfertigkeiten	5
-1	Or	f	Handaxt	Waffenfertigkeiten	5
-1	RiN	f	Handaxt	Waffenfertigkeiten	5
-1	Se	f	Handaxt	Waffenfertigkeiten	5
-1	Sr	f	Handaxt	Waffenfertigkeiten	5
-1	Sö	f	Handaxt	Waffenfertigkeiten	5
-1	Tm	f	Handaxt	Waffenfertigkeiten	5
-1	Wi	f	Handaxt	Waffenfertigkeiten	5
-1	De	f	Haram fil-Din	Zauberkünste	0
-1	PT	f	Hauch des Winters	Zauberkünste	0
-1	De	f	Heiliger Zorn	Zauberkünste	0
-1	PK	f	Heiliger Zorn	Zauberkünste	0
-1	PM	f	Heiliger Zorn	Zauberkünste	0
-1	Km	f	Heranholen	Zauberkünste	0
-1	MMa	f	Heranholen	Zauberkünste	0
-1	Ma	f	Heranholen	Zauberkünste	0
-1	BN	f	Himmelskunde	Fachkenntnisse	5
-1	BS	f	Himmelskunde	Fachkenntnisse	5
-1	Hä	f	Himmelskunde	Fachkenntnisse	5
-1	Ku	f	Himmelskunde	Fachkenntnisse	5
-1	MMa	f	Himmelskunde	Fachkenntnisse	5
-1	Mg	f	Himmelskunde	Fachkenntnisse	5
-1	Se	f	Himmelskunde	Fachkenntnisse	5
-1	MMa	f	Hitzeschutz	Zauberkünste	0
-1	Sa	f	Hitzeschutz	Zauberkünste	\N
-1	PHa	f	Hitzeschutz 	Zauberkünste	0
-1	Sw	f	Hitzsalz	Zauberkünste	0
-1	Th	f	Hitzsalz	Zauberkünste	0
-1	Km	f	Hören von Fernem	Zauberkünste	0
-1	Ma	f	Hören von Fernem	Zauberkünste	0
-1	PK	f	Hörnerklang	Zauberkünste	0
-1	eBe	f	Kallbjargi beschwören	Zauberkünste	\N
-1	De	f	Kamelreiten	Fachkenntnisse	15
-1	RiS	f	Kamelreiten	Fachkenntnisse	15
-1	Kr	f	Kampf in Vollrüstung	Fachkenntnisse	15
-1	RiN	t	Kampf in Vollrüstung	Fachkenntnisse	15
-1	RiS	t	Kampf in Vollrüstung	Fachkenntnisse	15
-1	Sö	f	Kampf in Vollrüstung	Fachkenntnisse	15
-1	BS	f	Kampf zu Pferd	Fachkenntnisse	15
-1	Sr	f	Kampf zu Srimara	Fachkenntnisse	15
-1	eBe	f	Karing beschwören	Zauberkünste	\N
-1	Ny	f	KarumiJutsu	Fachkenntnisse	15
-1	Kd	f	Kenntnis der fünf Klassiker	Fachkenntnisse	\N
-1	Ny	f	Kenntnis der fünf Klassiker	Fachkenntnisse	\N
-1	As	f	Keule	Waffenfertigkeiten	5
-1	BS	f	Keule	Waffenfertigkeiten	5
-1	BW	f	Keule	Waffenfertigkeiten	5
-1	Er	f	Keule	Waffenfertigkeiten	5
 1	Gl	f	Keule	Waffenfertigkeiten	5
-1	Hj	f	Keule	Waffenfertigkeiten	5
-1	Km	f	Keule	Waffenfertigkeiten	5
-1	Kr	f	Keule	Waffenfertigkeiten	5
-1	Ku	f	Keule	Waffenfertigkeiten	5
-1	Mg	f	Keule	Waffenfertigkeiten	5
-1	Or	f	Keule	Waffenfertigkeiten	5
-1	RiS	f	Keule	Waffenfertigkeiten	5
-1	Se	f	Keule	Waffenfertigkeiten	5
-1	Sp	f	Keule	Waffenfertigkeiten	5
-1	Sr	f	Keule	Waffenfertigkeiten	5
-1	Sw	f	Keule	Waffenfertigkeiten	5
-1	Sö	f	Keule	Waffenfertigkeiten	5
-1	Tm	f	Keule	Waffenfertigkeiten	5
-1	To	f	Keule	Waffenfertigkeiten	5
-1	Wi	f	Keule	Waffenfertigkeiten	5
-1	Kd	t	KiDo	Fachkenntnisse	10
-1	Ny	f	KiDo	Fachkenntnisse	10
-1	Fi	f	Klettern	Fachkenntnisse	15
-1	Kd	f	Klettern	Fachkenntnisse	15
-1	Ny	f	Klettern	Fachkenntnisse	15
-1	PC	f	Kraft entziehen	Zauberkünste	0
+1	Gl	f	kleiner Schild	Waffenfertigkeiten	1
 1	Gl	f	Kriegshammer	Waffenfertigkeiten	5
-1	Hj	f	Kriegshammer	Waffenfertigkeiten	5
-1	Kr	f	Kriegshammer	Waffenfertigkeiten	5
-1	Or	f	Kriegshammer	Waffenfertigkeiten	5
-1	RiN	f	Kriegshammer	Waffenfertigkeiten	5
-1	Sö	f	Kriegshammer	Waffenfertigkeiten	5
-1	BS	f	Krummsäbel	Waffenfertigkeiten	5
 1	Gl	f	Krummsäbel	Waffenfertigkeiten	5
-1	Hj	f	Krummsäbel	Waffenfertigkeiten	5
-1	Kr	f	Krummsäbel	Waffenfertigkeiten	5
-1	Ku	f	Krummsäbel	Waffenfertigkeiten	5
-1	Or	f	Krummsäbel	Waffenfertigkeiten	5
-1	RiS	f	Krummsäbel	Waffenfertigkeiten	5
-1	Se	f	Krummsäbel	Waffenfertigkeiten	5
-1	Sr	f	Krummsäbel	Waffenfertigkeiten	5
-1	Sö	f	Krummsäbel	Waffenfertigkeiten	5
-1	Hl	f	Kräuterkunde	Fachkenntnisse	5
-1	Mg	f	Kräuterkunde	Fachkenntnisse	5
-1	As	f	Kurzschwert	Waffenfertigkeiten	5
-1	BW	f	Kurzschwert	Waffenfertigkeiten	5
 1	Gl	f	Kurzschwert	Waffenfertigkeiten	5
+1	Gl	f	Langschwert	Waffenfertigkeiten	5
+1	Gl	f	Lanze	Waffenfertigkeiten	5
+1	Gl	f	leichter Speer	Waffenfertigkeiten	5
+1	Gl	f	Ochsenzunge	Waffenfertigkeiten	5
+1	Gl	f	Parierdolch	Waffenfertigkeiten	1
+1	Gl	f	Rapier	Waffenfertigkeiten	5
+1	Gl	f	Reiten	Fachkenntnisse	15
+1	Gl	f	Sprechen: Sprache(+9)	Fachkenntnisse	9
+1	Gl	f	Stoßspeer	Waffenfertigkeiten	5
+1	Gl	f	Streitaxt	Waffenfertigkeiten	5
+1	Gl	f	Streitkolben	Waffenfertigkeiten	5
+1	Gl	f	Tanzen	Fachkenntnisse	15
+1	Hä	f	Beredsamkeit	Fachkenntnisse	8
+1	Hä	f	Dolch	Waffenfertigkeiten	5
+1	Hä	f	Geschäftstüchtigkeit	Fachkenntnisse	8
+1	Hä	f	Himmelskunde	Fachkenntnisse	5
+1	Hä	f	kleiner Schild	Waffenfertigkeiten	1
+1	Hä	f	Landeskunde	Fachkenntnisse	5
+1	Hä	f	Menschenkenntnis	Fachkenntnisse	5
+1	Hä	f	Rechnen	Fachkenntnisse	8
+1	Hä	f	Schätzen	Fachkenntnisse	5
+1	Hä	f	Schreiben: Muttersprache(+9)	Fachkenntnisse	9
+1	Hä	f	Seemannsgang	Fachkenntnisse	15
+1	Hä	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
+1	Hä	f	Wagenlenken	Fachkenntnisse	15
+1	Hj	f	Buckler	Waffenfertigkeiten	1
+1	Hj	f	Dolch	Waffenfertigkeiten	5
+1	Hj	f	Handaxt	Waffenfertigkeiten	5
+1	Hj	f	Keule	Waffenfertigkeiten	5
+1	Hj	f	kleiner Schild	Waffenfertigkeiten	1
+1	Hj	f	Kriegshammer	Waffenfertigkeiten	5
+1	Hj	f	Krummsäbel	Waffenfertigkeiten	5
 1	Hj	f	Kurzschwert	Waffenfertigkeiten	5
+1	Hj	f	Landeskunde (Heimat)	Fachkenntnisse	10
+1	Hj	f	leichter Speer	Waffenfertigkeiten	5
+1	Hj	f	Menschenkenntnis	Fachkenntnisse	5
+1	Hj	f	Ochsenzunge	Waffenfertigkeiten	5
+1	Hj	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Hj	f	Streitkolben	Waffenfertigkeiten	5
+1	Hl	f	Erkennen von Krankheit	Zauberkünste	0
+1	Hl	f	Erste Hilfe	Fachkenntnisse	8
+1	Hl	f	Handauflegen	Zauberkünste	0
+1	Hl	f	Kräuterkunde	Fachkenntnisse	5
+1	Hl	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	Hl	f	Liniensicht	Zauberkünste	0
+1	Hl	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Kd	f	+1 KiDo-Technik	Fachkenntnisse	\N
+1	Kd	f	+1 KiDo-Technik 	Fachkenntnisse	\N
+1	Kd	f	+1 KiDo-Technik  	Fachkenntnisse	\N
+1	Kd	f	Balancieren	Fachkenntnisse	15
+1	Kd	f	Dolch	Waffenfertigkeiten	5
+1	Kd	f	Erste Hilfe	Fachkenntnisse	8
+1	Kd	f	FengSchui	Fachkenntnisse	4
+1	Kd	f	Kenntnis der fünf Klassiker	Fachkenntnisse	\N
+1	Kd	f	Klettern	Fachkenntnisse	15
+1	Kd	f	Meditieren	Fachkenntnisse	8
+1	Kd	f	Morgenstern	Waffenfertigkeiten	5
+1	Kd	f	NunChaku	Waffenfertigkeiten	5
+1	Kd	f	Sai	Waffenfertigkeiten	5
+1	Kd	f	TaiTschi	Fachkenntnisse	\N
+1	Kd	f	Tonfa	Waffenfertigkeiten	5
+1	Kd	f	waffenloser Kampf	Waffenfertigkeiten	5
+1	Kd	f	YangScheng	Fachkenntnisse	1
+1	Kd	t	KiDo	Fachkenntnisse	10
+1	Km	f	Dolch	Waffenfertigkeiten	5
+1	Km	f	Erkennen von Leben	Zauberkünste	0
+1	Km	f	großer Schild	Waffenfertigkeiten	1
+1	Km	f	Handaxt	Waffenfertigkeiten	5
+1	Km	f	Heranholen	Zauberkünste	0
+1	Km	f	Hören von Fernem	Zauberkünste	0
+1	Km	f	Keule	Waffenfertigkeiten	5
+1	Km	f	kleiner Schild	Waffenfertigkeiten	1
 1	Km	f	Kurzschwert	Waffenfertigkeiten	5
+1	Km	f	Langschwert	Waffenfertigkeiten	5
+1	Km	f	Lanze	Waffenfertigkeiten	5
+1	Km	f	Lauschen	Zauberkünste	0
+1	Km	f	leichter Speer	Waffenfertigkeiten	5
+1	Km	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	Km	f	Macht über das Selbst	Zauberkünste	0
+1	Km	f	Reiten	Fachkenntnisse	15
+1	Km	f	Scharfblick	Zauberkünste	0
+1	Km	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	5
+1	Km	f	Sehen von Verborgenem	Zauberkünste	0
+1	Km	f	Stoßspeer	Waffenfertigkeiten	5
+1	Km	f	Streitkolben	Waffenfertigkeiten	5
+1	Km	f	Wurfaxt	Waffenfertigkeiten	5
+1	Km	f	Wurfkeule	Waffenfertigkeiten	5
+1	Km	f	Wurfmesser	Waffenfertigkeiten	5
+1	Km	f	Wurfspeer	Waffenfertigkeiten	5
+1	Km	t	Schleichen	Fachkenntnisse	8
+1	Km	t	Spurenlesen	Fachkenntnisse	6
+1	Km	t	Tarnen	Fachkenntnisse	8
+1	Km	t	Wahrnehmung	Fachkenntnisse	4
+1	Kr	f	Buckler	Waffenfertigkeiten	1
+1	Kr	f	Dolch	Waffenfertigkeiten	5
+1	Kr	f	großer Schild	Waffenfertigkeiten	1
+1	Kr	f	Handaxt	Waffenfertigkeiten	5
+1	Kr	f	Kampf in Vollrüstung	Fachkenntnisse	15
+1	Kr	f	Keule	Waffenfertigkeiten	5
+1	Kr	f	kleiner Schild	Waffenfertigkeiten	1
+1	Kr	f	Kriegshammer	Waffenfertigkeiten	5
+1	Kr	f	Krummsäbel	Waffenfertigkeiten	5
 1	Kr	f	Kurzschwert	Waffenfertigkeiten	5
+1	Kr	f	Langschwert	Waffenfertigkeiten	5
+1	Kr	f	Lanze	Waffenfertigkeiten	5
+1	Kr	f	leichter Speer	Waffenfertigkeiten	5
+1	Kr	f	Morgenstern	Waffenfertigkeiten	5
+1	Kr	f	Ochsenzunge	Waffenfertigkeiten	5
+1	Kr	f	Parierdolch	Waffenfertigkeiten	1
+1	Kr	f	Rapier	Waffenfertigkeiten	5
+1	Kr	f	Reiten	Fachkenntnisse	15
+1	Kr	f	Stabkeule	Waffenfertigkeiten	5
+1	Kr	f	Stoßspeer	Waffenfertigkeiten	5
+1	Kr	f	Streitaxt	Waffenfertigkeiten	5
+1	Kr	f	Streitkolben	Waffenfertigkeiten	5
+1	Kr	f	Streitwagen lenken	Fachkenntnisse	15
+1	Kr	f	Wagenlenken	Fachkenntnisse	15
+1	Kr	f	Wurfaxt	Waffenfertigkeiten	5
+1	Kr	f	Wurfhammer	Waffenfertigkeiten	5
+1	Kr	f	Wurfkeule	Waffenfertigkeiten	5
+1	Kr	f	Wurfmesser	Waffenfertigkeiten	5
+1	Kr	f	Wurfpfeil	Waffenfertigkeiten	5
+1	Kr	f	Wurfspeer	Waffenfertigkeiten	5
+1	Kr	f	Wurfspieß	Waffenfertigkeiten	5
+1	Ku	f	Dolch	Waffenfertigkeiten	5
+1	Ku	f	Fallenstellen	Fachkenntnisse	4
+1	Ku	f	Himmelskunde	Fachkenntnisse	5
+1	Ku	f	Keule	Waffenfertigkeiten	5
+1	Ku	f	Krummsäbel	Waffenfertigkeiten	5
+1	Ku	f	leichter Speer	Waffenfertigkeiten	5
+1	Ku	f	Naturkunde	Fachkenntnisse	5
+1	Ku	f	Reiten	Fachkenntnisse	15
+1	Ku	f	Spurenlesen	Fachkenntnisse	6
+1	Ku	f	Stoßspeer	Waffenfertigkeiten	5
+1	Ku	f	Streitkolben	Waffenfertigkeiten	5
+1	Ku	f	Überleben in der Steppe	Fachkenntnisse	8
+1	Ku	f	Überleben in der Wüste	Fachkenntnisse	8
+1	Ma	f	Erkennen von Leben	Zauberkünste	0
+1	Ma	f	Heranholen	Zauberkünste	0
+1	Ma	f	Hören von Fernem	Zauberkünste	0
+1	Ma	f	Lauschen	Zauberkünste	0
+1	Ma	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	Ma	f	Macht über das Selbst	Zauberkünste	0
+1	Ma	f	Scharfblick	Zauberkünste	0
+1	Ma	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Ma	f	Sehen von Verborgenem	Zauberkünste	0
+1	Mg	f	Buckler	Waffenfertigkeiten	1
+1	Mg	f	Dolch	Waffenfertigkeiten	5
+1	Mg	f	Himmelskunde	Fachkenntnisse	5
+1	Mg	f	Keule	Waffenfertigkeiten	5
+1	Mg	f	kleiner Schild	Waffenfertigkeiten	1
+1	Mg	f	Kräuterkunde	Fachkenntnisse	5
 1	Mg	f	Kurzschwert	Waffenfertigkeiten	5
+1	Mg	f	Landeskunde (Heimat)	Fachkenntnisse	5
+1	Mg	f	Ochsenzunge	Waffenfertigkeiten	5
+1	Mg	f	Pflanzenkunde	Fachkenntnisse	5
+1	Mg	f	Rapier	Waffenfertigkeiten	5
+1	Mg	f	Rechnen	Fachkenntnisse	8
+1	Mg	f	Sagenkunde	Fachkenntnisse	5
+1	Mg	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Mg	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
+1	Mg	f	Tierkunde	Fachkenntnisse	5
+1	MMa	f	Erkennen von Leben	Zauberkünste	0
+1	MMa	f	Heranholen	Zauberkünste	0
+1	MMa	f	Himmelskunde	Fachkenntnisse	5
+1	MMa	f	Hitzeschutz	Zauberkünste	0
+1	MMa	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	MMa	f	Macht über das Selbst	Zauberkünste	0
+1	MMa	f	Nebel wecken	Zauberkünste	0
+1	MMa	f	Rechnen	Fachkenntnisse	8
+1	MMa	f	Scharfblick	Zauberkünste	0
+1	MMa	f	Schreiben: Alte Sprache(+4)	Fachkenntnisse	4
+1	MMa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	MMa	f	Windstoß	Zauberkünste	0
+1	Ny	f	+1 KiDo-Technik	Fachkenntnisse	\N
+1	Ny	f	+1 KiDo-Technik 	Fachkenntnisse	\N
+1	Ny	f	Balancieren	Fachkenntnisse	15
+1	Ny	f	Blasrohr	Waffenfertigkeiten	5
+1	Ny	f	Dolch	Waffenfertigkeiten	5
+1	Ny	f	FengSchui	Fachkenntnisse	4
+1	Ny	f	KarumiJutsu	Fachkenntnisse	15
+1	Ny	f	Kenntnis der fünf Klassiker	Fachkenntnisse	\N
+1	Ny	f	KiDo	Fachkenntnisse	10
+1	Ny	f	Klettern	Fachkenntnisse	15
+1	Ny	f	Orakelkunst	Fachkenntnisse	\N
+1	Ny	f	Sai	Waffenfertigkeiten	5
+1	Ny	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Ny	f	Stimmen nachahmen	Fachkenntnisse	15
+1	Ny	f	Teezeremonie	Fachkenntnisse	8
+1	Ny	f	Verkleiden	Fachkenntnisse	15
+1	Ny	f	Wurfstern	Waffenfertigkeiten	5
+1	Ny	t	NinJutsu	Fachkenntnisse	4
+1	Or	f	Buckler	Waffenfertigkeiten	1
+1	Or	f	Dolch	Waffenfertigkeiten	5
+1	Or	f	großer Schild	Waffenfertigkeiten	1
+1	Or	f	Handaxt	Waffenfertigkeiten	5
+1	Or	f	Keule	Waffenfertigkeiten	5
+1	Or	f	kleiner Schild	Waffenfertigkeiten	1
+1	Or	f	Kriegshammer	Waffenfertigkeiten	5
+1	Or	f	Krummsäbel	Waffenfertigkeiten	5
 1	Or	f	Kurzschwert	Waffenfertigkeiten	5
+1	Or	f	Langschwert	Waffenfertigkeiten	5
+1	Or	f	leichter Speer	Waffenfertigkeiten	5
+1	Or	f	Reiten	Fachkenntnisse	15
+1	Or	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Or	f	Stoßspeer	Waffenfertigkeiten	5
+1	Or	f	Streitaxt	Waffenfertigkeiten	5
+1	Or	f	Streitkolben	Waffenfertigkeiten	5
+1	Or	f	Wurfaxt	Waffenfertigkeiten	5
+1	Or	f	Wurfhammer	Waffenfertigkeiten	5
+1	Or	f	Wurfkeule	Waffenfertigkeiten	5
+1	Or	f	Wurfspeer	Waffenfertigkeiten	5
+1	PC	f	Dämonische Zaubermacht	Zauberkünste	0
+1	PC	f	Kraft entziehen	Zauberkünste	0
+1	PC	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	PC	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	PC	f	Singen	Fachkenntnisse	12
+1	PF	f	Bannen von Finsterwerk	Zauberkünste	0
+1	PF	f	Brot und Wasser	Zauberkünste	0
+1	PF	f	Erste Hilfe	Fachkenntnisse	8
+1	PF	f	Handauflegen	Zauberkünste	0
+1	PF	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	PF	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	PF	f	Singen	Fachkenntnisse	12
+1	PF	f	Trinken	Fachkenntnisse	1
+1	PF	f	Wetterkunde	Fachkenntnisse	15
+1	PHa	f	Bannen von Finsterwerk	Zauberkünste	0
+1	PHa	f	Feuerfinger	Zauberkünste	0
+1	PHa	f	Handauflegen	Zauberkünste	0
+1	PHa	f	Hitzeschutz 	Zauberkünste	0
+1	PHa	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	PHa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	PHa	f	Singen	Fachkenntnisse	12
+1	PHe	f	Bannen von Dunkelheit	Zauberkünste	0
+1	PHe	f	Bannen von Finsterwerk	Zauberkünste	0
+1	PHe	f	Handauflegen	Zauberkünste	0
+1	PHe	f	Landeskunde	Fachkenntnisse	10
+1	PHe	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	PHe	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	PHe	f	Singen	Fachkenntnisse	12
+1	PK	f	Bannen von Finsterwerk	Zauberkünste	0
+1	PK	f	Handauflegen	Zauberkünste	0
+1	PK	f	Heiliger Zorn	Zauberkünste	0
+1	PK	f	Hörnerklang	Zauberkünste	0
+1	PK	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	PK	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	PK	f	Singen	Fachkenntnisse	12
+1	PM	f	Bannen von Finsterwerk	Zauberkünste	0
+1	PM	f	Heiliger Zorn	Zauberkünste	0
+1	PM	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	PM	f	Nebel wecken	Zauberkünste	0
+1	PM	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	PM	f	Singen	Fachkenntnisse	12
+1	PT	f	Bannen von Licht	Zauberkünste	0
+1	PT	f	Hauch des Winters	Zauberkünste	0
+1	PT	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	PT	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	PT	f	Singen	Fachkenntnisse	12
+1	PW	f	Bannen von Dunkelheit	Zauberkünste	0
+1	PW	f	Bannen von Finsterwerk	Zauberkünste	0
+1	PW	f	Erkennen der Aura	Zauberkünste	0
+1	PW	f	Landeskunde	Fachkenntnisse	10
+1	PW	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	PW	f	Sagenkunde	Fachkenntnisse	5
+1	PW	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	PW	f	Singen	Fachkenntnisse	12
+1	RiN	f	Buckler	Waffenfertigkeiten	1
+1	RiN	f	Dolch	Waffenfertigkeiten	5
+1	RiN	f	großer Schild	Waffenfertigkeiten	1
+1	RiN	f	Handaxt	Waffenfertigkeiten	5
+1	RiN	f	kleiner Schild	Waffenfertigkeiten	1
+1	RiN	f	Kriegshammer	Waffenfertigkeiten	5
 1	RiN	f	Kurzschwert	Waffenfertigkeiten	5
+1	RiN	f	Langschwert	Waffenfertigkeiten	5
+1	RiN	f	Lanze	Waffenfertigkeiten	5
+1	RiN	f	Morgenstern	Waffenfertigkeiten	5
+1	RiN	f	Musizieren	Fachkenntnisse	12
+1	RiN	f	Parierdolch	Waffenfertigkeiten	1
+1	RiN	f	Rapier	Waffenfertigkeiten	5
+1	RiN	f	Reiten	Fachkenntnisse	15
+1	RiN	f	Singen	Fachkenntnisse	12
+1	RiN	f	Stabkeule	Waffenfertigkeiten	5
+1	RiN	f	Stoßspeer	Waffenfertigkeiten	5
+1	RiN	f	Streitkolben	Waffenfertigkeiten	5
+1	RiN	f	Tanzen	Fachkenntnisse	15
+1	RiN	f	Wurfaxt	Waffenfertigkeiten	5
+1	RiN	f	Wurfhammer	Waffenfertigkeiten	5
+1	RiN	t	Kampf in Vollrüstung	Fachkenntnisse	15
+1	RiS	f	Buckler	Waffenfertigkeiten	1
+1	RiS	f	Dichten	Dichten	12
+1	RiS	f	Dolch	Waffenfertigkeiten	5
+1	RiS	f	Erzählen	Fachkenntnisse	12
+1	RiS	f	großer Schild	Waffenfertigkeiten	1
+1	RiS	f	Kamelreiten	Fachkenntnisse	15
+1	RiS	f	Keule	Waffenfertigkeiten	5
+1	RiS	f	kleiner Schild	Waffenfertigkeiten	1
+1	RiS	f	Krummsäbel	Waffenfertigkeiten	5
 1	RiS	f	Kurzschwert	Waffenfertigkeiten	5
-1	Se	f	Kurzschwert	Waffenfertigkeiten	5
-1	Sr	f	Kurzschwert	Waffenfertigkeiten	5
-1	Sö	f	Kurzschwert	Waffenfertigkeiten	5
-1	Tm	f	Kurzschwert	Waffenfertigkeiten	5
-1	To	f	Kurzschwert	Waffenfertigkeiten	5
-1	Wi	f	Kurzschwert	Waffenfertigkeiten	5
+1	RiS	f	Langschwert	Waffenfertigkeiten	5
+1	RiS	f	leichter Speer	Waffenfertigkeiten	5
+1	RiS	f	Reiten	Fachkenntnisse	15
+1	RiS	f	Stoßspeer	Waffenfertigkeiten	5
+1	RiS	f	Streitkolben	Waffenfertigkeiten	5
+1	RiS	f	Wurfkeule	Waffenfertigkeiten	5
+1	RiS	f	Wurfspeer	Waffenfertigkeiten	5
+1	RiS	f	Wurfspieß	Waffenfertigkeiten	5
+1	RiS	t	Kampf in Vollrüstung	Fachkenntnisse	15
+1	Ru	f	Dolch	Waffenfertigkeiten	5
+1	Ru	f	großer Schild	Waffenfertigkeiten	1
+1	Ru	f	leichter Speer	Waffenfertigkeiten	5
+1	Ru	f	Sagenkunde	Fachkenntnisse	5
+1	Ru	f	Wurfspeer	Waffenfertigkeiten	5
+1	Ru	t	Dichten	Fachkenntnisse	12
+1	Ru	t	Lesen von Zauberrunen	Fachkenntnisse	15
+1	Ru	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Sa	f	Askese	Fachkenntnisse	1
+1	Sa	f	Hitzeschutz	Zauberkünste	\N
 1	Sa	f	Kälteschutz	Zauberkünste	\N
 1	Sa	f	Körperkontrolle	Fachkenntnisse	15
-1	Sw	f	Kühlsalz	Zauberkünste	0
-1	Th	f	Kühlsalz	Zauberkünste	0
-1	Er	f	Landeskunde	Fachkenntnisse	10
-1	Hä	f	Landeskunde	Fachkenntnisse	5
-1	PHe	f	Landeskunde	Fachkenntnisse	10
-1	PW	f	Landeskunde	Fachkenntnisse	10
-1	Se	f	Landeskunde	Fachkenntnisse	5
-1	Hj	f	Landeskunde (Heimat)	Fachkenntnisse	10
-1	Mg	f	Landeskunde (Heimat)	Fachkenntnisse	5
-1	BN	f	Langschwert	Waffenfertigkeiten	5
-1	Gl	f	Langschwert	Waffenfertigkeiten	5
-1	Km	f	Langschwert	Waffenfertigkeiten	5
-1	Kr	f	Langschwert	Waffenfertigkeiten	5
-1	Or	f	Langschwert	Waffenfertigkeiten	5
-1	RiN	f	Langschwert	Waffenfertigkeiten	5
-1	RiS	f	Langschwert	Waffenfertigkeiten	5
-1	Sö	f	Langschwert	Waffenfertigkeiten	5
-1	Gl	f	Lanze	Waffenfertigkeiten	5
-1	Km	f	Lanze	Waffenfertigkeiten	5
-1	Kr	f	Lanze	Waffenfertigkeiten	5
-1	RiN	f	Lanze	Waffenfertigkeiten	5
-1	Sö	f	Lanze	Waffenfertigkeiten	5
-1	Wa	f	Laufen	Fachkenntnisse	4
-1	Km	f	Lauschen	Zauberkünste	0
-1	Ma	f	Lauschen	Zauberkünste	0
-1	eBe	f	Lergris beschwören	Zauberkünste	\N
-1	Ru	t	Lesen von Zauberrunen	Fachkenntnisse	15
-1	Sk	t	Lesen von Zauberrunen	Fachkenntnisse	12
-1	Ba	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	Hl	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	Km	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	MMa	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	Ma	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	PC	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	PF	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	PHa	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	PHe	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	PK	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	PM	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	PT	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	PW	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	Sw	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	Th	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	To	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	dBe	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	eBe	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	gHx	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	sHx	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	wHx	f	Lesen von Zauberschrift	Fachkenntnisse	12
-1	Sw	f	Lichtrunen	Zauberkünste	0
-1	Th	f	Lichtrunen	Zauberkünste	0
-1	Sk	f	Lied der Tapferkeit	Zauberkünste	\N
-1	Dr	f	Liniensicht	Zauberkünste	0
-1	Hl	f	Liniensicht	Zauberkünste	0
-1	Er	f	Lippenlesen	Fachkenntnisse	6
-1	eBe	f	Ljosfang beschwören	Zauberkünste	\N
-1	Dt	f	Macht über das Selbst	Zauberkünste	\N
-1	Km	f	Macht über das Selbst	Zauberkünste	0
-1	MMa	f	Macht über das Selbst	Zauberkünste	0
-1	Ma	f	Macht über das Selbst	Zauberkünste	0
-1	Kd	f	Meditieren	Fachkenntnisse	8
 1	Sa	f	Meditieren	Fachkenntnisse	8
-1	Er	f	Menschenkenntnis	Fachkenntnisse	5
-1	Hj	f	Menschenkenntnis	Fachkenntnisse	5
-1	Hä	f	Menschenkenntnis	Fachkenntnisse	5
-1	As	t	Meucheln	Fachkenntnisse	8
-1	To	t	Meucheln	Fachkenntnisse	8
-1	eBe	f	Mokkurbjargi beschwören	Zauberkünste	\N
-1	Kd	f	Morgenstern	Waffenfertigkeiten	5
-1	Kr	f	Morgenstern	Waffenfertigkeiten	5
-1	RiN	f	Morgenstern	Waffenfertigkeiten	5
-1	Sö	f	Morgenstern	Waffenfertigkeiten	5
-1	Ba	f	Musizieren	Fachkenntnisse	12
-1	RiN	f	Musizieren	Fachkenntnisse	12
-1	Sk	t	Musizieren	Fachkenntnisse	12
-1	Dr	f	Naturkunde	Fachkenntnisse	5
-1	Ku	f	Naturkunde	Fachkenntnisse	5
-1	MMa	f	Nebel wecken	Zauberkünste	0
-1	PM	f	Nebel wecken	Zauberkünste	0
-1	Sw	f	Niessalz	Zauberkünste	0
-1	Th	f	Niessalz	Zauberkünste	0
-1	Ny	t	NinJutsu	Fachkenntnisse	4
-1	Kd	f	NunChaku	Waffenfertigkeiten	5
-1	Gl	f	Ochsenzunge	Waffenfertigkeiten	5
-1	Hj	f	Ochsenzunge	Waffenfertigkeiten	5
-1	Kr	f	Ochsenzunge	Waffenfertigkeiten	5
-1	Mg	f	Ochsenzunge	Waffenfertigkeiten	5
-1	Sö	f	Ochsenzunge	Waffenfertigkeiten	5
-1	Ny	f	Orakelkunst	Fachkenntnisse	\N
-1	As	f	Parierdolch	Waffenfertigkeiten	1
-1	Ba	f	Parierdolch	Waffenfertigkeiten	1
-1	Gl	f	Parierdolch	Waffenfertigkeiten	1
-1	Kr	f	Parierdolch	Waffenfertigkeiten	1
-1	RiN	f	Parierdolch	Waffenfertigkeiten	1
-1	Se	f	Parierdolch	Waffenfertigkeiten	1
-1	Sö	f	Parierdolch	Waffenfertigkeiten	1
-1	To	f	Parierdolch	Waffenfertigkeiten	1
-1	Dr	f	Pflanzenkunde	Fachkenntnisse	5
-1	Mg	f	Pflanzenkunde	Fachkenntnisse	5
-1	Wa	f	Pflanzenkunde	Fachkenntnisse	5
-1	Gl	f	Rapier	Waffenfertigkeiten	5
-1	Kr	f	Rapier	Waffenfertigkeiten	5
-1	Mg	f	Rapier	Waffenfertigkeiten	5
-1	RiN	f	Rapier	Waffenfertigkeiten	5
-1	Se	f	Rapier	Waffenfertigkeiten	5
-1	Sö	f	Rapier	Waffenfertigkeiten	5
-1	To	f	Rapier	Waffenfertigkeiten	5
-1	Hä	f	Rechnen	Fachkenntnisse	8
-1	MMa	f	Rechnen	Fachkenntnisse	8
-1	Mg	f	Rechnen	Fachkenntnisse	8
-1	BS	f	Reiten	Fachkenntnisse	15
-1	Gl	f	Reiten	Fachkenntnisse	15
-1	Km	f	Reiten	Fachkenntnisse	15
-1	Kr	f	Reiten	Fachkenntnisse	15
-1	Ku	f	Reiten	Fachkenntnisse	15
-1	Or	f	Reiten	Fachkenntnisse	15
-1	RiN	f	Reiten	Fachkenntnisse	15
-1	RiS	f	Reiten	Fachkenntnisse	15
-1	ScS	f	Reiten	Fachkenntnisse	15
-1	Sö	f	Reiten	Fachkenntnisse	15
-1	BN	f	Rudern	Fachkenntnisse	15
-1	Se	f	Rudern	Fachkenntnisse	15
-1	Ba	f	Sagenkunde	Fachkenntnisse	5
-1	Dr	f	Sagenkunde	Fachkenntnisse	5
-1	Mg	f	Sagenkunde	Fachkenntnisse	5
-1	PW	f	Sagenkunde	Fachkenntnisse	5
-1	Ru	f	Sagenkunde	Fachkenntnisse	5
 1	Sa	f	Sagenkunde	Fachkenntnisse	5
-1	ScN	f	Sagenkunde	Fachkenntnisse	5
-1	ScS	f	Sagenkunde	Fachkenntnisse	5
-1	ScW	f	Sagenkunde	Fachkenntnisse	5
-1	Sk	f	Sagenkunde	Fachkenntnisse	5
-1	Tr	f	Sagenkunde	Fachkenntnisse	5
-1	dBe	f	Sagenkunde	Fachkenntnisse	5
-1	eBe	f	Sagenkunde	Fachkenntnisse	5
-1	Kd	f	Sai	Waffenfertigkeiten	5
-1	Ny	f	Sai	Waffenfertigkeiten	5
-1	Km	f	Scharfblick	Zauberkünste	0
-1	MMa	f	Scharfblick	Zauberkünste	0
-1	Ma	f	Scharfblick	Zauberkünste	0
-1	BN	f	Schlachtbeil	Waffenfertigkeiten	5
 1	Sa	f	Schlangen beschwören	Fachkenntnisse	\N
-1	As	f	Schleichen	Fachkenntnisse	8
-1	Km	t	Schleichen	Fachkenntnisse	8
-1	To	f	Schleichen	Fachkenntnisse	8
-1	Wi	t	Schleichen	Fachkenntnisse	8
-1	Sp	f	Schlösser öffnen	Fachkenntnisse	8
-1	Sw	f	Schlösser öffnen	Fachkenntnisse	8
 1	Sa	f	Schmerzen ertragen	Fachkenntnisse	12
-1	MMa	f	Schreiben: Alte Sprache(+4)	Fachkenntnisse	4
-1	Ba	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Dt	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Er	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Hj	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Hl	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Km	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	5
-1	MMa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Ma	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Mg	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Ny	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Or	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	PC	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	PF	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	PHa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	PHe	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	PK	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	PM	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	PT	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	PW	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Ru	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Sk	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Sr	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Sw	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Th	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	To	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Tt	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	dBe	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	eBe	t	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	gHx	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	sHx	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	wHx	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-1	Hä	f	Schreiben: Muttersprache(+9)	Fachkenntnisse	9
-1	BN	f	Schwimmen	Fachkenntnisse	15
-1	BW	f	Schwimmen	Fachkenntnisse	15
-1	Fi	f	Schwimmen	Fachkenntnisse	15
-1	ScW	f	Schwimmen	Fachkenntnisse	15
-1	Se	f	Schwimmen	Fachkenntnisse	15
-1	ScN	f	Schwäche	Zauberkünste	0
-1	ScS	f	Schwäche	Zauberkünste	0
-1	ScW	f	Schwäche	Zauberkünste	0
-1	To	f	Schwäche	Zauberkünste	0
-1	Hä	f	Schätzen	Fachkenntnisse	5
-1	Sw	f	Schätzen	Fachkenntnisse	8
-1	Hä	f	Seemannsgang	Fachkenntnisse	15
-1	Se	f	Seemannsgang	Fachkenntnisse	15
-1	Km	f	Sehen von Verborgenem	Zauberkünste	0
-1	Ma	f	Sehen von Verborgenem	Zauberkünste	0
-1	Dt	t	Siebter Sinn	Fachkenntnisse	4
-1	Ba	f	Singen	Fachkenntnisse	12
-1	PC	f	Singen	Fachkenntnisse	12
-1	PF	f	Singen	Fachkenntnisse	12
-1	PHa	f	Singen	Fachkenntnisse	12
-1	PHe	f	Singen	Fachkenntnisse	12
-1	PK	f	Singen	Fachkenntnisse	12
-1	PM	f	Singen	Fachkenntnisse	12
-1	PT	f	Singen	Fachkenntnisse	12
-1	PW	f	Singen	Fachkenntnisse	12
-1	RiN	f	Singen	Fachkenntnisse	12
-1	BW	f	Speerschleuder	Waffenfertigkeiten	5
-1	Hä	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
-1	Mg	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
-1	Se	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
-1	Gl	f	Sprechen: Sprache(+9)	Fachkenntnisse	9
-1	De	t	Springen	Fachkenntnisse	15
-1	Fi	f	Springen	Fachkenntnisse	15
-1	Tt	f	Springen	Fachkenntnisse	15
-1	BW	f	Spurenlesen	Fachkenntnisse	6
-1	Dt	f	Spurenlesen	Fachkenntnisse	4
-1	Km	t	Spurenlesen	Fachkenntnisse	6
-1	Ku	f	Spurenlesen	Fachkenntnisse	6
-1	Wa	f	Spurenlesen	Fachkenntnisse	6
-1	Wi	t	Spurenlesen	Fachkenntnisse	6
-1	Sr	f	Srimara lenken	Fachkenntnisse	15
-1	Kr	f	Stabkeule	Waffenfertigkeiten	5
-1	RiN	f	Stabkeule	Waffenfertigkeiten	5
-1	Sö	f	Stabkeule	Waffenfertigkeiten	5
-1	Sp	f	Stehlen	Fachkenntnisse	8
-1	Tr	f	Stehlen	Fachkenntnisse	8
-1	Se	f	Steuern	Fachkenntnisse	15
-1	As	f	Stimmen nachahmen	Fachkenntnisse	15
-1	BW	f	Stimmen nachahmen	Fachkenntnisse	15
-1	Ba	f	Stimmen nachahmen	Fachkenntnisse	15
-1	Ny	f	Stimmen nachahmen	Fachkenntnisse	15
-1	To	f	Stimmen nachahmen	Fachkenntnisse	15
-1	Sw	f	Stottersalz	Zauberkünste	0
-1	Th	f	Stottersalz	Zauberkünste	0
-1	BN	f	Stoßspeer	Waffenfertigkeiten	5
-1	BS	f	Stoßspeer	Waffenfertigkeiten	5
-1	BW	f	Stoßspeer	Waffenfertigkeiten	5
-1	Fi	f	Stoßspeer	Waffenfertigkeiten	5
-1	Gl	f	Stoßspeer	Waffenfertigkeiten	5
-1	Km	f	Stoßspeer	Waffenfertigkeiten	5
-1	Kr	f	Stoßspeer	Waffenfertigkeiten	5
-1	Ku	f	Stoßspeer	Waffenfertigkeiten	5
-1	Or	f	Stoßspeer	Waffenfertigkeiten	5
-1	RiN	f	Stoßspeer	Waffenfertigkeiten	5
-1	RiS	f	Stoßspeer	Waffenfertigkeiten	5
-1	Sö	f	Stoßspeer	Waffenfertigkeiten	5
-1	Tm	f	Stoßspeer	Waffenfertigkeiten	5
-1	Wa	f	Stoßspeer	Waffenfertigkeiten	5
-1	Wi	f	Stoßspeer	Waffenfertigkeiten	5
-1	BN	f	Streitaxt	Waffenfertigkeiten	5
-1	Gl	f	Streitaxt	Waffenfertigkeiten	5
-1	Kr	f	Streitaxt	Waffenfertigkeiten	5
-1	Or	f	Streitaxt	Waffenfertigkeiten	5
-1	Se	f	Streitaxt	Waffenfertigkeiten	5
-1	Sr	f	Streitaxt	Waffenfertigkeiten	5
-1	Sö	f	Streitaxt	Waffenfertigkeiten	5
-1	BS	f	Streitkolben	Waffenfertigkeiten	5
-1	Gl	f	Streitkolben	Waffenfertigkeiten	5
-1	Hj	f	Streitkolben	Waffenfertigkeiten	5
-1	Km	f	Streitkolben	Waffenfertigkeiten	5
-1	Kr	f	Streitkolben	Waffenfertigkeiten	5
-1	Ku	f	Streitkolben	Waffenfertigkeiten	5
-1	Or	f	Streitkolben	Waffenfertigkeiten	5
-1	RiN	f	Streitkolben	Waffenfertigkeiten	5
-1	RiS	f	Streitkolben	Waffenfertigkeiten	5
-1	Se	f	Streitkolben	Waffenfertigkeiten	5
-1	Sö	f	Streitkolben	Waffenfertigkeiten	5
-1	Kr	f	Streitwagen lenken	Fachkenntnisse	15
-1	Er	f	Suchen	Fachkenntnisse	8
-1	Kd	f	TaiTschi	Fachkenntnisse	\N
-1	BW	f	Tanzen	Fachkenntnisse	15
-1	Ba	f	Tanzen	Fachkenntnisse	15
-1	De	f	Tanzen	Fachkenntnisse	15
-1	Gl	f	Tanzen	Fachkenntnisse	15
-1	RiN	f	Tanzen	Fachkenntnisse	15
-1	ScN	f	Tanzen	Fachkenntnisse	15
-1	ScS	f	Tanzen	Fachkenntnisse	15
-1	ScW	f	Tanzen	Fachkenntnisse	15
-1	Tt	t	Tanzen	Fachkenntnisse	15
-1	As	f	Tarnen	Fachkenntnisse	8
-1	Km	t	Tarnen	Fachkenntnisse	8
-1	To	f	Tarnen	Fachkenntnisse	8
-1	Tr	f	Tarnen	Fachkenntnisse	4
-1	Wi	t	Tarnen	Fachkenntnisse	8
-1	BN	f	Tauchen	Fachkenntnisse	15
-1	Se	f	Tauchen	Fachkenntnisse	15
-1	Ny	f	Teezeremonie	Fachkenntnisse	8
-1	Dr	f	Tierkunde	Fachkenntnisse	5
-1	Mg	f	Tierkunde	Fachkenntnisse	5
-1	Tm	f	Tierkunde	Fachkenntnisse	5
-1	Wa	f	Tierkunde	Fachkenntnisse	5
-1	Wi	f	Tierkunde	Fachkenntnisse	5
-1	Kd	f	Tonfa	Waffenfertigkeiten	5
-1	BN	f	Trinken	Fachkenntnisse	1
-1	PF	f	Trinken	Fachkenntnisse	1
-1	Se	f	Trinken	Fachkenntnisse	1
-1	Sö	f	Trinken	Fachkenntnisse	1
-1	Tr	f	Tätowieren	Fachkenntnisse	12
-1	Sp	f	Verbergen	Fachkenntnisse	8
-1	Sw	f	Verbergen	Fachkenntnisse	8
-1	Er	f	Verhören	Fachkenntnisse	8
-1	Ny	f	Verkleiden	Fachkenntnisse	15
-1	Hä	f	Wagenlenken	Fachkenntnisse	15
-1	Kr	f	Wagenlenken	Fachkenntnisse	15
-1	Km	t	Wahrnehmung	Fachkenntnisse	4
-1	Wi	t	Wahrnehmung	Fachkenntnisse	4
-1	Dt	t	Wahrsagekalender führen	Fachkenntnisse	\N
-1	Dr	f	Wandeln wie der Wind	Zauberkünste	0
-1	Sw	f	Wehsalz	Zauberkünste	0
-1	Th	f	Wehsalz	Zauberkünste	0
-1	PF	f	Wetterkunde	Fachkenntnisse	15
-1	Se	f	Wetterkunde	Fachkenntnisse	15
-1	MMa	f	Windstoß	Zauberkünste	0
 1	Sa	t	Wissen von der Magie	Fachkenntnisse	\N
-1	dBe	t	Wissen von der Magie	Fachkenntnisse	\N
-1	eBe	t	Wissen von der Magie	Fachkenntnisse	\N
-1	BN	f	Wurfaxt	Waffenfertigkeiten	5
-1	BS	f	Wurfaxt	Waffenfertigkeiten	5
-1	BW	f	Wurfaxt	Waffenfertigkeiten	5
-1	Fi	f	Wurfaxt	Waffenfertigkeiten	5
-1	Km	f	Wurfaxt	Waffenfertigkeiten	5
-1	Kr	f	Wurfaxt	Waffenfertigkeiten	5
-1	Or	f	Wurfaxt	Waffenfertigkeiten	5
-1	RiN	f	Wurfaxt	Waffenfertigkeiten	5
-1	Sö	f	Wurfaxt	Waffenfertigkeiten	5
-1	Tm	f	Wurfaxt	Waffenfertigkeiten	5
-1	Wi	f	Wurfaxt	Waffenfertigkeiten	5
-1	BN	f	Wurfhammer	Waffenfertigkeiten	5
-1	Kr	f	Wurfhammer	Waffenfertigkeiten	5
-1	Or	f	Wurfhammer	Waffenfertigkeiten	5
-1	RiN	f	Wurfhammer	Waffenfertigkeiten	5
-1	Sö	f	Wurfhammer	Waffenfertigkeiten	5
-1	BW	f	Wurfkeule	Waffenfertigkeiten	5
-1	Fi	f	Wurfkeule	Waffenfertigkeiten	5
-1	Km	f	Wurfkeule	Waffenfertigkeiten	5
-1	Kr	f	Wurfkeule	Waffenfertigkeiten	5
-1	Or	f	Wurfkeule	Waffenfertigkeiten	5
-1	RiS	f	Wurfkeule	Waffenfertigkeiten	5
-1	Sö	f	Wurfkeule	Waffenfertigkeiten	5
-1	Tm	f	Wurfkeule	Waffenfertigkeiten	5
-1	Wi	f	Wurfkeule	Waffenfertigkeiten	5
-1	As	f	Wurfmesser	Waffenfertigkeiten	5
-1	Km	f	Wurfmesser	Waffenfertigkeiten	5
-1	Kr	f	Wurfmesser	Waffenfertigkeiten	5
-1	Sö	f	Wurfmesser	Waffenfertigkeiten	5
-1	To	f	Wurfmesser	Waffenfertigkeiten	5
-1	As	f	Wurfpfeil	Waffenfertigkeiten	5
-1	Kr	f	Wurfpfeil	Waffenfertigkeiten	5
-1	Sö	f	Wurfpfeil	Waffenfertigkeiten	5
-1	BN	f	Wurfspeer	Waffenfertigkeiten	5
-1	BS	f	Wurfspeer	Waffenfertigkeiten	5
-1	BW	f	Wurfspeer	Waffenfertigkeiten	5
-1	Km	f	Wurfspeer	Waffenfertigkeiten	5
-1	Kr	f	Wurfspeer	Waffenfertigkeiten	5
-1	Or	f	Wurfspeer	Waffenfertigkeiten	5
-1	RiS	f	Wurfspeer	Waffenfertigkeiten	5
-1	Ru	f	Wurfspeer	Waffenfertigkeiten	5
-1	Sö	f	Wurfspeer	Waffenfertigkeiten	5
-1	Tm	f	Wurfspeer	Waffenfertigkeiten	5
-1	Wi	f	Wurfspeer	Waffenfertigkeiten	5
-1	Kr	f	Wurfspieß	Waffenfertigkeiten	5
-1	RiS	f	Wurfspieß	Waffenfertigkeiten	5
-1	Sö	f	Wurfspieß	Waffenfertigkeiten	5
-1	As	f	Wurfstern	Waffenfertigkeiten	5
-1	Ny	f	Wurfstern	Waffenfertigkeiten	5
-1	Kd	f	YangScheng	Fachkenntnisse	1
-1	Dt	f	Zauberkunde	Fachkenntnisse	4
-1	Er	f	Zeichensprache	Fachkenntnisse	6
-1	Sp	f	Zeichensprache	Fachkenntnisse	6
-1	Tr	f	Zeichensprache	Fachkenntnisse	1
-1	BN	f	großer Schild	Waffenfertigkeiten	1
-1	Gl	f	großer Schild	Waffenfertigkeiten	1
-1	Km	f	großer Schild	Waffenfertigkeiten	1
-1	Kr	f	großer Schild	Waffenfertigkeiten	1
-1	Or	f	großer Schild	Waffenfertigkeiten	1
-1	RiN	f	großer Schild	Waffenfertigkeiten	1
-1	RiS	f	großer Schild	Waffenfertigkeiten	1
-1	Ru	f	großer Schild	Waffenfertigkeiten	1
-1	Sö	f	großer Schild	Waffenfertigkeiten	1
-1	BN	f	kleiner Schild	Waffenfertigkeiten	1
-1	BS	f	kleiner Schild	Waffenfertigkeiten	1
-1	BW	f	kleiner Schild	Waffenfertigkeiten	1
-1	Fi	f	kleiner Schild	Waffenfertigkeiten	1
-1	Gl	f	kleiner Schild	Waffenfertigkeiten	1
-1	Hj	f	kleiner Schild	Waffenfertigkeiten	1
-1	Hä	f	kleiner Schild	Waffenfertigkeiten	1
-1	Km	f	kleiner Schild	Waffenfertigkeiten	1
-1	Kr	f	kleiner Schild	Waffenfertigkeiten	1
-1	Mg	f	kleiner Schild	Waffenfertigkeiten	1
-1	Or	f	kleiner Schild	Waffenfertigkeiten	1
-1	RiN	f	kleiner Schild	Waffenfertigkeiten	1
-1	RiS	f	kleiner Schild	Waffenfertigkeiten	1
-1	Se	f	kleiner Schild	Waffenfertigkeiten	1
-1	Sö	f	kleiner Schild	Waffenfertigkeiten	1
-1	Tm	f	kleiner Schild	Waffenfertigkeiten	1
-1	Wi	f	kleiner Schild	Waffenfertigkeiten	1
-1	BN	f	leichter Speer	Waffenfertigkeiten	5
-1	BS	f	leichter Speer	Waffenfertigkeiten	5
-1	BW	f	leichter Speer	Waffenfertigkeiten	5
-1	Fi	f	leichter Speer	Waffenfertigkeiten	5
-1	Gl	f	leichter Speer	Waffenfertigkeiten	5
-1	Hj	f	leichter Speer	Waffenfertigkeiten	5
-1	Km	f	leichter Speer	Waffenfertigkeiten	5
-1	Kr	f	leichter Speer	Waffenfertigkeiten	5
-1	Ku	f	leichter Speer	Waffenfertigkeiten	5
-1	Or	f	leichter Speer	Waffenfertigkeiten	5
-1	RiS	f	leichter Speer	Waffenfertigkeiten	5
-1	Ru	f	leichter Speer	Waffenfertigkeiten	5
-1	Se	f	leichter Speer	Waffenfertigkeiten	5
-1	Sr	f	leichter Speer	Waffenfertigkeiten	5
-1	Sö	f	leichter Speer	Waffenfertigkeiten	5
-1	Tm	f	leichter Speer	Waffenfertigkeiten	5
-1	Wa	f	leichter Speer	Waffenfertigkeiten	5
-1	Wi	f	leichter Speer	Waffenfertigkeiten	5
-1	Kd	f	waffenloser Kampf	Waffenfertigkeiten	5
-1	BW	f	Überleben im Dschungel	Fachkenntnisse	8
-1	ScW	f	Überleben im Dschungel	Fachkenntnisse	8
-1	Wa	f	Überleben im Gebirge	Fachkenntnisse	8
-1	BN	f	Überleben im Schnee	Fachkenntnisse	8
+1	ScN	f	Geländelauf	Fachkenntnisse	15
+1	ScN	f	Sagenkunde	Fachkenntnisse	5
+1	ScN	f	Schwäche	Zauberkünste	0
+1	ScN	f	Tanzen	Fachkenntnisse	15
 1	ScN	f	Überleben im Schnee	Fachkenntnisse	8
-1	BW	f	Überleben im Wald	Fachkenntnisse	8
-1	ScW	f	Überleben im Wald	Fachkenntnisse	8
-1	Wa	f	Überleben im Wald	Fachkenntnisse	8
-1	BS	f	Überleben in der Steppe	Fachkenntnisse	8
-1	Ku	f	Überleben in der Steppe	Fachkenntnisse	8
+1	ScS	f	Reiten	Fachkenntnisse	15
+1	ScS	f	Sagenkunde	Fachkenntnisse	5
+1	ScS	f	Schwäche	Zauberkünste	0
+1	ScS	f	Tanzen	Fachkenntnisse	15
 1	ScS	f	Überleben in der Steppe	Fachkenntnisse	8
-1	BS	f	Überleben in der Wüste	Fachkenntnisse	8
-1	De	f	Überleben in der Wüste	Fachkenntnisse	8
-1	Ku	f	Überleben in der Wüste	Fachkenntnisse	8
 1	ScS	f	Überleben in der Wüste	Fachkenntnisse	8
-2	Gl	f	Akrobatik	Fachkenntnisse	15
-2	De	f	Al-Mahram 	Zauberkünste	0
-2	De	f	Al-Mutadid	Zauberkünste	0
-2	Mg	f	Alchimie	Fachkenntnisse	5
-2	BN	f	Anderthalbhänder	Waffenfertigkeiten	5
-2	Hj	f	Anderthalbhänder	Waffenfertigkeiten	5
-2	Km	f	Anderthalbhänder	Waffenfertigkeiten	5
-2	Kr	f	Anderthalbhänder	Waffenfertigkeiten	5
-2	Or	f	Anderthalbhänder	Waffenfertigkeiten	5
-2	RiN	f	Anderthalbhänder	Waffenfertigkeiten	5
-2	RiS	f	Anderthalbhänder	Waffenfertigkeiten	5
-2	Sr	f	Anderthalbhänder	Waffenfertigkeiten	5
-2	Sö	f	Anderthalbhänder	Waffenfertigkeiten	5
-2	Hj	f	Angst	Zauberkünste	0
-2	gHx	f	Anziehen	Zauberkünste	0
-2	sHx	f	Anziehen	Zauberkünste	0
-2	wHx	f	Anziehen	Zauberkünste	0
-2	PHa	f	Austreibung des Bösen	Zauberkünste	0
-2	PHe	f	Austreibung des Bösen	Zauberkünste	0
-2	PM	f	Austreibung des Bösen	Zauberkünste	0
-2	PW	f	Austreibung des Bösen	Zauberkünste	0
-2	BW	f	Balancieren	Fachkenntnisse	15
-2	Se	f	Balancieren	Fachkenntnisse	15
-2	Sp	f	Balancieren	Fachkenntnisse	15
-2	Sw	f	Balancieren	Fachkenntnisse	15
-2	Tr	f	Balancieren	Fachkenntnisse	15
-2	Tr	f	Ballbalance	Zauberkünste	\N
-2	Sö	f	Ballista bedienen	Fachkenntnisse	4
-2	PF	f	Bannen von Dunkelheit	Zauberkünste	0
-2	PHa	f	Bannen von Dunkelheit	Zauberkünste	0
-2	PK	f	Bannen von Dunkelheit	Zauberkünste	0
-2	PC	f	Bannen von Licht	Zauberkünste	0
-2	To	f	Bannen von Licht	Zauberkünste	0
-2	PHa	f	Baukunde	Fachkenntnisse	6
-2	Gl	f	Beidhändiger Kampf	Fachkenntnisse	3
-2	Kd	f	Beidhändiger Kampf	Fachkenntnisse	3
-2	Km	f	Beidhändiger Kampf	Fachkenntnisse	3
-2	Kr	f	Beidhändiger Kampf	Fachkenntnisse	3
-2	Ny	f	Beidhändiger Kampf	Fachkenntnisse	3
-2	RiN	f	Beidhändiger Kampf	Fachkenntnisse	3
-2	RiS	f	Beidhändiger Kampf	Fachkenntnisse	3
-2	Sö	f	Beidhändiger Kampf	Fachkenntnisse	3
-2	Ba	f	Beredsamkeit	Fachkenntnisse	8
-2	Hj	f	Beredsamkeit	Fachkenntnisse	8
-2	Mg	f	Beredsamkeit	Fachkenntnisse	8
-2	PHa	f	Beredsamkeit	Fachkenntnisse	8
-2	PHe	f	Beredsamkeit	Fachkenntnisse	8
-2	Ru	f	Beredsamkeit	Fachkenntnisse	8
-2	Sk	f	Beredsamkeit	Fachkenntnisse	8
-2	To	f	Beredsamkeit	Fachkenntnisse	8
+1	ScW	f	Sagenkunde	Fachkenntnisse	5
+1	ScW	f	Schwäche	Zauberkünste	0
+1	ScW	f	Schwimmen	Fachkenntnisse	15
+1	ScW	f	Tanzen	Fachkenntnisse	15
+1	ScW	f	Überleben im Dschungel	Fachkenntnisse	8
+1	ScW	f	Überleben im Wald	Fachkenntnisse	8
+1	Se	f	Dolch	Waffenfertigkeiten	5
+1	Se	f	Erzählen	Fachkenntnisse	12
+1	Se	f	Handaxt	Waffenfertigkeiten	5
+1	Se	f	Himmelskunde	Fachkenntnisse	5
+1	Se	f	Keule	Waffenfertigkeiten	5
+1	Se	f	kleiner Schild	Waffenfertigkeiten	1
+1	Se	f	Krummsäbel	Waffenfertigkeiten	5
+1	Se	f	Kurzschwert	Waffenfertigkeiten	5
+1	Se	f	Landeskunde	Fachkenntnisse	5
+1	Se	f	leichter Speer	Waffenfertigkeiten	5
+1	Se	f	Parierdolch	Waffenfertigkeiten	1
+1	Se	f	Rapier	Waffenfertigkeiten	5
+1	Se	f	Rudern	Fachkenntnisse	15
+1	Se	f	Schwimmen	Fachkenntnisse	15
+1	Se	f	Seemannsgang	Fachkenntnisse	15
+1	Se	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
+1	Se	f	Steuern	Fachkenntnisse	15
+1	Se	f	Streitaxt	Waffenfertigkeiten	5
+1	Se	f	Streitkolben	Waffenfertigkeiten	5
+1	Se	f	Tauchen	Fachkenntnisse	15
+1	Se	f	Trinken	Fachkenntnisse	1
+1	Se	f	Wetterkunde	Fachkenntnisse	15
+1	sHx	f	Binden des Vertrauten	Zauberkünste	0
+1	sHx	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	sHx	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Sk	f	Dolch	Waffenfertigkeiten	5
+1	Sk	f	Lied der Tapferkeit	Zauberkünste	\N
+1	Sk	f	Sagenkunde	Fachkenntnisse	5
+1	Sk	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Sk	t	Dichten	Fachkenntnisse	12
+1	Sk	t	Lesen von Zauberrunen	Fachkenntnisse	12
+1	Sk	t	Musizieren	Fachkenntnisse	12
+1	Sö	f	Buckler	Waffenfertigkeiten	1
+1	Sö	f	Dolch	Waffenfertigkeiten	5
+1	Sö	f	großer Schild	Waffenfertigkeiten	1
+1	Sö	f	Handaxt	Waffenfertigkeiten	5
+1	Sö	f	Kampf in Vollrüstung	Fachkenntnisse	15
+1	Sö	f	Keule	Waffenfertigkeiten	5
+1	Sö	f	kleiner Schild	Waffenfertigkeiten	1
+1	Sö	f	Kriegshammer	Waffenfertigkeiten	5
+1	Sö	f	Krummsäbel	Waffenfertigkeiten	5
+1	Sö	f	Kurzschwert	Waffenfertigkeiten	5
+1	Sö	f	Langschwert	Waffenfertigkeiten	5
+1	Sö	f	Lanze	Waffenfertigkeiten	5
+1	Sö	f	leichter Speer	Waffenfertigkeiten	5
+1	Sö	f	Morgenstern	Waffenfertigkeiten	5
+1	Sö	f	Ochsenzunge	Waffenfertigkeiten	5
+1	Sö	f	Parierdolch	Waffenfertigkeiten	1
+1	Sö	f	Rapier	Waffenfertigkeiten	5
+1	Sö	f	Reiten	Fachkenntnisse	15
+1	Sö	f	Stabkeule	Waffenfertigkeiten	5
+1	Sö	f	Stoßspeer	Waffenfertigkeiten	5
+1	Sö	f	Streitaxt	Waffenfertigkeiten	5
+1	Sö	f	Streitkolben	Waffenfertigkeiten	5
+1	Sö	f	Trinken	Fachkenntnisse	1
+1	Sö	f	Wurfaxt	Waffenfertigkeiten	5
+1	Sö	f	Wurfhammer	Waffenfertigkeiten	5
+1	Sö	f	Wurfkeule	Waffenfertigkeiten	5
+1	Sö	f	Wurfmesser	Waffenfertigkeiten	5
+1	Sö	f	Wurfpfeil	Waffenfertigkeiten	5
+1	Sö	f	Wurfspeer	Waffenfertigkeiten	5
+1	Sö	f	Wurfspieß	Waffenfertigkeiten	5
+1	Sp	f	Dolch	Waffenfertigkeiten	5
+1	Sp	f	Fallenmechanik	Fachkenntnisse	4
+1	Sp	f	Gaukeln	Fachkenntnisse	12
+1	Sp	f	Geheimzeichen	Fachkenntnisse	12
+1	Sp	f	Keule	Waffenfertigkeiten	5
+1	Sp	f	Schlösser öffnen	Fachkenntnisse	8
+1	Sp	f	Stehlen	Fachkenntnisse	8
+1	Sp	f	Verbergen	Fachkenntnisse	8
+1	Sp	f	Zeichensprache	Fachkenntnisse	6
+1	Sr	f	Buckler	Waffenfertigkeiten	5
+1	Sr	f	Dolch	Waffenfertigkeiten	5
+1	Sr	f	Handaxt	Waffenfertigkeiten	5
+1	Sr	f	Kampf zu Srimara	Fachkenntnisse	15
+1	Sr	f	Keule	Waffenfertigkeiten	5
+1	Sr	f	Krummsäbel	Waffenfertigkeiten	5
+1	Sr	f	Kurzschwert	Waffenfertigkeiten	5
+1	Sr	f	leichter Speer	Waffenfertigkeiten	5
+1	Sr	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Sr	f	Srimara lenken	Fachkenntnisse	15
+1	Sr	f	Streitaxt	Waffenfertigkeiten	5
+1	Sw	f	Befestigen	Zauberkünste	0
+1	Sw	f	Bittersalz	Zauberkünste	0
+1	Sw	f	Blicksalz	Zauberkünste	0
+1	Sw	f	Dolch	Waffenfertigkeiten	5
+1	Sw	f	Fallenmechanik	Fachkenntnisse	4
+1	Sw	f	Fälschen	Fachkenntnisse	15
+1	Sw	f	Gaukeln	Fachkenntnisse	12
+1	Sw	f	Geheimzeichen	Fachkenntnisse	12
+1	Sw	f	Hitzsalz	Zauberkünste	0
+1	Sw	f	Keule	Waffenfertigkeiten	5
+1	Sw	f	Kühlsalz	Zauberkünste	0
+1	Sw	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	Sw	f	Lichtrunen	Zauberkünste	0
+1	Sw	f	Niessalz	Zauberkünste	0
+1	Sw	f	Schätzen	Fachkenntnisse	8
+1	Sw	f	Schlösser öffnen	Fachkenntnisse	8
+1	Sw	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Sw	f	Stottersalz	Zauberkünste	0
+1	Sw	f	Verbergen	Fachkenntnisse	8
+1	Sw	f	Wehsalz	Zauberkünste	0
+1	Th	f	Befestigen	Zauberkünste	0
+1	Th	f	Bittersalz	Zauberkünste	0
+1	Th	f	Blicksalz	Zauberkünste	0
+1	Th	f	Hitzsalz	Zauberkünste	0
+1	Th	f	Kühlsalz	Zauberkünste	0
+1	Th	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	Th	f	Lichtrunen	Zauberkünste	0
+1	Th	f	Niessalz	Zauberkünste	0
+1	Th	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Th	f	Stottersalz	Zauberkünste	0
+1	Th	f	Wehsalz	Zauberkünste	0
+1	Tm	f	Dolch	Waffenfertigkeiten	5
+1	Tm	f	Geländelauf	Fachkenntnisse	15
+1	Tm	f	Handaxt	Waffenfertigkeiten	5
+1	Tm	f	Keule	Waffenfertigkeiten	5
+1	Tm	f	kleiner Schild	Waffenfertigkeiten	1
+1	Tm	f	Kurzschwert	Waffenfertigkeiten	5
+1	Tm	f	leichter Speer	Waffenfertigkeiten	5
+1	Tm	f	Stoßspeer	Waffenfertigkeiten	5
+1	Tm	f	Tierkunde	Fachkenntnisse	5
+1	Tm	f	Wurfaxt	Waffenfertigkeiten	5
+1	Tm	f	Wurfkeule	Waffenfertigkeiten	5
+1	Tm	f	Wurfspeer	Waffenfertigkeiten	5
+1	Tm	t	Abrichten	Fachkenntnisse	8
+1	To	f	Dolch	Waffenfertigkeiten	5
+1	To	f	Fallenmechanik	Fachkenntnisse	4
+1	To	f	Geheimzeichen	Fachkenntnisse	12
+1	To	f	Giftmischen	Fachkenntnisse	5
+1	To	f	Keule	Waffenfertigkeiten	5
+1	To	f	Kurzschwert	Waffenfertigkeiten	5
+1	To	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	To	f	Parierdolch	Waffenfertigkeiten	1
+1	To	f	Rapier	Waffenfertigkeiten	5
+1	To	f	Schleichen	Fachkenntnisse	8
+1	To	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	To	f	Schwäche	Zauberkünste	0
+1	To	f	Stimmen nachahmen	Fachkenntnisse	15
+1	To	f	Tarnen	Fachkenntnisse	8
+1	To	f	Wurfmesser	Waffenfertigkeiten	5
+1	To	t	Meucheln	Fachkenntnisse	8
+1	Tr	f	Dolch	Waffenfertigkeiten	5
+1	Tr	f	Federflechten	Fachkenntnisse	\N
+1	Tr	f	Geschenke machen	Fachkenntnisse	\N
+1	Tr	f	Sagenkunde	Fachkenntnisse	5
+1	Tr	f	Stehlen	Fachkenntnisse	8
+1	Tr	f	Tarnen	Fachkenntnisse	4
+1	Tr	f	Tätowieren	Fachkenntnisse	12
+1	Tr	f	Zeichensprache	Fachkenntnisse	1
+1	Tt	f	Dolch	Waffenfertigkeiten	5
+1	Tt	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Tt	f	Springen	Fachkenntnisse	15
+1	Tt	t	Tanzen	Fachkenntnisse	15
+1	Wa	f	Dolch	Waffenfertigkeiten	5
+1	Wa	f	Fallenstellen	Fachkenntnisse	4
+1	Wa	f	Laufen	Fachkenntnisse	4
+1	Wa	f	leichter Speer	Waffenfertigkeiten	5
+1	Wa	f	Pflanzenkunde	Fachkenntnisse	5
+1	Wa	f	Spurenlesen	Fachkenntnisse	6
+1	Wa	f	Stoßspeer	Waffenfertigkeiten	5
+1	Wa	f	Tierkunde	Fachkenntnisse	5
+1	Wa	f	Überleben im Gebirge	Fachkenntnisse	8
+1	Wa	f	Überleben im Wald	Fachkenntnisse	8
+1	wHx	f	Binden des Vertrauten	Zauberkünste	0
+1	wHx	f	Lesen von Zauberschrift	Fachkenntnisse	12
+1	wHx	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+1	Wi	f	Dolch	Waffenfertigkeiten	5
+1	Wi	f	Geländelauf	Fachkenntnisse	15
+1	Wi	f	Handaxt	Waffenfertigkeiten	5
+1	Wi	f	Keule	Waffenfertigkeiten	5
+1	Wi	f	kleiner Schild	Waffenfertigkeiten	1
+1	Wi	f	Kurzschwert	Waffenfertigkeiten	5
+1	Wi	f	leichter Speer	Waffenfertigkeiten	5
+1	Wi	f	Stoßspeer	Waffenfertigkeiten	5
+1	Wi	f	Tierkunde	Fachkenntnisse	5
+1	Wi	f	Wurfaxt	Waffenfertigkeiten	5
+1	Wi	f	Wurfkeule	Waffenfertigkeiten	5
+1	Wi	f	Wurfspeer	Waffenfertigkeiten	5
+1	Wi	t	Abrichten	Fachkenntnisse	8
+1	Wi	t	Schleichen	Fachkenntnisse	8
+1	Wi	t	Spurenlesen	Fachkenntnisse	6
+1	Wi	t	Tarnen	Fachkenntnisse	8
+1	Wi	t	Wahrnehmung	Fachkenntnisse	4
 2	As	f	Beschatten	Fachkenntnisse	8
-2	Ny	f	Beschatten	Fachkenntnisse	8
-2	To	f	Beschatten	Fachkenntnisse	8
-2	Km	f	Bihänder	Waffenfertigkeiten	5
-2	Kr	f	Bihänder	Waffenfertigkeiten	5
-2	RiN	f	Bihänder	Waffenfertigkeiten	5
-2	RiS	f	Bihänder	Waffenfertigkeiten	5
-2	Sö	f	Bihänder	Waffenfertigkeiten	5
-2	Sr	f	Binden von Srimara	Zauberkünste	\N
-2	Mg	f	Bittersalz	Zauberkünste	0
-2	BW	f	Blasrohr	Waffenfertigkeiten	5
-2	To	f	Blasrohr	Waffenfertigkeiten	5
-2	Mg	f	Blicksalz	Zauberkünste	0
-2	Tr	f	Blumen herbeizaubern	Zauberkünste	\N
-2	Dt	f	Blutsbrüderschaft stiften	Zauberkünste	\N
 2	As	f	Bogen	Waffenfertigkeiten	5
-2	BN	f	Bogen	Waffenfertigkeiten	5
-2	BS	f	Bogen	Waffenfertigkeiten	5
-2	BW	f	Bogen	Waffenfertigkeiten	5
-2	Fi	f	Bogen	Waffenfertigkeiten	5
-2	Km	f	Bogen	Waffenfertigkeiten	5
-2	Kr	f	Bogen	Waffenfertigkeiten	5
-2	Ku	f	Bogen	Waffenfertigkeiten	5
-2	Ny	f	Bogen	Waffenfertigkeiten	5
-2	RiS	f	Bogen	Waffenfertigkeiten	5
-2	Sö	f	Bogen	Waffenfertigkeiten	5
-2	Tm	f	Bogen	Waffenfertigkeiten	5
-2	To	f	Bogen	Waffenfertigkeiten	5
-2	Tr	f	Bogen	Waffenfertigkeiten	5
-2	Wa	f	Bogen	Waffenfertigkeiten	5
-2	Wi	f	Bogen	Waffenfertigkeiten	5
-2	Kr	f	Bogenkampf zu Pferd	Fachkenntnisse	15
-2	Ku	f	Bogenkampf zu Pferd	Fachkenntnisse	15
-2	RiS	f	Bogenkampf zu Pferd	Fachkenntnisse	1
+2	As	f	Fallen entdecken	Fachkenntnisse	6
+2	As	f	Fälschen	Fachkenntnisse	15
+2	As	f	Garotte	Waffenfertigkeiten	5
+2	As	f	Giftmischen	Fachkenntnisse	5
+2	As	f	Handaxt	Waffenfertigkeiten	5
+2	As	f	Kampf in Dunkelheit	Fachkenntnisse	2
+2	As	f	Kampfstab	Waffenfertigkeiten	5
+2	As	f	Kriegshammer	Waffenfertigkeiten	5
+2	As	f	Krummsäbel	Waffenfertigkeiten	5
+2	As	f	Kurzbogen	Waffenfertigkeiten	5
+2	As	f	Langschwert	Waffenfertigkeiten	5
+2	As	f	leichte Armbrust	Waffenfertigkeiten	5
+2	As	f	leichter Speer	Waffenfertigkeiten	5
+2	As	f	Lippenlesen	Fachkenntnisse	6
+2	As	f	Ochsenzunge	Waffenfertigkeiten	5
+2	As	f	Rapier	Waffenfertigkeiten	5
+2	As	f	Scharfschießen	Fachkenntnisse	5
+2	As	f	Streitkolben	Waffenfertigkeiten	5
+2	As	f	Suchen	Fachkenntnisse	8
+2	As	f	Verbergen	Fachkenntnisse	8
+2	As	f	Verhören	Fachkenntnisse	8
+2	As	f	Verkleiden	Fachkenntnisse	15
+2	As	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	As	f	Werfen	Waffenfertigkeiten	5
+2	As	f	Wurfaxt	Waffenfertigkeiten	5
+2	As	f	Wurfscheibe	Waffenfertigkeiten	5
+2	As	f	Wurfspeer	Waffenfertigkeiten	5
+2	Ba	f	Beredsamkeit	Fachkenntnisse	8
 2	Ba	f	Buckler	Waffenfertigkeiten	1
-2	Er	f	Buckler	Waffenfertigkeiten	1
-2	Hä	f	Buckler	Waffenfertigkeiten	1
-2	Ku	f	Buckler	Waffenfertigkeiten	1
-2	Sp	f	Buckler	Waffenfertigkeiten	1
-2	Sw	f	Buckler	Waffenfertigkeiten	1
-2	To	f	Bärenwut	Zauberkünste	0
-2	dBe	f	Coluscar 1 beschwören	Zauberkünste	\N
 2	Ba	f	Das Lied der Feier	Zauberkünste	0
 2	Ba	f	Das Lied des Fesselns	Zauberkünste	0
-2	De	f	Dolch	Waffenfertigkeiten	4
-2	Dr	f	Dolch	Waffenfertigkeiten	4
-2	Hl	f	Dolch	Waffenfertigkeiten	4
-2	MMa	f	Dolch	Waffenfertigkeiten	4
-2	Ma	f	Dolch	Waffenfertigkeiten	4
-2	PC	f	Dolch	Waffenfertigkeiten	4
-2	PHa	f	Dolch	Waffenfertigkeiten	4
-2	PK	f	Dolch	Waffenfertigkeiten	4
-2	PM	f	Dolch	Waffenfertigkeiten	4
-2	PT	f	Dolch	Waffenfertigkeiten	4
-2	PW	f	Dolch	Waffenfertigkeiten	4
-2	ScN	f	Dolch	Waffenfertigkeiten	4
-2	ScS	f	Dolch	Waffenfertigkeiten	4
-2	ScW	f	Dolch	Waffenfertigkeiten	4
-2	Th	f	Dolch	Waffenfertigkeiten	4
-2	dBe	f	Dolch	Waffenfertigkeiten	4
-2	eBe	f	Dolch	Waffenfertigkeiten	4
-2	gHx	f	Dolch	Waffenfertigkeiten	4
-2	sHx	f	Dolch	Waffenfertigkeiten	4
-2	wHx	f	Dolch	Waffenfertigkeiten	4
-2	dBe	f	Dunebrast 1 beschwören	Zauberkünste	\N
-2	Sw	f	Durstsalz	Zauberkünste	0
-2	Th	f	Durstsalz	Zauberkünste	0
-2	gHx	f	Dämonische Zaubermacht	Zauberkünste	0
-2	sHx	f	Dämonische Zaubermacht	Zauberkünste	0
-2	Hj	f	Erkennen der Aura	Zauberkünste	0
-2	PC	f	Erkennen der Aura	Zauberkünste	0
-2	PF	f	Erkennen der Aura	Zauberkünste	0
-2	PHa	f	Erkennen der Aura	Zauberkünste	0
-2	PHe	f	Erkennen der Aura	Zauberkünste	0
-2	PK	f	Erkennen der Aura	Zauberkünste	0
-2	PM	f	Erkennen der Aura	Zauberkünste	0
-2	PT	f	Erkennen der Aura	Zauberkünste	0
-2	De	f	Erste Hilfe	Fachkenntnisse	8
-2	Dt	f	Erste Hilfe	Fachkenntnisse	8
-2	PW	f	Erste Hilfe	Fachkenntnisse	8
-2	Sa	f	Erste Hilfe	Fachkenntnisse	8
-2	ScN	f	Erste Hilfe	Fachkenntnisse	8
-2	ScS	f	Erste Hilfe	Fachkenntnisse	8
-2	ScW	f	Erste Hilfe	Fachkenntnisse	8
-2	Tt	f	Erste Hilfe	Fachkenntnisse	12
-2	As	f	Fallen entdecken	Fachkenntnisse	6
-2	Er	f	Fallen entdecken	Fachkenntnisse	6
-2	Sp	f	Fallen entdecken	Fachkenntnisse	6
-2	Sw	f	Fallen entdecken	Fachkenntnisse	6
-2	To	f	Fallen entdecken	Fachkenntnisse	6
-2	Tm	f	Fallenstellen	Fachkenntnisse	4
-2	Wi	f	Fallenstellen	Fachkenntnisse	4
-2	BS	f	Fangen	Fachkenntnisse	15
-2	Se	f	Fangen	Fachkenntnisse	15
-2	BN	f	Faustkampf	Waffenfertigkeiten	5
-2	BS	f	Faustkampf	Waffenfertigkeiten	5
-2	Kr	f	Faustkampf	Waffenfertigkeiten	5
-2	Sö	f	Faustkampf	Waffenfertigkeiten	5
-2	Gl	f	Fechten	Fachkenntnisse	4
-2	eBe	f	Felldverg beschwören	Zauberkünste	\N
-2	PHe	f	Feuerfinger	Zauberkünste	0
-2	Gl	f	Fuchtel	Waffenfertigkeiten	5
-2	Kr	f	Fuchtel	Waffenfertigkeiten	5
-2	Mg	f	Fuchtel	Waffenfertigkeiten	5
-2	Sö	f	Fuchtel	Waffenfertigkeiten	5
-2	Sw	f	Funkensalz	Zauberkünste	0
-2	Th	f	Funkensalz	Zauberkünste	0
-2	As	f	Fälschen	Fachkenntnisse	15
-2	Gl	f	Fälschen	Fachkenntnisse	15
-2	To	f	Fälschen	Fachkenntnisse	15
-2	As	f	Garotte	Waffenfertigkeiten	5
-2	To	f	Garotte	Waffenfertigkeiten	5
-2	Er	f	Gassenwissen	Fachkenntnisse	5
-2	Hä	f	Gassenwissen	Fachkenntnisse	5
-2	Sp	f	Gassenwissen	Fachkenntnisse	5
-2	Sw	f	Gassenwissen	Fachkenntnisse	5
-2	To	f	Gassenwissen	Fachkenntnisse	5
-2	Tr	f	Gassenwissen	Fachkenntnisse	4
-2	gHx	f	Gassenwissen	Fachkenntnisse	5
-2	sHx	f	Gassenwissen	Fachkenntnisse	5
-2	wHx	f	Gassenwissen	Fachkenntnisse	5
-2	BS	f	Gaukeln	Fachkenntnisse	12
-2	Er	f	Geheimmechanismen öffnen	Fachkenntnisse	6
-2	Sp	f	Geheimmechanismen öffnen	Fachkenntnisse	6
-2	Sw	f	Geheimmechanismen öffnen	Fachkenntnisse	6
-2	Tr	f	Geheimzeichen	Fachkenntnisse	12
-2	BW	f	Geländelauf	Fachkenntnisse	15
-2	Fi	f	Geländelauf	Fachkenntnisse	15
-2	Wa	f	Geländelauf	Fachkenntnisse	15
-2	Tr	f	Geruch intensivieren	Zauberkünste	\N
-2	Sw	f	Geräusche dämpfen	Zauberkünste	0
-2	As	f	Giftmischen	Fachkenntnisse	5
-2	Mg	f	Giftmischen	Fachkenntnisse	5
-2	PC	f	Giftmischen	Fachkenntnisse	5
-2	PT	f	Giftmischen	Fachkenntnisse	5
-2	gHx	f	Giftmischen	Fachkenntnisse	5
-2	sHx	f	Giftmischen	Fachkenntnisse	5
-2	wHx	f	Giftmischen	Fachkenntnisse	5
-2	eBe	f	Gloddverg beschwören	Zauberkünste	\N
-2	Sö	f	Glücksspiel	Fachkenntnisse	15
-2	wHx	f	Göttlicher Schutz vor Bösem	Zauberkünste	0
-2	Or	f	Göttlicher Schutz vor dem Bösen	Zauberkünste	0
-2	PM	f	Handauflegen	Zauberkünste	0
-2	PT	f	Handauflegen	Zauberkünste	0
-2	PW	f	Handauflegen	Zauberkünste	0
-2	As	f	Handaxt	Waffenfertigkeiten	5
+2	Ba	f	großer Schild	Waffenfertigkeiten	1
 2	Ba	f	Handaxt	Waffenfertigkeiten	5
-2	Dr	f	Handaxt	Waffenfertigkeiten	4
-2	Er	f	Handaxt	Waffenfertigkeiten	5
-2	Hä	f	Handaxt	Waffenfertigkeiten	5
-2	Mg	f	Handaxt	Waffenfertigkeiten	5
-2	PF	f	Handaxt	Waffenfertigkeiten	4
-2	PHa	f	Handaxt	Waffenfertigkeiten	4
-2	PK	f	Handaxt	Waffenfertigkeiten	4
-2	Sp	f	Handaxt	Waffenfertigkeiten	5
-2	Sw	f	Handaxt	Waffenfertigkeiten	5
-2	To	f	Handaxt	Waffenfertigkeiten	5
-2	Wa	f	Handaxt	Waffenfertigkeiten	5
-2	Hl	f	Heilen von Krankheit	Zauberkünste	0
-2	Hl	f	Heilen von Wunden	Zauberkünste	0
-2	PF	f	Heilen von Wunden	Zauberkünste	0
-2	PC	f	Heiliger Zorn	Zauberkünste	0
-2	PHa	f	Heiliger Zorn	Zauberkünste	0
-2	PHe	f	Heiliger Zorn	Zauberkünste	0
-2	PT	f	Heiliger Zorn	Zauberkünste	0
-2	Hl	f	Heilkunde	Fachkenntnisse	5
-2	Mg	f	Heilkunde	Fachkenntnisse	5
-2	PW	f	Heilkunde	Fachkenntnisse	5
-2	ScN	f	Heilkunde	Fachkenntnisse	5
-2	ScS	f	Heilkunde	Fachkenntnisse	5
-2	ScW	f	Heilkunde	Fachkenntnisse	5
-2	MMa	f	Heimfeder	Zauberkünste	0
-2	Kr	f	Hellebarde	Waffenfertigkeiten	5
-2	Or	f	Hellebarde	Waffenfertigkeiten	5
-2	RiN	f	Hellebarde	Waffenfertigkeiten	5
-2	RiS	f	Hellebarde	Waffenfertigkeiten	5
-2	Sö	f	Hellebarde	Waffenfertigkeiten	5
-2	Dt	f	Himmelskunde	Fachkenntnisse	5
-2	De	f	Hitzeschutz	Zauberkünste	0
-2	ScN	f	Hitzeschutz	Zauberkünste	0
-2	ScS	f	Hitzeschutz	Zauberkünste	0
-2	ScW	f	Hitzeschutz	Zauberkünste	0
-2	Mg	f	Hitzsalz	Zauberkünste	0
-2	eBe	f	Hrimdverg beschwören	Zauberkünste	\N
-2	Sw	f	Hungersalz	Zauberkünste	0
-2	Th	f	Hungersalz	Zauberkünste	0
-2	Mg	f	Hören von Fernem	Zauberkünste	0
-2	Or	f	Hörnerklang	Zauberkünste	0
-2	Tt	f	Iquibalams Ruhm	Zauberkünste	\N
-2	Tt	f	Iquibalams Tapferkeit	Zauberkünste	\N
-2	Tt	f	Iquibalams Verachtung	Zauberkünste	\N
-2	Sw	f	Jucksalz	Zauberkünste	0
-2	Th	f	Jucksalz	Zauberkünste	0
-2	eBe	f	Kallbjargi beschwören	Zauberkünste	\N
-2	As	f	Kampf in Dunkelheit	Fachkenntnisse	2
-2	To	f	Kampf in Dunkelheit	Fachkenntnisse	2
-2	Wa	f	Kampf in Dunkelheit	Fachkenntnisse	2
-2	Kr	f	Kampf vom Streitwagen	Fachkenntnisse	15
-2	Or	f	Kampf vom Streitwagen	Fachkenntnisse	15
-2	Km	f	Kampf zu Pferd	Fachkenntnisse	15
-2	Kr	f	Kampf zu Pferd	Fachkenntnisse	15
-2	Ku	f	Kampf zu Pferd	Fachkenntnisse	15
-2	Or	f	Kampf zu Pferd	Fachkenntnisse	15
-2	RiN	f	Kampf zu Pferd	Fachkenntnisse	15
-2	RiS	f	Kampf zu Pferd	Fachkenntnisse	15
-2	Sö	f	Kampf zu Pferd	Fachkenntnisse	15
-2	As	f	Kampfstab	Waffenfertigkeiten	5
-2	Gl	f	Kampfstab	Waffenfertigkeiten	5
-2	Kd	f	Kampfstab	Waffenfertigkeiten	5
-2	Km	f	Kampfstab	Waffenfertigkeiten	5
-2	Kr	f	Kampfstab	Waffenfertigkeiten	5
-2	Ny	f	Kampfstab	Waffenfertigkeiten	5
-2	Or	f	Kampfstab	Waffenfertigkeiten	5
-2	Sa	f	Kampfstab	Waffenfertigkeiten	4
-2	Se	f	Kampfstab	Waffenfertigkeiten	5
-2	Sö	f	Kampfstab	Waffenfertigkeiten	5
-2	Tt	f	Kampfstab	Waffenfertigkeiten	5
-2	Km	f	Kampftaktik	Fachkenntnisse	8
-2	Kr	f	Kampftaktik	Fachkenntnisse	8
-2	Or	f	Kampftaktik	Fachkenntnisse	8
-2	RiN	f	Kampftaktik	Fachkenntnisse	8
-2	RiS	f	Kampftaktik	Fachkenntnisse	8
-2	Sr	f	Kampftaktik	Fachkenntnisse	8
-2	Sö	f	Kampftaktik	Fachkenntnisse	8
-2	Tt	f	Kampftaktik	Fachkenntnisse	8
-2	eBe	f	Karing beschwören	Zauberkünste	\N
-2	Sö	f	Katapult bedienen	Fachkenntnisse	4
-2	BN	f	Keule	Waffenfertigkeiten	5
-2	Dr	f	Keule	Waffenfertigkeiten	4
-2	Hä	f	Keule	Waffenfertigkeiten	5
-2	PF	f	Keule	Waffenfertigkeiten	4
-2	PHa	f	Keule	Waffenfertigkeiten	4
-2	PHe	f	Keule	Waffenfertigkeiten	4
-2	PK	f	Keule	Waffenfertigkeiten	4
-2	PT	f	Keule	Waffenfertigkeiten	4
-2	ScN	f	Keule	Waffenfertigkeiten	4
-2	ScS	f	Keule	Waffenfertigkeiten	4
-2	ScW	f	Keule	Waffenfertigkeiten	4
-2	Wa	f	Keule	Waffenfertigkeiten	5
-2	BN	f	Klettern	Fachkenntnisse	15
-2	BW	f	Klettern	Fachkenntnisse	15
-2	Ku	f	Klettern	Fachkenntnisse	15
-2	Se	f	Klettern	Fachkenntnisse	15
-2	Sp	f	Klettern	Fachkenntnisse	15
-2	Sw	f	Klettern	Fachkenntnisse	15
-2	Tr	f	Klettern	Fachkenntnisse	15
-2	Wa	f	Klettern	Fachkenntnisse	15
-2	Kr	f	Kriegsflegel	Waffenfertigkeiten	5
-2	RiN	f	Kriegsflegel	Waffenfertigkeiten	5
-2	Sö	f	Kriegsflegel	Waffenfertigkeiten	5
-2	As	f	Kriegshammer	Waffenfertigkeiten	5
-2	BN	f	Kriegshammer	Waffenfertigkeiten	5
-2	PF	f	Kriegshammer	Waffenfertigkeiten	4
-2	PHa	f	Kriegshammer	Waffenfertigkeiten	4
-2	PHe	f	Kriegshammer	Waffenfertigkeiten	4
-2	PK	f	Kriegshammer	Waffenfertigkeiten	4
-2	As	f	Krummsäbel	Waffenfertigkeiten	5
+2	Ba	f	kleiner Schild	Waffenfertigkeiten	1
 2	Ba	f	Krummsäbel	Waffenfertigkeiten	5
-2	Hä	f	Krummsäbel	Waffenfertigkeiten	5
-2	Kd	f	Krummsäbel	Waffenfertigkeiten	5
-2	Mg	f	Krummsäbel	Waffenfertigkeiten	5
-2	Ny	f	Krummsäbel	Waffenfertigkeiten	5
-2	PHe	f	Krummsäbel	Waffenfertigkeiten	4
-2	PK	f	Krummsäbel	Waffenfertigkeiten	4
-2	Sp	f	Krummsäbel	Waffenfertigkeiten	5
-2	BW	f	Kräuterkunde	Fachkenntnisse	5
-2	PF	f	Kräuterkunde	Fachkenntnisse	5
-2	Sa	f	Kräuterkunde	Fachkenntnisse	4
-2	ScN	f	Kräuterkunde	Fachkenntnisse	5
-2	ScS	f	Kräuterkunde	Fachkenntnisse	5
-2	ScW	f	Kräuterkunde	Fachkenntnisse	5
-2	Wa	f	Kräuterkunde	Fachkenntnisse	5
-2	gHx	f	Kräuterkunde	Fachkenntnisse	5
-2	sHx	f	Kräuterkunde	Fachkenntnisse	5
-2	wHx	f	Kräuterkunde	Fachkenntnisse	5
-2	As	f	Kurzbogen	Waffenfertigkeiten	5
-2	BS	f	Kurzbogen	Waffenfertigkeiten	5
-2	BW	f	Kurzbogen	Waffenfertigkeiten	5
-2	Fi	f	Kurzbogen	Waffenfertigkeiten	5
-2	Km	f	Kurzbogen	Waffenfertigkeiten	5
-2	Kr	f	Kurzbogen	Waffenfertigkeiten	5
-2	Ku	f	Kurzbogen	Waffenfertigkeiten	5
-2	Sö	f	Kurzbogen	Waffenfertigkeiten	5
-2	Tm	f	Kurzbogen	Waffenfertigkeiten	5
-2	To	f	Kurzbogen	Waffenfertigkeiten	5
-2	Wa	f	Kurzbogen	Waffenfertigkeiten	5
-2	Wi	f	Kurzbogen	Waffenfertigkeiten	5
-2	BN	f	Kurzschwert	Waffenfertigkeiten	5
-2	BS	f	Kurzschwert	Waffenfertigkeiten	5
 2	Ba	f	Kurzschwert	Waffenfertigkeiten	5
-2	Er	f	Kurzschwert	Waffenfertigkeiten	5
-2	Hä	f	Kurzschwert	Waffenfertigkeiten	5
-2	Ku	f	Kurzschwert	Waffenfertigkeiten	5
-2	PF	f	Kurzschwert	Waffenfertigkeiten	4
-2	PHa	f	Kurzschwert	Waffenfertigkeiten	4
-2	PHe	f	Kurzschwert	Waffenfertigkeiten	4
-2	PK	f	Kurzschwert	Waffenfertigkeiten	4
-2	PM	f	Kurzschwert	Waffenfertigkeiten	4
-2	PT	f	Kurzschwert	Waffenfertigkeiten	4
-2	Sp	f	Kurzschwert	Waffenfertigkeiten	5
-2	Sw	f	Kurzschwert	Waffenfertigkeiten	5
-2	Wa	f	Kurzschwert	Waffenfertigkeiten	5
-2	ScN	f	Kälteschutz	Zauberkünste	0
-2	ScS	f	Kälteschutz	Zauberkünste	0
-2	ScW	f	Kälteschutz	Zauberkünste	0
-2	Sr	f	Körperkontrolle	Fachkenntnisse	15
-2	Mg	f	Kühlsalz	Zauberkünste	0
-2	PT	f	Landeskunde	Fachkenntnisse	10
-2	PW	f	Landeskunde	Fachkenntnisse	5
-2	RiN	f	Landeskunde (Heimat)	Fachkenntnisse	12
-2	RiS	f	Landeskunde (Heimat)	Fachkenntnisse	12
-2	To	f	Landeskunde (Heimat)	Fachkenntnisse	10
-2	BN	f	Langbogen	Waffenfertigkeiten	5
-2	Km	f	Langbogen	Waffenfertigkeiten	5
-2	Kr	f	Langbogen	Waffenfertigkeiten	5
-2	Sö	f	Langbogen	Waffenfertigkeiten	5
-2	As	f	Langschwert	Waffenfertigkeiten	5
 2	Ba	f	Langschwert	Waffenfertigkeiten	5
-2	Fi	f	Langschwert	Waffenfertigkeiten	5
-2	Hj	f	Langschwert	Waffenfertigkeiten	5
-2	Hä	f	Langschwert	Waffenfertigkeiten	5
-2	Ny	f	Langschwert	Waffenfertigkeiten	5
-2	PK	f	Langschwert	Waffenfertigkeiten	4
-2	Ru	f	Langschwert	Waffenfertigkeiten	5
-2	Se	f	Langschwert	Waffenfertigkeiten	5
-2	Sk	f	Langschwert	Waffenfertigkeiten	5
-2	Sr	f	Langschwert	Waffenfertigkeiten	5
-2	Tm	f	Langschwert	Waffenfertigkeiten	5
-2	To	f	Langschwert	Waffenfertigkeiten	5
-2	Tt	f	Langschwert	Waffenfertigkeiten	5
-2	Wa	f	Langschwert	Waffenfertigkeiten	5
-2	Wi	f	Langschwert	Waffenfertigkeiten	5
-2	Or	f	Lanze	Waffenfertigkeiten	5
-2	Sr	f	Lanze	Waffenfertigkeiten	5
-2	BN	f	Laufen	Fachkenntnisse	4
-2	BS	f	Laufen	Fachkenntnisse	4
-2	Fi	f	Laufen	Fachkenntnisse	4
-2	Tm	f	Laufen	Fachkenntnisse	4
-2	Wi	f	Laufen	Fachkenntnisse	4
-2	Sw	f	Lauschen	Zauberkünste	0
-2	Th	f	Lauschen	Zauberkünste	0
-2	eBe	f	Lergris beschwören	Zauberkünste	\N
-2	De	f	Lesen von Zauberschrift	Fachkenntnisse	12
-2	Dr	f	Lesen von Zauberschrift	Fachkenntnisse	12
-2	Hj	f	Lesen von Zauberschrift	Fachkenntnisse	12
-2	Mg	f	Lesen von Zauberschrift	Fachkenntnisse	12
-2	Sa	f	Lesen von Zauberschrift	Fachkenntnisse	12
-2	ScN	f	Lesen von Zauberschrift	Fachkenntnisse	12
-2	ScS	f	Lesen von Zauberschrift	Fachkenntnisse	12
-2	ScW	f	Lesen von Zauberschrift	Fachkenntnisse	12
-2	As	f	Lippenlesen	Fachkenntnisse	6
-2	To	f	Lippenlesen	Fachkenntnisse	6
-2	Tr	f	Lippenlesen	Fachkenntnisse	4
-2	eBe	f	Ljosfang beschwören	Zauberkünste	\N
-2	Sw	f	Löschsalz	Zauberkünste	0
-2	Th	f	Löschsalz	Zauberkünste	0
-2	Km	f	Macht über Unbelebtes	Zauberkünste	0
-2	MMa	f	Macht über Unbelebtes	Zauberkünste	0
-2	Ma	f	Macht über Unbelebtes	Zauberkünste	0
-2	Sa	f	Macht über Unbelebtes	Zauberkünste	\N
-2	gHx	f	Macht über das Selbst	Zauberkünste	0
-2	sHx	f	Macht über das Selbst	Zauberkünste	0
-2	wHx	f	Macht über das Selbst	Zauberkünste	0
-2	Km	f	Macht über die Sinne	Zauberkünste	0
-2	Ma	f	Macht über die Sinne	Zauberkünste	0
-2	Sa	f	Macht über die Sinne	Zauberkünste	\N
-2	Ny	f	Meditieren	Fachkenntnisse	8
-2	Gl	f	Menschenkenntnis	Fachkenntnisse	5
-2	Hl	f	Menschenkenntnis	Fachkenntnisse	5
-2	Ny	f	Menschenkenntnis	Fachkenntnisse	4
-2	PW	f	Menschenkenntnis	Fachkenntnisse	5
-2	Sa	f	Menschenkenntnis	Fachkenntnisse	4
-2	Ny	t	Meucheln	Fachkenntnisse	8
-2	eBe	f	Mokkurbjargi beschwören	Zauberkünste	\N
-2	Gl	f	Morgenstern	Waffenfertigkeiten	5
-2	Hj	f	Morgenstern	Waffenfertigkeiten	5
-2	Or	f	Morgenstern	Waffenfertigkeiten	5
-2	Sa	f	Musizieren	Fachkenntnisse	12
-2	Ny	f	Naginata	Waffenfertigkeiten	5
-2	De	f	Naturkunde	Fachkenntnisse	5
-2	Dt	f	Naturkunde	Fachkenntnisse	5
-2	Fi	f	Naturkunde	Fachkenntnisse	5
-2	Hä	f	Naturkunde	Fachkenntnisse	5
-2	Sa	f	Naturkunde	Fachkenntnisse	5
-2	ScN	f	Naturkunde	Fachkenntnisse	5
-2	ScS	f	Naturkunde	Fachkenntnisse	5
-2	ScW	f	Naturkunde	Fachkenntnisse	5
-2	Th	f	Naturkunde	Fachkenntnisse	5
-2	Tm	f	Naturkunde	Fachkenntnisse	5
-2	Wi	f	Naturkunde	Fachkenntnisse	5
-2	Tr	f	Netz	Waffenfertigkeiten	5
-2	Ny	f	NunChaku	Waffenfertigkeiten	5
-2	As	f	Ochsenzunge	Waffenfertigkeiten	5
-2	Er	f	Ochsenzunge	Waffenfertigkeiten	5
-2	Hä	f	Ochsenzunge	Waffenfertigkeiten	5
-2	Se	f	Ochsenzunge	Waffenfertigkeiten	5
-2	Sp	f	Ochsenzunge	Waffenfertigkeiten	5
-2	To	f	Ochsenzunge	Waffenfertigkeiten	5
-2	Er	f	Parierdolch	Waffenfertigkeiten	1
-2	Hj	f	Parierdolch	Waffenfertigkeiten	1
-2	Hä	f	Parierdolch	Waffenfertigkeiten	1
-2	Mg	f	Parierdolch	Waffenfertigkeiten	1
-2	Sp	f	Parierdolch	Waffenfertigkeiten	1
-2	Sw	f	Parierdolch	Waffenfertigkeiten	1
-2	Tr	f	Peitsche	Waffenfertigkeiten	5
-2	Dt	f	Pflanzenkunde	Fachkenntnisse	5
-2	PF	f	Pflanzenkunde	Fachkenntnisse	5
-2	Sa	f	Pflanzenkunde	Fachkenntnisse	4
-2	ScN	f	Pflanzenkunde	Fachkenntnisse	5
-2	ScS	f	Pflanzenkunde	Fachkenntnisse	5
-2	ScW	f	Pflanzenkunde	Fachkenntnisse	5
-2	As	f	Rapier	Waffenfertigkeiten	5
+2	Ba	f	leichter Speer	Waffenfertigkeiten	5
 2	Ba	f	Rapier	Waffenfertigkeiten	5
-2	Er	f	Rapier	Waffenfertigkeiten	5
-2	Hj	f	Rapier	Waffenfertigkeiten	5
-2	PK	f	Rapier	Waffenfertigkeiten	4
-2	PT	f	Rapier	Waffenfertigkeiten	4
-2	Sp	f	Rapier	Waffenfertigkeiten	5
-2	Sw	f	Rapier	Waffenfertigkeiten	5
-2	PW	f	Rechnen	Fachkenntnisse	8
-2	Se	f	Rechnen	Fachkenntnisse	8
-2	Hl	f	Reinigen	Zauberkünste	0
-2	De	f	Reiten	Fachkenntnisse	15
-2	Fi	f	Reiten	Fachkenntnisse	15
-2	Hä	f	Reiten	Fachkenntnisse	15
-2	PK	f	Reiten	Fachkenntnisse	15
-2	Ru	f	Reiten	Fachkenntnisse	15
-2	Sr	f	Reiten	Fachkenntnisse	15
-2	Dr	f	Rindenhaut	Zauberkünste	0
-2	BW	f	Rudern	Fachkenntnisse	15
-2	eBe	f	Saeldverg beschwören	Zauberkünste	\N
-2	De	f	Sagenkunde	Fachkenntnisse	5
-2	Fi	f	Sagenkunde	Fachkenntnisse	5
-2	PF	f	Sagenkunde	Fachkenntnisse	5
-2	PHa	f	Sagenkunde	Fachkenntnisse	5
-2	PHe	f	Sagenkunde	Fachkenntnisse	5
-2	PK	f	Sagenkunde	Fachkenntnisse	5
-2	PM	f	Sagenkunde	Fachkenntnisse	5
-2	PT	f	Sagenkunde	Fachkenntnisse	5
-2	Tt	f	Sagenkunde	Fachkenntnisse	5
-2	Mg	f	Scharfblick	Zauberkünste	0
-2	As	f	Scharfschießen	Fachkenntnisse	5
-2	Ku	f	Scharfschießen	Fachkenntnisse	5
-2	Wa	f	Scharfschießen	Fachkenntnisse	5
 2	Ba	f	Schauspielern	Fachkenntnisse	8
-2	Er	f	Schauspielern	Fachkenntnisse	8
-2	Gl	f	Schauspielern	Fachkenntnisse	8
-2	Hä	f	Schauspielern	Fachkenntnisse	8
-2	PC	f	Schauspielern	Fachkenntnisse	8
-2	Kr	f	Schießen vom Streitwagen	Fachkenntnisse	15
-2	Hä	f	Schiffsführung	Fachkenntnisse	8
-2	Kr	f	Schiffsführung	Fachkenntnisse	8
-2	Se	f	Schiffsführung	Fachkenntnisse	8
-2	Kd	f	SchiyoKi	Fachkenntnisse	\N
-2	Kr	f	Schlachtbeil	Waffenfertigkeiten	5
-2	RiN	f	Schlachtbeil	Waffenfertigkeiten	5
-2	Sö	f	Schlachtbeil	Waffenfertigkeiten	5
-2	Ku	f	Schleichen	Fachkenntnisse	8
-2	Sp	f	Schleichen	Fachkenntnisse	8
-2	Sw	f	Schleichen	Fachkenntnisse	8
-2	Tr	f	Schleichen	Fachkenntnisse	4
-2	Wa	f	Schleichen	Fachkenntnisse	8
+2	Ba	f	Streitaxt	Waffenfertigkeiten	5
+2	Ba	f	Verführen	Fachkenntnisse	8
+2	Ba	f	Wurfaxt	Waffenfertigkeiten	5
+2	Ba	f	Wurfhammer	Waffenfertigkeiten	5
+2	Ba	f	Wurfmesser	Waffenfertigkeiten	5
+2	Ba	f	Wurfspeer	Waffenfertigkeiten	5
+2	Ba	f	Zauberkunde	Fachkenntnisse	5
+2	BN	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	BN	f	Bogen	Waffenfertigkeiten	5
+2	BN	f	Faustkampf	Waffenfertigkeiten	5
+2	BN	f	Keule	Waffenfertigkeiten	5
+2	BN	f	Klettern	Fachkenntnisse	15
+2	BN	f	Kriegshammer	Waffenfertigkeiten	5
+2	BN	f	Kurzschwert	Waffenfertigkeiten	5
+2	BN	f	Langbogen	Waffenfertigkeiten	5
+2	BN	f	Laufen	Fachkenntnisse	4
 2	BN	f	Schleuder	Waffenfertigkeiten	5
-2	Km	f	Schleuder	Waffenfertigkeiten	5
-2	Kr	f	Schleuder	Waffenfertigkeiten	5
-2	Mg	f	Schleuder	Waffenfertigkeiten	5
-2	Sö	f	Schleuder	Waffenfertigkeiten	5
-2	Tm	f	Schleuder	Waffenfertigkeiten	5
 2	BN	f	Schlittenfahren	Fachkenntnisse	15
-2	Er	f	Schlösser öffnen	Fachkenntnisse	8
-2	Hä	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-2	Kd	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
-2	Sa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+2	BN	f	Seemannsgang	Fachkenntnisse	15
+2	BN	f	Skifahren	Fachkenntnisse	15
+2	BN	f	Stabkeule	Waffenfertigkeiten	5
+2	BN	f	Steuern	Fachkenntnisse	15
+2	BS	f	Bogen	Waffenfertigkeiten	5
+2	BS	f	Fangen	Fachkenntnisse	15
+2	BS	f	Faustkampf	Waffenfertigkeiten	5
+2	BS	f	Gaukeln	Fachkenntnisse	12
+2	BS	f	Kurzbogen	Waffenfertigkeiten	5
+2	BS	f	Kurzschwert	Waffenfertigkeiten	5
+2	BS	f	Laufen	Fachkenntnisse	4
+2	BS	f	Speerschleuder	Waffenfertigkeiten	5
+2	BS	f	Spurenlesen	Fachkenntnisse	6
+2	BS	f	Wagenlenken	Fachkenntnisse	15
+2	BS	f	Wurfkeule	Waffenfertigkeiten	5
+2	BS	f	Wurfmesser	Waffenfertigkeiten	5
+2	BW	f	Balancieren	Fachkenntnisse	15
+2	BW	f	Blasrohr	Waffenfertigkeiten	5
+2	BW	f	Bogen	Waffenfertigkeiten	5
+2	BW	f	Geländelauf	Fachkenntnisse	15
+2	BW	f	großer Schild	Waffenfertigkeiten	1
+2	BW	f	Klettern	Fachkenntnisse	15
+2	BW	f	Kräuterkunde	Fachkenntnisse	5
+2	BW	f	Kurzbogen	Waffenfertigkeiten	5
+2	BW	f	Rudern	Fachkenntnisse	15
+2	BW	f	Stabkeule	Waffenfertigkeiten	5
+2	BW	f	Wahrnehmung	Fachkenntnisse	4
+2	BW	f	Wurfpfeil	Waffenfertigkeiten	5
+2	dBe	f	Coluscar 1 beschwören	Zauberkünste	\N
+2	dBe	f	Dolch	Waffenfertigkeiten	4
+2	dBe	f	Dunebrast 1 beschwören	Zauberkünste	\N
+2	dBe	f	Schutzkreis gegen Kaobargen	Zauberkünste	\N
+2	dBe	f	Zauberkunde	Fachkenntnisse	4
+2	De	f	Al-Mahram 	Zauberkünste	0
+2	De	f	Al-Mutadid	Zauberkünste	0
+2	De	f	Dolch	Waffenfertigkeiten	4
+2	De	f	Erste Hilfe	Fachkenntnisse	8
+2	De	f	Hitzeschutz	Zauberkünste	0
+2	De	f	leichter Speer	Waffenfertigkeiten	4
+2	De	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	De	f	Naturkunde	Fachkenntnisse	5
+2	De	f	Reiten	Fachkenntnisse	15
+2	De	f	Sagenkunde	Fachkenntnisse	5
+2	De	f	Tibb al-Mumani	Zauberkünste	0
+2	Dr	f	Dolch	Waffenfertigkeiten	4
+2	Dr	f	Handaxt	Waffenfertigkeiten	4
+2	Dr	f	Keule	Waffenfertigkeiten	4
+2	Dr	f	leichter Speer	Waffenfertigkeiten	4
+2	Dr	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	Dr	f	Rindenhaut	Zauberkünste	0
+2	Dr	f	Wahrnehmung	Fachkenntnisse	4
+2	Dr	f	Wetterkunde	Fachkenntnisse	15
+2	Dr	f	Zähmen	Zauberkünste	0
+2	Dr	f	Zauberkunde	Fachkenntnisse	5
+2	Dt	f	Blutsbrüderschaft stiften	Zauberkünste	\N
+2	Dt	f	Erste Hilfe	Fachkenntnisse	8
+2	Dt	f	Himmelskunde	Fachkenntnisse	5
+2	Dt	f	Naturkunde	Fachkenntnisse	5
+2	Dt	f	Pflanzenkunde	Fachkenntnisse	5
+2	Dt	f	Steinabreibungen machen	Fachkenntnisse	4
+2	Dt	f	Stille	Zauberkünste	\N
+2	Dt	f	Tätowieren	Fachkenntnisse	12
+2	Dt	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	eBe	f	Dolch	Waffenfertigkeiten	4
+2	eBe	f	Felldverg beschwören	Zauberkünste	\N
+2	eBe	f	Gloddverg beschwören	Zauberkünste	\N
+2	eBe	f	Hrimdverg beschwören	Zauberkünste	\N
+2	eBe	f	Kallbjargi beschwören	Zauberkünste	\N
+2	eBe	f	Karing beschwören	Zauberkünste	\N
+2	eBe	f	Lergris beschwören	Zauberkünste	\N
+2	eBe	f	Ljosfang beschwören	Zauberkünste	\N
+2	eBe	f	Mokkurbjargi beschwören	Zauberkünste	\N
+2	eBe	f	Saeldverg beschwören	Zauberkünste	\N
 2	eBe	f	Schutzkreis gegen Hrimfolk	Zauberkünste	\N
 2	eBe	f	Schutzkreis gegen Hyrrfolk	Zauberkünste	\N
 2	eBe	f	Schutzkreis gegen Jördfolk	Zauberkünste	\N
-2	dBe	f	Schutzkreis gegen Kaobargen	Zauberkünste	\N
 2	eBe	f	Schutzkreis gegen Vindfolk	Zauberkünste	\N
 2	eBe	f	Schutzkreis gegen Wisfolk	Zauberkünste	\N
-2	PM	f	Schwimmen	Fachkenntnisse	15
-2	Ru	f	Schwimmen	Fachkenntnisse	15
-2	Wa	f	Schwimmen	Fachkenntnisse	15
-2	PHa	f	Schätzen	Fachkenntnisse	5
-2	BN	f	Seemannsgang	Fachkenntnisse	15
-2	MMa	f	Seemansgang	Fachkenntnisse	15
-2	PK	f	Segnen	Zauberkünste	0
-2	PW	f	Segnen	Zauberkünste	0
-2	Sw	f	Sehen von Verborgenem	Zauberkünste	0
-2	Th	f	Sehen von Verborgenem	Zauberkünste	0
-2	Se	f	Seilkunst	Fachkenntnisse	8
-2	BN	f	Skifahren	Fachkenntnisse	15
-2	BS	f	Speerschleuder	Waffenfertigkeiten	5
-2	Gl	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
-2	PW	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
-2	BS	f	Spurenlesen	Fachkenntnisse	6
-2	Er	f	Spurenlesen	Fachkenntnisse	6
-2	Fi	f	Spurenlesen	Fachkenntnisse	6
-2	Tm	f	Spurenlesen	Fachkenntnisse	6
-2	BN	f	Stabkeule	Waffenfertigkeiten	5
-2	BW	f	Stabkeule	Waffenfertigkeiten	5
-2	Or	f	Stabkeule	Waffenfertigkeiten	5
-2	Sr	f	Stabkeule	Waffenfertigkeiten	5
-2	Dt	f	Steinabreibungen machen	Fachkenntnisse	4
-2	BN	f	Steuern	Fachkenntnisse	15
-2	Hä	f	Steuern	Fachkenntnisse	15
-2	PM	f	Steuern	Fachkenntnisse	15
-2	Kr	f	Stielhammer	Waffenfertigkeiten	5
-2	RiN	f	Stielhammer	Waffenfertigkeiten	5
-2	Sö	f	Stielhammer	Waffenfertigkeiten	5
-2	Dt	f	Stille	Zauberkünste	\N
-2	Sk	f	Stimmen nachahmen	Fachkenntnisse	15
-2	To	f	Stimmenwerfen	Zauberkünste	0
-2	Kr	f	Stockschleuder	Waffenfertigkeiten	5
-2	Sö	f	Stockschleuder	Waffenfertigkeiten	5
-2	Mg	f	Stottersalz	Zauberkünste	0
-2	Hj	f	Stoßspeer	Waffenfertigkeiten	5
-2	Mg	f	Stoßspeer	Waffenfertigkeiten	5
-2	PF	f	Stoßspeer	Waffenfertigkeiten	4
-2	PHe	f	Stoßspeer	Waffenfertigkeiten	4
-2	PK	f	Stoßspeer	Waffenfertigkeiten	4
-2	PM	f	Stoßspeer	Waffenfertigkeiten	4
-2	Ba	f	Streitaxt	Waffenfertigkeiten	5
-2	Hj	f	Streitaxt	Waffenfertigkeiten	5
-2	Hä	f	Streitaxt	Waffenfertigkeiten	5
-2	Ku	f	Streitaxt	Waffenfertigkeiten	5
-2	PK	f	Streitaxt	Waffenfertigkeiten	4
-2	Ru	f	Streitaxt	Waffenfertigkeiten	5
-2	Sk	f	Streitaxt	Waffenfertigkeiten	5
-2	Tm	f	Streitaxt	Waffenfertigkeiten	5
-2	Wa	f	Streitaxt	Waffenfertigkeiten	5
-2	As	f	Streitkolben	Waffenfertigkeiten	5
-2	Hä	f	Streitkolben	Waffenfertigkeiten	5
-2	Mg	f	Streitkolben	Waffenfertigkeiten	5
-2	PF	f	Streitkolben	Waffenfertigkeiten	4
-2	PHa	f	Streitkolben	Waffenfertigkeiten	4
-2	PHe	f	Streitkolben	Waffenfertigkeiten	4
-2	PK	f	Streitkolben	Waffenfertigkeiten	4
-2	Sp	f	Streitkolben	Waffenfertigkeiten	5
-2	Sw	f	Streitkolben	Waffenfertigkeiten	5
-2	To	f	Streitkolben	Waffenfertigkeiten	5
-2	Or	f	Streitwagen lenken	Fachkenntnisse	15
-2	As	f	Suchen	Fachkenntnisse	8
-2	Hj	f	Suchen	Fachkenntnisse	8
-2	Sp	f	Suchen	Fachkenntnisse	8
-2	Sw	f	Suchen	Fachkenntnisse	8
-2	To	f	Suchen	Fachkenntnisse	8
-2	MMa	f	Sumpfboden	Zauberkünster	0
-2	Ny	f	TaiTschi	Fachkenntnisse	\N
-2	Ku	f	Tarnen	Fachkenntnisse	8
-2	Sp	f	Tarnen	Fachkenntnisse	8
-2	Sw	f	Tarnen	Fachkenntnisse	8
-2	Wa	f	Tarnen	Fachkenntnisse	8
-2	PM	f	Tauchen	Fachkenntnisse	15
-2	Kd	f	Teezeremonie	Fachkenntnisse	8
-2	De	f	Tibb al-Mumani	Zauberkünste	0
-2	Ku	f	Tierkunde	Fachkenntnisse	5
-2	PF	f	Tierkunde	Fachkenntnisse	5
-2	Sa	f	Tierkunde	Fachkenntnisse	4
-2	ScN	f	Tierkunde	Fachkenntnisse	5
-2	ScS	f	Tierkunde	Fachkenntnisse	5
-2	ScW	f	Tierkunde	Fachkenntnisse	5
-2	Dt	f	Tätowieren	Fachkenntnisse	12
-2	As	f	Verbergen	Fachkenntnisse	8
-2	Er	f	Verbergen	Fachkenntnisse	8
-2	PC	f	Verbergen	Fachkenntnisse	8
-2	To	f	Verbergen	Fachkenntnisse	8
-2	gHx	f	Verbergen	Fachkenntnisse	8
-2	sHx	f	Verbergen	Fachkenntnisse	8
-2	wHx	f	Verbergen	Fachkenntnisse	8
-2	Ba	f	Verführen	Fachkenntnisse	8
-2	Gl	f	Verführen	Fachkenntnisse	8
-2	RiN	f	Verführen	Fachkenntnisse	8
-2	RiS	f	Verführen	Fachkenntnisse	8
-2	Sk	f	Verführen	Fachkenntnisse	8
-2	As	f	Verhören	Fachkenntnisse	8
-2	Gl	f	Verhören	Fachkenntnisse	8
-2	Hj	f	Verhören	Fachkenntnisse	8
-2	Hä	f	Verhören	Fachkenntnisse	8
-2	PHe	f	Verhören	Fachkenntnisse	8
-2	PT	f	Verhören	Fachkenntnisse	8
-2	As	f	Verkleiden	Fachkenntnisse	15
-2	Er	f	Verkleiden	Fachkenntnisse	15
-2	To	f	Verkleiden	Fachkenntnisse	15
-2	Mg	f	Verwirren	Zauberkünste	0
 2	eBe	f	Vinddverg beschwören	Zauberkünste	\N
-2	BS	f	Wagenlenken	Fachkenntnisse	15
-2	Ku	f	Wagenlenken	Fachkenntnisse	15
-2	Or	f	Wagenlenken	Fachkenntnisse	15
-2	Sö	f	Wagenlenken	Fachkenntnisse	15
-2	BW	f	Wahrnehmung	Fachkenntnisse	4
-2	Dr	f	Wahrnehmung	Fachkenntnisse	4
-2	Er	f	Wahrnehmung	Fachkenntnisse	4
-2	Hä	f	Wahrnehmung	Fachkenntnisse	4
-2	Ku	f	Wahrnehmung	Fachkenntnisse	4
-2	Sa	f	Wahrnehmung	Fachkenntnisse	4
-2	Wa	f	Wahrnehmung	Fachkenntnisse	4
-2	Fi	f	Wandeln wie der Wind	Zauberkünste	\N
-2	Wi	f	Wandeln wie der Wind	Zauberkünste	0
-2	PM	f	Wasseratmen	Zauberkünste	0
-2	Sw	f	Wassersalz	Zauberkünste	0
-2	Th	f	Wassersalz	Zauberkünste	0
-2	As	f	Werfen	Waffenfertigkeiten	5
-2	Gl	f	Werfen	Waffenfertigkeiten	5
-2	Sp	f	Werfen	Waffenfertigkeiten	5
-2	Sw	f	Werfen	Waffenfertigkeiten	5
-2	To	f	Werfen	Waffenfertigkeiten	5
-2	Dr	f	Wetterkunde	Fachkenntnisse	15
-2	Ku	f	Wetterkunde	Fachkenntnisse	15
-2	PW	f	Wetterkunde	Fachkenntnisse	15
-2	Ru	f	Wetterkunde	Fachkenntnisse	15
-2	ScN	f	Wetterkunde	Fachkenntnisse	15
-2	ScS	f	Wetterkunde	Fachkenntnisse	15
-2	ScW	f	Wetterkunde	Fachkenntnisse	15
-2	Wa	f	Wetterkunde	Fachkenntnisse	15
-2	Sp	f	Winden	Fachkenntnisse	4
-2	Sw	f	Winden	Fachkenntnisse	4
-2	PW	f	Windstoß	Zauberkünste	0
-2	Fi	f	Wundersame Tarnung	Zauberkünste	\N
-2	Tm	f	Wundersame Tarnung	Zauberkünste	0
-2	Wi	f	Wundersame Tarnung	Zauberkünste	0
-2	As	f	Wurfaxt	Waffenfertigkeiten	5
-2	Ba	f	Wurfaxt	Waffenfertigkeiten	5
-2	Gl	f	Wurfaxt	Waffenfertigkeiten	5
-2	Hj	f	Wurfaxt	Waffenfertigkeiten	5
-2	Hä	f	Wurfaxt	Waffenfertigkeiten	5
-2	Se	f	Wurfaxt	Waffenfertigkeiten	5
-2	Sp	f	Wurfaxt	Waffenfertigkeiten	5
-2	Sw	f	Wurfaxt	Waffenfertigkeiten	5
-2	To	f	Wurfaxt	Waffenfertigkeiten	5
-2	Wa	f	Wurfaxt	Waffenfertigkeiten	5
-2	Ba	f	Wurfhammer	Waffenfertigkeiten	5
-2	Gl	f	Wurfhammer	Waffenfertigkeiten	5
-2	Hj	f	Wurfhammer	Waffenfertigkeiten	5
-2	Hä	f	Wurfhammer	Waffenfertigkeiten	5
-2	BS	f	Wurfkeule	Waffenfertigkeiten	5
-2	Er	f	Wurfkeule	Waffenfertigkeiten	5
-2	Gl	f	Wurfkeule	Waffenfertigkeiten	5
-2	Hj	f	Wurfkeule	Waffenfertigkeiten	5
-2	Ku	f	Wurfkeule	Waffenfertigkeiten	5
-2	Sp	f	Wurfkeule	Waffenfertigkeiten	5
-2	BS	f	Wurfmesser	Waffenfertigkeiten	5
-2	Ba	f	Wurfmesser	Waffenfertigkeiten	5
-2	Er	f	Wurfmesser	Waffenfertigkeiten	5
-2	Gl	f	Wurfmesser	Waffenfertigkeiten	5
-2	Mg	f	Wurfmesser	Waffenfertigkeiten	5
-2	Se	f	Wurfmesser	Waffenfertigkeiten	5
-2	Sp	f	Wurfmesser	Waffenfertigkeiten	5
-2	Sw	f	Wurfmesser	Waffenfertigkeiten	5
-2	BW	f	Wurfpfeil	Waffenfertigkeiten	5
-2	Gl	f	Wurfpfeil	Waffenfertigkeiten	5
-2	Mg	f	Wurfpfeil	Waffenfertigkeiten	5
-2	Tm	f	Wurfpfeil	Waffenfertigkeiten	5
-2	To	f	Wurfpfeil	Waffenfertigkeiten	5
-2	As	f	Wurfscheibe	Waffenfertigkeiten	5
-2	As	f	Wurfspeer	Waffenfertigkeiten	5
-2	Ba	f	Wurfspeer	Waffenfertigkeiten	5
-2	Fi	f	Wurfspeer	Waffenfertigkeiten	5
-2	Gl	f	Wurfspeer	Waffenfertigkeiten	5
-2	Hj	f	Wurfspeer	Waffenfertigkeiten	5
-2	Hä	f	Wurfspeer	Waffenfertigkeiten	5
-2	Ku	f	Wurfspeer	Waffenfertigkeiten	5
-2	Se	f	Wurfspeer	Waffenfertigkeiten	5
-2	Sk	f	Wurfspeer	Waffenfertigkeiten	5
-2	Sp	f	Wurfspeer	Waffenfertigkeiten	5
-2	To	f	Wurfspeer	Waffenfertigkeiten	5
-2	Wa	f	Wurfspeer	Waffenfertigkeiten	5
-2	Gl	f	Wurfspieß	Waffenfertigkeiten	5
-2	Se	f	Wurfspieß	Waffenfertigkeiten	5
-2	Kd	f	Wurfstern	Waffenfertigkeiten	5
-2	Ba	f	Zauberkunde	Fachkenntnisse	5
-2	Dr	f	Zauberkunde	Fachkenntnisse	5
-2	Gl	f	Zauberkunde	Fachkenntnisse	5
-2	Hj	f	Zauberkunde	Fachkenntnisse	5
-2	Hl	f	Zauberkunde	Fachkenntnisse	5
-2	Km	f	Zauberkunde	Fachkenntnisse	5
-2	MMa	f	Zauberkunde	Fachkenntnisse	5
-2	Ma	f	Zauberkunde	Fachkenntnisse	5
-2	Mg	f	Zauberkunde	Fachkenntnisse	5
-2	PW	f	Zauberkunde	Fachkenntnisse	5
-2	Sw	f	Zauberkunde	Fachkenntnisse	5
-2	Th	f	Zauberkunde	Fachkenntnisse	5
-2	To	f	Zauberkunde	Fachkenntnisse	5
-2	dBe	f	Zauberkunde	Fachkenntnisse	4
 2	eBe	f	Zauberkunde	Fachkenntnisse	4
-2	gHx	f	Zauberkunde	Fachkenntnisse	5
-2	sHx	f	Zauberkunde	Fachkenntnisse	5
-2	wHx	f	Zauberkunde	Fachkenntnisse	5
-2	Hä	f	Zeichensprache	Fachkenntnisse	6
-2	Dr	f	Zähmen	Zauberkünste	0
-2	Tm	f	Zähmen	Zauberkünste	0
-2	Wi	f	Zähmen	Zauberkünste	0
-2	BW	f	großer Schild	Waffenfertigkeiten	1
-2	Ba	f	großer Schild	Waffenfertigkeiten	1
-2	Fi	f	großer Schild	Waffenfertigkeiten	1
-2	Hj	f	großer Schild	Waffenfertigkeiten	1
-2	Hä	f	großer Schild	Waffenfertigkeiten	1
-2	Se	f	großer Schild	Waffenfertigkeiten	1
-2	Sk	f	großer Schild	Waffenfertigkeiten	1
-2	Tm	f	großer Schild	Waffenfertigkeiten	1
-2	Wa	f	großer Schild	Waffenfertigkeiten	1
-2	Wi	f	großer Schild	Waffenfertigkeiten	1
-2	Ba	f	kleiner Schild	Waffenfertigkeiten	1
+2	Er	f	Buckler	Waffenfertigkeiten	1
+2	Er	f	Fallen entdecken	Fachkenntnisse	6
+2	Er	f	Gassenwissen	Fachkenntnisse	5
+2	Er	f	Geheimmechanismen öffnen	Fachkenntnisse	6
+2	Er	f	Handaxt	Waffenfertigkeiten	5
 2	Er	f	kleiner Schild	Waffenfertigkeiten	1
-2	Ku	f	kleiner Schild	Waffenfertigkeiten	1
-2	Sp	f	kleiner Schild	Waffenfertigkeiten	1
-2	Sw	f	kleiner Schild	Waffenfertigkeiten	1
-2	Wa	f	kleiner Schild	Waffenfertigkeiten	1
-2	As	f	leichte Armbrust	Waffenfertigkeiten	5
-2	Hä	f	leichte Armbrust	Waffenfertigkeiten	5
-2	Kr	f	leichte Armbrust	Waffenfertigkeiten	5
-2	Ny	f	leichte Armbrust	Waffenfertigkeiten	5
-2	Sö	f	leichte Armbrust	Waffenfertigkeiten	5
-2	To	f	leichte Armbrust	Waffenfertigkeiten	5
-2	As	f	leichter Speer	Waffenfertigkeiten	5
-2	Ba	f	leichter Speer	Waffenfertigkeiten	5
-2	De	f	leichter Speer	Waffenfertigkeiten	4
-2	Dr	f	leichter Speer	Waffenfertigkeiten	4
-2	Hä	f	leichter Speer	Waffenfertigkeiten	5
-2	Mg	f	leichter Speer	Waffenfertigkeiten	5
-2	PC	f	leichter Speer	Waffenfertigkeiten	4
-2	PK	f	leichter Speer	Waffenfertigkeiten	4
-2	PM	f	leichter Speer	Waffenfertigkeiten	4
-2	ScN	f	leichter Speer	Waffenfertigkeiten	4
-2	ScS	f	leichter Speer	Waffenfertigkeiten	4
-2	ScW	f	leichter Speer	Waffenfertigkeiten	4
-2	Sk	f	leichter Speer	Waffenfertigkeiten	5
-2	Sp	f	leichter Speer	Waffenfertigkeiten	5
-2	Sw	f	leichter Speer	Waffenfertigkeiten	5
-2	To	f	leichter Speer	Waffenfertigkeiten	5
-2	Tt	f	leichter Speer	Waffenfertigkeiten	5
-2	Kr	f	schwere Armbrust	Waffenfertigkeiten	5
-2	Sö	f	schwere Armbrust	Waffenfertigkeiten	5
-2	As	f	waffenloser Kampf	Waffenfertigkeiten	5
-2	Dt	f	waffenloser Kampf	Waffenfertigkeiten	5
-2	Km	f	waffenloser Kampf	Waffenfertigkeiten	5
-2	Kr	f	waffenloser Kampf	Waffenfertigkeiten	5
-2	Ny	f	waffenloser Kampf	Waffenfertigkeiten	5
-2	RiN	f	waffenloser Kampf	Waffenfertigkeiten	5
-2	RiS	f	waffenloser Kampf	Waffenfertigkeiten	5
-2	Sa	f	waffenloser Kampf	Waffenfertigkeiten	4
-2	Sö	f	waffenloser Kampf	Waffenfertigkeiten	5
-2	To	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	Er	f	Kurzschwert	Waffenfertigkeiten	5
+2	Er	f	Ochsenzunge	Waffenfertigkeiten	5
+2	Er	f	Parierdolch	Waffenfertigkeiten	1
+2	Er	f	Rapier	Waffenfertigkeiten	5
+2	Er	f	Schauspielern	Fachkenntnisse	8
+2	Er	f	Schlösser öffnen	Fachkenntnisse	8
+2	Er	f	Spurenlesen	Fachkenntnisse	6
+2	Er	f	Verbergen	Fachkenntnisse	8
+2	Er	f	Verkleiden	Fachkenntnisse	15
+2	Er	f	Wahrnehmung	Fachkenntnisse	4
+2	Er	f	Wurfkeule	Waffenfertigkeiten	5
+2	Er	f	Wurfmesser	Waffenfertigkeiten	5
+2	Fi	f	Bogen	Waffenfertigkeiten	5
+2	Fi	f	Geländelauf	Fachkenntnisse	15
+2	Fi	f	großer Schild	Waffenfertigkeiten	1
+2	Fi	f	Kurzbogen	Waffenfertigkeiten	5
+2	Fi	f	Langschwert	Waffenfertigkeiten	5
+2	Fi	f	Laufen	Fachkenntnisse	4
+2	Fi	f	Naturkunde	Fachkenntnisse	5
+2	Fi	f	Reiten	Fachkenntnisse	15
+2	Fi	f	Sagenkunde	Fachkenntnisse	5
+2	Fi	f	Spurenlesen	Fachkenntnisse	6
 2	Fi	f	Überleben im Gebirge	Fachkenntnisse	8
 2	Fi	f	Überleben im Wald	Fachkenntnisse	8
-3	BN	f	Abrichten	Fachkenntnisse	8
-3	BS	f	Abrichten	Fachkenntnisse	8
-3	BW	f	Abrichten	Fachkenntnisse	8
-3	Dr	f	Abrichten	Fachkenntnisse	8
-3	Wa	f	Abrichten	Fachkenntnisse	8
-3	De	f	Akbar fil-Ghadban	Zauberkünste	0
-3	BW	f	Akrobatik	Fachkenntnisse	15
-3	Sp	f	Akrobatik	Fachkenntnisse	15
-3	Sw	f	Akrobatik	Fachkenntnisse	15
-3	De	f	Al-Karama	Zauberkünste	0
-3	Km	f	Alchimie	Fachkenntnisse	5
-3	Ma	f	Alchimie	Fachkenntnisse	5
-3	Sw	f	Alchimie	Fachkenntnisse	5
-3	Th	f	Alchimie	Fachkenntnisse	5
+2	Fi	f	Wandeln wie der Wind	Zauberkünste	\N
+2	Fi	f	Wundersame Tarnung	Zauberkünste	\N
+2	Fi	f	Wurfspeer	Waffenfertigkeiten	5
+2	gHx	f	Anziehen	Zauberkünste	0
+2	gHx	f	Dämonische Zaubermacht	Zauberkünste	0
+2	gHx	f	Dolch	Waffenfertigkeiten	4
+2	gHx	f	Gassenwissen	Fachkenntnisse	5
+2	gHx	f	Giftmischen	Fachkenntnisse	5
+2	gHx	f	Kräuterkunde	Fachkenntnisse	5
+2	gHx	f	Macht über das Selbst	Zauberkünste	0
+2	gHx	f	Verbergen	Fachkenntnisse	8
+2	gHx	f	Zauberkunde	Fachkenntnisse	5
+2	Gl	f	Akrobatik	Fachkenntnisse	15
+2	Gl	f	Beidhändiger Kampf	Fachkenntnisse	3
+2	Gl	f	Fälschen	Fachkenntnisse	15
+2	Gl	f	Fechten	Fachkenntnisse	4
+2	Gl	f	Fuchtel	Waffenfertigkeiten	5
+2	Gl	f	Kampfstab	Waffenfertigkeiten	5
+2	Gl	f	Menschenkenntnis	Fachkenntnisse	5
+2	Gl	f	Morgenstern	Waffenfertigkeiten	5
+2	Gl	f	Schauspielern	Fachkenntnisse	8
+2	Gl	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
+2	Gl	f	Verführen	Fachkenntnisse	8
+2	Gl	f	Verhören	Fachkenntnisse	8
+2	Gl	f	Werfen	Waffenfertigkeiten	5
+2	Gl	f	Wurfaxt	Waffenfertigkeiten	5
+2	Gl	f	Wurfhammer	Waffenfertigkeiten	5
+2	Gl	f	Wurfkeule	Waffenfertigkeiten	5
+2	Gl	f	Wurfmesser	Waffenfertigkeiten	5
+2	Gl	f	Wurfpfeil	Waffenfertigkeiten	5
+2	Gl	f	Wurfspeer	Waffenfertigkeiten	5
+2	Gl	f	Wurfspieß	Waffenfertigkeiten	5
+2	Gl	f	Zauberkunde	Fachkenntnisse	5
+2	Hä	f	Buckler	Waffenfertigkeiten	1
+2	Hä	f	Gassenwissen	Fachkenntnisse	5
+2	Hä	f	großer Schild	Waffenfertigkeiten	1
+2	Hä	f	Handaxt	Waffenfertigkeiten	5
+2	Hä	f	Keule	Waffenfertigkeiten	5
+2	Hä	f	Krummsäbel	Waffenfertigkeiten	5
+2	Hä	f	Kurzschwert	Waffenfertigkeiten	5
+2	Hä	f	Langschwert	Waffenfertigkeiten	5
+2	Hä	f	leichte Armbrust	Waffenfertigkeiten	5
+2	Hä	f	leichter Speer	Waffenfertigkeiten	5
+2	Hä	f	Naturkunde	Fachkenntnisse	5
+2	Hä	f	Ochsenzunge	Waffenfertigkeiten	5
+2	Hä	f	Parierdolch	Waffenfertigkeiten	1
+2	Hä	f	Reiten	Fachkenntnisse	15
+2	Hä	f	Schauspielern	Fachkenntnisse	8
+2	Hä	f	Schiffsführung	Fachkenntnisse	8
+2	Hä	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+2	Hä	f	Steuern	Fachkenntnisse	15
+2	Hä	f	Streitaxt	Waffenfertigkeiten	5
+2	Hä	f	Streitkolben	Waffenfertigkeiten	5
+2	Hä	f	Verhören	Fachkenntnisse	8
+2	Hä	f	Wahrnehmung	Fachkenntnisse	4
+2	Hä	f	Wurfaxt	Waffenfertigkeiten	5
+2	Hä	f	Wurfhammer	Waffenfertigkeiten	5
+2	Hä	f	Wurfspeer	Waffenfertigkeiten	5
+2	Hä	f	Zeichensprache	Fachkenntnisse	6
+2	Hj	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	Hj	f	Angst	Zauberkünste	0
+2	Hj	f	Beredsamkeit	Fachkenntnisse	8
+2	Hj	f	Erkennen der Aura	Zauberkünste	0
+2	Hj	f	großer Schild	Waffenfertigkeiten	1
+2	Hj	f	Langschwert	Waffenfertigkeiten	5
+2	Hj	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	Hj	f	Morgenstern	Waffenfertigkeiten	5
+2	Hj	f	Parierdolch	Waffenfertigkeiten	1
+2	Hj	f	Rapier	Waffenfertigkeiten	5
+2	Hj	f	Stoßspeer	Waffenfertigkeiten	5
+2	Hj	f	Streitaxt	Waffenfertigkeiten	5
+2	Hj	f	Suchen	Fachkenntnisse	8
+2	Hj	f	Verhören	Fachkenntnisse	8
+2	Hj	f	Wurfaxt	Waffenfertigkeiten	5
+2	Hj	f	Wurfhammer	Waffenfertigkeiten	5
+2	Hj	f	Wurfkeule	Waffenfertigkeiten	5
+2	Hj	f	Wurfspeer	Waffenfertigkeiten	5
+2	Hj	f	Zauberkunde	Fachkenntnisse	5
+2	Hl	f	Dolch	Waffenfertigkeiten	4
+2	Hl	f	Heilen von Krankheit	Zauberkünste	0
+2	Hl	f	Heilen von Wunden	Zauberkünste	0
+2	Hl	f	Heilkunde	Fachkenntnisse	5
+2	Hl	f	Menschenkenntnis	Fachkenntnisse	5
+2	Hl	f	Reinigen	Zauberkünste	0
+2	Hl	f	Zauberkunde	Fachkenntnisse	5
+2	Kd	f	Beidhändiger Kampf	Fachkenntnisse	3
+2	Kd	f	Kampfstab	Waffenfertigkeiten	5
+2	Kd	f	Krummsäbel	Waffenfertigkeiten	5
+2	Kd	f	SchiyoKi	Fachkenntnisse	\N
+2	Kd	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+2	Kd	f	Teezeremonie	Fachkenntnisse	8
+2	Kd	f	Wurfstern	Waffenfertigkeiten	5
+2	Km	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	Km	f	Beidhändiger Kampf	Fachkenntnisse	3
+2	Km	f	Bihänder	Waffenfertigkeiten	5
+2	Km	f	Bogen	Waffenfertigkeiten	5
+2	Km	f	Kampfstab	Waffenfertigkeiten	5
+2	Km	f	Kampftaktik	Fachkenntnisse	8
+2	Km	f	Kampf zu Pferd	Fachkenntnisse	15
+2	Km	f	Kurzbogen	Waffenfertigkeiten	5
+2	Km	f	Langbogen	Waffenfertigkeiten	5
+2	Km	f	Macht über die Sinne	Zauberkünste	0
+2	Km	f	Macht über Unbelebtes	Zauberkünste	0
+2	Km	f	Schleuder	Waffenfertigkeiten	5
+2	Km	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	Km	f	Zauberkunde	Fachkenntnisse	5
+2	Kr	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	Kr	f	Beidhändiger Kampf	Fachkenntnisse	3
+2	Kr	f	Bihänder	Waffenfertigkeiten	5
+2	Kr	f	Bogen	Waffenfertigkeiten	5
+2	Kr	f	Bogenkampf zu Pferd	Fachkenntnisse	15
+2	Kr	f	Faustkampf	Waffenfertigkeiten	5
+2	Kr	f	Fuchtel	Waffenfertigkeiten	5
+2	Kr	f	Hellebarde	Waffenfertigkeiten	5
+2	Kr	f	Kampfstab	Waffenfertigkeiten	5
+2	Kr	f	Kampftaktik	Fachkenntnisse	8
+2	Kr	f	Kampf vom Streitwagen	Fachkenntnisse	15
+2	Kr	f	Kampf zu Pferd	Fachkenntnisse	15
+2	Kr	f	Kriegsflegel	Waffenfertigkeiten	5
+2	Kr	f	Kurzbogen	Waffenfertigkeiten	5
+2	Kr	f	Langbogen	Waffenfertigkeiten	5
+2	Kr	f	leichte Armbrust	Waffenfertigkeiten	5
+2	Kr	f	Schießen vom Streitwagen	Fachkenntnisse	15
+2	Kr	f	Schiffsführung	Fachkenntnisse	8
+2	Kr	f	Schlachtbeil	Waffenfertigkeiten	5
+2	Kr	f	Schleuder	Waffenfertigkeiten	5
+2	Kr	f	schwere Armbrust	Waffenfertigkeiten	5
+2	Kr	f	Stielhammer	Waffenfertigkeiten	5
+2	Kr	f	Stockschleuder	Waffenfertigkeiten	5
+2	Kr	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	Ku	f	Bogen	Waffenfertigkeiten	5
+2	Ku	f	Bogenkampf zu Pferd	Fachkenntnisse	15
+2	Ku	f	Buckler	Waffenfertigkeiten	1
+2	Ku	f	Kampf zu Pferd	Fachkenntnisse	15
+2	Ku	f	kleiner Schild	Waffenfertigkeiten	1
+2	Ku	f	Klettern	Fachkenntnisse	15
+2	Ku	f	Kurzbogen	Waffenfertigkeiten	5
+2	Ku	f	Kurzschwert	Waffenfertigkeiten	5
+2	Ku	f	Scharfschießen	Fachkenntnisse	5
+2	Ku	f	Schleichen	Fachkenntnisse	8
+2	Ku	f	Streitaxt	Waffenfertigkeiten	5
+2	Ku	f	Tarnen	Fachkenntnisse	8
+2	Ku	f	Tierkunde	Fachkenntnisse	5
+2	Ku	f	Wagenlenken	Fachkenntnisse	15
+2	Ku	f	Wahrnehmung	Fachkenntnisse	4
+2	Ku	f	Wetterkunde	Fachkenntnisse	15
+2	Ku	f	Wurfkeule	Waffenfertigkeiten	5
+2	Ku	f	Wurfspeer	Waffenfertigkeiten	5
+2	Ma	f	Dolch	Waffenfertigkeiten	4
+2	Ma	f	Macht über die Sinne	Zauberkünste	0
+2	Ma	f	Macht über Unbelebtes	Zauberkünste	0
+2	Ma	f	Zauberkunde	Fachkenntnisse	5
+2	Mg	f	Alchimie	Fachkenntnisse	5
+2	Mg	f	Beredsamkeit	Fachkenntnisse	8
+2	Mg	f	Bittersalz	Zauberkünste	0
+2	Mg	f	Blicksalz	Zauberkünste	0
+2	Mg	f	Fuchtel	Waffenfertigkeiten	5
+2	Mg	f	Giftmischen	Fachkenntnisse	5
+2	Mg	f	Handaxt	Waffenfertigkeiten	5
+2	Mg	f	Heilkunde	Fachkenntnisse	5
+2	Mg	f	Hitzsalz	Zauberkünste	0
+2	Mg	f	Hören von Fernem	Zauberkünste	0
+2	Mg	f	Krummsäbel	Waffenfertigkeiten	5
+2	Mg	f	Kühlsalz	Zauberkünste	0
+2	Mg	f	leichter Speer	Waffenfertigkeiten	5
+2	Mg	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	Mg	f	Parierdolch	Waffenfertigkeiten	1
+2	Mg	f	Scharfblick	Zauberkünste	0
+2	Mg	f	Schleuder	Waffenfertigkeiten	5
+2	Mg	f	Stoßspeer	Waffenfertigkeiten	5
+2	Mg	f	Stottersalz	Zauberkünste	0
+2	Mg	f	Streitkolben	Waffenfertigkeiten	5
+2	Mg	f	Verwirren	Zauberkünste	0
+2	Mg	f	Wurfmesser	Waffenfertigkeiten	5
+2	Mg	f	Wurfpfeil	Waffenfertigkeiten	5
+2	Mg	f	Zauberkunde	Fachkenntnisse	5
+2	MMa	f	Dolch	Waffenfertigkeiten	4
+2	MMa	f	Heimfeder	Zauberkünste	0
+2	MMa	f	Macht über Unbelebtes	Zauberkünste	0
+2	MMa	f	Seemansgang	Fachkenntnisse	15
+2	MMa	f	Sumpfboden	Zauberkünster	0
+2	MMa	f	Zauberkunde	Fachkenntnisse	5
+2	Ny	f	Beidhändiger Kampf	Fachkenntnisse	3
+2	Ny	f	Beschatten	Fachkenntnisse	8
+2	Ny	f	Bogen	Waffenfertigkeiten	5
+2	Ny	f	Kampfstab	Waffenfertigkeiten	5
+2	Ny	f	Krummsäbel	Waffenfertigkeiten	5
+2	Ny	f	Langschwert	Waffenfertigkeiten	5
+2	Ny	f	leichte Armbrust	Waffenfertigkeiten	5
+2	Ny	f	Meditieren	Fachkenntnisse	8
+2	Ny	f	Menschenkenntnis	Fachkenntnisse	4
+2	Ny	f	Naginata	Waffenfertigkeiten	5
+2	Ny	f	NunChaku	Waffenfertigkeiten	5
+2	Ny	f	TaiTschi	Fachkenntnisse	\N
+2	Ny	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	Ny	t	Meucheln	Fachkenntnisse	8
+2	Or	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	Or	f	Göttlicher Schutz vor dem Bösen	Zauberkünste	0
+2	Or	f	Hellebarde	Waffenfertigkeiten	5
+2	Or	f	Hörnerklang	Zauberkünste	0
+2	Or	f	Kampfstab	Waffenfertigkeiten	5
+2	Or	f	Kampftaktik	Fachkenntnisse	8
+2	Or	f	Kampf vom Streitwagen	Fachkenntnisse	15
+2	Or	f	Kampf zu Pferd	Fachkenntnisse	15
+2	Or	f	Lanze	Waffenfertigkeiten	5
+2	Or	f	Morgenstern	Waffenfertigkeiten	5
+2	Or	f	Stabkeule	Waffenfertigkeiten	5
+2	Or	f	Streitwagen lenken	Fachkenntnisse	15
+2	Or	f	Wagenlenken	Fachkenntnisse	15
+2	PC	f	Bannen von Licht	Zauberkünste	0
+2	PC	f	Dolch	Waffenfertigkeiten	4
+2	PC	f	Erkennen der Aura	Zauberkünste	0
+2	PC	f	Giftmischen	Fachkenntnisse	5
+2	PC	f	Heiliger Zorn	Zauberkünste	0
+2	PC	f	leichter Speer	Waffenfertigkeiten	4
+2	PC	f	Schauspielern	Fachkenntnisse	8
+2	PC	f	Verbergen	Fachkenntnisse	8
+2	PF	f	Bannen von Dunkelheit	Zauberkünste	0
+2	PF	f	Erkennen der Aura	Zauberkünste	0
+2	PF	f	Handaxt	Waffenfertigkeiten	4
+2	PF	f	Heilen von Wunden	Zauberkünste	0
+2	PF	f	Keule	Waffenfertigkeiten	4
+2	PF	f	Kräuterkunde	Fachkenntnisse	5
+2	PF	f	Kriegshammer	Waffenfertigkeiten	4
+2	PF	f	Kurzschwert	Waffenfertigkeiten	4
+2	PF	f	Pflanzenkunde	Fachkenntnisse	5
+2	PF	f	Sagenkunde	Fachkenntnisse	5
+2	PF	f	Stoßspeer	Waffenfertigkeiten	4
+2	PF	f	Streitkolben	Waffenfertigkeiten	4
+2	PF	f	Tierkunde	Fachkenntnisse	5
+2	PHa	f	Austreibung des Bösen	Zauberkünste	0
+2	PHa	f	Bannen von Dunkelheit	Zauberkünste	0
+2	PHa	f	Baukunde	Fachkenntnisse	6
+2	PHa	f	Beredsamkeit	Fachkenntnisse	8
+2	PHa	f	Dolch	Waffenfertigkeiten	4
+2	PHa	f	Erkennen der Aura	Zauberkünste	0
+2	PHa	f	Handaxt	Waffenfertigkeiten	4
+2	PHa	f	Heiliger Zorn	Zauberkünste	0
+2	PHa	f	Keule	Waffenfertigkeiten	4
+2	PHa	f	Kriegshammer	Waffenfertigkeiten	4
+2	PHa	f	Kurzschwert	Waffenfertigkeiten	4
+2	PHa	f	Sagenkunde	Fachkenntnisse	5
+2	PHa	f	Schätzen	Fachkenntnisse	5
+2	PHa	f	Streitkolben	Waffenfertigkeiten	4
+2	PHe	f	Austreibung des Bösen	Zauberkünste	0
+2	PHe	f	Beredsamkeit	Fachkenntnisse	8
+2	PHe	f	Erkennen der Aura	Zauberkünste	0
+2	PHe	f	Feuerfinger	Zauberkünste	0
+2	PHe	f	Heiliger Zorn	Zauberkünste	0
+2	PHe	f	Keule	Waffenfertigkeiten	4
+2	PHe	f	Kriegshammer	Waffenfertigkeiten	4
+2	PHe	f	Krummsäbel	Waffenfertigkeiten	4
+2	PHe	f	Kurzschwert	Waffenfertigkeiten	4
+2	PHe	f	Sagenkunde	Fachkenntnisse	5
+2	PHe	f	Stoßspeer	Waffenfertigkeiten	4
+2	PHe	f	Streitkolben	Waffenfertigkeiten	4
+2	PHe	f	Verhören	Fachkenntnisse	8
+2	PK	f	Bannen von Dunkelheit	Zauberkünste	0
+2	PK	f	Dolch	Waffenfertigkeiten	4
+2	PK	f	Erkennen der Aura	Zauberkünste	0
+2	PK	f	Handaxt	Waffenfertigkeiten	4
+2	PK	f	Keule	Waffenfertigkeiten	4
+2	PK	f	Kriegshammer	Waffenfertigkeiten	4
+2	PK	f	Krummsäbel	Waffenfertigkeiten	4
+2	PK	f	Kurzschwert	Waffenfertigkeiten	4
+2	PK	f	Langschwert	Waffenfertigkeiten	4
+2	PK	f	leichter Speer	Waffenfertigkeiten	4
+2	PK	f	Rapier	Waffenfertigkeiten	4
+2	PK	f	Reiten	Fachkenntnisse	15
+2	PK	f	Sagenkunde	Fachkenntnisse	5
+2	PK	f	Segnen	Zauberkünste	0
+2	PK	f	Stoßspeer	Waffenfertigkeiten	4
+2	PK	f	Streitaxt	Waffenfertigkeiten	4
+2	PK	f	Streitkolben	Waffenfertigkeiten	4
+2	PM	f	Austreibung des Bösen	Zauberkünste	0
+2	PM	f	Dolch	Waffenfertigkeiten	4
+2	PM	f	Erkennen der Aura	Zauberkünste	0
+2	PM	f	Handauflegen	Zauberkünste	0
+2	PM	f	Kurzschwert	Waffenfertigkeiten	4
+2	PM	f	leichter Speer	Waffenfertigkeiten	4
+2	PM	f	Sagenkunde	Fachkenntnisse	5
+2	PM	f	Schwimmen	Fachkenntnisse	15
+2	PM	f	Steuern	Fachkenntnisse	15
+2	PM	f	Stoßspeer	Waffenfertigkeiten	4
+2	PM	f	Tauchen	Fachkenntnisse	15
+2	PM	f	Wasseratmen	Zauberkünste	0
+2	PT	f	Dolch	Waffenfertigkeiten	4
+2	PT	f	Erkennen der Aura	Zauberkünste	0
+2	PT	f	Giftmischen	Fachkenntnisse	5
+2	PT	f	Handauflegen	Zauberkünste	0
+2	PT	f	Heiliger Zorn	Zauberkünste	0
+2	PT	f	Keule	Waffenfertigkeiten	4
+2	PT	f	Kurzschwert	Waffenfertigkeiten	4
+2	PT	f	Landeskunde	Fachkenntnisse	10
+2	PT	f	Rapier	Waffenfertigkeiten	4
+2	PT	f	Sagenkunde	Fachkenntnisse	5
+2	PT	f	Verhören	Fachkenntnisse	8
+2	PW	f	Austreibung des Bösen	Zauberkünste	0
+2	PW	f	Dolch	Waffenfertigkeiten	4
+2	PW	f	Erste Hilfe	Fachkenntnisse	8
+2	PW	f	Handauflegen	Zauberkünste	0
+2	PW	f	Heilkunde	Fachkenntnisse	5
+2	PW	f	Landeskunde	Fachkenntnisse	5
+2	PW	f	Menschenkenntnis	Fachkenntnisse	5
+2	PW	f	Rechnen	Fachkenntnisse	8
+2	PW	f	Segnen	Zauberkünste	0
+2	PW	f	Sprechen: Sprache(+12)	Fachkenntnisse	12
+2	PW	f	Wetterkunde	Fachkenntnisse	15
+2	PW	f	Windstoß	Zauberkünste	0
+2	PW	f	Zauberkunde	Fachkenntnisse	5
+2	RiN	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	RiN	f	Beidhändiger Kampf	Fachkenntnisse	3
+2	RiN	f	Bihänder	Waffenfertigkeiten	5
+2	RiN	f	Hellebarde	Waffenfertigkeiten	5
+2	RiN	f	Kampftaktik	Fachkenntnisse	8
+2	RiN	f	Kampf zu Pferd	Fachkenntnisse	15
+2	RiN	f	Kriegsflegel	Waffenfertigkeiten	5
+2	RiN	f	Landeskunde (Heimat)	Fachkenntnisse	12
+2	RiN	f	Schlachtbeil	Waffenfertigkeiten	5
+2	RiN	f	Stielhammer	Waffenfertigkeiten	5
+2	RiN	f	Verführen	Fachkenntnisse	8
+2	RiN	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	RiS	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	RiS	f	Beidhändiger Kampf	Fachkenntnisse	3
+2	RiS	f	Bihänder	Waffenfertigkeiten	5
+2	RiS	f	Bogen	Waffenfertigkeiten	5
+2	RiS	f	Bogenkampf zu Pferd	Fachkenntnisse	1
+2	RiS	f	Hellebarde	Waffenfertigkeiten	5
+2	RiS	f	Kampftaktik	Fachkenntnisse	8
+2	RiS	f	Kampf zu Pferd	Fachkenntnisse	15
+2	RiS	f	Landeskunde (Heimat)	Fachkenntnisse	12
+2	RiS	f	Verführen	Fachkenntnisse	8
+2	RiS	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	Ru	f	Beredsamkeit	Fachkenntnisse	8
+2	Ru	f	Langschwert	Waffenfertigkeiten	5
+2	Ru	f	Reiten	Fachkenntnisse	15
+2	Ru	f	Schwimmen	Fachkenntnisse	15
+2	Ru	f	Streitaxt	Waffenfertigkeiten	5
+2	Ru	f	Wetterkunde	Fachkenntnisse	15
+2	Sa	f	Erste Hilfe	Fachkenntnisse	8
+2	Sa	f	Kampfstab	Waffenfertigkeiten	4
+2	Sa	f	Kräuterkunde	Fachkenntnisse	4
+2	Sa	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	Sa	f	Macht über die Sinne	Zauberkünste	\N
+2	Sa	f	Macht über Unbelebtes	Zauberkünste	\N
+2	Sa	f	Menschenkenntnis	Fachkenntnisse	4
+2	Sa	f	Musizieren	Fachkenntnisse	12
+2	Sa	f	Naturkunde	Fachkenntnisse	5
+2	Sa	f	Pflanzenkunde	Fachkenntnisse	4
+2	Sa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
+2	Sa	f	Tierkunde	Fachkenntnisse	4
+2	Sa	f	waffenloser Kampf	Waffenfertigkeiten	4
+2	Sa	f	Wahrnehmung	Fachkenntnisse	4
+2	ScN	f	Dolch	Waffenfertigkeiten	4
+2	ScN	f	Erste Hilfe	Fachkenntnisse	8
+2	ScN	f	Heilkunde	Fachkenntnisse	5
+2	ScN	f	Hitzeschutz	Zauberkünste	0
+2	ScN	f	Kälteschutz	Zauberkünste	0
+2	ScN	f	Keule	Waffenfertigkeiten	4
+2	ScN	f	Kräuterkunde	Fachkenntnisse	5
+2	ScN	f	leichter Speer	Waffenfertigkeiten	4
+2	ScN	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	ScN	f	Naturkunde	Fachkenntnisse	5
+2	ScN	f	Pflanzenkunde	Fachkenntnisse	5
+2	ScN	f	Tierkunde	Fachkenntnisse	5
+2	ScN	f	Wetterkunde	Fachkenntnisse	15
+2	ScS	f	Dolch	Waffenfertigkeiten	4
+2	ScS	f	Erste Hilfe	Fachkenntnisse	8
+2	ScS	f	Heilkunde	Fachkenntnisse	5
+2	ScS	f	Hitzeschutz	Zauberkünste	0
+2	ScS	f	Kälteschutz	Zauberkünste	0
+2	ScS	f	Keule	Waffenfertigkeiten	4
+2	ScS	f	Kräuterkunde	Fachkenntnisse	5
+2	ScS	f	leichter Speer	Waffenfertigkeiten	4
+2	ScS	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	ScS	f	Naturkunde	Fachkenntnisse	5
+2	ScS	f	Pflanzenkunde	Fachkenntnisse	5
+2	ScS	f	Tierkunde	Fachkenntnisse	5
+2	ScS	f	Wetterkunde	Fachkenntnisse	15
+2	ScW	f	Dolch	Waffenfertigkeiten	4
+2	ScW	f	Erste Hilfe	Fachkenntnisse	8
+2	ScW	f	Heilkunde	Fachkenntnisse	5
+2	ScW	f	Hitzeschutz	Zauberkünste	0
+2	ScW	f	Kälteschutz	Zauberkünste	0
+2	ScW	f	Keule	Waffenfertigkeiten	4
+2	ScW	f	Kräuterkunde	Fachkenntnisse	5
+2	ScW	f	leichter Speer	Waffenfertigkeiten	4
+2	ScW	f	Lesen von Zauberschrift	Fachkenntnisse	12
+2	ScW	f	Naturkunde	Fachkenntnisse	5
+2	ScW	f	Pflanzenkunde	Fachkenntnisse	5
+2	ScW	f	Tierkunde	Fachkenntnisse	5
+2	ScW	f	Wetterkunde	Fachkenntnisse	15
+2	Se	f	Balancieren	Fachkenntnisse	15
+2	Se	f	Fangen	Fachkenntnisse	15
+2	Se	f	großer Schild	Waffenfertigkeiten	1
+2	Se	f	Kampfstab	Waffenfertigkeiten	5
+2	Se	f	Klettern	Fachkenntnisse	15
+2	Se	f	Langschwert	Waffenfertigkeiten	5
+2	Se	f	Ochsenzunge	Waffenfertigkeiten	5
+2	Se	f	Rechnen	Fachkenntnisse	8
+2	Se	f	Schiffsführung	Fachkenntnisse	8
+2	Se	f	Seilkunst	Fachkenntnisse	8
+2	Se	f	Wurfaxt	Waffenfertigkeiten	5
+2	Se	f	Wurfmesser	Waffenfertigkeiten	5
+2	Se	f	Wurfspeer	Waffenfertigkeiten	5
+2	Se	f	Wurfspieß	Waffenfertigkeiten	5
+2	sHx	f	Anziehen	Zauberkünste	0
+2	sHx	f	Dämonische Zaubermacht	Zauberkünste	0
+2	sHx	f	Dolch	Waffenfertigkeiten	4
+2	sHx	f	Gassenwissen	Fachkenntnisse	5
+2	sHx	f	Giftmischen	Fachkenntnisse	5
+2	sHx	f	Kräuterkunde	Fachkenntnisse	5
+2	sHx	f	Macht über das Selbst	Zauberkünste	0
+2	sHx	f	Verbergen	Fachkenntnisse	8
+2	sHx	f	Zauberkunde	Fachkenntnisse	5
+2	Sk	f	Beredsamkeit	Fachkenntnisse	8
+2	Sk	f	großer Schild	Waffenfertigkeiten	1
+2	Sk	f	Langschwert	Waffenfertigkeiten	5
+2	Sk	f	leichter Speer	Waffenfertigkeiten	5
+2	Sk	f	Stimmen nachahmen	Fachkenntnisse	15
+2	Sk	f	Streitaxt	Waffenfertigkeiten	5
+2	Sk	f	Verführen	Fachkenntnisse	8
+2	Sk	f	Wurfspeer	Waffenfertigkeiten	5
+2	Sö	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	Sö	f	Ballista bedienen	Fachkenntnisse	4
+2	Sö	f	Beidhändiger Kampf	Fachkenntnisse	3
+2	Sö	f	Bihänder	Waffenfertigkeiten	5
+2	Sö	f	Bogen	Waffenfertigkeiten	5
+2	Sö	f	Faustkampf	Waffenfertigkeiten	5
+2	Sö	f	Fuchtel	Waffenfertigkeiten	5
+2	Sö	f	Glücksspiel	Fachkenntnisse	15
+2	Sö	f	Hellebarde	Waffenfertigkeiten	5
+2	Sö	f	Kampfstab	Waffenfertigkeiten	5
+2	Sö	f	Kampftaktik	Fachkenntnisse	8
+2	Sö	f	Kampf zu Pferd	Fachkenntnisse	15
+2	Sö	f	Katapult bedienen	Fachkenntnisse	4
+2	Sö	f	Kriegsflegel	Waffenfertigkeiten	5
+2	Sö	f	Kurzbogen	Waffenfertigkeiten	5
+2	Sö	f	Langbogen	Waffenfertigkeiten	5
+2	Sö	f	leichte Armbrust	Waffenfertigkeiten	5
+2	Sö	f	Schlachtbeil	Waffenfertigkeiten	5
+2	Sö	f	Schleuder	Waffenfertigkeiten	5
+2	Sö	f	schwere Armbrust	Waffenfertigkeiten	5
+2	Sö	f	Stielhammer	Waffenfertigkeiten	5
+2	Sö	f	Stockschleuder	Waffenfertigkeiten	5
+2	Sö	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	Sö	f	Wagenlenken	Fachkenntnisse	15
+2	Sp	f	Balancieren	Fachkenntnisse	15
+2	Sp	f	Buckler	Waffenfertigkeiten	1
+2	Sp	f	Fallen entdecken	Fachkenntnisse	6
+2	Sp	f	Gassenwissen	Fachkenntnisse	5
+2	Sp	f	Geheimmechanismen öffnen	Fachkenntnisse	6
+2	Sp	f	Handaxt	Waffenfertigkeiten	5
+2	Sp	f	kleiner Schild	Waffenfertigkeiten	1
+2	Sp	f	Klettern	Fachkenntnisse	15
+2	Sp	f	Krummsäbel	Waffenfertigkeiten	5
+2	Sp	f	Kurzschwert	Waffenfertigkeiten	5
+2	Sp	f	leichter Speer	Waffenfertigkeiten	5
+2	Sp	f	Ochsenzunge	Waffenfertigkeiten	5
+2	Sp	f	Parierdolch	Waffenfertigkeiten	1
+2	Sp	f	Rapier	Waffenfertigkeiten	5
+2	Sp	f	Schleichen	Fachkenntnisse	8
+2	Sp	f	Streitkolben	Waffenfertigkeiten	5
+2	Sp	f	Suchen	Fachkenntnisse	8
+2	Sp	f	Tarnen	Fachkenntnisse	8
+2	Sp	f	Werfen	Waffenfertigkeiten	5
+2	Sp	f	Winden	Fachkenntnisse	4
+2	Sp	f	Wurfaxt	Waffenfertigkeiten	5
+2	Sp	f	Wurfkeule	Waffenfertigkeiten	5
+2	Sp	f	Wurfmesser	Waffenfertigkeiten	5
+2	Sp	f	Wurfspeer	Waffenfertigkeiten	5
+2	Sr	f	Anderthalbhänder	Waffenfertigkeiten	5
+2	Sr	f	Binden von Srimara	Zauberkünste	\N
+2	Sr	f	Kampftaktik	Fachkenntnisse	8
+2	Sr	f	Körperkontrolle	Fachkenntnisse	15
+2	Sr	f	Langschwert	Waffenfertigkeiten	5
+2	Sr	f	Lanze	Waffenfertigkeiten	5
+2	Sr	f	Reiten	Fachkenntnisse	15
+2	Sr	f	Stabkeule	Waffenfertigkeiten	5
+2	Sw	f	Balancieren	Fachkenntnisse	15
+2	Sw	f	Buckler	Waffenfertigkeiten	1
+2	Sw	f	Durstsalz	Zauberkünste	0
+2	Sw	f	Fallen entdecken	Fachkenntnisse	6
+2	Sw	f	Funkensalz	Zauberkünste	0
+2	Sw	f	Gassenwissen	Fachkenntnisse	5
+2	Sw	f	Geheimmechanismen öffnen	Fachkenntnisse	6
+2	Sw	f	Geräusche dämpfen	Zauberkünste	0
+2	Sw	f	Handaxt	Waffenfertigkeiten	5
+2	Sw	f	Hungersalz	Zauberkünste	0
+2	Sw	f	Jucksalz	Zauberkünste	0
+2	Sw	f	kleiner Schild	Waffenfertigkeiten	1
+2	Sw	f	Klettern	Fachkenntnisse	15
+2	Sw	f	Kurzschwert	Waffenfertigkeiten	5
+2	Sw	f	Lauschen	Zauberkünste	0
+2	Sw	f	leichter Speer	Waffenfertigkeiten	5
+2	Sw	f	Löschsalz	Zauberkünste	0
+2	Sw	f	Parierdolch	Waffenfertigkeiten	1
+2	Sw	f	Rapier	Waffenfertigkeiten	5
+2	Sw	f	Schleichen	Fachkenntnisse	8
+2	Sw	f	Sehen von Verborgenem	Zauberkünste	0
+2	Sw	f	Streitkolben	Waffenfertigkeiten	5
+2	Sw	f	Suchen	Fachkenntnisse	8
+2	Sw	f	Tarnen	Fachkenntnisse	8
+2	Sw	f	Wassersalz	Zauberkünste	0
+2	Sw	f	Werfen	Waffenfertigkeiten	5
+2	Sw	f	Winden	Fachkenntnisse	4
+2	Sw	f	Wurfaxt	Waffenfertigkeiten	5
+2	Sw	f	Wurfmesser	Waffenfertigkeiten	5
+2	Sw	f	Zauberkunde	Fachkenntnisse	5
+2	Th	f	Dolch	Waffenfertigkeiten	4
+2	Th	f	Durstsalz	Zauberkünste	0
+2	Th	f	Funkensalz	Zauberkünste	0
+2	Th	f	Hungersalz	Zauberkünste	0
+2	Th	f	Jucksalz	Zauberkünste	0
+2	Th	f	Lauschen	Zauberkünste	0
+2	Th	f	Löschsalz	Zauberkünste	0
+2	Th	f	Naturkunde	Fachkenntnisse	5
+2	Th	f	Sehen von Verborgenem	Zauberkünste	0
+2	Th	f	Wassersalz	Zauberkünste	0
+2	Th	f	Zauberkunde	Fachkenntnisse	5
+2	Tm	f	Bogen	Waffenfertigkeiten	5
+2	Tm	f	Fallenstellen	Fachkenntnisse	4
+2	Tm	f	großer Schild	Waffenfertigkeiten	1
+2	Tm	f	Kurzbogen	Waffenfertigkeiten	5
+2	Tm	f	Langschwert	Waffenfertigkeiten	5
+2	Tm	f	Laufen	Fachkenntnisse	4
+2	Tm	f	Naturkunde	Fachkenntnisse	5
+2	Tm	f	Schleuder	Waffenfertigkeiten	5
+2	Tm	f	Spurenlesen	Fachkenntnisse	6
+2	Tm	f	Streitaxt	Waffenfertigkeiten	5
+2	Tm	f	Wundersame Tarnung	Zauberkünste	0
+2	Tm	f	Wurfpfeil	Waffenfertigkeiten	5
+2	Tm	f	Zähmen	Zauberkünste	0
+2	To	f	Bannen von Licht	Zauberkünste	0
+2	To	f	Bärenwut	Zauberkünste	0
+2	To	f	Beredsamkeit	Fachkenntnisse	8
+2	To	f	Beschatten	Fachkenntnisse	8
+2	To	f	Blasrohr	Waffenfertigkeiten	5
+2	To	f	Bogen	Waffenfertigkeiten	5
+2	To	f	Fallen entdecken	Fachkenntnisse	6
+2	To	f	Fälschen	Fachkenntnisse	15
+2	To	f	Garotte	Waffenfertigkeiten	5
+2	To	f	Gassenwissen	Fachkenntnisse	5
+2	To	f	Handaxt	Waffenfertigkeiten	5
+2	To	f	Kampf in Dunkelheit	Fachkenntnisse	2
+2	To	f	Kurzbogen	Waffenfertigkeiten	5
+2	To	f	Landeskunde (Heimat)	Fachkenntnisse	10
+2	To	f	Langschwert	Waffenfertigkeiten	5
+2	To	f	leichte Armbrust	Waffenfertigkeiten	5
+2	To	f	leichter Speer	Waffenfertigkeiten	5
+2	To	f	Lippenlesen	Fachkenntnisse	6
+2	To	f	Ochsenzunge	Waffenfertigkeiten	5
+2	To	f	Stimmenwerfen	Zauberkünste	0
+2	To	f	Streitkolben	Waffenfertigkeiten	5
+2	To	f	Suchen	Fachkenntnisse	8
+2	To	f	Verbergen	Fachkenntnisse	8
+2	To	f	Verkleiden	Fachkenntnisse	15
+2	To	f	waffenloser Kampf	Waffenfertigkeiten	5
+2	To	f	Werfen	Waffenfertigkeiten	5
+2	To	f	Wurfaxt	Waffenfertigkeiten	5
+2	To	f	Wurfpfeil	Waffenfertigkeiten	5
+2	To	f	Wurfspeer	Waffenfertigkeiten	5
+2	To	f	Zauberkunde	Fachkenntnisse	5
+2	Tr	f	Balancieren	Fachkenntnisse	15
+2	Tr	f	Ballbalance	Zauberkünste	\N
+2	Tr	f	Blumen herbeizaubern	Zauberkünste	\N
+2	Tr	f	Bogen	Waffenfertigkeiten	5
+2	Tr	f	Gassenwissen	Fachkenntnisse	4
+2	Tr	f	Geheimzeichen	Fachkenntnisse	12
+2	Tr	f	Geruch intensivieren	Zauberkünste	\N
+2	Tr	f	Klettern	Fachkenntnisse	15
+2	Tr	f	Lippenlesen	Fachkenntnisse	4
+2	Tr	f	Netz	Waffenfertigkeiten	5
+2	Tr	f	Peitsche	Waffenfertigkeiten	5
+2	Tr	f	Schleichen	Fachkenntnisse	4
+2	Tt	f	Erste Hilfe	Fachkenntnisse	12
+2	Tt	f	Iquibalams Ruhm	Zauberkünste	\N
+2	Tt	f	Iquibalams Tapferkeit	Zauberkünste	\N
+2	Tt	f	Iquibalams Verachtung	Zauberkünste	\N
+2	Tt	f	Kampfstab	Waffenfertigkeiten	5
+2	Tt	f	Kampftaktik	Fachkenntnisse	8
+2	Tt	f	Langschwert	Waffenfertigkeiten	5
+2	Tt	f	leichter Speer	Waffenfertigkeiten	5
+2	Tt	f	Sagenkunde	Fachkenntnisse	5
+2	Wa	f	Bogen	Waffenfertigkeiten	5
+2	Wa	f	Geländelauf	Fachkenntnisse	15
+2	Wa	f	großer Schild	Waffenfertigkeiten	1
+2	Wa	f	Handaxt	Waffenfertigkeiten	5
+2	Wa	f	Kampf in Dunkelheit	Fachkenntnisse	2
+2	Wa	f	Keule	Waffenfertigkeiten	5
+2	Wa	f	kleiner Schild	Waffenfertigkeiten	1
+2	Wa	f	Klettern	Fachkenntnisse	15
+2	Wa	f	Kräuterkunde	Fachkenntnisse	5
+2	Wa	f	Kurzbogen	Waffenfertigkeiten	5
+2	Wa	f	Kurzschwert	Waffenfertigkeiten	5
+2	Wa	f	Langschwert	Waffenfertigkeiten	5
+2	Wa	f	Scharfschießen	Fachkenntnisse	5
+2	Wa	f	Schleichen	Fachkenntnisse	8
+2	Wa	f	Schwimmen	Fachkenntnisse	15
+2	Wa	f	Streitaxt	Waffenfertigkeiten	5
+2	Wa	f	Tarnen	Fachkenntnisse	8
+2	Wa	f	Wahrnehmung	Fachkenntnisse	4
+2	Wa	f	Wetterkunde	Fachkenntnisse	15
+2	Wa	f	Wurfaxt	Waffenfertigkeiten	5
+2	Wa	f	Wurfspeer	Waffenfertigkeiten	5
+2	wHx	f	Anziehen	Zauberkünste	0
+2	wHx	f	Dolch	Waffenfertigkeiten	4
+2	wHx	f	Gassenwissen	Fachkenntnisse	5
+2	wHx	f	Giftmischen	Fachkenntnisse	5
+2	wHx	f	Göttlicher Schutz vor Bösem	Zauberkünste	0
+2	wHx	f	Kräuterkunde	Fachkenntnisse	5
+2	wHx	f	Macht über das Selbst	Zauberkünste	0
+2	wHx	f	Verbergen	Fachkenntnisse	8
+2	wHx	f	Zauberkunde	Fachkenntnisse	5
+2	Wi	f	Bogen	Waffenfertigkeiten	5
+2	Wi	f	Fallenstellen	Fachkenntnisse	4
+2	Wi	f	großer Schild	Waffenfertigkeiten	1
+2	Wi	f	Kurzbogen	Waffenfertigkeiten	5
+2	Wi	f	Langschwert	Waffenfertigkeiten	5
+2	Wi	f	Laufen	Fachkenntnisse	4
+2	Wi	f	Naturkunde	Fachkenntnisse	5
+2	Wi	f	Wandeln wie der Wind	Zauberkünste	0
+2	Wi	f	Wundersame Tarnung	Zauberkünste	0
+2	Wi	f	Zähmen	Zauberkünste	0
 3	As	f	Anderthalbhänder	Waffenfertigkeiten	5
-3	Gl	f	Anderthalbhänder	Waffenfertigkeiten	5
-3	Se	f	Anderthalbhänder	Waffenfertigkeiten	5
-3	To	f	Anderthalbhänder	Waffenfertigkeiten	5
-3	Wi	f	Anderthalbhänder	Waffenfertigkeiten	5
+3	As	f	Bihänder	Waffenfertigkeiten	5
+3	As	f	Buckler	Waffenfertigkeiten	1
+3	As	f	Fuchtel	Waffenfertigkeiten	5
+3	As	f	Hellebarde	Waffenfertigkeiten	5
+3	As	f	kleiner Schild	Waffenfertigkeiten	1
+3	As	f	Langbogen	Waffenfertigkeiten	5
+3	As	f	Lanze	Waffenfertigkeiten	5
+3	As	f	Morgenstern	Waffenfertigkeiten	5
+3	As	f	Schleuder	Waffenfertigkeiten	5
+3	As	f	schwere Armbrust	Waffenfertigkeiten	5
+3	As	f	Stoßspeer	Waffenfertigkeiten	5
+3	As	f	Streitaxt	Waffenfertigkeiten	5
+3	As	f	Wurfkeule	Waffenfertigkeiten	5
+3	Ba	f	Kampfstab	Waffenfertigkeiten	5
+3	Ba	f	Keule	Waffenfertigkeiten	5
+3	Ba	f	Kriegshammer	Waffenfertigkeiten	5
+3	Ba	f	Kurzbogen	Waffenfertigkeiten	5
+3	Ba	f	Schleuder	Waffenfertigkeiten	5
+3	Ba	f	Stoßspeer	Waffenfertigkeiten	5
+3	Ba	f	Streitkolben	Waffenfertigkeiten	5
+3	BN	f	Abrichten	Fachkenntnisse	8
 3	BN	f	Athletik	Fachkenntnisse	4
+3	BN	f	Schiffsführung	Fachkenntnisse	8
+3	BN	f	Wurfmesser	Waffenfertigkeiten	5
+3	BS	f	Abrichten	Fachkenntnisse	8
 3	BS	f	Athletik	Fachkenntnisse	4
-3	Km	f	Athletik	Fachkenntnisse	4
-3	Kr	f	Athletik	Fachkenntnisse	4
-3	Or	f	Athletik	Fachkenntnisse	4
-3	RiN	f	Athletik	Fachkenntnisse	4
-3	RiS	f	Athletik	Fachkenntnisse	4
-3	Sö	f	Athletik	Fachkenntnisse	4
-3	PF	f	Austreibung des Bösen	Zauberkünste	0
-3	PK	f	Austreibung des Bösen	Zauberkünste	0
-3	Th	f	Bannen von Dunkelheit	Zauberkünste	0
+3	BS	f	großer Schild	Waffenfertigkeiten	1
+3	BS	f	Peitsche	Waffenfertigkeiten	5
+3	BS	f	Streitaxt	Waffenfertigkeiten	5
+3	BW	f	Abrichten	Fachkenntnisse	8
+3	BW	f	Akrobatik	Fachkenntnisse	15
+3	BW	f	Schleuder	Waffenfertigkeiten	5
+3	dBe	f	Bannen von Kaobargen	Zauberkünste	\N
+3	dBe	f	Halebant 2 beschwören	Zauberkünste	\N
+3	dBe	f	Kaligin 1 beschwören	Zauberkünste	\N
+3	dBe	f	Schutzkreis gegen Dunebargen	Zauberkünste	\N
+3	De	f	Akbar fil-Ghadban	Zauberkünste	0
+3	De	f	Al-Karama	Zauberkünste	0
+3	De	f	Dalail al-Khairat	Zauberkünste	0
+3	De	f	Geomantie	Fachkenntnisse	15
+3	De	f	kleiner Schild	Waffenfertigkeiten	1
+3	De	f	Krumsäbel	Waffenfertigkeiten	4
+3	De	f	Macht über das Selbst	Zauberkünste	0
+3	De	f	Meditieren	Fachkenntnisse	8
+3	Dr	f	Abrichten	Fachkenntnisse	8
+3	Dr	f	Bärenwut	Zauberkünste	0
+3	Dr	f	kleiner Schild	Waffenfertigkeiten	1
+3	Dr	f	Magierstecken	Waffenfertigkeiten	4
+3	Dr	f	Tiersprache	Zauberkünste	0
+3	Dr	f	Wundersame Tarnung	Zauberkünste	0
+3	Dr	f	Wurfkeule	Waffenfertigkeiten	4
 3	Dt	f	Bannen von Gift	Zauberkünste	\N
+3	Dt	f	Baum	Zauberkünste	\N
 3	eBe	f	Bannen von Hrimfolk	Zauberkünste	\N
 3	eBe	f	Bannen von Hyrrfolk	Zauberkünste	\N
 3	eBe	f	Bannen von Jördfolk	Zauberkünste	\N
-3	dBe	f	Bannen von Kaobargen	Zauberkünste	\N
 3	eBe	f	Bannen von Vindfolk	Zauberkünste	\N
 3	eBe	f	Bannen von Wisfolk	Zauberkünste	\N
-3	Dt	f	Baum	Zauberkünste	\N
-3	gHx	f	Beeinflussen	Zauberkünste	0
-3	sHx	f	Beeinflussen	Zauberkünste	0
-3	wHx	f	Beeinflussen	Zauberkünste	0
-3	RiN	f	Beredsamkeit	Fachkenntnisse	8
-3	RiS	f	Beredsamkeit	Fachkenntnisse	8
-3	As	f	Bihänder	Waffenfertigkeiten	5
-3	Gl	f	Bihänder	Waffenfertigkeiten	5
-3	Ny	f	Bihänder	Waffenfertigkeiten	5
-3	Or	f	Bihänder	Waffenfertigkeiten	5
-3	To	f	Bihänder	Waffenfertigkeiten	5
-3	Gl	f	Bogen	Waffenfertigkeiten	5
-3	Hj	f	Bogen	Waffenfertigkeiten	5
-3	Or	f	Bogen	Waffenfertigkeiten	5
-3	Ru	f	Bogen	Waffenfertigkeiten	5
-3	Se	f	Bogen	Waffenfertigkeiten	5
-3	As	f	Buckler	Waffenfertigkeiten	1
-3	PT	f	Buckler	Waffenfertigkeiten	1
-3	To	f	Buckler	Waffenfertigkeiten	1
-3	Dr	f	Bärenwut	Zauberkünste	0
-3	De	f	Dalail al-Khairat	Zauberkünste	0
-3	Mg	f	Erste Hilfe	Fachkenntnisse	8
-3	Fi	f	Fallenstellen	Fachkenntnisse	4
-3	Gl	f	Faustkampf	Waffenfertigkeiten	5
-3	Se	f	Faustkampf	Waffenfertigkeiten	5
-3	As	f	Fuchtel	Waffenfertigkeiten	5
-3	Er	f	Fuchtel	Waffenfertigkeiten	5
-3	Hj	f	Fuchtel	Waffenfertigkeiten	5
-3	Sp	f	Fuchtel	Waffenfertigkeiten	5
-3	To	f	Fuchtel	Waffenfertigkeiten	5
-3	Ku	f	Gassenwissen	Fachkenntnisse	5
-3	Mg	f	Gassenwissen	Fachkenntnisse	5
-3	Se	f	Gassenwissen	Fachkenntnisse	5
-3	Mg	f	Geheimmechanismen öffnen	Fachkenntnisse	6
-3	De	f	Geomantie	Fachkenntnisse	15
-3	PHe	f	Göttlicher Schutz vor dem Bösen	Zauberkünste	0
-3	dBe	f	Halebant 2 beschwören	Zauberkünste	\N
-3	PF	f	Heilen von Krankheit	Zauberkünste	0
-3	PW	f	Heilen von Krankheit	Zauberkünste	0
-3	PK	f	Heilen von Wunden	Zauberkünste	0
-3	As	f	Hellebarde	Waffenfertigkeiten	5
-3	Gl	f	Hellebarde	Waffenfertigkeiten	5
-3	Hj	f	Hellebarde	Waffenfertigkeiten	5
-3	To	f	Hellebarde	Waffenfertigkeiten	5
-3	Sw	f	Heranholen	Zauberkünste	0
-3	Th	f	Heranholen	Zauberkünste	0
-3	Tt	f	Ixtantzutuhs Ekstase	Zauberkünste	\N
-3	dBe	f	Kaligin 1 beschwören	Zauberkünste	\N
-3	PK	f	Kampf zu Pferd	Fachkenntnisse	15
-3	Ba	f	Kampfstab	Waffenfertigkeiten	5
-3	Er	f	Kampfstab	Waffenfertigkeiten	5
-3	Fi	f	Kampfstab	Waffenfertigkeiten	5
-3	Hj	f	Kampfstab	Waffenfertigkeiten	5
-3	Hä	f	Kampfstab	Waffenfertigkeiten	5
-3	Mg	f	Kampfstab	Waffenfertigkeiten	5
-3	Sp	f	Kampfstab	Waffenfertigkeiten	5
-3	To	f	Kampfstab	Waffenfertigkeiten	5
-3	Wa	f	Kampfstab	Waffenfertigkeiten	5
-3	PK	f	Kampftaktik	Fachkenntnisse	8
-3	Ba	f	Keule	Waffenfertigkeiten	5
-3	Gl	f	Kriegsflegel	Waffenfertigkeiten	5
-3	Hj	f	Kriegsflegel	Waffenfertigkeiten	5
-3	Or	f	Kriegsflegel	Waffenfertigkeiten	5
-3	Ba	f	Kriegshammer	Waffenfertigkeiten	5
-3	Hä	f	Kriegshammer	Waffenfertigkeiten	5
-3	Se	f	Kriegshammer	Waffenfertigkeiten	5
-3	Sp	f	Kriegshammer	Waffenfertigkeiten	5
-3	Wa	f	Kriegshammer	Waffenfertigkeiten	5
-3	Wa	f	Krummsäbel	Waffenfertigkeiten	5
-3	De	f	Krumsäbel	Waffenfertigkeiten	4
-3	Ba	f	Kurzbogen	Waffenfertigkeiten	5
-3	Er	f	Kurzbogen	Waffenfertigkeiten	5
-3	Gl	f	Kurzbogen	Waffenfertigkeiten	5
-3	Hj	f	Kurzbogen	Waffenfertigkeiten	5
-3	Mg	f	Kurzbogen	Waffenfertigkeiten	5
-3	Or	f	Kurzbogen	Waffenfertigkeiten	5
-3	Se	f	Kurzbogen	Waffenfertigkeiten	5
-3	Kd	f	KusariGama	Waffenfertigkeiten	5
-3	Ny	f	KusariGama	Waffenfertigkeiten	5
-3	As	f	Langbogen	Waffenfertigkeiten	5
-3	Gl	f	Langbogen	Waffenfertigkeiten	5
-3	Kd	f	Langbogen	Waffenfertigkeiten	5
-3	Ny	f	Langbogen	Waffenfertigkeiten	5
-3	Or	f	Langbogen	Waffenfertigkeiten	5
-3	Sr	f	Langbogen	Waffenfertigkeiten	5
-3	Wa	f	Langbogen	Waffenfertigkeiten	5
-3	Wi	f	Langbogen	Waffenfertigkeiten	5
-3	Er	f	Langschwert	Waffenfertigkeiten	5
-3	Mg	f	Langschwert	Waffenfertigkeiten	5
-3	PHe	f	Langschwert	Waffenfertigkeiten	4
-3	Sp	f	Langschwert	Waffenfertigkeiten	5
-3	Tr	f	Langschwert	Waffenfertigkeiten	5
-3	As	f	Lanze	Waffenfertigkeiten	5
-3	Ny	f	LiYao	Fachkenntnisse	4
-3	De	f	Macht über das Selbst	Zauberkünste	0
-3	To	f	Macht über das Selbst	Zauberkünste	0
-3	Km	f	Macht über die belebte Natur	Zauberkünste	0
-3	MMa	f	Macht über die belebte Natur	Zauberkünste	0
-3	Ma	f	Macht über die belebte Natur	Zauberkünste	0
-3	PC	f	Magierstab	Waffenfertigkeiten	4
-3	PT	f	Magierstab	Waffenfertigkeiten	4
-3	PW	f	Magierstab	Waffenfertigkeiten	4
-3	To	f	Magierstab	Waffenfertigkeiten	5
-3	Tt	f	Magierstab	Waffenfertigkeiten	5
-3	Dr	f	Magierstecken	Waffenfertigkeiten	4
-3	Wi	f	Magierstecken	Waffenfertigkeiten	5
-3	De	f	Meditieren	Fachkenntnisse	8
-3	Or	f	Meditieren	Fachkenntnisse	8
-3	PF	f	Meditieren	Fachkenntnisse	8
-3	PHa	f	Meditieren	Fachkenntnisse	8
-3	PHe	f	Meditieren	Fachkenntnisse	8
-3	PK	f	Meditieren	Fachkenntnisse	8
-3	PM	f	Meditieren	Fachkenntnisse	8
-3	PT	f	Meditieren	Fachkenntnisse	8
-3	PW	f	Meditieren	Fachkenntnisse	8
-3	ScN	f	Meditieren	Fachkenntnisse	8
-3	ScS	f	Meditieren	Fachkenntnisse	8
-3	ScW	f	Meditieren	Fachkenntnisse	8
-3	Tm	f	Meditieren	Fachkenntnisse	8
-3	Mg	f	Menschenkenntnis	Fachkenntnisse	5
-3	As	f	Morgenstern	Waffenfertigkeiten	5
-3	Ku	f	Morgenstern	Waffenfertigkeiten	5
-3	Ny	f	Morgenstern	Waffenfertigkeiten	5
-3	To	f	Morgenstern	Waffenfertigkeiten	5
-3	Kd	f	Naginata	Waffenfertigkeiten	5
-3	Tt	f	Nahuahauquihs Zorn	Zauberkünste	\N
-3	Se	f	Netz	Waffenfertigkeiten	5
-3	Kd	f	NinJutsu	Fachkenntnisse	4
-3	Or	f	Parierdolch	Waffenfertigkeiten	1
-3	BS	f	Peitsche	Waffenfertigkeiten	5
-3	Hä	f	Peitsche	Waffenfertigkeiten	5
-3	Fi	f	Pflanzenkunde	Fachkenntnisse	5
-3	Hä	f	Rapier	Waffenfertigkeiten	5
-3	Ny	f	Scharfschießen	Fachkenntnisse	5
-3	Sw	f	Schatten verstärken	Zauberkünste	0
-3	PW	f	Schauspielern	Fachkenntnisse	8
-3	BN	f	Schiffsführung	Fachkenntnisse	8
-3	Gl	f	Schlachtbeil	Waffenfertigkeiten	5
-3	Or	f	Schlachtbeil	Waffenfertigkeiten	5
-3	Ru	f	Schlachtbeil	Waffenfertigkeiten	5
-3	Se	f	Schlachtbeil	Waffenfertigkeiten	5
-3	Tm	f	Schlachtbeil	Waffenfertigkeiten	5
-3	Wa	f	Schlachtbeil	Waffenfertigkeiten	5
-3	Fi	f	Schleichen	Fachkenntnisse	8
-3	As	f	Schleuder	Waffenfertigkeiten	5
-3	BW	f	Schleuder	Waffenfertigkeiten	5
-3	Ba	f	Schleuder	Waffenfertigkeiten	5
-3	Er	f	Schleuder	Waffenfertigkeiten	5
-3	Gl	f	Schleuder	Waffenfertigkeiten	5
-3	Hj	f	Schleuder	Waffenfertigkeiten	5
-3	Hä	f	Schleuder	Waffenfertigkeiten	5
-3	Or	f	Schleuder	Waffenfertigkeiten	5
-3	Se	f	Schleuder	Waffenfertigkeiten	5
-3	Sp	f	Schleuder	Waffenfertigkeiten	5
-3	Sw	f	Schleuder	Waffenfertigkeiten	5
-3	To	f	Schleuder	Waffenfertigkeiten	5
-3	Wa	f	Schleuder	Waffenfertigkeiten	5
-3	Wi	f	Schleuder	Waffenfertigkeiten	5
-3	To	f	Schmerzen	Zauberkünste	0
-3	gHx	f	Schmerzen	Zauberkünste	0
-3	sHx	f	Schmerzen	Zauberkünste	0
-3	wHx	f	Schmerzen	Zauberkünste	0
-3	dBe	f	Schutzkreis gegen Dunebargen	Zauberkünste	\N
 3	eBe	f	Schutzkreis gegen Hrimfolk	Zauberkünste	\N
 3	eBe	f	Schutzkreis gegen Hyrrfolk	Zauberkünste	\N
 3	eBe	f	Schutzkreis gegen Jördfolk	Zauberkünste	\N
 3	eBe	f	Schutzkreis gegen Vindfolk	Zauberkünste	\N
 3	eBe	f	Schutzkreis gegen Wisfolk	Zauberkünste	\N
-3	MMa	f	Schwimmen	Fachkenntnisse	15
-3	ScN	f	Schwingenkeule	Zauberkünste	0
-3	ScS	f	Schwingenkeule	Zauberkünste	0
-3	ScW	f	Schwingenkeule	Zauberkünste	0
-3	PF	f	Segnen	Zauberkünste	0
-3	PHa	f	Segnen	Zauberkünste	0
-3	PHe	f	Segnen	Zauberkünste	0
-3	PM	f	Segnen	Zauberkünste	0
-3	Sa	f	Segnen	Zauberkünste	\N
-3	ScN	f	Segnen	Zauberkünste	0
-3	ScS	f	Segnen	Zauberkünste	0
-3	ScW	f	Segnen	Zauberkünste	0
-3	Ma	f	Sehen in Dunkelheit	Zauberkünste	0
-3	Hj	f	Spurenlesen	Fachkenntnisse	6
-3	Gl	f	Stabkeule	Waffenfertigkeiten	5
-3	Hj	f	Stabkeule	Waffenfertigkeiten	5
-3	Se	f	Stabkeule	Waffenfertigkeiten	5
-3	Tm	f	Stabkeule	Waffenfertigkeiten	5
-3	Tr	f	Steinaxt	Waffenfertigkeiten	5
-3	MMa	f	Steuern	Fachkenntnisse	15
-3	Gl	f	Stielhammer	Waffenfertigkeiten	5
-3	Hj	f	Stielhammer	Waffenfertigkeiten	5
-3	Or	f	Stielhammer	Waffenfertigkeiten	5
-3	Gl	f	Stockschleuder	Waffenfertigkeiten	5
-3	Se	f	Stockschleuder	Waffenfertigkeiten	5
-3	As	f	Stoßspeer	Waffenfertigkeiten	5
-3	Ba	f	Stoßspeer	Waffenfertigkeiten	5
-3	Hä	f	Stoßspeer	Waffenfertigkeiten	5
-3	PW	f	Stoßspeer	Waffenfertigkeiten	4
-3	Se	f	Stoßspeer	Waffenfertigkeiten	5
-3	Sp	f	Stoßspeer	Waffenfertigkeiten	5
-3	To	f	Stoßspeer	Waffenfertigkeiten	5
-3	As	f	Streitaxt	Waffenfertigkeiten	5
-3	BS	f	Streitaxt	Waffenfertigkeiten	5
-3	Sp	f	Streitaxt	Waffenfertigkeiten	5
-3	Ba	f	Streitkolben	Waffenfertigkeiten	5
-3	Wa	f	Streitkolben	Waffenfertigkeiten	5
+3	Er	f	Fuchtel	Waffenfertigkeiten	5
+3	Er	f	Kampfstab	Waffenfertigkeiten	5
+3	Er	f	Kurzbogen	Waffenfertigkeiten	5
+3	Er	f	Langschwert	Waffenfertigkeiten	5
+3	Er	f	Schleuder	Waffenfertigkeiten	5
+3	Fi	f	Fallenstellen	Fachkenntnisse	4
+3	Fi	f	Kampfstab	Waffenfertigkeiten	5
+3	Fi	f	Pflanzenkunde	Fachkenntnisse	5
+3	Fi	f	Schleichen	Fachkenntnisse	8
 3	Fi	f	Tarnen	Fachkenntnisse	8
-3	Sw	t	Thaumatographie	Fachkenntnisse	6
-3	Th	t	Thaumatographie	Fachkenntnisse	6
 3	Fi	f	Tierkunde	Fachkenntnisse	5
-3	Dr	f	Tiersprache	Zauberkünste	0
+3	gHx	f	Beeinflussen	Zauberkünste	0
+3	gHx	f	Schmerzen	Zauberkünste	0
+3	gHx	f	Verwirren	Zauberkünste	0
+3	Gl	f	Anderthalbhänder	Waffenfertigkeiten	5
+3	Gl	f	Bihänder	Waffenfertigkeiten	5
+3	Gl	f	Bogen	Waffenfertigkeiten	5
+3	Gl	f	Faustkampf	Waffenfertigkeiten	5
+3	Gl	f	Hellebarde	Waffenfertigkeiten	5
+3	Gl	f	Kriegsflegel	Waffenfertigkeiten	5
+3	Gl	f	Kurzbogen	Waffenfertigkeiten	5
+3	Gl	f	Langbogen	Waffenfertigkeiten	5
+3	Gl	f	leichte Armbrust	Waffenfertigkeiten	5
+3	Gl	f	Schlachtbeil	Waffenfertigkeiten	5
+3	Gl	f	Schleuder	Waffenfertigkeiten	5
+3	Gl	f	schwere Armbrust	Waffenfertigkeiten	5
+3	Gl	f	Stabkeule	Waffenfertigkeiten	5
+3	Gl	f	Stielhammer	Waffenfertigkeiten	5
+3	Gl	f	Stockschleuder	Waffenfertigkeiten	5
+3	Gl	f	waffenloser Kampf	Waffenfertigkeiten	5
+3	Hä	f	Kampfstab	Waffenfertigkeiten	5
+3	Hä	f	Kriegshammer	Waffenfertigkeiten	5
+3	Hä	f	Peitsche	Waffenfertigkeiten	5
+3	Hä	f	Rapier	Waffenfertigkeiten	5
+3	Hä	f	Schleuder	Waffenfertigkeiten	5
+3	Hä	f	schwere Armbrust	Waffenfertigkeiten	5
+3	Hä	f	Stoßspeer	Waffenfertigkeiten	5
+3	Hä	f	Wurfmesser	Waffenfertigkeiten	5
+3	Hj	f	Bogen	Waffenfertigkeiten	5
+3	Hj	f	Fuchtel	Waffenfertigkeiten	5
+3	Hj	f	Hellebarde	Waffenfertigkeiten	5
+3	Hj	f	Kampfstab	Waffenfertigkeiten	5
+3	Hj	f	Kriegsflegel	Waffenfertigkeiten	5
+3	Hj	f	Kurzbogen	Waffenfertigkeiten	5
+3	Hj	f	leichte Armbrust	Waffenfertigkeiten	5
+3	Hj	f	Schleuder	Waffenfertigkeiten	5
+3	Hj	f	Spurenlesen	Fachkenntnisse	6
+3	Hj	f	Stabkeule	Waffenfertigkeiten	5
+3	Hj	f	Stielhammer	Waffenfertigkeiten	5
+3	Hj	f	Wahrnehmung	Fachkenntnisse	4
+3	Hj	f	Wurfmesser	Waffenfertigkeiten	5
+3	Hj	f	Wurfpfeil	Waffenfertigkeiten	5
 3	Hl	f	Tiersprache	Zauberkünste	0
+3	Hl	f	Zähmen	Zauberkünste	0
+3	Kd	f	KusariGama	Waffenfertigkeiten	5
+3	Kd	f	Langbogen	Waffenfertigkeiten	5
+3	Kd	f	leichte Armbrust	Waffenfertigkeiten	5
+3	Kd	f	Naginata	Waffenfertigkeiten	5
+3	Kd	f	NinJutsu	Fachkenntnisse	4
+3	Kd	f	Wahrnehmung	Fachkenntnisse	4
+3	Km	f	Alchimie	Fachkenntnisse	5
+3	Km	f	Athletik	Fachkenntnisse	4
+3	Km	f	Macht über die belebte Natur	Zauberkünste	0
+3	Km	f	Wagemut	Zauberkünste	0
+3	Kr	f	Athletik	Fachkenntnisse	4
+3	Ku	f	Gassenwissen	Fachkenntnisse	5
+3	Ku	f	Morgenstern	Waffenfertigkeiten	5
+3	Ku	f	Wurfmesser	Waffenfertigkeiten	5
+3	Ku	f	Wurfpfeil	Waffenfertigkeiten	5
+3	Ma	f	Alchimie	Fachkenntnisse	5
+3	Ma	f	Macht über die belebte Natur	Zauberkünste	0
+3	Ma	f	Sehen in Dunkelheit	Zauberkünste	0
+3	Mg	f	Erste Hilfe	Fachkenntnisse	8
+3	Mg	f	Gassenwissen	Fachkenntnisse	5
+3	Mg	f	Geheimmechanismen öffnen	Fachkenntnisse	6
+3	Mg	f	Kampfstab	Waffenfertigkeiten	5
+3	Mg	f	Kurzbogen	Waffenfertigkeiten	5
+3	Mg	f	Langschwert	Waffenfertigkeiten	5
+3	Mg	f	Menschenkenntnis	Fachkenntnisse	5
+3	Mg	f	waffenloser Kampf	Waffenfertigkeiten	5
+3	MMa	f	Macht über die belebte Natur	Zauberkünste	0
+3	MMa	f	Schwimmen	Fachkenntnisse	15
+3	MMa	f	Steuern	Fachkenntnisse	15
+3	MMa	f	Wasseratmen	Zauberkünste	0
+3	Ny	f	Bihänder	Waffenfertigkeiten	5
+3	Ny	f	KusariGama	Waffenfertigkeiten	5
+3	Ny	f	Langbogen	Waffenfertigkeiten	5
+3	Ny	f	LiYao	Fachkenntnisse	4
+3	Ny	f	Morgenstern	Waffenfertigkeiten	5
+3	Ny	f	Scharfschießen	Fachkenntnisse	5
+3	Ny	f	Wahrnehmung	Fachkenntnisse	4
+3	Or	f	Athletik	Fachkenntnisse	4
+3	Or	f	Bihänder	Waffenfertigkeiten	5
+3	Or	f	Bogen	Waffenfertigkeiten	5
+3	Or	f	Kriegsflegel	Waffenfertigkeiten	5
+3	Or	f	Kurzbogen	Waffenfertigkeiten	5
+3	Or	f	Langbogen	Waffenfertigkeiten	5
+3	Or	f	leichte Armbrust	Waffenfertigkeiten	5
+3	Or	f	Meditieren	Fachkenntnisse	8
+3	Or	f	Parierdolch	Waffenfertigkeiten	1
+3	Or	f	Schlachtbeil	Waffenfertigkeiten	5
+3	Or	f	Schleuder	Waffenfertigkeiten	5
+3	Or	f	schwere Armbrust	Waffenfertigkeiten	5
+3	Or	f	Stielhammer	Waffenfertigkeiten	5
+3	Or	f	Wurfmesser	Waffenfertigkeiten	5
+3	Or	f	Wurfpfeil	Waffenfertigkeiten	5
+3	PC	f	kleiner Schild	Waffenfertigkeiten	1
+3	PC	f	Magierstab	Waffenfertigkeiten	4
 3	PC	f	Verfluchen	Zauberkünste	0
-3	PT	f	Verfluchen	Zauberkünste	0
-3	Sa	f	Verfluchen	Zauberkünste	\N
-3	ScN	f	Verfluchen	Zauberkünste	0
-3	ScS	f	Verfluchen	Zauberkünste	0
-3	ScW	f	Verfluchen	Zauberkünste	0
 3	PC	f	Verkleiden	Fachkenntnisse	15
 3	PC	f	Verursachen von Wunden	Zauberkünste	0
-3	gHx	f	Verwirren	Zauberkünste	0
-3	sHx	f	Verwirren	Zauberkünste	0
-3	wHx	f	Verwirren	Zauberkünste	0
-3	Sa	f	Vision	Zauberkünste	\N
-3	ScN	f	Vision	Zauberkünste	0
-3	ScS	f	Vision	Zauberkünste	0
-3	ScW	f	Vision	Zauberkünste	0
-3	Km	f	Wagemut	Zauberkünste	0
-3	Hj	f	Wahrnehmung	Fachkenntnisse	4
-3	Kd	f	Wahrnehmung	Fachkenntnisse	4
-3	Ny	f	Wahrnehmung	Fachkenntnisse	4
 3	PC	f	Warnung	Zauberkünste	0
-3	PHa	f	Warnung	Zauberkünste	0
-3	PK	f	Warnung	Zauberkünste	0
-3	PM	f	Warnung	Zauberkünste	0
-3	PW	f	Warnung	Zauberkünste	0
-3	MMa	f	Wasseratmen	Zauberkünste	0
-3	Dr	f	Wundersame Tarnung	Zauberkünste	0
-3	PHa	f	Wurfaxt	Waffenfertigkeiten	4
-3	PK	f	Wurfaxt	Waffenfertigkeiten	4
-3	PF	f	Wurfhammer	Waffenfertigkeiten	4
-3	PHa	f	Wurfhammer	Waffenfertigkeiten	4
-3	PHe	f	Wurfhammer	Waffenfertigkeiten	4
-3	PK	f	Wurfhammer	Waffenfertigkeiten	4
-3	As	f	Wurfkeule	Waffenfertigkeiten	5
-3	Dr	f	Wurfkeule	Waffenfertigkeiten	4
-3	PF	f	Wurfkeule	Waffenfertigkeiten	4
-3	PHa	f	Wurfkeule	Waffenfertigkeiten	4
-3	PHe	f	Wurfkeule	Waffenfertigkeiten	4
-3	PK	f	Wurfkeule	Waffenfertigkeiten	4
-3	ScN	f	Wurfkeule	Waffenfertigkeiten	4
-3	ScS	f	Wurfkeule	Waffenfertigkeiten	4
-3	ScW	f	Wurfkeule	Waffenfertigkeiten	4
-3	To	f	Wurfkeule	Waffenfertigkeiten	5
-3	BN	f	Wurfmesser	Waffenfertigkeiten	5
-3	Hj	f	Wurfmesser	Waffenfertigkeiten	5
-3	Hä	f	Wurfmesser	Waffenfertigkeiten	5
-3	Ku	f	Wurfmesser	Waffenfertigkeiten	5
-3	Or	f	Wurfmesser	Waffenfertigkeiten	5
 3	PC	f	Wurfmesser	Waffenfertigkeiten	4
-3	PK	f	Wurfmesser	Waffenfertigkeiten	4
-3	PT	f	Wurfmesser	Waffenfertigkeiten	4
-3	PW	f	Wurfmesser	Waffenfertigkeiten	4
-3	Tm	f	Wurfmesser	Waffenfertigkeiten	5
-3	Hj	f	Wurfpfeil	Waffenfertigkeiten	5
-3	Ku	f	Wurfpfeil	Waffenfertigkeiten	5
-3	Or	f	Wurfpfeil	Waffenfertigkeiten	5
-3	Sp	f	Wurfpfeil	Waffenfertigkeiten	5
-3	Sw	f	Wurfpfeil	Waffenfertigkeiten	5
 3	PC	f	Wurfspeer	Waffenfertigkeiten	4
-3	PK	f	Wurfspeer	Waffenfertigkeiten	4
-3	PM	f	Wurfspeer	Waffenfertigkeiten	4
-3	ScN	f	Wurfspeer	Waffenfertigkeiten	4
-3	ScS	f	Wurfspeer	Waffenfertigkeiten	4
-3	ScW	f	Wurfspeer	Waffenfertigkeiten	4
-3	Tt	f	Wurfspeer	Waffenfertigkeiten	5
-3	PK	f	Wurfspieß	Waffenfertigkeiten	4
-3	PM	f	Wurfspieß	Waffenfertigkeiten	4
-3	PHa	f	Zauberschmiede	Zauberkünste	0
-3	Hl	f	Zähmen	Zauberkünste	0
-3	BS	f	großer Schild	Waffenfertigkeiten	1
+3	PF	f	Austreibung des Bösen	Zauberkünste	0
 3	PF	f	großer Schild	Waffenfertigkeiten	1
-3	PHa	f	großer Schild	Waffenfertigkeiten	1
-3	PHe	f	großer Schild	Waffenfertigkeiten	1
-3	PK	f	großer Schild	Waffenfertigkeiten	1
-3	PM	f	großer Schild	Waffenfertigkeiten	1
-3	As	f	kleiner Schild	Waffenfertigkeiten	1
-3	De	f	kleiner Schild	Waffenfertigkeiten	1
-3	Dr	f	kleiner Schild	Waffenfertigkeiten	1
-3	PC	f	kleiner Schild	Waffenfertigkeiten	1
+3	PF	f	Heilen von Krankheit	Zauberkünste	0
 3	PF	f	kleiner Schild	Waffenfertigkeiten	1
+3	PF	f	Meditieren	Fachkenntnisse	8
+3	PF	f	Segnen	Zauberkünste	0
+3	PF	f	Wurfhammer	Waffenfertigkeiten	4
+3	PF	f	Wurfkeule	Waffenfertigkeiten	4
+3	PHa	f	großer Schild	Waffenfertigkeiten	1
 3	PHa	f	kleiner Schild	Waffenfertigkeiten	1
+3	PHa	f	Meditieren	Fachkenntnisse	8
+3	PHa	f	Segnen	Zauberkünste	0
+3	PHa	f	Warnung	Zauberkünste	0
+3	PHa	f	Wurfaxt	Waffenfertigkeiten	4
+3	PHa	f	Wurfhammer	Waffenfertigkeiten	4
+3	PHa	f	Wurfkeule	Waffenfertigkeiten	4
+3	PHa	f	Zauberschmiede	Zauberkünste	0
+3	PHe	f	Göttlicher Schutz vor dem Bösen	Zauberkünste	0
+3	PHe	f	großer Schild	Waffenfertigkeiten	1
 3	PHe	f	kleiner Schild	Waffenfertigkeiten	1
+3	PHe	f	Langschwert	Waffenfertigkeiten	4
+3	PHe	f	Meditieren	Fachkenntnisse	8
+3	PHe	f	Segnen	Zauberkünste	0
+3	PHe	f	Wurfhammer	Waffenfertigkeiten	4
+3	PHe	f	Wurfkeule	Waffenfertigkeiten	4
+3	PK	f	Austreibung des Bösen	Zauberkünste	0
+3	PK	f	großer Schild	Waffenfertigkeiten	1
+3	PK	f	Heilen von Wunden	Zauberkünste	0
+3	PK	f	Kampftaktik	Fachkenntnisse	8
+3	PK	f	Kampf zu Pferd	Fachkenntnisse	15
 3	PK	f	kleiner Schild	Waffenfertigkeiten	1
+3	PK	f	Meditieren	Fachkenntnisse	8
+3	PK	f	Warnung	Zauberkünste	0
+3	PK	f	Wurfaxt	Waffenfertigkeiten	4
+3	PK	f	Wurfhammer	Waffenfertigkeiten	4
+3	PK	f	Wurfkeule	Waffenfertigkeiten	4
+3	PK	f	Wurfmesser	Waffenfertigkeiten	4
+3	PK	f	Wurfspeer	Waffenfertigkeiten	4
+3	PK	f	Wurfspieß	Waffenfertigkeiten	4
+3	PM	f	großer Schild	Waffenfertigkeiten	1
 3	PM	f	kleiner Schild	Waffenfertigkeiten	1
-3	To	f	kleiner Schild	Waffenfertigkeiten	1
-3	Gl	f	leichte Armbrust	Waffenfertigkeiten	5
-3	Hj	f	leichte Armbrust	Waffenfertigkeiten	5
-3	Kd	f	leichte Armbrust	Waffenfertigkeiten	5
-3	Or	f	leichte Armbrust	Waffenfertigkeiten	5
+3	PM	f	Meditieren	Fachkenntnisse	8
+3	PM	f	Segnen	Zauberkünste	0
+3	PM	f	Warnung	Zauberkünste	0
+3	PM	f	Wurfspeer	Waffenfertigkeiten	4
+3	PM	f	Wurfspieß	Waffenfertigkeiten	4
+3	PT	f	Buckler	Waffenfertigkeiten	1
+3	PT	f	Magierstab	Waffenfertigkeiten	4
+3	PT	f	Meditieren	Fachkenntnisse	8
+3	PT	f	Verfluchen	Zauberkünste	0
+3	PT	f	Wurfmesser	Waffenfertigkeiten	4
+3	PW	f	Heilen von Krankheit	Zauberkünste	0
+3	PW	f	Magierstab	Waffenfertigkeiten	4
+3	PW	f	Meditieren	Fachkenntnisse	8
+3	PW	f	Schauspielern	Fachkenntnisse	8
+3	PW	f	Stoßspeer	Waffenfertigkeiten	4
+3	PW	f	Warnung	Zauberkünste	0
+3	PW	f	Wurfmesser	Waffenfertigkeiten	4
+3	RiN	f	Athletik	Fachkenntnisse	4
+3	RiN	f	Beredsamkeit	Fachkenntnisse	8
+3	RiS	f	Athletik	Fachkenntnisse	4
+3	RiS	f	Beredsamkeit	Fachkenntnisse	8
+3	Ru	f	Bogen	Waffenfertigkeiten	5
+3	Ru	f	Schlachtbeil	Waffenfertigkeiten	5
+3	Sa	f	Segnen	Zauberkünste	\N
+3	Sa	f	Verfluchen	Zauberkünste	\N
+3	Sa	f	Vision	Zauberkünste	\N
+3	ScN	f	Meditieren	Fachkenntnisse	8
+3	ScN	f	Schwingenkeule	Zauberkünste	0
+3	ScN	f	Segnen	Zauberkünste	0
+3	ScN	f	Verfluchen	Zauberkünste	0
+3	ScN	f	Vision	Zauberkünste	0
+3	ScN	f	Wurfkeule	Waffenfertigkeiten	4
+3	ScN	f	Wurfspeer	Waffenfertigkeiten	4
+3	ScS	f	Meditieren	Fachkenntnisse	8
+3	ScS	f	Schwingenkeule	Zauberkünste	0
+3	ScS	f	Segnen	Zauberkünste	0
+3	ScS	f	Verfluchen	Zauberkünste	0
+3	ScS	f	Vision	Zauberkünste	0
+3	ScS	f	Wurfkeule	Waffenfertigkeiten	4
+3	ScS	f	Wurfspeer	Waffenfertigkeiten	4
+3	ScW	f	Meditieren	Fachkenntnisse	8
+3	ScW	f	Schwingenkeule	Zauberkünste	0
+3	ScW	f	Segnen	Zauberkünste	0
+3	ScW	f	Verfluchen	Zauberkünste	0
+3	ScW	f	Vision	Zauberkünste	0
+3	ScW	f	Wurfkeule	Waffenfertigkeiten	4
+3	ScW	f	Wurfspeer	Waffenfertigkeiten	4
+3	Se	f	Anderthalbhänder	Waffenfertigkeiten	5
+3	Se	f	Bogen	Waffenfertigkeiten	5
+3	Se	f	Faustkampf	Waffenfertigkeiten	5
+3	Se	f	Gassenwissen	Fachkenntnisse	5
+3	Se	f	Kriegshammer	Waffenfertigkeiten	5
+3	Se	f	Kurzbogen	Waffenfertigkeiten	5
 3	Se	f	leichte Armbrust	Waffenfertigkeiten	5
-3	As	f	schwere Armbrust	Waffenfertigkeiten	5
-3	Gl	f	schwere Armbrust	Waffenfertigkeiten	5
-3	Hä	f	schwere Armbrust	Waffenfertigkeiten	5
-3	Or	f	schwere Armbrust	Waffenfertigkeiten	5
+3	Se	f	Netz	Waffenfertigkeiten	5
+3	Se	f	Schlachtbeil	Waffenfertigkeiten	5
+3	Se	f	Schleuder	Waffenfertigkeiten	5
 3	Se	f	schwere Armbrust	Waffenfertigkeiten	5
-3	To	f	schwere Armbrust	Waffenfertigkeiten	5
-3	Gl	f	waffenloser Kampf	Waffenfertigkeiten	5
-3	Mg	f	waffenloser Kampf	Waffenfertigkeiten	5
+3	Se	f	Stabkeule	Waffenfertigkeiten	5
+3	Se	f	Stockschleuder	Waffenfertigkeiten	5
+3	Se	f	Stoßspeer	Waffenfertigkeiten	5
 3	Se	f	waffenloser Kampf	Waffenfertigkeiten	5
-4	Tt	f	Ahuatls Sturm	Zauberkünste	\N
-4	De	f	Al-Tarka	Zauberkünste	0
+3	sHx	f	Beeinflussen	Zauberkünste	0
+3	sHx	f	Schmerzen	Zauberkünste	0
+3	sHx	f	Verwirren	Zauberkünste	0
+3	Sö	f	Athletik	Fachkenntnisse	4
+3	Sp	f	Akrobatik	Fachkenntnisse	15
+3	Sp	f	Fuchtel	Waffenfertigkeiten	5
+3	Sp	f	Kampfstab	Waffenfertigkeiten	5
+3	Sp	f	Kriegshammer	Waffenfertigkeiten	5
+3	Sp	f	Langschwert	Waffenfertigkeiten	5
+3	Sp	f	Schleuder	Waffenfertigkeiten	5
+3	Sp	f	Stoßspeer	Waffenfertigkeiten	5
+3	Sp	f	Streitaxt	Waffenfertigkeiten	5
+3	Sp	f	Wurfpfeil	Waffenfertigkeiten	5
+3	Sr	f	Langbogen	Waffenfertigkeiten	5
+3	Sw	f	Akrobatik	Fachkenntnisse	15
+3	Sw	f	Alchimie	Fachkenntnisse	5
+3	Sw	f	Heranholen	Zauberkünste	0
+3	Sw	f	Schatten verstärken	Zauberkünste	0
+3	Sw	f	Schleuder	Waffenfertigkeiten	5
+3	Sw	f	Wurfpfeil	Waffenfertigkeiten	5
+3	Sw	t	Thaumatographie	Fachkenntnisse	6
+3	Th	f	Alchimie	Fachkenntnisse	5
+3	Th	f	Bannen von Dunkelheit	Zauberkünste	0
+3	Th	f	Heranholen	Zauberkünste	0
+3	Th	t	Thaumatographie	Fachkenntnisse	6
+3	Tm	f	Meditieren	Fachkenntnisse	8
+3	Tm	f	Schlachtbeil	Waffenfertigkeiten	5
+3	Tm	f	Stabkeule	Waffenfertigkeiten	5
+3	Tm	f	Wurfmesser	Waffenfertigkeiten	5
+3	To	f	Anderthalbhänder	Waffenfertigkeiten	5
+3	To	f	Bihänder	Waffenfertigkeiten	5
+3	To	f	Buckler	Waffenfertigkeiten	1
+3	To	f	Fuchtel	Waffenfertigkeiten	5
+3	To	f	Hellebarde	Waffenfertigkeiten	5
+3	To	f	Kampfstab	Waffenfertigkeiten	5
+3	To	f	kleiner Schild	Waffenfertigkeiten	1
+3	To	f	Macht über das Selbst	Zauberkünste	0
+3	To	f	Magierstab	Waffenfertigkeiten	5
+3	To	f	Morgenstern	Waffenfertigkeiten	5
+3	To	f	Schleuder	Waffenfertigkeiten	5
+3	To	f	Schmerzen	Zauberkünste	0
+3	To	f	schwere Armbrust	Waffenfertigkeiten	5
+3	To	f	Stoßspeer	Waffenfertigkeiten	5
+3	To	f	Wurfkeule	Waffenfertigkeiten	5
+3	Tr	f	Langschwert	Waffenfertigkeiten	5
+3	Tr	f	Steinaxt	Waffenfertigkeiten	5
+3	Tt	f	Ixtantzutuhs Ekstase	Zauberkünste	\N
+3	Tt	f	Magierstab	Waffenfertigkeiten	5
+3	Tt	f	Nahuahauquihs Zorn	Zauberkünste	\N
+3	Tt	f	Wurfspeer	Waffenfertigkeiten	5
+3	Wa	f	Abrichten	Fachkenntnisse	8
+3	Wa	f	Kampfstab	Waffenfertigkeiten	5
+3	Wa	f	Kriegshammer	Waffenfertigkeiten	5
+3	Wa	f	Krummsäbel	Waffenfertigkeiten	5
+3	Wa	f	Langbogen	Waffenfertigkeiten	5
+3	Wa	f	Schlachtbeil	Waffenfertigkeiten	5
+3	Wa	f	Schleuder	Waffenfertigkeiten	5
+3	Wa	f	Streitkolben	Waffenfertigkeiten	5
+3	wHx	f	Beeinflussen	Zauberkünste	0
+3	wHx	f	Schmerzen	Zauberkünste	0
+3	wHx	f	Verwirren	Zauberkünste	0
+3	Wi	f	Anderthalbhänder	Waffenfertigkeiten	5
+3	Wi	f	Langbogen	Waffenfertigkeiten	5
+3	Wi	f	Magierstecken	Waffenfertigkeiten	5
+3	Wi	f	Schleuder	Waffenfertigkeiten	5
 4	Ba	f	Anderthalbhänder	Waffenfertigkeiten	5
-4	De	f	Anderthalbhänder	Waffenfertigkeiten	4
-4	PK	f	Anderthalbhänder	Waffenfertigkeiten	4
-4	Wa	f	Anderthalbhänder	Waffenfertigkeiten	5
-4	Mg	f	Angst	Zauberkünste	0
-4	To	f	Angst	Zauberkünste	0
-4	gHx	f	Angst	Zauberkünste	0
-4	sHx	f	Angst	Zauberkünste	0
-4	wHx	f	Angst	Zauberkünste	0
+4	Ba	f	Bogen	Waffenfertigkeiten	5
+4	Ba	f	Der einschläfernde Gesang	Zauberkünste	0
+4	Ba	f	Der frohlockende Gesang	Zauberkünste	0
+4	Ba	f	Der traurige Gesang	Zauberkünste	0
+4	Ba	f	Langbogen	Waffenfertigkeiten	5
+4	Ba	f	Lanze	Waffenfertigkeiten	5
+4	Ba	f	leichte Armbrust	Waffenfertigkeiten	5
+4	Ba	f	Schlachtbeil	Waffenfertigkeiten	5
+4	Ba	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	BN	f	Ogerhammer	Waffenfertigkeiten	5
+4	BN	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	BS	f	Bola	Waffenfertigkeiten	5
+4	BS	f	Kompositbogen	Waffenfertigkeiten	5
+4	BS	f	Lasso	Waffenfertigkeiten	5
+4	BS	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	BW	f	waffenloser Kampf	Waffenfertigkeiten	5
 4	dBe	f	Bannen von Dunebargen	Zauberkünste	\N
+4	dBe	f	Coluscar 2 beschwören	Zauberkünste	\N
+4	dBe	f	Dunebrast 2 beschwören	Zauberkünste	\N
+4	De	f	Al-Tarka	Zauberkünste	0
+4	De	f	Anderthalbhänder	Waffenfertigkeiten	4
+4	De	f	Sadik es-Sidiki	Zauberkünste	0
+4	De	f	Saijidat el-Masin	Zauberkünste	0
+4	De	f	Wurfspeer	Waffenfertigkeiten	4
+4	Dr	f	Baum	Zauberkünste	0
+4	Dr	f	Kampfstab	Waffenfertigkeiten	4
+4	Dr	f	Macht über die belebte Natur	Zauberkünste	0
+4	Dr	f	Schleuder	Waffenfertigkeiten	4
+4	Dt	f	Lasso	Waffenfertigkeiten	5
+4	Dt	f	Netz	Waffenfertigkeiten	5
 4	eBe	f	Bannen von Hrimfolk	Zauberkünste	\N
 4	eBe	f	Bannen von Hyrrfolk	Zauberkünste	\N
 4	eBe	f	Bannen von Jördfolk	Zauberkünste	\N
 4	eBe	f	Bannen von Vindfolk	Zauberkünste	\N
 4	eBe	f	Bannen von Wisfolk	Zauberkünste	\N
-4	Dr	f	Baum	Zauberkünste	0
-4	Ru	f	Becherrune	Zauberkünste	0
-4	Sw	f	Blasrohr	Waffenfertigkeiten	5
-4	Th	f	Blasrohr	Waffenfertigkeiten	4
-4	Ba	f	Bogen	Waffenfertigkeiten	5
-4	Er	f	Bogen	Waffenfertigkeiten	5
-4	Hä	f	Bogen	Waffenfertigkeiten	5
-4	Mg	f	Bogen	Waffenfertigkeiten	5
-4	Sk	f	Bogen	Waffenfertigkeiten	5
-4	Sp	f	Bogen	Waffenfertigkeiten	5
-4	Sw	f	Bogen	Waffenfertigkeiten	5
-4	Tt	f	Bogen	Waffenfertigkeiten	5
-4	BS	f	Bola	Waffenfertigkeiten	5
-4	Ku	f	Bola	Waffenfertigkeiten	5
-4	Tm	f	Bola	Waffenfertigkeiten	5
-4	Fi	f	Bärenwut	Zauberkünste	\N
-4	Tm	f	Bärenwut	Zauberkünste	0
-4	Wi	f	Bärenwut	Zauberkünste	0
-4	gHx	f	Böser Blick	Zauberkünste	0
-4	sHx	f	Böser Blick	Zauberkünste	0
-4	dBe	f	Coluscar 2 beschwören	Zauberkünste	\N
-4	Ba	f	Der einschläfernde Gesang	Zauberkünste	0
-4	Ba	f	Der frohlockende Gesang	Zauberkünste	0
-4	Ba	f	Der traurige Gesang	Zauberkünste	0
-4	dBe	f	Dunebrast 2 beschwören	Zauberkünste	\N
 4	eBe	f	Eldring beschwören	Zauberkünste	\N
-4	Mg	f	Erkennen der Aura	Zauberkünste	0
-4	Hj	f	Erkennen von Besessenheit	Zauberkünste	0
-4	Mg	f	Erkennen von Leben	Zauberkünste	0
-4	Km	f	Erkennen von Zauberei	Zauberkünste	0
-4	MMa	f	Erkennen von Zauberei	Zauberkünste	0
-4	Ma	f	Erkennen von Zauberei	Zauberkünste	0
-4	Tr	f	Farbenspiel	Zauberkünste	\N
-4	Hj	f	Flammenkreis	Zauberkünste	0
-4	Hä	f	Fuchtel	Waffenfertigkeiten	5
-4	PK	f	Glefe	Waffenfertigkeiten	4
-4	PF	f	Göttlicher Schutz vor dem Bösen	Zauberkünste	0
-4	PT	f	Göttlicher Schutz vor dem Bösen	Zauberkünste	0
-4	Ru	f	Hagelrune	Zauberkünste	0
-4	Or	f	Handauflegen	Zauberkünste	0
 4	eBe	f	Haugskadi beschwören	Zauberkünste	\N
-4	PHa	f	Heilen von Wunden	Zauberkünste	0
-4	PHe	f	Heilen von Wunden	Zauberkünste	0
-4	PM	f	Heilen von Wunden	Zauberkünste	0
-4	PT	f	Heilen von Wunden	Zauberkünste	0
-4	PW	f	Heilen von Wunden	Zauberkünste	0
-4	Or	f	Heiliger Zorn	Zauberkünste	0
-4	Sr	f	Heiliger Zorn	Zauberkünste	\N
-4	Tt	f	Ixtantzutuhs Schönheit	Zauberkünste	\N
 4	eBe	f	Jambani beschwören	Zauberkünste	\N
-4	Sr	f	Kampf in Vollrüstung	Fachkenntnisse	15
-4	Dr	f	Kampfstab	Waffenfertigkeiten	4
-4	Wi	f	Kampfstab	Waffenfertigkeiten	5
-4	Tr	f	Keule	Waffenfertigkeiten	5
-4	BS	f	Kompositbogen	Waffenfertigkeiten	5
-4	Hä	f	Kurzbogen	Waffenfertigkeiten	5
-4	Sp	f	Kurzbogen	Waffenfertigkeiten	5
-4	Sw	f	Kurzbogen	Waffenfertigkeiten	5
-4	Ba	f	Langbogen	Waffenfertigkeiten	5
-4	Hä	f	Langbogen	Waffenfertigkeiten	5
-4	Ba	f	Lanze	Waffenfertigkeiten	5
-4	Ku	f	Lanze	Waffenfertigkeiten	5
-4	BS	f	Lasso	Waffenfertigkeiten	5
-4	Dt	f	Lasso	Waffenfertigkeiten	5
-4	Ku	f	Lasso	Waffenfertigkeiten	5
-4	Km	f	Macht über Menschen	Zauberkünste	0
-4	Ma	f	Macht über Menschen	Zauberkünste	0
+4	eBe	f	Nefling beschwören	Zauberkünste	\N
+4	eBe	f	Svalgrim beschwören	Zauberkünste	\N
+4	Er	f	Bogen	Waffenfertigkeiten	5
+4	Er	f	leichte Armbrust	Waffenfertigkeiten	5
+4	Er	f	schwere Armbrust	Waffenfertigkeiten	5
+4	Er	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	Fi	f	Bärenwut	Zauberkünste	\N
 4	Fi	f	Macht über das Selbst	Zauberkünste	\N
+4	Fi	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	Fi	f	Wagemut	Zauberkünste	\N
+4	Fi	f	Zähmen	Zauberkünste	\N
+4	gHx	f	Angst	Zauberkünste	0
+4	gHx	f	Böser Blick	Zauberkünste	0
+4	gHx	f	Ochsenzunge	Waffenfertigkeiten	4
+4	Hä	f	Bogen	Waffenfertigkeiten	5
+4	Hä	f	Fuchtel	Waffenfertigkeiten	5
+4	Hä	f	Kurzbogen	Waffenfertigkeiten	5
+4	Hä	f	Langbogen	Waffenfertigkeiten	5
+4	Hä	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	Hj	f	Erkennen von Besessenheit	Zauberkünste	0
+4	Hj	f	Flammenkreis	Zauberkünste	0
 4	Hj	f	Macht über das Selbst	Zauberkünste	0
-4	ScN	f	Macht über das Selbst	Zauberkünste	0
-4	ScS	f	Macht über das Selbst	Zauberkünste	0
-4	ScW	f	Macht über das Selbst	Zauberkünste	0
-4	Th	f	Macht über das Selbst	Zauberkünste	0
-4	Dr	f	Macht über die belebte Natur	Zauberkünste	0
+4	Hj	f	schwere Armbrust	Waffenfertigkeiten	5
+4	Hj	f	Silberstaub	Zauberkünste	0
 4	Hl	f	Macht über die belebte Natur	Zauberkünste	0
-4	Tm	f	Macht über die belebte Natur	Zauberkünste	0
-4	Wi	f	Macht über die belebte Natur	Zauberkünste	0
+4	Km	f	Erkennen von Zauberei	Zauberkünste	0
+4	Km	f	Macht über Menschen	Zauberkünste	0
 4	Km	f	Magierstab	Waffenfertigkeiten	5
 4	Km	f	Magierstecken	Waffenfertigkeiten	5
-4	PF	f	Morgenstern	Waffenfertigkeiten	4
-4	PHa	f	Morgenstern	Waffenfertigkeiten	4
-4	PHe	f	Morgenstern	Waffenfertigkeiten	4
-4	PK	f	Morgenstern	Waffenfertigkeiten	4
-4	Tt	f	Nahuahauquihs Preis	Zauberkünste	\N
-4	eBe	f	Nefling beschwören	Zauberkünste	\N
-4	Dt	f	Netz	Waffenfertigkeiten	5
-4	Mg	f	Niessalz	Zauberkünste	0
-4	gHx	f	Ochsenzunge	Waffenfertigkeiten	4
-4	sHx	f	Ochsenzunge	Waffenfertigkeiten	4
-4	wHx	f	Ochsenzunge	Waffenfertigkeiten	4
-4	BN	f	Ogerhammer	Waffenfertigkeiten	5
-4	Ru	f	Reiserune	Zauberkünste	0
-4	Sk	f	Reiserune	Zauberkünste	\N
-4	De	f	Sadik es-Sidiki	Zauberkünste	0
-4	De	f	Saijidat el-Masin	Zauberkünste	0
-4	Tr	f	Scharade	Zauberkünste	\N
-4	Sw	f	Schattenrobe	Zauberkünste	0
-4	Ba	f	Schlachtbeil	Waffenfertigkeiten	5
-4	Sk	f	Schlachtbeil	Waffenfertigkeiten	5
-4	Dr	f	Schleuder	Waffenfertigkeiten	4
-4	Sw	f	Sehen in Dunkelheit	Zauberkünste	0
-4	Th	f	Sehen in Dunkelheit	Zauberkünste	0
-4	Hj	f	Silberstaub	Zauberkünste	0
-4	ScN	f	Speerschleuder	Waffenfertigkeiten	4
-4	ScS	f	Speerschleuder	Waffenfertigkeiten	4
-4	ScW	f	Speerschleuder	Waffenfertigkeiten	4
-4	PF	f	Stabkeule	Waffenfertigkeiten	4
-4	PHa	f	Stabkeule	Waffenfertigkeiten	4
-4	PHe	f	Stabkeule	Waffenfertigkeiten	4
-4	PK	f	Stabkeule	Waffenfertigkeiten	4
-4	ScN	f	Stabkeule	Waffenfertigkeiten	4
-4	ScS	f	Stabkeule	Waffenfertigkeiten	4
-4	ScW	f	Stabkeule	Waffenfertigkeiten	4
-4	To	f	Stille	Zauberkünste	0
-4	eBe	f	Svalgrim beschwören	Zauberkünste	\N
-4	Tt	f	Tolucans Gabe	Zauberkünste	\N
-4	Tr	f	Verblüffen	Zauberkünste	\N
-4	PC	f	Verursachen von Krankheit	Zauberkünste	0
-4	Sa	f	Verursachen von Krankheit	Zauberkünste	\N
-4	ScN	f	Verursachen von Krankheit	Zauberkünste	0
-4	ScS	f	Verursachen von Krankheit	Zauberkünste	0
-4	ScW	f	Verursachen von Krankheit	Zauberkünste	0
-4	Fi	f	Wagemut	Zauberkünste	\N
-4	Or	f	Wagemut	Zauberkünste	0
-4	PK	f	Wagemut	Zauberkünste	0
-4	Tm	f	Wagemut	Zauberkünste	0
-4	Sk	f	Wahrheitsrune	Zauberkünste	\N
-4	Mg	f	Wehsalz	Zauberkünste	0
-4	MMa	f	Wetterzauber	Zauberkünste	0
-4	Tt	f	Wurfmesser	Waffenfertigkeiten	5
-4	PC	f	Wurfpfeil	Waffenfertigkeiten	4
-4	PT	f	Wurfpfeil	Waffenfertigkeiten	4
-4	De	f	Wurfspeer	Waffenfertigkeiten	4
-4	PW	f	Wurfstern	Waffenfertigkeiten	4
-4	Tr	f	Zusammenfügen	Zauberkünste	\N
-4	Fi	f	Zähmen	Zauberkünste	\N
-4	Mg	f	Zähmen	Zauberkünste	0
-4	Tr	f	kleiner Schild	Waffenfertigkeiten	1
-4	Ba	f	leichte Armbrust	Waffenfertigkeiten	5
-4	Er	f	leichte Armbrust	Waffenfertigkeiten	5
-4	Mg	f	leichte Armbrust	Waffenfertigkeiten	5
-4	Sp	f	leichte Armbrust	Waffenfertigkeiten	5
-4	Sw	f	leichte Armbrust	Waffenfertigkeiten	5
-4	Er	f	schwere Armbrust	Waffenfertigkeiten	5
-4	Hj	f	schwere Armbrust	Waffenfertigkeiten	5
-4	BN	f	waffenloser Kampf	Waffenfertigkeiten	5
-4	BS	f	waffenloser Kampf	Waffenfertigkeiten	5
-4	BW	f	waffenloser Kampf	Waffenfertigkeiten	5
-4	Ba	f	waffenloser Kampf	Waffenfertigkeiten	5
-4	Er	f	waffenloser Kampf	Waffenfertigkeiten	5
-4	Fi	f	waffenloser Kampf	Waffenfertigkeiten	5
-4	Hä	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	Ku	f	Bola	Waffenfertigkeiten	5
+4	Ku	f	Lanze	Waffenfertigkeiten	5
+4	Ku	f	Lasso	Waffenfertigkeiten	5
 4	Ku	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	Ma	f	Erkennen von Zauberei	Zauberkünste	0
+4	Ma	f	Macht über Menschen	Zauberkünste	0
+4	Mg	f	Angst	Zauberkünste	0
+4	Mg	f	Bogen	Waffenfertigkeiten	5
+4	Mg	f	Erkennen der Aura	Zauberkünste	0
+4	Mg	f	Erkennen von Leben	Zauberkünste	0
+4	Mg	f	leichte Armbrust	Waffenfertigkeiten	5
+4	Mg	f	Niessalz	Zauberkünste	0
+4	Mg	f	Wehsalz	Zauberkünste	0
+4	Mg	f	Zähmen	Zauberkünste	0
+4	MMa	f	Erkennen von Zauberei	Zauberkünste	0
+4	MMa	f	Wetterzauber	Zauberkünste	0
+4	Or	f	Handauflegen	Zauberkünste	0
+4	Or	f	Heiliger Zorn	Zauberkünste	0
 4	Or	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	Or	f	Wagemut	Zauberkünste	0
+4	PC	f	Verursachen von Krankheit	Zauberkünste	0
+4	PC	f	Wurfpfeil	Waffenfertigkeiten	4
+4	PF	f	Göttlicher Schutz vor dem Bösen	Zauberkünste	0
+4	PF	f	Morgenstern	Waffenfertigkeiten	4
+4	PF	f	Stabkeule	Waffenfertigkeiten	4
+4	PHa	f	Heilen von Wunden	Zauberkünste	0
+4	PHa	f	Morgenstern	Waffenfertigkeiten	4
+4	PHa	f	Stabkeule	Waffenfertigkeiten	4
+4	PHe	f	Heilen von Wunden	Zauberkünste	0
+4	PHe	f	Morgenstern	Waffenfertigkeiten	4
+4	PHe	f	Stabkeule	Waffenfertigkeiten	4
+4	PK	f	Anderthalbhänder	Waffenfertigkeiten	4
+4	PK	f	Glefe	Waffenfertigkeiten	4
+4	PK	f	Morgenstern	Waffenfertigkeiten	4
+4	PK	f	Stabkeule	Waffenfertigkeiten	4
+4	PK	f	Wagemut	Zauberkünste	0
+4	PM	f	Heilen von Wunden	Zauberkünste	0
+4	PT	f	Göttlicher Schutz vor dem Bösen	Zauberkünste	0
+4	PT	f	Heilen von Wunden	Zauberkünste	0
+4	PT	f	Wurfpfeil	Waffenfertigkeiten	4
+4	PW	f	Heilen von Wunden	Zauberkünste	0
+4	PW	f	Wurfstern	Waffenfertigkeiten	4
+4	Ru	f	Becherrune	Zauberkünste	0
+4	Ru	f	Hagelrune	Zauberkünste	0
+4	Ru	f	Reiserune	Zauberkünste	0
+4	Sa	f	Verursachen von Krankheit	Zauberkünste	\N
+4	ScN	f	Macht über das Selbst	Zauberkünste	0
+4	ScN	f	Speerschleuder	Waffenfertigkeiten	4
+4	ScN	f	Stabkeule	Waffenfertigkeiten	4
+4	ScN	f	Verursachen von Krankheit	Zauberkünste	0
+4	ScS	f	Macht über das Selbst	Zauberkünste	0
+4	ScS	f	Speerschleuder	Waffenfertigkeiten	4
+4	ScS	f	Stabkeule	Waffenfertigkeiten	4
+4	ScS	f	Verursachen von Krankheit	Zauberkünste	0
+4	ScW	f	Macht über das Selbst	Zauberkünste	0
+4	ScW	f	Speerschleuder	Waffenfertigkeiten	4
+4	ScW	f	Stabkeule	Waffenfertigkeiten	4
+4	ScW	f	Verursachen von Krankheit	Zauberkünste	0
+4	sHx	f	Angst	Zauberkünste	0
+4	sHx	f	Böser Blick	Zauberkünste	0
+4	sHx	f	Ochsenzunge	Waffenfertigkeiten	4
+4	Sk	f	Bogen	Waffenfertigkeiten	5
+4	Sk	f	Reiserune	Zauberkünste	\N
+4	Sk	f	Schlachtbeil	Waffenfertigkeiten	5
+4	Sk	f	Wahrheitsrune	Zauberkünste	\N
+4	Sp	f	Bogen	Waffenfertigkeiten	5
+4	Sp	f	Kurzbogen	Waffenfertigkeiten	5
+4	Sp	f	leichte Armbrust	Waffenfertigkeiten	5
 4	Sp	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	Sr	f	Heiliger Zorn	Zauberkünste	\N
+4	Sr	f	Kampf in Vollrüstung	Fachkenntnisse	15
+4	Sw	f	Blasrohr	Waffenfertigkeiten	5
+4	Sw	f	Bogen	Waffenfertigkeiten	5
+4	Sw	f	Kurzbogen	Waffenfertigkeiten	5
+4	Sw	f	leichte Armbrust	Waffenfertigkeiten	5
+4	Sw	f	Schattenrobe	Zauberkünste	0
+4	Sw	f	Sehen in Dunkelheit	Zauberkünste	0
+4	Th	f	Blasrohr	Waffenfertigkeiten	4
+4	Th	f	Macht über das Selbst	Zauberkünste	0
+4	Th	f	Sehen in Dunkelheit	Zauberkünste	0
+4	Tm	f	Bärenwut	Zauberkünste	0
+4	Tm	f	Bola	Waffenfertigkeiten	5
+4	Tm	f	Macht über die belebte Natur	Zauberkünste	0
 4	Tm	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	Tm	f	Wagemut	Zauberkünste	0
+4	To	f	Angst	Zauberkünste	0
+4	To	f	Stille	Zauberkünste	0
+4	Tr	f	Farbenspiel	Zauberkünste	\N
+4	Tr	f	Keule	Waffenfertigkeiten	5
+4	Tr	f	kleiner Schild	Waffenfertigkeiten	1
+4	Tr	f	Scharade	Zauberkünste	\N
+4	Tr	f	Verblüffen	Zauberkünste	\N
+4	Tr	f	Zusammenfügen	Zauberkünste	\N
+4	Tt	f	Ahuatls Sturm	Zauberkünste	\N
+4	Tt	f	Bogen	Waffenfertigkeiten	5
+4	Tt	f	Ixtantzutuhs Schönheit	Zauberkünste	\N
+4	Tt	f	Nahuahauquihs Preis	Zauberkünste	\N
+4	Tt	f	Tolucans Gabe	Zauberkünste	\N
+4	Tt	f	Wurfmesser	Waffenfertigkeiten	5
+4	Wa	f	Anderthalbhänder	Waffenfertigkeiten	5
 4	Wa	f	waffenloser Kampf	Waffenfertigkeiten	5
+4	wHx	f	Angst	Zauberkünste	0
+4	wHx	f	Ochsenzunge	Waffenfertigkeiten	4
+4	Wi	f	Bärenwut	Zauberkünste	0
+4	Wi	f	Kampfstab	Waffenfertigkeiten	5
+4	Wi	f	Macht über die belebte Natur	Zauberkünste	0
 4	Wi	f	waffenloser Kampf	Waffenfertigkeiten	5
 5	Dt	f	Kampfstab	Waffenfertigkeiten	5
-5	PW	f	Kampfstab	Waffenfertigkeiten	4
 5	Dt	f	Keule	Waffenfertigkeiten	5
-5	PC	f	Meucheln	Fachkenntnisse	8
+5	Ma	f	Thaumatographie	Fachkenntnisse	6
 5	MMa	f	Tauchen	Fachkenntnisse	15
 5	MMa	f	Thaumatographie	Fachkenntnisse	6
-5	Ma	f	Thaumatographie	Fachkenntnisse	6
+5	PC	f	Meucheln	Fachkenntnisse	8
+5	PW	f	Kampfstab	Waffenfertigkeiten	4
 5	Tr	f	waffenloser Kampf	Waffenfertigkeiten	5
-6	Tr	f	Blumenfee	Zauberkünste	\N
-6	Ru	f	Heilsrune	Zauberkünste	0
-6	PHe	f	Kampfstab	Waffenfertigkeiten	4
-6	PHa	f	Kriegsflegel	Waffenfertigkeiten	4
-6	Hl	f	Magierstab	Waffenfertigkeiten	4
-6	Ma	f	Magierstab	Waffenfertigkeiten	4
-6	PF	f	Magierstab	Waffenfertigkeiten	4
-6	PHe	f	Magierstab	Waffenfertigkeiten	4
-6	Sw	f	Magierstab	Waffenfertigkeiten	5
-6	Th	f	Magierstab	Waffenfertigkeiten	4
 6	dBe	f	Magierstab	Waffenfertigkeiten	4
 6	eBe	f	Magierstab	Waffenfertigkeiten	4
 6	gHx	f	Magierstab	Waffenfertigkeiten	4
-6	sHx	f	Magierstab	Waffenfertigkeiten	4
-6	wHx	f	Magierstab	Waffenfertigkeiten	4
-6	PM	f	Netz	Waffenfertigkeiten	4
-6	Tr	f	Rauchkringel	Zauberkünste	\N
-6	Ru	f	Stärkerune	Zauberkünste	0
-6	Sk	f	Stärkerune	Zauberkünste	\N
-6	Tr	f	Tüchertanz	Zauberkünste	\N
-6	Th	f	Werfen	Waffenfertigkeiten	4
-6	Ma	f	Wurfmesser	Waffenfertigkeiten	4
 6	gHx	f	Wurfmesser	Waffenfertigkeiten	4
-6	sHx	f	Wurfmesser	Waffenfertigkeiten	4
-6	wHx	f	Wurfmesser	Waffenfertigkeiten	4
+6	Hl	f	Magierstab	Waffenfertigkeiten	4
+6	Ma	f	Magierstab	Waffenfertigkeiten	4
+6	Ma	f	Wurfmesser	Waffenfertigkeiten	4
 6	MMa	f	Zweizack	Waffenfertigkeiten	4
-6	Th	f	leichte Armbrust	Waffenfertigkeiten	4
 6	PC	f	waffenloser Kampf	Waffenfertigkeiten	4
+6	PF	f	Magierstab	Waffenfertigkeiten	4
+6	PHa	f	Kriegsflegel	Waffenfertigkeiten	4
+6	PHe	f	Kampfstab	Waffenfertigkeiten	4
+6	PHe	f	Magierstab	Waffenfertigkeiten	4
+6	PM	f	Netz	Waffenfertigkeiten	4
 6	PW	f	waffenloser Kampf	Waffenfertigkeiten	4
+6	Ru	f	Heilsrune	Zauberkünste	0
+6	Ru	f	Stärkerune	Zauberkünste	0
+6	sHx	f	Magierstab	Waffenfertigkeiten	4
+6	sHx	f	Wurfmesser	Waffenfertigkeiten	4
+6	Sk	f	Stärkerune	Zauberkünste	\N
+6	Sw	f	Magierstab	Waffenfertigkeiten	5
+6	Th	f	leichte Armbrust	Waffenfertigkeiten	4
+6	Th	f	Magierstab	Waffenfertigkeiten	4
+6	Th	f	Werfen	Waffenfertigkeiten	4
+6	Tr	f	Blumenfee	Zauberkünste	\N
+6	Tr	f	Rauchkringel	Zauberkünste	\N
+6	Tr	f	Tüchertanz	Zauberkünste	\N
 6	Tt	f	waffenloser Kampf	Waffenfertigkeiten	5
-8	Tm	f	Angst	Zauberkünste	0
-8	Wi	f	Angst	Zauberkünste	0
-8	Hj	f	Austreibung des Bösen	Zauberkünste	0
-8	Mg	f	Besänftigen	Zauberkünste	0
-8	PC	f	Blasrohr	Waffenfertigkeiten	4
-8	PT	f	Blasrohr	Waffenfertigkeiten	4
-8	PF	f	Bogen	Waffenfertigkeiten	4
+6	wHx	f	Magierstab	Waffenfertigkeiten	4
+6	wHx	f	Wurfmesser	Waffenfertigkeiten	4
 8	Ba	f	Das Lied der Ruhe	Zauberkünste	0
 8	Ba	f	Das Lied der Tanzlust	Zauberkünste	0
 8	Ba	f	Das Lied der Verführung	Zauberkünste	0
 8	Ba	f	Das Lied des Spottes	Zauberkünste	0
 8	Ba	f	Das Lied des Wagemuts	Zauberkünste	0
 8	Ba	f	Das Loblied	Zauberkünste	0
-8	MMa	f	Dreizack	Waffenfertigkeiten	5
+8	Fi	f	Macht über die belebte Natur	Zauberkünste	\N
+8	Fi	f	Zaubersprung	Zauberkünste	\N
+8	Hj	f	Austreibung des Bösen	Zauberkünste	0
 8	Hj	f	Erkennen von Zauberei	Zauberkünste	0
+8	Ma	f	Magierstecken	Waffenfertigkeiten	4
+8	Mg	f	Besänftigen	Zauberkünste	0
 8	Mg	f	Erkennen von Zauberei	Zauberkünste	0
+8	MMa	f	Dreizack	Waffenfertigkeiten	5
+8	Or	f	Goldener Panzer	Zauberkünste	0
+8	Or	f	Heilen von Wunden	Zauberkünste	0
+8	PC	f	Blasrohr	Waffenfertigkeiten	4
+8	PF	f	Bogen	Waffenfertigkeiten	4
+8	PF	f	Kampfstab	Waffenfertigkeiten	4
+8	PF	f	Kriegsflegel	Waffenfertigkeiten	4
+8	PF	f	Kurzbogen	Waffenfertigkeiten	4
+8	PF	f	Schleuder	Waffenfertigkeiten	4
+8	PK	f	Kriegsflegel	Waffenfertigkeiten	4
+8	PK	f	Schlachtbeil	Waffenfertigkeiten	4
+8	PT	f	Blasrohr	Waffenfertigkeiten	4
+8	PT	f	waffenloser Kampf	Waffenfertigkeiten	4
+8	Ru	f	Pfeilrune	Zauberkünste	0
+8	Ru	f	Schildrune	Zauberkünste	\N
+8	Ru	f	Schneidenrune	Zauberkünste	0
+8	Ru	f	Wundrune	Zauberkünste	0
+8	Sa	f	Levitation	Zauberkünste	\N
 8	ScN	f	Faustkampf	Waffenfertigkeiten	4
 8	ScS	f	Faustkampf	Waffenfertigkeiten	4
 8	ScW	f	Faustkampf	Waffenfertigkeiten	4
-8	Tr	f	Fehlleistung	Zauberkünste	\N
-8	Tr	f	Funkenflug	Zauberkünste	\N
-8	Or	f	Goldener Panzer	Zauberkünste	0
-8	Sr	f	Goldener Panzer	Zauberkünste	\N
-8	Sr	f	Göttlicher Schutz vor Magie	Zauberkünste	\N
-8	Or	f	Heilen von Wunden	Zauberkünste	0
-8	PF	f	Kampfstab	Waffenfertigkeiten	4
-8	PF	f	Kriegsflegel	Waffenfertigkeiten	4
-8	PK	f	Kriegsflegel	Waffenfertigkeiten	4
-8	PF	f	Kurzbogen	Waffenfertigkeiten	4
-8	Sa	f	Levitation	Zauberkünste	\N
 8	Sk	f	Lied der Ruhe	Zauberkünste	\N
 8	Sk	f	Lied des Spottes	Zauberkünste	\N
-8	Fi	f	Macht über die belebte Natur	Zauberkünste	\N
-8	Ma	f	Magierstecken	Waffenfertigkeiten	4
-8	Tr	f	Netz ahnen	Zauberkünste	\N
-8	Ru	f	Pfeilrune	Zauberkünste	0
-8	Ru	f	Schildrune	Zauberkünste	\N
-8	PK	f	Schlachtbeil	Waffenfertigkeiten	4
-8	PF	f	Schleuder	Waffenfertigkeiten	4
-8	Ru	f	Schneidenrune	Zauberkünste	0
+8	Sr	f	Goldener Panzer	Zauberkünste	\N
+8	Sr	f	Göttlicher Schutz vor Magie	Zauberkünste	\N
 8	Sr	f	Srimarameisterschaft	Zauberkünste	\N
-8	Tr	f	Stoß	Zauberkünste	\N
+8	Tm	f	Angst	Zauberkünste	0
 8	Tm	f	Tiersprache	Zauberkünste	0
+8	Tr	f	Fehlleistung	Zauberkünste	\N
+8	Tr	f	Funkenflug	Zauberkünste	\N
+8	Tr	f	Netz ahnen	Zauberkünste	\N
+8	Tr	f	Stoß	Zauberkünste	\N
+8	Wi	f	Angst	Zauberkünste	0
 8	Wi	f	Tiersprache	Zauberkünste	0
-8	Ru	f	Wundrune	Zauberkünste	0
-8	Fi	f	Zaubersprung	Zauberkünste	\N
-8	PT	f	waffenloser Kampf	Waffenfertigkeiten	4
+9	dBe	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	De	f	waffenloser Kampf	Waffenfertigkeiten	4
+9	eBe	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	Hl	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	PF	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	PHa	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	PHe	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	PK	f	waffenloser Kampf	Waffenfertigkeiten	4
 9	PM	f	waffenloser Kampf	Waffenfertigkeiten	4
-9	dBe	f	waffenloser Kampf	Waffenfertigkeiten	4
-9	eBe	f	waffenloser Kampf	Waffenfertigkeiten	4
 \.
 --
---
-
-ALTER TABLE ONLY lernschema_4
-    ADD CONSTRAINT lernschema_4_pkey PRIMARY KEY (lernpunkte, name, typ);
-
-
---
+-- TOC entry 4 (OID 30366)
+-- Name: lernschema_4_typ_name_wert; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX lernschema_4_typ_name_wert ON lernschema_4 USING btree (typ, name, wert);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 3 (OID 30364)
+-- Name: lernschema_4_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY lernschema_4
+    ADD CONSTRAINT lernschema_4_pkey PRIMARY KEY (lernpunkte, name, typ);
+
 

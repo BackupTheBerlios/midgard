@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.waffen_region_name_alias;
 ALTER TABLE ONLY public.waffen_region_name DROP CONSTRAINT waffen_region_name_pkey;
+DROP INDEX public.waffen_region_name_alias;
 DROP TABLE public.waffen_region_name;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 32406)
+-- Name: waffen_region_name; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE waffen_region_name (
@@ -31,83 +25,85 @@ CREATE TABLE waffen_region_name (
 
 
 --
+-- Data for TOC entry 5 (OID 32406)
+-- Name: waffen_region_name; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY waffen_region_name (name, alias, region, schaden, schaden_b, angriffs_mod, st, kosten_gs) FROM stdin;
-Langbogen	Aginkha (Pfeil)	R	2W6	-2	-2	\N	\N
-Rapier	Angushorn	N	\N	\N	\N	\N	\N
-Handaxt	Ankusch	R	\N	\N	\N	\N	\N
-Langschwert	Aschwapatawar	R	\N	\N	\N	\N	\N
-Speerschleuder	Atlatl	N	\N	\N	\N	\N	\N
-Kampfstab	Bo	K	\N	\N	\N	\N	\N
-Langschwert	Breitschwert	A	\N	\N	\N	\N	\N
 Anderthalbhänder	Claymore	A	\N	\N	\N	\N	\N
-Streitkolben	Dabus	E	\N	\N	\N	\N	\N
-Wurfaxt	Dhauram	R	\N	\N	\N	\N	\N
-Dolch	Dirgh	A	\N	\N	\N	\N	\N
-Fischspeer	Dreizackspeer	N	\N	\N	\N	\N	\N
-Blasrohr	FukiDake	K	\N	\N	\N	\N	\N
 Anderthalbhänder	Hamschar	R	\N	\N	\N	\N	\N
+Anderthalbhänder	Nimcha	E	\N	\N	\N	\N	\N
+Bihänder	Maquahuitl (Z)	N	\N	\N	\N	\N	\N
+Blasrohr	FukiDake	K	\N	\N	\N	\N	\N
+Bogen	Mukantar	E	\N	\N	\N	\N	\N
+Dolch	Dirgh	A	\N	\N	\N	\N	\N
 Dolch	Jambiya	E	\N	\N	\N	\N	\N
-leichter Speer	Jarid	E	\N	\N	\N	\N	\N
-Parierdolch	Jitte	K	\N	\N	\N	\N	\N
-waffenloser Kampf	Kampfriemen	\N	\N	\N	\N	\N	\N
 Dolch	Katar	R	\N	\N	\N	\N	\N
 Dolch	Katar (Spreizklinge)	R	W6	0	-2	\N	\N
-Morgenstern	KauSinKe	K	\N	\N	\N	\N	\N
 Dolch	Khanjar	E	\N	\N	\N	\N	\N
-großer Schild	Krabbenschild	N	\N	\N	\N	\N	\N
-Streitkolben	Kronehar	N	\N	\N	\N	\N	\N
-Kurzschwert	Laingdirgh	A	\N	\N	\N	\N	\N
-Krummsäbel	Ma`khirr	R	W6	1	\N	\N	\N
-Wurfpfeil	Mague-Stacheln	N	\N	\N	\N	\N	\N
-Langschwert	Maquahuitl	N	\N	\N	\N	\N	\N
-Krummsäbel	Maquahuitl (S)	N	\N	\N	\N	\N	\N
-Bihänder	Maquahuitl (Z)	N	\N	\N	\N	\N	\N
-Bogen	Mukantar	E	\N	\N	\N	\N	\N
-Schlachtbeil	Namikravyad	R	\N	\N	\N	\N	\N
 Dolch	Nazcaltek	N	\N	\N	\N	\N	\N
-Anderthalbhänder	Nimcha	E	\N	\N	\N	\N	\N
 Dolch	Obsidiandoclch	N	\N	\N	\N	\N	\N
-leichte Armbrust	OjuMi	K	\N	\N	\N	\N	\N
 Dolch	Opferdolch	N	\N	\N	\N	\N	\N
-Wurfmesser	Opfermesser	N	\N	\N	\N	\N	\N
-Kurzschwert	Patawar	R	W6(+2)	\N	\N	\N	\N
-Magierstab	Priesterstab	N	\N	\N	\N	\N	\N
 Dolch	Rilok	E	\N	\N	\N	\N	\N
-Stoßspeer	Rumeh	E	\N	\N	\N	\N	\N
-kleiner Schild	Rundschild	N	\N	\N	\N	\N	\N
-Kampfgabeln	Sai	K	\N	\N	\N	\N	\N
-Kummsäbel	Saif	E	\N	\N	\N	\N	\N
-schwere Armbrust	SangMiau	K	\N	\N	\N	\N	\N
-Streitaxt	Sanghala	R	\N	\N	\N	\N	\N
-Krummsäbel	Schimschar	R	W6(+2)	\N	\N	\N	\N
-Handaxt	Steinaxt	N	\N	\N	\N	\N	\N
-Krummsäbel	Szimitar	R	W6(+2)	\N	\N	\N	\N
-Langschwert	Takuba	E	\N	\N	\N	\N	\N
 Dolch	Tanto	K	\N	\N	\N	\N	\N
 Dolch	Telek	E	\N	\N	\N	\N	\N
-Wurfstern	Tschakram	R	\N	\N	\N	\N	\N
-leichte Armbrust	Ud al-Khal	E	\N	\N	\N	\N	\N
-Stoßspeer	Yari	K	\N	\N	\N	\N	\N
-Wurfspeer	YariNage	K	\N	\N	\N	\N	\N
+Fischspeer	Dreizackspeer	N	\N	\N	\N	\N	\N
+großer Schild	Krabbenschild	N	\N	\N	\N	\N	\N
+Handaxt	Ankusch	R	\N	\N	\N	\N	\N
+Handaxt	Steinaxt	N	\N	\N	\N	\N	\N
+Kampfgabeln	Sai	K	\N	\N	\N	\N	\N
+Kampfstab	Bo	K	\N	\N	\N	\N	\N
+kleiner Schild	Rundschild	N	\N	\N	\N	\N	\N
+Krummsäbel	Ma`khirr	R	W6	1	\N	\N	\N
+Krummsäbel	Maquahuitl (S)	N	\N	\N	\N	\N	\N
+Krummsäbel	Schimschar	R	W6(+2)	\N	\N	\N	\N
+Krummsäbel	Szimitar	R	W6(+2)	\N	\N	\N	\N
+Kummsäbel	Saif	E	\N	\N	\N	\N	\N
+Kurzschwert	Laingdirgh	A	\N	\N	\N	\N	\N
+Kurzschwert	Patawar	R	W6(+2)	\N	\N	\N	\N
+Langbogen	Aginkha (Pfeil)	R	2W6	-2	-2	\N	\N
 Langbogen	verst. Langbogen	\N	W6	2	\N	81	120
 Langbogen	verst. Langbogen 	\N	W6	3	\N	96	120
+Langschwert	Aschwapatawar	R	\N	\N	\N	\N	\N
+Langschwert	Breitschwert	A	\N	\N	\N	\N	\N
+Langschwert	Maquahuitl	N	\N	\N	\N	\N	\N
+Langschwert	Takuba	E	\N	\N	\N	\N	\N
+leichte Armbrust	OjuMi	K	\N	\N	\N	\N	\N
+leichte Armbrust	Ud al-Khal	E	\N	\N	\N	\N	\N
+leichter Speer	Jarid	E	\N	\N	\N	\N	\N
+Magierstab	Priesterstab	N	\N	\N	\N	\N	\N
+Morgenstern	KauSinKe	K	\N	\N	\N	\N	\N
+Parierdolch	Jitte	K	\N	\N	\N	\N	\N
+Rapier	Angushorn	N	\N	\N	\N	\N	\N
+Schlachtbeil	Namikravyad	R	\N	\N	\N	\N	\N
+schwere Armbrust	SangMiau	K	\N	\N	\N	\N	\N
+Speerschleuder	Atlatl	N	\N	\N	\N	\N	\N
+Stoßspeer	Rumeh	E	\N	\N	\N	\N	\N
+Stoßspeer	Yari	K	\N	\N	\N	\N	\N
+Streitaxt	Sanghala	R	\N	\N	\N	\N	\N
+Streitkolben	Dabus	E	\N	\N	\N	\N	\N
+Streitkolben	Kronehar	N	\N	\N	\N	\N	\N
+waffenloser Kampf	Kampfriemen	\N	\N	\N	\N	\N	\N
+Wurfaxt	Dhauram	R	\N	\N	\N	\N	\N
+Wurfmesser	Opfermesser	N	\N	\N	\N	\N	\N
+Wurfpfeil	Mague-Stacheln	N	\N	\N	\N	\N	\N
+Wurfspeer	YariNage	K	\N	\N	\N	\N	\N
+Wurfstern	Tschakram	R	\N	\N	\N	\N	\N
 \.
 --
---
-
-ALTER TABLE ONLY waffen_region_name
-    ADD CONSTRAINT waffen_region_name_pkey PRIMARY KEY (alias);
-
-
---
+-- TOC entry 3 (OID 32472)
+-- Name: waffen_region_name_alias; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX waffen_region_name_alias ON waffen_region_name USING btree (alias);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 4 (OID 32470)
+-- Name: waffen_region_name_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY waffen_region_name
+    ADD CONSTRAINT waffen_region_name_pkey PRIMARY KEY (alias);
+
 

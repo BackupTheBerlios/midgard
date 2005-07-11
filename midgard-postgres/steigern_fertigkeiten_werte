@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.steigern_fertigkeiten_werte_nam;
 ALTER TABLE ONLY public.steigern_fertigkeiten_werte DROP CONSTRAINT steigern_fertigkeiten_werte_pke;
+DROP INDEX public.steigern_fertigkeiten_werte_nam;
 DROP TABLE public.steigern_fertigkeiten_werte;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 31420)
+-- Name: steigern_fertigkeiten_werte; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE steigern_fertigkeiten_werte (
@@ -53,6 +47,8 @@ CREATE TABLE steigern_fertigkeiten_werte (
 
 
 --
+-- Data for TOC entry 5 (OID 31420)
+-- Name: steigern_fertigkeiten_werte; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY steigern_fertigkeiten_werte (name, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p0, p21, p22, p23, p24, p25, p26, p27, p28) FROM stdin;
@@ -73,41 +69,41 @@ Erste Hilfe	\N	\N	\N	\N	\N	\N	50	50	100	100	200	400	400	400	400	400	400	400	400	
 Fallen entdecken	\N	\N	\N	\N	100	100	200	200	400	400	800	800	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fallenmechanik	\N	\N	\N	\N	100	200	400	400	800	800	1600	1600	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fallenstellen	\N	\N	\N	\N	50	100	200	200	400	400	800	800	800	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Fechten	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fälschen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	250	\N	250	250	\N	\N	\N	\N	\N	\N
+Fechten	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Gassenwissen	\N	\N	\N	\N	50	50	100	100	250	250	500	500	500	500	500	500	500	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Geheimmechanismen öffnen	\N	\N	\N	\N	100	100	200	200	400	400	800	800	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Geheimzeichen	\N	\N	\N	\N	\N	\N	10	10	10	10	10	20	50	50	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Geomantie	\N	\N	\N	\N	20	20	50	50	50	100	100	200	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Geschenke machen	\N	\N	\N	\N	\N	\N	50	100	250	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Geschäftstüchtigkeit	\N	\N	\N	\N	\N	\N	50	50	100	100	200	200	400	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Geschenke machen	\N	\N	\N	\N	\N	\N	50	100	250	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Glücksspiel	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Heilkunde	\N	\N	\N	\N	50	50	50	100	100	200	200	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Himmelskunde	\N	\N	\N	\N	10	10	10	10	10	10	20	20	50	50	50	50	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Dunkelheit	\N	\N	20	20	40	40	40	80	80	80	150	150	300	600	600	600	600	600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Schlachtreihe	\N	\N	\N	\N	10	10	20	20	50	100	250	250	500	1000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf in Vollrüstung	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	100	200	200	400	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Kampftaktik	\N	\N	\N	\N	\N	\N	20	20	50	50	100	100	200	200	400	400	400	400	400	400	\N	400	400	\N	\N	\N	\N	\N	\N
 Kampf vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	20	20	50	100	200	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kampf zu Pferd	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	20	20	50	100	200	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Kampftaktik	\N	\N	\N	\N	\N	\N	20	20	50	50	100	100	200	200	400	400	400	400	400	400	\N	400	400	\N	\N	\N	\N	\N	\N
 KiDo	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	15	20	30	70	150	300	600	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 KujKuri	\N	30	150	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Lanzenstechen	\N	100	100	150	150	200	200	400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Laufen	\N	\N	\N	\N	100	250	500	1000	1000	1000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Lesen von Zauberschrift	\N	\N	\N	\N	\N	\N	10	10	10	10	10	20	20	50	50	50	50	50	50	50	\N	\N	\N	\N	\N	\N	\N	\N	\N
-LiYao	\N	\N	10	10	30	30	30	50	50	100	100	200	200	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Lippenlesen	\N	\N	\N	\N	100	100	200	400	400	800	800	800	800	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+LiYao	\N	\N	10	10	30	30	30	50	50	100	100	200	200	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Menschenkenntnis	\N	\N	\N	\N	100	100	200	400	400	800	800	800	800	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Meucheln	\N	\N	\N	\N	\N	\N	100	100	200	200	500	500	1000	1000	2000	2000	2000	2000	2000	2000	\N	2000	2000	\N	\N	\N	\N	\N	\N
 Musizieren	\N	\N	\N	\N	\N	\N	\N	\N	10	10	10	20	20	20	50	50	50	50	50	50	\N	50	50	\N	\N	\N	\N	\N	\N
 NinJutsu	\N	\N	150	150	300	300	600	600	1200	1200	2400	2400	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Rechnen	\N	\N	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Scharfschießen	\N	\N	\N	\N	50	50	100	100	200	200	500	500	1000	1000	2000	2000	2000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Schätzen	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schauspielern	\N	\N	\N	\N	\N	\N	10	10	50	50	100	200	400	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schießen vom Streitwagen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	10	20	20	50	100	200	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schleichen	\N	\N	\N	\N	\N	\N	200	200	400	400	800	800	800	1600	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Schreiben	\N	\N	\N	\N	10	10	10	10	10	10	10	10	20	50	100	200	400	400	400	400	\N	400	400	\N	\N	\N	\N	\N	\N
-Schätzen	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Seilkunst	\N	\N	\N	\N	\N	\N	10	10	20	20	50	50	100	100	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Siebter Sinn	\N	\N	500	500	500	500	500	500	500	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Sprache	\N	\N	\N	\N	10	10	10	20	20	20	50	50	100	100	200	200	400	400	400	400	\N	400	400	\N	\N	\N	\N	\N	\N
@@ -120,6 +116,7 @@ Tauchen	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	50	50	100	200	400	800	800	800	800	800	\N	\
 Teezeremonie	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Thaumatographie	\N	\N	\N	\N	100	100	200	200	400	400	800	800	1600	1600	1600	1600	1600	1600	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Trinken	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Überleben	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Verführen	\N	\N	\N	\N	\N	\N	10	10	50	50	100	200	400	400	400	400	400	400	400	400	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Verhören	\N	\N	\N	\N	\N	\N	20	20	50	100	200	400	800	800	800	800	800	800	800	800	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Verkleiden	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	20	20	50	50	100	250	250	\N	250	250	\N	\N	\N	\N	\N	\N
@@ -130,22 +127,21 @@ Wissen	\N	\N	\N	\N	50	50	50	100	100	200	200	400	400	400	400	400	400	400	\N	\N	\N
 YangScheng	\N	200	500	1000	2000	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zeichensprache	\N	\N	\N	\N	10	10	10	10	20	50	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Überleben	\N	\N	\N	\N	\N	\N	10	10	10	20	20	50	100	100	100	100	100	100	100	100	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 --
---
-
-ALTER TABLE ONLY steigern_fertigkeiten_werte
-    ADD CONSTRAINT steigern_fertigkeiten_werte_pke PRIMARY KEY (name);
-
-
---
+-- TOC entry 3 (OID 31502)
+-- Name: steigern_fertigkeiten_werte_nam; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX steigern_fertigkeiten_werte_nam ON steigern_fertigkeiten_werte USING btree (name);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 4 (OID 31500)
+-- Name: steigern_fertigkeiten_werte_pke; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY steigern_fertigkeiten_werte
+    ADD CONSTRAINT steigern_fertigkeiten_werte_pke PRIMARY KEY (name);
+
 

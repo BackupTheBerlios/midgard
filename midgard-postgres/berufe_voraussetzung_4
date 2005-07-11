@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.berufe_voraussetzung_4_beruf;
 ALTER TABLE ONLY public.berufe_voraussetzung_4 DROP CONSTRAINT berufe_voraussetzung_4_pkey;
+DROP INDEX public.berufe_voraussetzung_4_beruf;
 DROP TABLE public.berufe_voraussetzung_4;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 18297)
+-- Name: berufe_voraussetzung_4; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE berufe_voraussetzung_4 (
@@ -35,6 +29,8 @@ CREATE TABLE berufe_voraussetzung_4 (
 
 
 --
+-- Data for TOC entry 5 (OID 18297)
+-- Name: berufe_voraussetzung_4; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY berufe_voraussetzung_4 (beruf, land, stadt, u, v, m, a, typ_k, typ_z, region, region_zusatz, geschlecht) FROM stdin;
@@ -48,6 +44,7 @@ Arzt	\N	t	\N	\N	t	t	\N	t	\N	\N	\N
 Athlet	\N	t	t	t	t	t	t	\N	GBB	\N	\N
 Aufseher	t	t	\N	t	t	\N	t	\N	\N	\N	\N
 Auktionator	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
+Bäcker	\N	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
 Barbier	\N	t	\N	t	\N	\N	\N	\N	\N	\N	\N
 Bauer	t	\N	t	t	t	t	t	t	\N	\N	\N
 Baumeister	\N	t	\N	\N	t	t	\N	\N	GBB	\N	\N
@@ -62,7 +59,6 @@ Bote	t	t	t	t	\N	\N	t	\N	\N	\N	\N
 Brauer	t	t	\N	t	\N	\N	\N	\N	\N	\N	\N
 Brenner	t	t	\N	t	\N	\N	\N	\N	\N	\N	\N
 Butler	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Bäcker	\N	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
 Croupier	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Dachdecker	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Dewadasi	\N	\N	\N	\N	\N	\N	\N	\N	R	\N	w
@@ -79,12 +75,13 @@ Fackelmacher	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Falkner	t	\N	\N	\N	t	t	t	\N	\N	\N	\N
 Fallenkonstrukteur	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Fallensteller	t	\N	\N	t	t	\N	t	\N	\N	\N	\N
+Färber	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Fischer	t	t	\N	t	\N	\N	\N	\N	\N	\N	\N
-Flußschiffer	t	t	\N	t	t	\N	t	\N	\N	\N	\N
 Flößer	t	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
+Flußschiffer	t	t	\N	t	t	\N	t	\N	\N	\N	\N
 Folterknecht	t	t	t	\N	\N	\N	\N	\N	GBB	\N	\N
 Fuhrmann	t	t	\N	t	\N	\N	t	\N	\N	\N	\N
-Färber	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
+Gärtner	\N	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Gaukler	\N	t	t	t	\N	\N	\N	\N	\N	\N	\N
 Gefängniswärter	\N	t	t	t	\N	\N	t	\N	GBB	\N	\N
 Geldeintreiber	t	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
@@ -102,7 +99,6 @@ Goldsucher	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Grabräuber	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Graveur	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Grobschmied	t	t	\N	t	t	\N	t	\N	\N	\N	\N
-Gärtner	\N	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Hafenarbeiter	\N	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Harpunier	t	t	t	t	\N	\N	t	\N	GBB	\N	\N
 Hebamme	t	t	\N	t	t	\N	\N	\N	GBB	\N	\N
@@ -111,19 +107,19 @@ Henker	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Herold	t	t	\N	t	t	t	t	\N	GBB	\N	\N
 Hetäre	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	w
 Hirte	t	\N	t	t	t	\N	t	\N	\N	\N	\N
+Höfling	\N	t	\N	\N	t	t	t	t	GBB	\N	\N
 Hofnarr	\N	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Holzschnitzer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Hufschmied	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Hundeführer	t	\N	\N	t	t	\N	\N	\N	\N	\N	\N
-Höfling	\N	t	\N	\N	t	t	t	t	GBB	\N	\N
 Imker	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Informant	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Ingenieur	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Inquisitor	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Instrumentenbauer	\N	t	\N	t	t	\N	\N	t	GBB	\N	\N
+Jäger	t	\N	\N	t	t	t	t	\N	\N	\N	\N
 Jurist	\N	t	\N	\N	t	t	\N	\N	GBB	\N	\N
 Juwelier	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Jäger	t	\N	\N	t	t	t	t	\N	\N	\N	\N
 Kammerjäger	\N	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Kapitän	\N	t	\N	\N	t	t	t	\N	\N	\N	\N
 Karawanenführer	t	\N	\N	t	t	\N	\N	\N	\N	\N	\N
@@ -134,19 +130,19 @@ Kerzenzieher	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kesselflicker	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Knappe	t	t	\N	\N	\N	t	t	\N	GBB	\N	\N
 Koch	\N	t	\N	t	\N	\N	\N	t	\N	\N	\N
+Köhler	t	\N	\N	t	\N	\N	\N	\N	\N	\N	\N
 Kopfgeldjäger	t	t	\N	t	t	\N	t	\N	GBB	\N	\N
 Korbflechter	t	t	\N	t	\N	\N	\N	\N	\N	\N	\N
 Krämer	t	t	\N	t	\N	\N	\N	\N	\N	\N	\N
 Kräuterhändler	t	t	\N	t	t	\N	\N	t	GBB	\N	\N
 Kräuterkundiger	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kräutersammler	t	t	\N	t	t	\N	\N	t	GBB	\N	\N
+Küfer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kunstmaler	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Kupferschmied	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
+Kürschner	t	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Kurtisane	\N	t	\N	t	t	\N	\N	t	\N	\N	\N
 Kutscher	t	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
-Köhler	t	\N	\N	t	\N	\N	\N	\N	\N	\N	\N
-Küfer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Kürschner	t	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Laienprediger	t	t	t	t	t	t	t	t	GBB	\N	\N
 Lebensmittelhändler	\N	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
 Lederwerker	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
@@ -154,17 +150,17 @@ Leibwächter	\N	t	t	t	\N	\N	t	\N	GBB	\N	\N
 Linsenschleifer	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Lotse	\N	t	\N	\N	t	\N	\N	\N	GBB	\N	\N
 Mahaut	\N	\N	\N	\N	\N	\N	\N	\N	R	\N	m
+Märchenerzähler	\N	t	\N	t	\N	\N	\N	t	\N	\N	\N
 Masseur	\N	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
 Mathematiker	\N	t	\N	\N	t	t	\N	t	GBB	\N	\N
 Maurer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Mechaniker	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Messerschleifer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Metzger	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Musikant	t	t	\N	t	\N	\N	\N	t	\N	\N	\N
-Musikinstrumentenmacher	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Märchenerzähler	\N	t	\N	t	\N	\N	\N	t	\N	\N	\N
 Müller	t	t	\N	t	\N	\N	\N	\N	\N	\N	\N
 Münzfälscher	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
+Musikant	t	t	\N	t	\N	\N	\N	t	\N	\N	\N
+Musikinstrumentenmacher	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Nachtwächter	\N	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
 Navigator	\N	t	\N	\N	t	t	\N	\N	GBB	\N	\N
 Netzmacher	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
@@ -184,10 +180,10 @@ Pferdehändler	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Philosoph	\N	t	\N	t	t	t	\N	t	GBB	\N	\N
 Pionier	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Pirat	t	t	t	t	\N	\N	t	\N	GBB	\N	\N
+Räuber	t	\N	t	\N	\N	\N	t	\N	\N	\N	\N
 Rechtsgelehrter	\N	t	\N	\N	t	t	\N	t	\N	\N	\N
 Redner	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Reeder	\N	t	\N	\N	t	t	\N	\N	GBB	\N	\N
-Räuber	t	\N	t	\N	\N	\N	t	\N	\N	\N	\N
 Rüstungshändler	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Sattler	\N	t	\N	t	\N	\N	\N	\N	\N	\N	\N
 Schankmaid	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
@@ -216,10 +212,10 @@ Siegelfälscher	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Silberschmied	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Sklavenaufseher	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Sklavenhändler	t	t	\N	\N	t	\N	\N	\N	\N	\N	\N
+Späher	t	t	t	t	\N	\N	t	\N	GBB	\N	\N
 Spieler	\N	t	t	t	t	\N	\N	\N	GBB	\N	\N
 Spinnerin	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	w
 Spitzel	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Späher	t	t	t	t	\N	\N	t	\N	GBB	\N	\N
 Srimahaut	\N	\N	\N	\N	\N	\N	\N	\N	R	\N	\N
 Stadtwache	\N	t	\N	t	\N	\N	t	\N	\N	\N	\N
 Steinbrucharbeiter	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
@@ -231,6 +227,8 @@ Steuermann	\N	t	\N	\N	t	\N	\N	\N	\N	\N	\N
 Steuerpächter	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Strandräuber	t	t	t	t	\N	\N	t	\N	GBB	\N	\N
 Straßenräuber	t	t	t	t	\N	\N	t	\N	GBB	\N	\N
+Tänzer	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
+Tätowierer	t	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
 Teppichknüpfer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Theologe	\N	t	\N	\N	t	t	\N	t	GBB	\N	\N
 Tierarzt	\N	t	\N	\N	t	t	\N	t	GBB	\N	\N
@@ -239,14 +237,12 @@ Tierhändler	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Tierpfleger	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Tintenhersteller	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Tischler	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+Töpfer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Torfstecher	t	\N	\N	t	\N	\N	\N	\N	\N	\N	\N
 Totengräber	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
-Trapper	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Träger	t	t	t	t	\N	\N	\N	\N	\N	\N	\N
+Trapper	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Tuchwalker	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-Tänzer	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
-Tätowierer	t	t	\N	t	\N	\N	\N	\N	GBB	\N	\N
-Töpfer	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Unteroffizier	\N	t	t	t	\N	\N	t	\N	GBB	\N	\N
 Untersuchungsbeamter	\N	t	\N	\N	t	\N	\N	\N	GBB	\N	\N
 Urbarmacher	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
@@ -258,6 +254,7 @@ Viehtreiber	t	\N	\N	t	\N	\N	\N	\N	GBB	\N	\N
 Viehzüchter	t	\N	t	t	t	\N	t	\N	\N	\N	\N
 Vorarbeiter	t	t	t	t	\N	\N	\N	\N	GBB	\N	\N
 Vorkoster	\N	t	t	t	\N	\N	\N	\N	GBB	\N	\N
+Wächter	\N	t	\N	t	\N	\N	t	\N	GBB	\N	\N
 Waffenhändler	\N	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Waffenschmied	\N	t	\N	\N	t	\N	t	\N	\N	\N	\N
 Wagner	\N	t	\N	t	\N	\N	\N	\N	\N	\N	\N
@@ -272,7 +269,6 @@ Winzer	t	\N	\N	t	t	\N	\N	\N	\N	\N	\N
 Wirt	t	t	\N	t	t	\N	\N	\N	\N	\N	\N
 Wrackberger	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Wundheiler	t	t	t	t	t	t	t	t	\N	\N	\N
-Wächter	\N	t	\N	t	\N	\N	t	\N	GBB	\N	\N
 Zahnausreißer	t	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Ziegelbrenner	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Zimmermann	t	t	\N	t	\N	\N	\N	\N	\N	\N	\N
@@ -280,19 +276,19 @@ Zollpächter	t	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Zureiter	t	\N	\N	t	t	t	t	\N	\N	\N	\N
 \.
 --
---
-
-ALTER TABLE ONLY berufe_voraussetzung_4
-    ADD CONSTRAINT berufe_voraussetzung_4_pkey PRIMARY KEY (beruf);
-
-
---
+-- TOC entry 3 (OID 18544)
+-- Name: berufe_voraussetzung_4_beruf; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX berufe_voraussetzung_4_beruf ON berufe_voraussetzung_4 USING btree (beruf);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 4 (OID 18542)
+-- Name: berufe_voraussetzung_4_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY berufe_voraussetzung_4
+    ADD CONSTRAINT berufe_voraussetzung_4_pkey PRIMARY KEY (beruf);
+
 

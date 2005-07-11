@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.spezies_angeborene_fert_spezies;
 ALTER TABLE ONLY public.spezies_angeborene_fert DROP CONSTRAINT spezies_angeborene_fert_pkey;
+DROP INDEX public.spezies_angeborene_fert_spezies;
 DROP TABLE public.spezies_angeborene_fert;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 52243)
+-- Name: spezies_angeborene_fert; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE spezies_angeborene_fert (
@@ -28,6 +22,8 @@ CREATE TABLE spezies_angeborene_fert (
 
 
 --
+-- Data for TOC entry 5 (OID 52243)
+-- Name: spezies_angeborene_fert; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY spezies_angeborene_fert (spezies, art, name, erfolgswert, lp) FROM stdin;
@@ -59,6 +55,7 @@ Berggnom	v	Peitsche	\N	\N
 Berggnom	v	Räuber	\N	\N
 Berggnom	v	Scharfrichter	\N	\N
 Berggnom	v	Schlachter	\N	\N
+Berggnom	v	schwere Armbrust	\N	\N
 Berggnom	v	Seemann	\N	\N
 Berggnom	v	Sklavenhändler	\N	\N
 Berggnom	v	Stangenwaffe	\N	\N
@@ -69,7 +66,6 @@ Berggnom	v	Winzer	\N	\N
 Berggnom	v	Zureiter	\N	\N
 Berggnom	v	Zweihandschlagwaffe	\N	\N
 Berggnom	v	Zweihandschwert	\N	\N
-Berggnom	v	schwere Armbrust	\N	\N
 Elf	af	Nachtsicht	8	\N
 Elf	f	Kampftaktik	8	\N
 Elf	f	Schleichen	8	1
@@ -89,8 +85,8 @@ Elf	sv	Geschäftstüchtigkeit	0	0
 Elf	sv	Glefe 	\N	\N
 Elf	sv	Handarmbrust	\N	\N
 Elf	sv	Hellebarde	\N	\N
-Elf	sv	Kampf in Vollrüstung	0	0
 Elf	sv	Kampfgabeln	\N	\N
+Elf	sv	Kampf in Vollrüstung	0	0
 Elf	sv	Katapult bedienen	0	0
 Elf	sv	Kharrata	\N	\N
 Elf	sv	Kompositbogen	\N	\N
@@ -98,6 +94,7 @@ Elf	sv	Kriegsflegel	\N	\N
 Elf	sv	Kriegshammer	\N	\N
 Elf	sv	Krummsäbel	\N	\N
 Elf	sv	Lasso	\N	\N
+Elf	sv	leichte Armbrust	\N	\N
 Elf	sv	Morgenstern	\N	\N
 Elf	sv	Netz	\N	\N
 Elf	sv	Ochsenzunge	\N	\N
@@ -106,6 +103,7 @@ Elf	sv	Parierdolch	\N	\N
 Elf	sv	Peitsche	\N	\N
 Elf	sv	Rapier	\N	\N
 Elf	sv	Schlachtbeil	\N	\N
+Elf	sv	schwere Armbrust	\N	\N
 Elf	sv	Skhallanta	\N	\N
 Elf	sv	Speerschleuder	\N	\N
 Elf	sv	Stabkeule	\N	\N
@@ -113,20 +111,18 @@ Elf	sv	Stielhammer	\N	\N
 Elf	sv	Stockschleuder	\N	\N
 Elf	sv	Streitaxt	\N	\N
 Elf	sv	Trinken	0	0
-Elf	sv	Wurfeisen	\N	\N
-Elf	sv	Wurfhammer	\N	\N
-Elf	sv	Wurfpfeil	\N	\N
-Elf	sv	Wurfscheibe	\N	\N
-Elf	sv	Wurfspieß	\N	\N
-Elf	sv	Wurfstern	\N	\N
-Elf	sv	leichte Armbrust	\N	\N
-Elf	sv	schwere Armbrust	\N	\N
 Elf	sv	Überleben im Dschungel	\N	\N
 Elf	sv	Überleben im Gebirge	\N	\N
 Elf	sv	Überleben im Schnee	\N	\N
 Elf	sv	Überleben im Sumpf	\N	\N
 Elf	sv	Überleben in der Steppe	\N	\N
 Elf	sv	Überleben in der Wüste	\N	\N
+Elf	sv	Wurfeisen	\N	\N
+Elf	sv	Wurfhammer	\N	\N
+Elf	sv	Wurfpfeil	\N	\N
+Elf	sv	Wurfscheibe	\N	\N
+Elf	sv	Wurfspieß	\N	\N
+Elf	sv	Wurfstern	\N	\N
 Elf	v	Bergmann	\N	\N
 Elf	v	Fälschen	0	0
 Elf	v	Gassenwissen	0	0
@@ -148,6 +144,7 @@ Gnom	sv	Faustkampf	\N	\N
 Gnom	sv	Fuchtel	\N	\N
 Gnom	sv	Garotte	\N	\N
 Gnom	sv	Glefe	\N	\N
+Gnom	sv	großer Schild	\N	\N
 Gnom	sv	Handarmbrust	\N	\N
 Gnom	sv	Hellebarde	\N	\N
 Gnom	sv	Kampfgabeln	\N	\N
@@ -170,6 +167,7 @@ Gnom	sv	Parierdolch	\N	\N
 Gnom	sv	Peitsche	\N	\N
 Gnom	sv	Rapier	\N	\N
 Gnom	sv	Schlachtbeil	\N	\N
+Gnom	sv	schwere Armbrust	\N	\N
 Gnom	sv	Skhallanta	\N	\N
 Gnom	sv	Speerschleuder	\N	\N
 Gnom	sv	Stabkeule	\N	\N
@@ -181,8 +179,6 @@ Gnom	sv	Wurfhammer	\N	\N
 Gnom	sv	Wurfscheibe	\N	\N
 Gnom	sv	Wurfspieß	\N	\N
 Gnom	sv	Wurfstern	\N	\N
-Gnom	sv	großer Schild	\N	\N
-Gnom	sv	schwere Armbrust	\N	\N
 Halbling	af	Gute Reflexe	9	\N
 Halbling	f	Schleichen	10	1
 Halbling	f	Tarnen	10	1
@@ -196,6 +192,7 @@ Halbling	sv	Faustkampf	\N	\N
 Halbling	sv	Fuchtel	\N	\N
 Halbling	sv	Garotte	\N	\N
 Halbling	sv	Glefe	\N	\N
+Halbling	sv	großer Schild	\N	\N
 Halbling	sv	Handarmbrust	\N	\N
 Halbling	sv	Hellebarde	\N	\N
 Halbling	sv	Kampfgabeln	\N	\N
@@ -207,6 +204,7 @@ Halbling	sv	Krummsäbel	\N	\N
 Halbling	sv	Langbogen	\N	\N
 Halbling	sv	Lanze	\N	\N
 Halbling	sv	Lasso	\N	\N
+Halbling	sv	leichte Armbrust	\N	\N
 Halbling	sv	Magierstecken	\N	\N
 Halbling	sv	Morgenstern	\N	\N
 Halbling	sv	Netz	\N	\N
@@ -216,21 +214,13 @@ Halbling	sv	Parierdolch	\N	\N
 Halbling	sv	Peitsche	\N	\N
 Halbling	sv	Rapier	\N	\N
 Halbling	sv	Schlachtbeil	\N	\N
+Halbling	sv	schwere Armbrust	\N	\N
 Halbling	sv	Skhallanta	\N	\N
 Halbling	sv	Speerschleuder	\N	\N
 Halbling	sv	Stabkeule	\N	\N
 Halbling	sv	Stielhammer	\N	\N
 Halbling	sv	Stockschleuder	\N	\N
 Halbling	sv	Streitkolben	\N	\N
-Halbling	sv	Wurfeisen	\N	\N
-Halbling	sv	Wurfhammer	\N	\N
-Halbling	sv	Wurfpfeil	\N	\N
-Halbling	sv	Wurfscheibe	\N	\N
-Halbling	sv	Wurfspieß	\N	\N
-Halbling	sv	Wurfstern	\N	\N
-Halbling	sv	großer Schild	\N	\N
-Halbling	sv	leichte Armbrust	\N	\N
-Halbling	sv	schwere Armbrust	\N	\N
 Halbling	sv	Überleben im Dschungel	\N	\N
 Halbling	sv	Überleben im Gebirge	\N	\N
 Halbling	sv	Überleben im Schnee	\N	\N
@@ -238,6 +228,12 @@ Halbling	sv	Überleben im Sumpf	\N	\N
 Halbling	sv	Überleben im Wald	\N	\N
 Halbling	sv	Überleben in der Steppe	\N	\N
 Halbling	sv	Überleben in der Wüste	\N	\N
+Halbling	sv	Wurfeisen	\N	\N
+Halbling	sv	Wurfhammer	\N	\N
+Halbling	sv	Wurfpfeil	\N	\N
+Halbling	sv	Wurfscheibe	\N	\N
+Halbling	sv	Wurfspieß	\N	\N
+Halbling	sv	Wurfstern	\N	\N
 Halbling	v	Bergmann	\N	\N
 Halbling	v	Bootsbauer	\N	\N
 Halbling	v	Falkner	\N	\N
@@ -252,10 +248,11 @@ Halbling	v	Lanze	\N	\N
 Halbling	v	Magierstecken	\N	\N
 Halbling	v	Netz	\N	\N
 Halbling	v	Peitsche	\N	\N
-Halbling	v	Rechtsgelehrter	\N	\N
 Halbling	v	Räuber	\N	\N
+Halbling	v	Rechtsgelehrter	\N	\N
 Halbling	v	Sattler	\N	\N
 Halbling	v	Scharfrichter	\N	\N
+Halbling	v	schwere Armbrust	\N	\N
 Halbling	v	Seemann	\N	\N
 Halbling	v	Sklavenhändler	\N	\N
 Halbling	v	Stadtwache	\N	\N
@@ -267,7 +264,6 @@ Halbling	v	Waldarbeiter	\N	\N
 Halbling	v	Zureiter	\N	\N
 Halbling	v	Zweihandschlagwaffe	\N	\N
 Halbling	v	Zweihandschwert	\N	\N
-Halbling	v	schwere Armbrust	\N	\N
 Waldgnom	af	Nachtsicht	8	\N
 Waldgnom	af	Robustheit	12	\N
 Waldgnom	ff	Fallenstellen	4	1
@@ -297,6 +293,7 @@ Waldgnom	v	Peitsche	\N	\N
 Waldgnom	v	Räuber	\N	\N
 Waldgnom	v	Scharfrichter	\N	\N
 Waldgnom	v	Schlachter	\N	\N
+Waldgnom	v	schwere Armbrust	\N	\N
 Waldgnom	v	Seemann	\N	\N
 Waldgnom	v	Sklavenhändler	\N	\N
 Waldgnom	v	Stangenwaffe	\N	\N
@@ -307,7 +304,6 @@ Waldgnom	v	Winzer	\N	\N
 Waldgnom	v	Zureiter	\N	\N
 Waldgnom	v	Zweihandschlagwaffe	\N	\N
 Waldgnom	v	Zweihandschwert	\N	\N
-Waldgnom	v	schwere Armbrust	\N	\N
 Zwerg	af	Nachtsicht	8	\N
 Zwerg	af	Robustheit	9	\N
 Zwerg	f	Baukunde	8	1
@@ -328,6 +324,7 @@ Zwerg	sv	Krummsäbel	\N	\N
 Zwerg	sv	Kurzbogen	\N	\N
 Zwerg	sv	Langbogen	\N	\N
 Zwerg	sv	Lasso	\N	\N
+Zwerg	sv	leichter Speer	\N	\N
 Zwerg	sv	Magierstecken	\N	\N
 Zwerg	sv	Netz	\N	\N
 Zwerg	sv	Ochsenzunge	\N	\N
@@ -337,6 +334,11 @@ Zwerg	sv	Rapier	\N	\N
 Zwerg	sv	Skhallanta	\N	\N
 Zwerg	sv	Speerschleuder	\N	\N
 Zwerg	sv	Stockschleuder	\N	\N
+Zwerg	sv	Überleben im Dschungel	\N	\N
+Zwerg	sv	Überleben im Sumpf	\N	\N
+Zwerg	sv	Überleben im Wald	\N	\N
+Zwerg	sv	Überleben in der Steppe	\N	\N
+Zwerg	sv	Überleben in der Wüste	\N	\N
 Zwerg	sv	Wurfeisen	\N	\N
 Zwerg	sv	Wurfmesser	\N	\N
 Zwerg	sv	Wurfpfeil	\N	\N
@@ -344,12 +346,6 @@ Zwerg	sv	Wurfscheibe	\N	\N
 Zwerg	sv	Wurfspeer	\N	\N
 Zwerg	sv	Wurfspieß	\N	\N
 Zwerg	sv	Wurfstern	\N	\N
-Zwerg	sv	leichter Speer	\N	\N
-Zwerg	sv	Überleben im Dschungel	\N	\N
-Zwerg	sv	Überleben im Sumpf	\N	\N
-Zwerg	sv	Überleben im Wald	\N	\N
-Zwerg	sv	Überleben in der Steppe	\N	\N
-Zwerg	sv	Überleben in der Wüste	\N	\N
 Zwerg	v	Akrobat	\N	\N
 Zwerg	v	Barbier	\N	\N
 Zwerg	v	Bettler	\N	\N
@@ -370,19 +366,19 @@ Zwerg	v	Waldarbeiter	\N	\N
 Zwerg	v	Zureiter	\N	\N
 \.
 --
---
-
-ALTER TABLE ONLY spezies_angeborene_fert
-    ADD CONSTRAINT spezies_angeborene_fert_pkey PRIMARY KEY (spezies, art, name);
-
-
---
+-- TOC entry 4 (OID 52587)
+-- Name: spezies_angeborene_fert_spezies; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE INDEX spezies_angeborene_fert_spezies ON spezies_angeborene_fert USING btree (spezies);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 3 (OID 52585)
+-- Name: spezies_angeborene_fert_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY spezies_angeborene_fert
+    ADD CONSTRAINT spezies_angeborene_fert_pkey PRIMARY KEY (spezies, art, name);
+
 

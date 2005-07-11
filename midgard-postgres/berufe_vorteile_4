@@ -2,19 +2,13 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
 ALTER TABLE ONLY public.berufe_vorteile_4 DROP CONSTRAINT berufe_vorteile_4_pkey;
 DROP TABLE public.berufe_vorteile_4;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 18545)
+-- Name: berufe_vorteile_4; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE berufe_vorteile_4 (
@@ -25,6 +19,8 @@ CREATE TABLE berufe_vorteile_4 (
 
 
 --
+-- Data for TOC entry 4 (OID 18545)
+-- Name: berufe_vorteile_4; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY berufe_vorteile_4 (beruf, vorteil, wert) FROM stdin;
@@ -56,6 +52,7 @@ Aufseher	Menschenkenntnis	4
 Auktionator	Beredsamkeit	6
 Auktionator	Menschenkenntnis	4
 Auktionator	Schätzen	4
+Bäcker	Pflanzenkunde	4
 Barbier	Beredsamkeit	6
 Barbier	Menschenkenntnis	4
 Bauer	Pflanzenkunde	4
@@ -86,7 +83,6 @@ Brauer	Schmecken+10	\N
 Brauer	Trinken	1
 Brenner	Schmecken+10	\N
 Brenner	Trinken	1
-Bäcker	Pflanzenkunde	4
 Dachdecker	Balancieren	10
 Dachdecker	Baukunde	4
 Dachdecker	Klettern	10
@@ -113,20 +109,22 @@ Einbrecher	Winden	4
 Falkner	Abrichten	6
 Fallensteller	Fallenstellen	4
 Fallensteller	Spurenlesen	4
+Färber	Pflanzenkunde	4
 Fischer	Rudern	10
 Fischer	Schwimmen	10
 Fischer	Seemannsgang	15
 Fischer	Steuern	10
+Flößer	Rudern	10
+Flößer	Schwimmen	10
 Flußschiffer	Rudern	10
 Flußschiffer	Schwimmen	10
 Flußschiffer	Seemannsgang	15
-Flößer	Rudern	10
-Flößer	Schwimmen	10
 Folterknecht	Trinken	1
 Folterknecht	Verhören	6
 Fuhrmann	Streitwagen lenken	10
 Fuhrmann	Wagenlenken	10
-Färber	Pflanzenkunde	4
+Gärtner	Kräuterkunde	4
+Gärtner	Pflanzenkunde	4
 Gaukler	Gassenwissen	4
 Gaukler	Gaukeln	8
 Gaukler	Stehlen	8
@@ -137,8 +135,8 @@ Geldeintreiber	Schätzen	4
 Geldeintreiber	Verhören	6
 Geldverleiher	Menschenkenntnis	4
 Geldverleiher	Rechnen	6
-Geldverleiher	Schreiben: Muttersprache(+12)	12
 Geldverleiher	Schätzen	4
+Geldverleiher	Schreiben: Muttersprache(+12)	12
 Gelehrter	Landeskunde	4
 Gelehrter	Sagenkunde	4
 Gelehrter	Schreiben: Muttersprache(+12)	12
@@ -152,8 +150,8 @@ Gladiator	Beidhändiger Kampf	3
 Gladiator	Kampftaktik	6
 Gladiator	Schauspielern	6
 Glöckner	Klettern	10
-Goldschmied	Schlösser öffnen	6
 Goldschmied	Schätzen	4
+Goldschmied	Schlösser öffnen	6
 Goldsucher	Naturkunde	4
 Goldsucher	Suchen	6
 Goldsucher	Überleben im Dschungel	6
@@ -169,8 +167,6 @@ Grabräuber	Suchen	6
 Graveur	Schreiben: Muttersprache(+12)	12
 Graveur	Tasten+10	\N
 Grobschmied	Athletik	4
-Gärtner	Kräuterkunde	4
-Gärtner	Pflanzenkunde	4
 Hafenarbeiter	Athletik	4
 Hafenarbeiter	Rudern	10
 Harpunier	Balancieren	10
@@ -190,24 +186,24 @@ Hirte	Überleben im Gebirge	6
 Hirte	Überleben im Wald	6
 Hirte	Überleben in der Steppe	6
 Hirte	Überleben in der Wüste	6
+Höfling	Beredsamkeit	6
+Höfling	Schreiben: Muttersprache(+12)	12
+Höfling	Tanzen	10
 Hofnarr	Gaukeln	8
 Hofnarr	Menschenkenntnis	4
 Hofnarr	Schauspielern	6
 Hofnarr	Stimmen nachahmen	12
 Hundeführer	Abrichten	6
-Höfling	Beredsamkeit	6
-Höfling	Schreiben: Muttersprache(+12)	12
-Höfling	Tanzen	10
 Imker	Tierkunde	4
 Instrumentenbauer	Hören+10	\N
 Instrumentenbauer	Musizieren	8
-Jurist	Beredsamkeit	6
-Jurist	Landeskunde	4
-Jurist	Schreiben: Muttersprache(+12)	12
 Jäger	Fallenstellen	4
 Jäger	Schleichen	6
 Jäger	Spurenlesen	4
 Jäger	Tarnen	6
+Jurist	Beredsamkeit	6
+Jurist	Landeskunde	4
+Jurist	Schreiben: Muttersprache(+12)	12
 Kammerjäger	Giftmischen	4
 Kammerjäger	Suchen	6
 Kapitän	Schiffsführung	6
@@ -236,6 +232,9 @@ Knappe	Schreiben: Muttersprache(+12)	12
 Knappe	Tierkunde	4
 Koch	Kräuterkunde	4
 Koch	Schmecken+10	\N
+Köhler	Fallenstellen	4
+Köhler	Überleben im Sumpf	6
+Köhler	Überleben im Wald	6
 Kopfgeldjäger	Beschatten	6
 Kopfgeldjäger	Gassenwissen	4
 Kopfgeldjäger	Meucheln	6
@@ -249,15 +248,12 @@ Kräuterhändler	Pflanzenkunde	4
 Kräutersammler	Kräuterkunde	4
 Kräutersammler	Pflanzenkunde	4
 Kupferschmied	Geschäftstüchtigkeit	6
+Kürschner	Geschäftstüchtigkeit	6
 Kurtisane	Menschenkenntnis	4
 Kurtisane	Schauspielern	6
 Kurtisane	Verführen	6
 Kutscher	Tierkunde	4
 Kutscher	Wagenlenken	10
-Köhler	Fallenstellen	4
-Köhler	Überleben im Sumpf	6
-Köhler	Überleben im Wald	6
-Kürschner	Geschäftstüchtigkeit	6
 Laienprediger	Beredsamkeit	6
 Laienprediger	Schreiben: Muttersprache(+12)	12
 Lebensmittelhändler	Beredsamkeit	6
@@ -274,6 +270,9 @@ Lotse	Überleben im Sumpf	6
 Lotse	Überleben im Wald	6
 Lotse	Überleben in der Steppe	6
 Lotse	Überleben in der Wüste	6
+Märchenerzähler	Dichten	8
+Märchenerzähler	Erzählen	8
+Märchenerzähler	Sagenkunde	4
 Masseur	Athletik	4
 Masseur	Kräuterkunde	4
 Masseur	Tasten+10	\N
@@ -281,22 +280,19 @@ Mathematiker	Rechnen	6
 Mathematiker	Schreiben: Muttersprache(+12)	12
 Mechaniker	Fallenmechanik	4
 Mechaniker	Geheimmechanismen öffnen	4
-Musikant	Musizieren	8
-Musikant	Tanzen	10
-Märchenerzähler	Dichten	8
-Märchenerzähler	Erzählen	8
-Märchenerzähler	Sagenkunde	4
 Müller	Wagenlenken	10
 Münzfälscher	Fälschen	12
 Münzfälscher	Schreiben: Muttersprache(+12)	12
+Musikant	Musizieren	8
+Musikant	Tanzen	10
 Nachtwächter	Gassenwissen	4
 Navigator	Himmelskunde	4
 Navigator	Landeskunde	4
 Navigator	Rechnen	6
 Navigator	Schiffsführung	6
 Navigator	Steuern	10
-Offizier	Kampf zu Pferd	10
 Offizier	Kampftaktik	6
+Offizier	Kampf zu Pferd	10
 Offizier	Reiten	10
 Offizier	Schreiben: Muttersprache(+12)	12
 Ortskundiger	Gassenwissen	4
@@ -330,6 +326,7 @@ Philosoph	Menschenkenntnis	4
 Philosoph	Schreiben: Muttersprache(+12)	12
 Pirat	Seemannsgang	10
 Pirat	Springen	10
+Räuber	Tarnen	6
 Rechtsgelehrter	Landeskunde	4
 Rechtsgelehrter	Schreiben: Muttersprache(+12)	12
 Rechtsgelehrter	Verhören	6
@@ -340,7 +337,6 @@ Reeder	Geschäftstüchtigkeit	6
 Reeder	Landeskunde	4
 Reeder	Rechnen	6
 Reeder	Schreiben: Muttersprache(+12)	12
-Räuber	Tarnen	6
 Rüstungshändler	Geschäftstüchtigkeit	6
 Rüstungshändler	Kampf in Vollrüstung	10
 Sattler	Reiten	10
@@ -384,9 +380,6 @@ Siegelfälscher	Fälschen	12
 Siegelfälscher	Landeskunde	4
 Siegelfälscher	Schreiben: Muttersprache(+12)	12
 Sklavenhändler	Menschenkenntnis	4
-Spieler	Glücksspiel	15
-Spieler	Schauspielern	6
-Spieler	Verbergen	6
 Späher	Geländelauf	10
 Späher	Spurenlesen	4
 Späher	Überleben im Dschungel	6
@@ -396,6 +389,9 @@ Späher	Überleben im Sumpf	6
 Späher	Überleben im Wald	6
 Späher	Überleben in der Steppe	6
 Späher	Überleben in der Wüste	6
+Spieler	Glücksspiel	15
+Spieler	Schauspielern	6
+Spieler	Verbergen	6
 Srimahaut	Srimara lenken	12
 Stadtwache	Suchen	6
 Stadtwache	Verhören	6
@@ -415,6 +411,9 @@ Strandräuber	Rudern	10
 Strandräuber	Tarnen	6
 Straßenräuber	Reiten	10
 Straßenräuber	Tarnen	6
+Tänzer	Balancieren	10
+Tänzer	Tanzen	10
+Tätowierer	Sagenkunde	4
 Theologe	Landeskunde	4
 Theologe	Sagenkunde	4
 Theologe	Schreiben: Muttersprache(+12)	12
@@ -430,9 +429,6 @@ Torfstecher	Überleben im Sumpf	6
 Torfstecher	Überleben im Wald	6
 Totengräber	Sagenkunde	4
 Träger	Athletik	4
-Tänzer	Balancieren	10
-Tänzer	Tanzen	10
-Tätowierer	Sagenkunde	4
 Unteroffizier	Gassenwissen	4
 Unteroffizier	Kampftaktik	6
 Unteroffizier	Überleben im Dschungel	6
@@ -479,6 +475,8 @@ Vorarbeiter	Athletik	4
 Vorarbeiter	Menschenkenntnis	4
 Vorkoster	Giftmischen	4
 Vorkoster	Trinken	1
+Wächter	Gassenwissen	4
+Wächter	Menschenkenntnis	4
 Waffenhändler	Geschäftstüchtigkeit	6
 Waffenhändler	Schätzen	4
 Waffenschmied	Athletik	4
@@ -505,8 +503,6 @@ Winzer	Trinken	1
 Wirt	Beredsamkeit	6
 Wirt	Menschenkenntnis	4
 Wundheiler	Erste Hilfe	6
-Wächter	Gassenwissen	4
-Wächter	Menschenkenntnis	4
 Zahnausreißer	Erste Hilfe	6
 Zahnausreißer	Kräuterkunde	4
 Zimmermann	Baukunde	4
@@ -518,13 +514,11 @@ Zureiter	Kampf zu Pferd	10
 Zureiter	Reiten	10
 \.
 --
+-- TOC entry 3 (OID 19038)
+-- Name: berufe_vorteile_4_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 
 ALTER TABLE ONLY berufe_vorteile_4
     ADD CONSTRAINT berufe_vorteile_4_pkey PRIMARY KEY (beruf, vorteil);
 
-
---
--- PostgreSQL database dump complete
---
 

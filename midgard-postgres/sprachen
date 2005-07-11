@@ -2,20 +2,14 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'UNICODE';
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
 SET search_path = public, pg_catalog;
 
-DROP INDEX public.sprachen_name;
 ALTER TABLE ONLY public.sprachen DROP CONSTRAINT sprachen_pkey;
+DROP INDEX public.sprachen_name;
 DROP TABLE public.sprachen;
-SET default_tablespace = '';
-
-SET default_with_oids = true;
-
 --
+-- TOC entry 2 (OID 31046)
+-- Name: sprachen; Type: TABLE; Schema: public; Owner: thoma
 --
 
 CREATE TABLE sprachen (
@@ -32,6 +26,8 @@ CREATE TABLE sprachen (
 
 
 --
+-- Data for TOC entry 5 (OID 31046)
+-- Name: sprachen; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
 COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, region_zusatz) FROM stdin;
@@ -58,8 +54,8 @@ COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, 
 10	Ikengadialekte	20	\N	\N	\N	\N	\N	\N
 10	KanThaiTun	20	\N	\N	\N	\N	\N	\N
 10	Kelwisch	20	t	\N	\N	\N	\N	\N
-10	Luwisch	20	t	\N	3	\N	t	\N
 10	Läinisch	20	\N	\N	7	\N	\N	\N
+10	Luwisch	20	t	\N	3	\N	t	\N
 10	Maralinga	20	t	\N	10	\N	\N	\N
 10	Medjisisch	20	\N	\N	4	\N	\N	\N
 10	Meeressprache	20	\N	G	\N	\N	\N	49
@@ -80,19 +76,19 @@ COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, 
 10	Waelska	20	\N	\N	8	\N	\N	\N
 \.
 --
---
-
-ALTER TABLE ONLY sprachen
-    ADD CONSTRAINT sprachen_pkey PRIMARY KEY (name);
-
-
---
+-- TOC entry 3 (OID 31096)
+-- Name: sprachen_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
 CREATE UNIQUE INDEX sprachen_name ON sprachen USING btree (name);
 
 
 --
--- PostgreSQL database dump complete
+-- TOC entry 4 (OID 31094)
+-- Name: sprachen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
+
+ALTER TABLE ONLY sprachen
+    ADD CONSTRAINT sprachen_pkey PRIMARY KEY (name);
+
 
