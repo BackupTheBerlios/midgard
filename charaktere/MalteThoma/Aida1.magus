@@ -8,7 +8,7 @@
   <abgeleiteteEigenschaften Au="88" pA="99" Wk="83" Sb="46" B="27"/>
   <Erfolgswerte Abwehr="11" Zaubern="11" ZauberResistenz="10"/>
   <Gesundheit LP="17" AP="11"/>
-  <Beschreibung Alter="25" Gestalt="schlank" Gewicht="52" Größe="161" Stand="Mittelschicht" Herkunft="Dinas Taran (Ywerddon)" Glaube="Nathir"/>
+  <Beschreibung Alter="25" Gestalt="schlank" Gewicht="52" Größe="161" Stand="Mittelschicht" Herkunft="Ywerddon" Glaube="Nathir"/>
   <Vermögen GS="18"/>
   <Steigern GFP="190" benötigte_Tage="19">
    <Praxispunkte/>

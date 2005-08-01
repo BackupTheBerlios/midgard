@@ -1,41 +1,41 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Tuilja" Spieler="Malte Thoma" Zeitpunkt="Sams Kampange" Grad="6"/>
-  <Typ Spezies="Mensch" Geschlecht="f" Abkürzung="Sp" Spezialisierung="Dolch" Überleben="Überleben im Wald" Muttersprache="Erainnisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
-  <Basiseigenschaften St="69" Gw="87" Gs="100" Ko="96" In="81" Zt="25"/>
-  <abgeleiteteEigenschaften Au="75" pA="87" Wk="1" Sb="16" B="24" GG="1" SG="3"/>
-  <Erfolgswerte Abwehr="14" Zaubern="2" ZauberResistenz="10"/>
-  <Gesundheit LP="19" AP="39"/>
-  <Beschreibung Alter="23" Gestalt="schlank" Gewicht="53" Größe="159" Stand="Volk" Merkmale="Edelsteinsplitter (2xGold, 2xBlau) je 100 GS" Herkunft="Erainn" Glaube="an sich selbst"/>
-  <Vermögen GS="133"/>
-  <Steigern GFP="4300" AEP="170" KEP="15" benötigte_Tage="131">
+  <Figur Grad="6" Name="Tuilja" Spieler="Malte Thoma" Zeitpunkt="Sams Kampange"/>
+  <Typ AbkÃ¼rzung="Sp" Geschlecht="f" Hand="RechtshÃ¤nder" Muttersprache="Erainnisch" Spezialisierung="Dolch" Spezies="Mensch" Stadt_Land="Stadt" Ãœberleben="Ã&#x9C;berleben im Wald"/>
+  <Basiseigenschaften Gs="100" Gw="87" In="81" Ko="96" St="69" Zt="25"/>
+  <abgeleiteteEigenschaften Au="75" B="24" GG="1" SG="3" Sb="16" Wk="1" pA="87"/>
+  <Erfolgswerte Abwehr="14" ZauberResistenz="10" Zaubern="2"/>
+  <Gesundheit AP="39" LP="19"/>
+  <Beschreibung Alter="23" Gestalt="schlank" Gewicht="53" Glaube="an sich selbst" GrÃ¶ÃŸe="159" Herkunft="Erainn" Merkmale="Edelsteinsplitter (2xGold, 2xBlau) je 100 GS" Stand="Volk"/>
+  <VermÃ¶gen GS="133"/>
+  <Steigern AEP="170" GFP="4300" KEP="15" benÃ¶tigte_Tage="131">
    <Praxispunkte/>
   </Steigern>
-  <Text Größe="8"/>
-  <Ausrüstung>
-   <Rüstung>TR</Rüstung>
-   <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="0" Bezeichnung="Dolch" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="1"/>
-   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
-   <Waffe Erfolgswert="0" Bezeichnung="Parierdolch"/>
-   <Waffe Erfolgswert="0" Bezeichnung="Wurfmesser"/>
-   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
+  <Text GrÃ¶ÃŸe="8"/>
+  <AusrÃ¼stung>
+   <RÃ¼stung>TR</RÃ¼stung>
+   <RÃ¼stung2>OR</RÃ¼stung2>
+   <Waffe AngriffVerteidigung_Bonus="1" Bezeichnung="Dolch" Erfolgswert="0" SchadenLebenspunkte_Bonus="1"/>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Parierdolch" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Wurfmesser" Erfolgswert="0"/>
+   <Gegenstand Bezeichnung="KÃ¶rper" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+    <Gegenstand Bezeichnung="GÃ¼rtel" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" sichtbar="true"/>
+    <Gegenstand Besonderheit="Leder" Bezeichnung="Rucksack" sichtbar="true">
+     <Gegenstand Besonderheit="warm" Bezeichnung="Decke"/>
+     <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld"/>
     </Gegenstand>
    </Gegenstand>
-  </Ausrüstung>
+  </AusrÃ¼stung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="10"/>
-   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="HÃ¶ren" Wert="8"/>
    <Sinn Bezeichnung="Riechen" Wert="8"/>
    <Sinn Bezeichnung="Schmecken" Wert="8"/>
    <Sinn Bezeichnung="Tasten" Wert="8"/>
@@ -46,21 +46,21 @@
    <Fertigkeit Bezeichnung="Fallen entdecken" Wert="5"/>
    <Fertigkeit Bezeichnung="Fallenmechanik" Wert="6"/>
    <Fertigkeit Bezeichnung="Gassenwissen" Wert="4"/>
-   <Fertigkeit Bezeichnung="Geheimmechanismen öffnen" Wert="4"/>
-   <Fertigkeit Bezeichnung="Geländelauf" Wert="15"/>
-   <Fertigkeit Bezeichnung="Klettern" Wert="17" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Geheimmechanismen Ã¶ffnen" Wert="4"/>
+   <Fertigkeit Bezeichnung="GelÃ¤ndelauf" Wert="15"/>
+   <Fertigkeit Bezeichnung="Klettern" Praxispunkte="1" Wert="17"/>
    <Fertigkeit Bezeichnung="Laufen" Wert="5"/>
    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
    <Fertigkeit Bezeichnung="Reiten" Wert="15"/>
    <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
    <Fertigkeit Bezeichnung="Schleichen" Wert="11"/>
-   <Fertigkeit Bezeichnung="Schlösser öffnen" Wert="8"/>
+   <Fertigkeit Bezeichnung="SchlÃ¶sser Ã¶ffnen" Wert="8"/>
    <Fertigkeit Bezeichnung="Schwimmen" Wert="14"/>
    <Fertigkeit Bezeichnung="Seilkunst" Wert="10"/>
    <Fertigkeit Bezeichnung="Springen" Wert="15"/>
    <Fertigkeit Bezeichnung="Stehlen" Wert="10"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="7"/>
-   <Fertigkeit Bezeichnung="Verführen" Wert="10"/>
+   <Fertigkeit Bezeichnung="VerfÃ¼hren" Wert="10"/>
    <Fertigkeit Bezeichnung="Verkleiden" Wert="15"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="5"/>
    <Fertigkeit Bezeichnung="Winden" Wert="5"/>
@@ -78,9 +78,9 @@
   <Optionen>
    <CheckOptions Name="Originalregeln" Wert="true"/>
    <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
-   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
-   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
+   <Hausregeln Name="Grundwerte Ã¼ber 100 zulassen" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>

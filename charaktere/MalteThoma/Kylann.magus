@@ -3,21 +3,22 @@
 <MAGUS-data>
  <Preise/>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Kylann NiBeorn" Spieler="Mona" Zeitpunkt="Erschaffung" Grad="1"/>
-  <Typ Spezies="Mensch" Geschlecht="w" Abkürzung="PW" Spezialisierung="Weisheit" Überleben="Überleben im Wald" Stadt_Land="Land" Hand="Linkshänder"/>
-  <Basiseigenschaften St="62" Gw="83" Gs="65" Ko="74" In="96" Zt="81"/>
-  <abgeleiteteEigenschaften Au="51" pA="75" Wk="100" Sb="100" B="24"/>
-  <Erfolgswerte Abwehr="11" Zaubern="10" ZauberResistenz="10"/>
-  <Gesundheit LP="17" AP="10"/>
-  <Beschreibung Alter="24" Gestalt="schlank" Gewicht="50" Größe="175" Stand="Adel" Herkunft="Alba" Glaube="Vraidos"/>
-  <Vermögen GS="48"/>
-  <Steigern>
-   <Praxispunkte/>
+  <Figur Name="Kylann NiBeorn" Spieler="Mona" Zeitpunkt="Erschaffung" Grad="2"/>
+  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="PW" Spezialisierung="Weisheit" Überleben="Überleben Heimat" Stadt_Land="Land" Hand="Linkshänder"/>
+  <Basiseigenschaften St="66" Gw="83" Gs="65" Ko="74" In="96" Zt="81"/>
+  <abgeleiteteEigenschaften Au="83" pA="84" Wk="100" Sb="100" B="24"/>
+  <Erfolgswerte Abwehr="12" Zaubern="12" ZauberResistenz="11"/>
+  <Gesundheit LP="17" AP="14"/>
+  <Beschreibung Alter="26" Gestalt="schlank" Gewicht="50" Größe="175" Stand="Adel" Herkunft="Alba" Glaube="Vraidos"/>
+  <Vermögen GS="617" SS="12" KS="20"/>
+  <Steigern GFP="330" AEP="1" EPproGFP="33" benötigte_Tage="170.12">
+   <Praxispunkte Spezial="1"/>
   </Steigern>
   <Text Größe="8">rotbraune, lange Haare, grüne Augen, helle Haut mit Sommersprossen&#x0A;hagere Gestalt&#x0A;</Text>
   <Ausrüstung>
    <Rüstung>OR</Rüstung>
    <Rüstung2>OR</Rüstung2>
+   <Waffe Erfolgswert="0" Bezeichnung="Dolch"/>
    <Waffe Erfolgswert="0" Bezeichnung="Kampfstab"/>
    <Gegenstand Bezeichnung="Körper" Besonderheit="" sichtbar="true">
     <Gegenstand Bezeichnung="Robe" Besonderheit="" sichtbar="true"/>
@@ -40,30 +41,35 @@
    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
    <Beruf Bezeichnung="Rechtsgelehrter"/>
    <ang-Fertigkeit Bezeichnung="Hören" Wert="10"/>
-   <Fertigkeit Bezeichnung="Beredsamkeit" Wert="8"/>
-   <Fertigkeit Bezeichnung="Erzählen" Wert="10"/>
-   <Fertigkeit Bezeichnung="Landeskunde" Wert="13" Zusatz="Alba"/>
+   <Fertigkeit Bezeichnung="Beredsamkeit" Wert="9"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="12" Zusatz="Alba"/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="14"/>
    <Fertigkeit Bezeichnung="Meditieren" Wert="10"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
+   <Fertigkeit Bezeichnung="Rechnen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="11"/>
    <Fertigkeit Bezeichnung="Sagenkunde" Wert="7"/>
-   <Fertigkeit Bezeichnung="Zauberkunde" Wert="6"/>
-   <Waffe Bezeichnung="Kampfstab" Wert="4"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="7"/>
+   <Waffe Bezeichnung="Kampfstab" Wert="5"/>
    <Zauber Bezeichnung="Austreibung des Bösen"/>
    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
    <Zauber Bezeichnung="Bannen von Finsterwerk"/>
+   <Zauber Bezeichnung="Bannsphäre, Goldene"/>
+   <Zauber Bezeichnung="Dschinni-Auge"/>
    <Zauber Bezeichnung="Erkennen der Aura"/>
-   <Zauber Bezeichnung="Handauflegen"/>
-   <Zauber Bezeichnung="Vision"/>
+   <Zauber Bezeichnung="Heilen von Wunden"/>
+   <Zauber Bezeichnung="Segnen"/>
    <Grundkenntnis Bezeichnung="Kampfstab"/>
    <Sprache Bezeichnung="Albisch" Wert="20"/>
    <Sprache Bezeichnung="Altoqua" Wert="14"/>
+   <Sprache Bezeichnung="Comentang" Wert="14"/>
    <Sprache Bezeichnung="Vallinga" Wert="14"/>
    <Urschrift Bezeichnung="Albisch" Wert="14"/>
    <Urschrift Bezeichnung="Altoqua" Wert="14"/>
    <Urschrift Bezeichnung="Vallinga" Wert="8"/>
-   <Region Name="Alba" Region="A"/>
-   <Optionen Name="Originalregeln" Wert="true"/>
-   <Optionen Name="NSC zulassen" Wert="false"/>
+   <Urschrift Bezeichnung="Comentang" Wert="8"/>
+   <Optionen Name="Originalregeln" Wert="false"/>
+   <Optionen Name="NSC zulassen" Wert="true"/>
   </Fertigkeiten>
  </Midgard-Abenteurer>
 </MAGUS-data>

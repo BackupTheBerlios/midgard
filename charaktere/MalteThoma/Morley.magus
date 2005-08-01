@@ -1,93 +1,99 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Morley MacConuilh" Spieler="Malte Thoma" Zeitpunkt="Erschaffung" Grad="4"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ma" Spezialgebiet="Adept des formbaren Chaos" Spezialisierung="Adept des formbaren Chaos" Überleben="Überleben im Wald" Muttersprache="Comentang" Stadt_Land="Stadt" Hand="Rechtshänder"/>
-  <Basiseigenschaften St="62" Gw="56" Gs="32" Ko="95" In="97" Zt="98"/>
-  <abgeleiteteEigenschaften Au="33" pA="48" Wk="18" Sb="44" B="22" GG="1" SG="1"/>
-  <Erfolgswerte Abwehr="13" Zaubern="14" ZauberResistenz="12"/>
-  <Gesundheit LP="19" AP="21"/>
-  <Beschreibung Alter="25" Gestalt="normal" Gewicht="83" Größe="187" Stand="Adel" Merkmale="Mit Zwicker Sehen+6" Herkunft="Alba" Glaube="Dheis Albi"/>
-  <Vermögen GS="560"/>
-  <Steigern GFP="1264" AEP="8" benötigte_Tage="286.2">
+  <Figur Grad="4" Name="Morley MacConuilh" Spieler="Malte Thoma" Zeitpunkt="Erschaffung"/>
+  <Typ AbkÃ¼rzung="Ma" Geschlecht="m" Hand="RechtshÃ¤nder" Muttersprache="Comentang" Spezialgebiet="Adept des formbaren Chaos" Spezialisierung="Adept des formbaren Chaos" Spezies="Mensch" Stadt_Land="Stadt" Ãœberleben="Ã&#x9C;berleben im Wald"/>
+  <Basiseigenschaften Gs="32" Gw="56" In="97" Ko="95" St="62" Zt="98"/>
+  <abgeleiteteEigenschaften Au="33" B="22" GG="1" SG="1" Sb="44" Wk="18" pA="48"/>
+  <Erfolgswerte Abwehr="13" ZauberResistenz="12" Zaubern="14"/>
+  <Gesundheit AP="21" LP="19"/>
+  <Beschreibung Alter="25" Gestalt="normal" Gewicht="83" Glaube="Dheis Albi" GrÃ¶ÃŸe="187" Herkunft="Alba" Merkmale="Mit Zwicker Sehen+6" Stand="Adel"/>
+  <VermÃ¶gen GS="1840"/>
+  <Steigern AEP="3" EPproGFP="33" GFP="1804" benÃ¶tigte_Tage="340.2">
    <Praxispunkte Zaubern="4"/>
   </Steigern>
-  <Text Größe="7" Bild="/home/thoma/magus/charaktere/MalteThoma/morley_menkalinan_resized_to_100_.jpg">Morleys Eltern sind Ärzte, doch aufgrund seiner Ungeschicklichkeit war er für diesen Berunf nicht besonders geeignet. Also wurde er für viel Geld auf eine Magierakademie geschickt um dort zu lernen. Er erwies sich als äußerst talentiert und fleißig. Doch sein Mentor Colin MacMurdil und der Clan kamen überein, daß Morley ein wenig zu sehr an den Büchern klebt und beschloß ihn auf Abenteuer zu schicken, damit er auch etwas von der Welt sehen sollte. Der Clan hätte auch gerne einen fähigen und welterfahrenen Magier, der vielleicht einmal Berater des Lairds wird oder sogar noch weiter. So würde man seinen Einfluß auf die albische Politik verstärken. Ein Bücherwurm, der von der Welt nichts gesehen hat, ist für so einen Posten allerdings nicht geeignet und daher heißt es: Wenn Morley es überlebt, dann wird er ein ganz großer ...&#x0A;&#x0A;&#x0A;Morley glaubt an die Dehis Albi und auch Vraidos hat da bestimmt seinen Platz, aber er ist viel zu beschäftigt um sich da ernsthafte Gedanken drüber zu machen.&#x0A;Auch die große Politik interessiert ihn nicht wirklich.&#x0A;Immerhin hat der Laird Donuhil MacConuhil einigen Einfluß im Reich und der aufstrebende 'Thronerbe' Elrohir MacConuilh braucht bestimmt fähige Magier an seiner Seite.&#x0A;Camrane NiConuilh ist schon sehr alt und die Kaja NiConuilh ist nur bedingt vertrauesnwürdig...&#x0A;Vielleicht kann das dieser Morley mal ein guter Hofmagier werden wenn wir ihm die richtige Ausbildung angedeihen lassen.&#x0A;Das er ein machtpolitisches Instrument für den Clan Conuilh werden soll ist ihm nicht bewußt und es würde ihn zum gegenwärtigen Zeitpunkt auch völlig überfordern sich mit soetwas Gedanken zu machen.&#x0A;&#x0A;Dein Lehrmeister, Colin MacMurdil, schickt dich also nach Thame zur dortigen Gilde, &#x0A;genauer zu einem seiner Freunde Aodhan Toibin, Magier der Gilde des Weißen Steins und Errainer,&#x0A;der dort als Dozent tätig ist. Den genauen Wortlaut des &#x0A;Empfehlungssschreiben kennst du nicht, aber dein Lehrmeister hat dir gesagt, dass du dort deine &#x0A;Ausbildung vervollständigen sollst.&#x0A;Es ist übrigens tiefster Winter und du bist ganz froh, dass du ein Pferd hast, weil du so nicht selber durch &#x0A;den tiefen Schnee stapfen musst.&#x0A;&#x5C;vspace*{2ex}&#x0A;&#x0A;&#x5C;begin{tabular}{|l|p{10cm}|}&#x5C;hline&#x0A;&#x5C;multicolumn{2}{|l|}{&#x5C;bf Wichtige Personen:}&#x5C;&#x5C;&#x0A;Brian MacConuhil &amp; fähiger Arzt und Vater&#x5C;&#x5C;&#x0A;Faine NiConuhil &amp; Mutter mit erainischem Blut in den Adern&#x5C;&#x5C;&#x0A;Colin MacMurdil &amp; Lehrmeister &#x5C;&amp; Mentor&#x5C;&#x5C;&#x0A;Donuhil MacConuhil &amp; Laird in Dungarvaon, Großvater&#x5C;&#x5C;&#x5C;hline&#x0A;&#x5C;multicolumn{2}{|l|}{&#x5C;bf Personen in Thame:}&#x5C;&#x5C;&#x0A;Aodhan Toibin &amp; Magier der Gilde des Weißen Steins und Errainer, Kontaktperson für mich in der Gilde&#x5C;&#x5C;&#x0A;Arlena NiConuilh &amp; Oberhaupt der Magiergilde&#x5C;&#x5C;&#x0A;Fiona NiConuilh &amp; Syress up Vanashold und Verwalterin der Besitztümer des Laird&#x0A;zudem enge Vertraute von Donuilh, da seine Ziehschwester&#x5C;&#x5C;&#x0A;Kenrik MacRathgar &amp; Stadtvogt von Thame &#x5C;&#x5C;&#x0A;Ledwin MacAelfin &amp; Bürgermeister&#x5C;&#x5C;&#x0A;Marwyn MacConhuilh &amp; Kräuterhändler, Hauptlieferant meines Lehrmeisters für Zaubermaterialien&#x5C;&#x5C;&#x0A;Kelda Glitzerfels &amp; Berggnomin und Thaumaturgin, Bekannte meines Lehrmeisters&#x5C;&#x5C;&#x5C;hline&#x0A;&#x5C;end{tabular}&#x0A;&#x0A;&#x0A;Brief mit dem Siegel des Erzbischofs zu Harkfast.&#x0A;&#x0A;Werter Morley,&#x0A;&#x0A;mein Freund Rodrick hat mir berichtet, wie du dich in Haelgarde aufgeführt hast. Du solltest deine Einstellung zur Kirgh überdenken. Nur, weil du der Vetter von Donuilh und mir bist, kannst du dich nicht so respektlos benehmen! Kannst du dir vorstellen, welches Licht das auf unsere Familie wirft, wenn du den Abt zu Haelgarde in seinem eigenen Kloster zu dir zitierst und einen einflussreichen und verdienten Priester als Lakai bezeichnest? Du hast Glück, dass Rodrick so langmütig ist und dein Freund Mergol ein gutes Wort eingelegt hat, sonst hätte dieser Affront unangenehme Konsequenzen nach sich gezogen. Der Abt ist ein mächtiger Mann, der auch mir das Leben schwer machen kann.&#x0A;Vielleicht ist es ganz gut, dass du erst einmal außer Landes bist. So kannst du Gras über die Sache wachsen lassen deine Erfahrungen machen, ohne dass du dich auf deine Verwandschaft berufen kannst.&#x0A;Aber du sollst nicht ganz schutzlos in die Ferne reisen. Ich habe Rodrick etwas für dich mitgegeben. Ich denke, du kannst es gut gebrauchen. Ich werde versuchen, die Geschichte in Haelgarde vor deinem Vater zu verheimlichen. Er muss sich nicht auch noch Gedanken darum machen müssen.&#x0A;&#x0A;        mit mahnenden Grüßen&#x0A;        Dein Vetter Osmond&#x0A;&#x0A;PS: Leider muss ich mich recht kurz fassen, denn wichtige Aufgaben verlangen nach meiner Aufmerksamkeit.&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;</Text>
-  <Ausrüstung>
-   <Rüstung>LR</Rüstung>
-   <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="4" Bezeichnung="Dolch"/>
-   <Waffe Erfolgswert="6" Bezeichnung="Magierstab"/>
-   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit=""/>
-     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit=""/>
-     <Gegenstand Anzahl="1" Bezeichnung="wasserdichte Lederhülle für Schriftrollen" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="">
-      <Gegenstand Anzahl="1" Bezeichnung="1/20 Liter Tusche" Beschreibung="" Region="" Gewicht="0.05" RüstungOhneGewicht="false" Besonderheit=""/>
-      <Gegenstand Anzahl="1" Bezeichnung="Schreibfeder" Beschreibung="" Region="" Gewicht="0.005" RüstungOhneGewicht="false" Besonderheit=""/>
+  <Text Bild="/home/thoma/magus/charaktere/MalteThoma/morley_menkalinan_resized_to_100_.jpg" GrÃ¶ÃŸe="7">Morleys Eltern sind Ã&#x84;rzte, doch aufgrund seiner Ungeschicklichkeit war er fÃ¼r diesen Berunf nicht besonders geeignet. Also wurde er fÃ¼r viel Geld auf eine Magierakademie geschickt um dort zu lernen. Er erwies sich als Ã¤uÃ&#x9F;erst talentiert und fleiÃ&#x9F;ig. Doch sein Mentor Colin MacMurdil und der Clan kamen Ã¼berein, daÃ&#x9F; Morley ein wenig zu sehr an den BÃ¼chern klebt und beschloÃ&#x9F; ihn auf Abenteuer zu schicken, damit er auch etwas von der Welt sehen sollte. Der Clan hÃ¤tte auch gerne einen fÃ¤higen und welterfahrenen Magier, der vielleicht einmal Berater des Lairds wird oder sogar noch weiter. So wÃ¼rde man seinen EinfluÃ&#x9F; auf die albische Politik verstÃ¤rken. Ein BÃ¼cherwurm, der von der Welt nichts gesehen hat, ist fÃ¼r so einen Posten allerdings nicht geeignet und daher heiÃ&#x9F;t es: Wenn Morley es Ã¼berlebt, dann wird er ein ganz groÃ&#x9F;er ...&#x0A;&#x0A;&#x0A;Morley glaubt an die Dehis Albi und auch Vraidos hat da bestimmt seinen Platz, aber er ist viel zu beschÃ¤ftigt um sich da ernsthafte Gedanken drÃ¼ber zu machen.&#x0A;Auch die groÃ&#x9F;e Politik interessiert ihn nicht wirklich.&#x0A;Immerhin hat der Laird Donuhil MacConuhil einigen EinfluÃ&#x9F; im Reich und der aufstrebende 'Thronerbe' Elrohir MacConuilh braucht bestimmt fÃ¤hige Magier an seiner Seite.&#x0A;Camrane NiConuilh ist schon sehr alt und die Kaja NiConuilh ist nur bedingt vertrauesnwÃ¼rdig...&#x0A;Vielleicht kann das dieser Morley mal ein guter Hofmagier werden wenn wir ihm die richtige Ausbildung angedeihen lassen.&#x0A;Das er ein machtpolitisches Instrument fÃ¼r den Clan Conuilh werden soll ist ihm nicht bewuÃ&#x9F;t und es wÃ¼rde ihn zum gegenwÃ¤rtigen Zeitpunkt auch vÃ¶llig Ã¼berfordern sich mit soetwas Gedanken zu machen.&#x0A;&#x0A;Dein Lehrmeister, Colin MacMurdil, schickt dich also nach Thame zur dortigen Gilde, &#x0A;genauer zu einem seiner Freunde Aodhan Toibin, Magier der Gilde des WeiÃ&#x9F;en Steins und Errainer,&#x0A;der dort als Dozent tÃ¤tig ist. Den genauen Wortlaut des &#x0A;Empfehlungssschreiben kennst du nicht, aber dein Lehrmeister hat dir gesagt, dass du dort deine &#x0A;Ausbildung vervollstÃ¤ndigen sollst.&#x0A;Es ist Ã¼brigens tiefster Winter und du bist ganz froh, dass du ein Pferd hast, weil du so nicht selber durch &#x0A;den tiefen Schnee stapfen musst.&#x0A;&#x5C;vspace*{2ex}&#x0A;&#x0A;&#x5C;begin{tabular}{|l|p{10cm}|}&#x5C;hline&#x0A;&#x5C;multicolumn{2}{|l|}{&#x5C;bf Wichtige Personen:}&#x5C;&#x5C;&#x0A;Brian MacConuhil &amp; fÃ¤higer Arzt und Vater&amp;amp;amp;amp;amp;#x5C;&#x5C;&#x0A;Faine NiConuhil &amp; Mutter mit erainischem Blut in den Adern&amp;amp;amp;amp;amp;#x5C;&#x5C;&#x0A;Colin MacMurdil &amp; Lehrmeister &amp;amp;amp;amp;amp;#x5C;&amp; Mentor&amp;amp;amp;amp;#x5C;&#x5C;&#x0A;Donuhil MacConuhil &amp; Laird in Dungarvaon, GroÃ&amp;amp;amp;amp;#x9F;vater&#x5C;&#x5C;&#x5C;hline&#x0A;&#x5C;multicolumn{2}{|l|}{&#x5C;bf Personen in Thame:}&#x5C;&#x5C;&#x0A;Aodhan Toibin &amp; Magier der Gilde des WeiÃ&amp;amp;amp;amp;#x9F;en Steins und Errainer, Kontaktperson fÃ¼r mich in der Gilde&#x5C;&#x5C;&#x0A;Arlena NiConuilh &amp; Oberhaupt der Magiergilde&amp;amp;amp;amp;amp;#x5C;&#x5C;&#x0A;Fiona NiConuilh &amp; Syress up Vanashold und Verwalterin der BesitztÃ¼mer des Laird&amp;amp;amp;amp;amp;#x0A;zudem enge Vertraute von Donuilh, da seine Ziehschwester&#x5C;&#x5C;&#x0A;Kenrik MacRathgar &amp; Stadtvogt von Thame &amp;amp;amp;amp;amp;#x5C;&#x5C;&#x0A;Ledwin MacAelfin &amp; BÃ¼rgermeister&amp;amp;amp;amp;amp;#x5C;&#x5C;&#x0A;Marwyn MacConhuilh &amp; KrÃ¤uterhÃ¤ndler, Hauptlieferant meines Lehrmeisters fÃ¼r Zaubermaterialien&amp;amp;amp;amp;amp;#x5C;&#x5C;&#x0A;Kelda Glitzerfels &amp; Berggnomin und Thaumaturgin, Bekannte meines Lehrmeisters&amp;amp;amp;amp;amp;#x5C;&#x5C;&#x5C;hline&#x0A;&#x5C;end{tabular}&#x0A;&#x0A;&#x0A;Brief mit dem Siegel des Erzbischofs zu Harkfast.&#x0A;&#x0A;Werter Morley,&#x0A;&#x0A;mein Freund Rodrick hat mir berichtet, wie du dich in Haelgarde aufgefÃ¼hrt hast. Du solltest deine Einstellung zur Kirgh Ã¼berdenken. Nur, weil du der Vetter von Donuilh und mir bist, kannst du dich nicht so respektlos benehmen! Kannst du dir vorstellen, welches Licht das auf unsere Familie wirft, wenn du den Abt zu Haelgarde in seinem eigenen Kloster zu dir zitierst und einen einflussreichen und verdienten Priester als Lakai bezeichnest? Du hast GlÃ¼ck, dass Rodrick so langmÃ¼tig ist und dein Freund Mergol ein gutes Wort eingelegt hat, sonst hÃ¤tte dieser Affront unangenehme Konsequenzen nach sich gezogen. Der Abt ist ein mÃ¤chtiger Mann, der auch mir das Leben schwer machen kann.&#x0A;Vielleicht ist es ganz gut, dass du erst einmal auÃ&#x9F;er Landes bist. So kannst du Gras Ã¼ber die Sache wachsen lassen deine Erfahrungen machen, ohne dass du dich auf deine Verwandschaft berufen kannst.&#x0A;Aber du sollst nicht ganz schutzlos in die Ferne reisen. Ich habe Rodrick etwas fÃ¼r dich mitgegeben. Ich denke, du kannst es gut gebrauchen. Ich werde versuchen, die Geschichte in Haelgarde vor deinem Vater zu verheimlichen. Er muss sich nicht auch noch Gedanken darum machen mÃ¼ssen.&#x0A;&#x0A;        mit mahnenden GrÃ¼Ã&#x9F;en&#x0A;        Dein Vetter Osmond&#x0A;&#x0A;PS: Leider muss ich mich recht kurz fassen, denn wichtige Aufgaben verlangen nach meiner Aufmerksamkeit.&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;</Text>
+  <AusrÃ¼stung>
+   <RÃ¼stung>LR</RÃ¼stung>
+   <RÃ¼stung2>OR</RÃ¼stung2>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Magierstab" Erfolgswert="0"/>
+   <Gegenstand Bezeichnung="KÃ¶rper" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+    <Gegenstand Bezeichnung="GÃ¼rtel" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" sichtbar="true"/>
+    <Gegenstand Besonderheit="Leder" Bezeichnung="Rucksack" sichtbar="true">
+     <Gegenstand Besonderheit="warm" Bezeichnung="Decke"/>
+     <Gegenstand Bezeichnung="Lederbeutel"/>
+     <Gegenstand Bezeichnung="Geld"/>
+     <Gegenstand Bezeichnung="wasserdichte LederhÃ¼lle fÃ¼r Schriftrollen">
+      <Gegenstand Bezeichnung="1/20 Liter Tusche" Gewicht="0.05"/>
+      <Gegenstand Bezeichnung="Schreibfeder" Gewicht="0.005"/>
      </Gegenstand>
     </Gegenstand>
    </Gegenstand>
-  </Ausrüstung>
+  </AusrÃ¼stung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="4"/>
-   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="HÃ¶ren" Wert="8"/>
    <Sinn Bezeichnung="Riechen" Wert="8"/>
    <Sinn Bezeichnung="Schmecken" Wert="8"/>
    <Sinn Bezeichnung="Tasten" Wert="8"/>
    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
    <Beruf Bezeichnung="Arzt"/>
-   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8" Praxispunkte="2"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Praxispunkte="2" Wert="8"/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
-   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="5" Praxispunkte="2"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Praxispunkte="2" Wert="5"/>
    <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
-   <Fertigkeit Bezeichnung="Thaumatographie" Wert="7" Praxispunkte="2"/>
+   <Fertigkeit Bezeichnung="Thaumatographie" Praxispunkte="2" Wert="7"/>
    <Fertigkeit Bezeichnung="Zauberkunde" Wert="8"/>
    <Waffe Bezeichnung="Dolch" Wert="4"/>
    <Waffe Bezeichnung="Magierstab" Wert="6"/>
-   <Zauber Bezeichnung="Hören der Geister"/>
+   <Zauber Bezeichnung="Brot und Wasser"/>
    <Zauber Bezeichnung="Erkennen von Leben"/>
    <Zauber Bezeichnung="Erkennen von Zauberei"/>
    <Zauber Bezeichnung="Heranholen"/>
-   <Zauber Bezeichnung="Hören von Fernem"/>
-   <Zauber Bezeichnung="Macht über das Selbst"/>
-   <Zauber Bezeichnung="Macht über die belebte Natur"/>
-   <Zauber Bezeichnung="Macht über die Sinne"/>
-   <Zauber Bezeichnung="Macht über Menschen"/>
-   <Zauber Bezeichnung="Macht über Unbelebtes"/>
+   <Zauber Bezeichnung="HÃ¶ren der Geister"/>
+   <Zauber Bezeichnung="HÃ¶ren von Fernem"/>
+   <Zauber Bezeichnung="Macht Ã¼ber das Selbst"/>
+   <Zauber Bezeichnung="Macht Ã¼ber die belebte Natur"/>
+   <Zauber Bezeichnung="Macht Ã¼ber die Sinne"/>
+   <Zauber Bezeichnung="Macht Ã¼ber Menschen"/>
+   <Zauber Bezeichnung="Macht Ã¼ber Unbelebtes"/>
    <Zauber Bezeichnung="Scharfblick"/>
+   <Zauber Bezeichnung="Schweben"/>
    <Zauber Bezeichnung="Sehen in Dunkelheit"/>
    <Zauber Bezeichnung="Sehen von Verborgenem"/>
    <Zauber Bezeichnung="Steinkugel"/>
    <Zauber Bezeichnung="Unsichtbarkeit"/>
    <Grundkenntnis Bezeichnung="Stichwaffe"/>
-   <Grundkenntnis Bezeichnung="Zauberstäbe"/>
+   <Grundkenntnis Bezeichnung="ZauberstÃ¤be"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="10"/>
+   <Sprache Bezeichnung="Rawindi" Wert="5"/>
    <Sprache Bezeichnung="Neu-Vallinga" Wert="6"/>
-   <Sprache Bezeichnung="Albisch" Wert="19" Praxispunkte="2"/>
+   <Sprache Bezeichnung="Albisch" Praxispunkte="2" Wert="19"/>
    <Sprache Bezeichnung="Altoqua" Wert="9"/>
    <Sprache Bezeichnung="Comentang" Wert="12"/>
    <Sprache Bezeichnung="Eldalyn" Wert="6"/>
    <Sprache Bezeichnung="Erainnisch" Wert="12"/>
    <Sprache Bezeichnung="Maralinga" Wert="5"/>
    <Sprache Bezeichnung="Vallinga" Wert="5"/>
-   <Urschrift Bezeichnung="Eldalyn" Wert="4"/>
-   <Urschrift Bezeichnung="Altoqua" Wert="4"/>
-   <Urschrift Bezeichnung="Albisch" Wert="13"/>
-   <Urschrift Bezeichnung="Comentang" Wert="8"/>
-   <Urschrift Bezeichnung="Erainnisch" Wert="8"/>
+   <Urschrift Bezeichnung="Scharidisch" Buchstaben="Aranische Silbenschrift" Wert="4"/>
+   <Urschrift Bezeichnung="Rawindi" Buchstaben="Rawindisches Alphabet" Wert="4"/>
+   <Urschrift Bezeichnung="Eldalyn" Buchstaben="Baumrunen Beth-Luis-Nion" Wert="4"/>
+   <Urschrift Bezeichnung="Altoqua" Buchstaben="Valianisches Alphabet" Wert="4"/>
+   <Urschrift Bezeichnung="Albisch" Buchstaben="Valianisches Alphabet" Wert="13"/>
+   <Urschrift Bezeichnung="Comentang" Buchstaben="Valianisches Alphabet" Wert="8"/>
+   <Urschrift Bezeichnung="Erainnisch" Buchstaben="Valianisches Alphabet" Wert="8"/>
   </Fertigkeiten>
   <Optionen>
-   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="Originalregeln" Wert="true"/>
    <CheckOptions Name="NSC zulassen" Wert="false"/>
-   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="true"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
-   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Grundwerte Ã¼ber 100 zulassen" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>

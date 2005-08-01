@@ -2,34 +2,34 @@
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Dergan Inhalim" Zeitpunkt="Erschaffung" Grad="2"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Er" Überleben="Überleben im Gebirge" Muttersprache="Neu-Vallinga" Stadt_Land="Stadt" Hand="Rechtshänder"/>
-  <Basiseigenschaften St="80" Gw="52" Gs="92" Ko="68" In="92" Zt="34"/>
-  <abgeleiteteEigenschaften Au="94" pA="75" Wk="70" Sb="52" B="24"/>
-  <Erfolgswerte Abwehr="12" Zaubern="2" ZauberResistenz="11"/>
-  <Gesundheit LP="16" AP="14"/>
-  <Beschreibung Alter="20" Gestalt="normal" Gewicht="84" Größe="183" Stand="Volk" Merkmale="Halskrause, Daumenschrauben, Messer (sehr scharf), Referenzen aus Tura (Culsutempel, Convendo, Tyra)" Herkunft="Küstenstaaten"/>
+  <Figur Grad="2" Name="Dergan Inhalim" Spieler="Malte Thoma" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="Er" Geschlecht="m" Hand="Rechtshänder" Muttersprache="Neu-Vallinga" Spezies="Mensch" Stadt_Land="Stadt" Überleben="Überleben im Gebirge"/>
+  <Basiseigenschaften Gs="92" Gw="52" In="92" Ko="68" St="80" Zt="34"/>
+  <abgeleiteteEigenschaften Au="94" B="24" Sb="52" Wk="70" pA="75"/>
+  <Erfolgswerte Abwehr="12" ZauberResistenz="11" Zaubern="2"/>
+  <Gesundheit AP="14" LP="16"/>
+  <Beschreibung Alter="20" Gestalt="normal" Gewicht="84" Glaube="Din Dhuali &amp; Valianische Glaube" Größe="183" Herkunft="Küstenstaaten" Merkmale="Halskrause, Daumenschrauben, Messer (sehr scharf), Referenzen aus Tura (Culsutempel, Convendo, Tyra)" Stand="Volk"/>
   <Vermögen GS="88"/>
-  <Steigern GFP="244" AEP="19" EPproGFP="33" benötigte_Tage="81">
+  <Steigern AEP="19" EPproGFP="67" GFP="244" benötigte_Tage="81">
    <Praxispunkte/>
   </Steigern>
-  <Text Größe="8">Todeslicht (mit Valerion, Najago, Asila):&#x0A;&#x0A;in Tura&#x0A;&#x0A;Tyra Geminiano wird durch Salvator Veducia vergiftet. Todbringende Kerzen (3) vom&#x0A;Alchemisten/Thaunaturgen Paar Hennoch und Feolo hergestellt.&#x0A;Nächtliche Untersuchung der Alchemistenwerkstatt bringt Feolo den Tod,&#x0A;mir Folterwerkzeuge (Halskrause, Zange, scharfes Messer, Daumenschrauben), &#x0A;die ich an Hennoch ausprobiere, der unsa daraufhin die Geschichte erzählt.&#x0A;Außerdem habe ich noch QuiGong-Kugeln und 2 Rattenfallen und einige Trünke:&#x0A;2x Heiltrank&#x0A;2x Krafttrunk&#x0A;2x verlangsammendes Waffengift&#x0A;2x schaden bewirkendes Waffengift&#x0A;mitgenommen.&#x0A;&#x0A;Nachdem wir den Culsutempel und den Convendo unterrichtet hatten wurde Tyras Grab &#x0A;wieder geöffnet und Trya wird wieder gesund. Dank des Informationsaustausches mit&#x0A;den Nachtfaltern (Korbuzis) wissen wir wie Salvator überführt werden kann.&#x0A;Der belastende Brief (Tyras Vater Lorengo ist vor längerer Zeit bei einem Überfall in der &#x0A;Nähe Birkas ermordet worden) befindet sich in der 'Schatzkammer' der Geminianos. &#x0A;Als Dank erhalte ich:&#x0A;&#x0A;Empfehlugsschreiben von Tyra, dem Culsu Tempel und dem Convendo:&#x0A;  Schreiben, dass besagt, dass ihr geholfen habt, eine  &#x0A;  Verschwörung gegenüber dem Hause Giminiano aufzudecken und einen  &#x0A;  Todeswirker unschädlich gemacht habt.&#x0A;Ein Brief, daß die Nachtfalter ein Auge auf mich haben werden irritiert mich mehr, &#x0A;als daß er mich freut ...&#x0A;&#x0A;&#x0A;&#x0A;</Text>
+  <Text Größe="8">Herkunft: Orsamanca&#x5C;&#x5C;&#x0A;Vater: Zimmermann, Küstenstaatler&#x5C;&#x5C;&#x0A;Mutter: Händlerin, Scharidin&#x5C;&#x5C;&#x0A;&#x0A;&#x0A;&#x5C;section{Todeslicht}&#x0A; &#x0A;Mit Valerion (Thomas), Najago (Thorsten), Azila (Heike)&#x0A;in &#x5C;textbf{Tura}.&#x0A;&#x0A;Tyra Geminiano wird durch Salvator Veducia vergiftet. Die todbringenden Kerzen (3) sind vom&#x0A;Alchimisten/Thaunaturgen Paar Hennoch und Feolo hergestellt.&#x0A;Nächtliche Untersuchung der Alchimistenwerkstatt bringt Feolo den Tod,&#x0A;mir Folterwerkzeuge (Halskrause, Zange, scharfes Messer, Daumenschrauben), &#x0A;die ich an Hennoch ausprobiere, der uns daraufhin die Geschichte erzählt.&#x0A;Außerdem habe ich noch QuiGong-Kugeln und 2 Rattenfallen und einige Trünke:&#x5C;&#x5C;&#x0A;2x Heiltrank&#x5C;&#x5C;&#x0A;2x Krafttrunk&#x5C;&#x5C;&#x0A;2x verlangsammendes Waffengift&#x5C;&#x5C;&#x0A;2x Schaden bewirkendes Waffengift&#x5C;&#x5C;&#x0A;mitgenommen.&#x5C;&#x5C;[1ex]&#x0A;&#x0A;Nachdem wir den Culsutempel und den Convendo unterrichtet hatten wurde Tyras Grab &#x0A;wieder geöffnet und Trya wird wieder gesund. Dank des Informationsaustausches mit&#x0A;den Nachtfaltern (Korbuzis) wissen wir wie Salvator überführt werden kann.&#x0A;Der belastende Brief (Tyras Vater Lorengo ist vor längerer Zeit bei einem Überfall in der &#x0A;Nähe Birkas ermordet worden) befindet sich in der 'Schatzkammer' der Geminianos. &#x0A;Als Dank erhalte ich ein&#x0A;&#x5C;textbf{Empfehlugsschreiben} von Tyra, dem Culsu Tempel und dem Convendo:&#x0A;  Schreiben, dass besagt, dass ihr geholfen habt, eine  &#x0A;  Verschwörung gegenüber dem Hause Giminiano aufzudecken und einen  &#x0A;  Todeswirker unschädlich gemacht habt.&#x0A;Ein &#x5C;textbf{Brief der Nachtfalter}, die ein Auge auf mich haben werden irritiert mich mehr, &#x0A;als daß er mich freut ...&#x0A;&#x0A;&#x0A;&#x0A;</Text>
   <Ausrüstung>
    <Rüstung>LR</Rüstung>
    <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="1" Bezeichnung="kleiner Schild"/>
-   <Waffe Erfolgswert="5" Bezeichnung="Langschwert"/>
-   <Waffe Erfolgswert="5" Bezeichnung="Dolch"/>
-   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit=""/>
-     <Gegenstand Anzahl="1" Bezeichnung="Dietriche und Nachschlüssel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+   <Waffe Bezeichnung="kleiner Schild" Erfolgswert="2"/>
+   <Waffe Bezeichnung="Langschwert" Erfolgswert="6"/>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="7"/>
+   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
+     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Dietriche und Nachschlüssel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
     </Gegenstand>
    </Gegenstand>
   </Ausrüstung>
@@ -46,12 +46,12 @@
    <Fertigkeit Bezeichnung="Beredsamkeit" Wert="6"/>
    <Fertigkeit Bezeichnung="Landeskunde" Wert="9" Zusatz="Küstenstaaten"/>
    <Fertigkeit Bezeichnung="Lippenlesen" Wert="7"/>
-   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Praxispunkte="1" Wert="6"/>
    <Fertigkeit Bezeichnung="Rechnen" Wert="7"/>
-   <Fertigkeit Bezeichnung="Schlösser öffnen" Wert="7" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Schlösser öffnen" Praxispunkte="1" Wert="7"/>
    <Fertigkeit Bezeichnung="Spurenlesen" Wert="7"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="9"/>
-   <Fertigkeit Bezeichnung="Verhören" Wert="8" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Verhören" Praxispunkte="1" Wert="8"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="5"/>
    <Waffe Bezeichnung="Dolch" Wert="7"/>
    <Waffe Bezeichnung="Handaxt" Wert="5"/>
@@ -69,9 +69,9 @@
   <Optionen>
    <CheckOptions Name="Originalregeln" Wert="true"/>
    <CheckOptions Name="NSC zulassen" Wert="true"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
    <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
-   <Hausregeln Name="Ausdauerpunkte für Nicht-Menschen nach GB51" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
