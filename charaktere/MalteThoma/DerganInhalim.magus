@@ -1,77 +1,88 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Grad="2" Name="Dergan Inhalim" Spieler="Malte Thoma" Zeitpunkt="Erschaffung"/>
-  <Typ Abkürzung="Er" Geschlecht="m" Hand="Rechtshänder" Muttersprache="Neu-Vallinga" Spezies="Mensch" Stadt_Land="Stadt" Überleben="Überleben im Gebirge"/>
+  <Figur Grad="3" Name="Dergan Inhalim" Spieler="Malte Thoma" Zeitpunkt="Erschaffung"/>
+  <Typ AbkÃ¼rzung="Er" Geschlecht="m" Hand="RechtshÃ¤nder" Muttersprache="Neu-Vallinga" Spezies="Mensch" Stadt_Land="Stadt" Ãœberleben="Ã&#x9C;berleben im Gebirge"/>
   <Basiseigenschaften Gs="92" Gw="52" In="92" Ko="68" St="80" Zt="34"/>
   <abgeleiteteEigenschaften Au="94" B="24" Sb="52" Wk="70" pA="75"/>
   <Erfolgswerte Abwehr="12" ZauberResistenz="11" Zaubern="2"/>
-  <Gesundheit AP="14" LP="16"/>
-  <Beschreibung Alter="20" Gestalt="normal" Gewicht="84" Glaube="Din Dhuali &amp; Valianische Glaube" Größe="183" Herkunft="Küstenstaaten" Merkmale="Halskrause, Daumenschrauben, Messer (sehr scharf), Referenzen aus Tura (Culsutempel, Convendo, Tyra)" Stand="Volk"/>
-  <Vermögen GS="88"/>
-  <Steigern AEP="19" EPproGFP="67" GFP="244" benötigte_Tage="81">
+  <Gesundheit AP="21" LP="16"/>
+  <Beschreibung Alter="20" Gestalt="normal" Gewicht="84" Glaube="Din Dhuali &amp; Valianische Glaube" GrÃ¶ÃŸe="183" Herkunft="KÃ¼stenstaaten" Merkmale="Halskrause, Daumenschrauben, Messer (sehr scharf), Referenzen aus Tura (Culsutempel, Convendo, Tyra)" Stand="Volk"/>
+  <VermÃ¶gen GS="56" SS="1"/>
+  <Steigern AEP="8" GFP="914" benÃ¶tigte_Tage="160.69">
    <Praxispunkte/>
   </Steigern>
-  <Text Größe="8">Herkunft: Orsamanca&#x5C;&#x5C;&#x0A;Vater: Zimmermann, Küstenstaatler&#x5C;&#x5C;&#x0A;Mutter: Händlerin, Scharidin&#x5C;&#x5C;&#x0A;&#x0A;&#x0A;&#x5C;section{Todeslicht}&#x0A; &#x0A;Mit Valerion (Thomas), Najago (Thorsten), Azila (Heike)&#x0A;in &#x5C;textbf{Tura}.&#x0A;&#x0A;Tyra Geminiano wird durch Salvator Veducia vergiftet. Die todbringenden Kerzen (3) sind vom&#x0A;Alchimisten/Thaunaturgen Paar Hennoch und Feolo hergestellt.&#x0A;Nächtliche Untersuchung der Alchimistenwerkstatt bringt Feolo den Tod,&#x0A;mir Folterwerkzeuge (Halskrause, Zange, scharfes Messer, Daumenschrauben), &#x0A;die ich an Hennoch ausprobiere, der uns daraufhin die Geschichte erzählt.&#x0A;Außerdem habe ich noch QuiGong-Kugeln und 2 Rattenfallen und einige Trünke:&#x5C;&#x5C;&#x0A;2x Heiltrank&#x5C;&#x5C;&#x0A;2x Krafttrunk&#x5C;&#x5C;&#x0A;2x verlangsammendes Waffengift&#x5C;&#x5C;&#x0A;2x Schaden bewirkendes Waffengift&#x5C;&#x5C;&#x0A;mitgenommen.&#x5C;&#x5C;[1ex]&#x0A;&#x0A;Nachdem wir den Culsutempel und den Convendo unterrichtet hatten wurde Tyras Grab &#x0A;wieder geöffnet und Trya wird wieder gesund. Dank des Informationsaustausches mit&#x0A;den Nachtfaltern (Korbuzis) wissen wir wie Salvator überführt werden kann.&#x0A;Der belastende Brief (Tyras Vater Lorengo ist vor längerer Zeit bei einem Überfall in der &#x0A;Nähe Birkas ermordet worden) befindet sich in der 'Schatzkammer' der Geminianos. &#x0A;Als Dank erhalte ich ein&#x0A;&#x5C;textbf{Empfehlugsschreiben} von Tyra, dem Culsu Tempel und dem Convendo:&#x0A;  Schreiben, dass besagt, dass ihr geholfen habt, eine  &#x0A;  Verschwörung gegenüber dem Hause Giminiano aufzudecken und einen  &#x0A;  Todeswirker unschädlich gemacht habt.&#x0A;Ein &#x5C;textbf{Brief der Nachtfalter}, die ein Auge auf mich haben werden irritiert mich mehr, &#x0A;als daß er mich freut ...&#x0A;&#x0A;&#x0A;&#x0A;</Text>
-  <Ausrüstung>
-   <Rüstung>LR</Rüstung>
-   <Rüstung2>OR</Rüstung2>
+  <Text GrÃ¶ÃŸe="8">Herkunft: Orsamanca&#x5C;&#x5C;&#x0A;Vater: Zimmermann, KÃ¼stenstaatler&#x5C;&#x5C;&#x0A;Mutter: HÃ¤ndlerin, Scharidin&#x5C;&#x5C;&#x0A;&#x0A;&#x0A;&#x5C;section{Todeslicht}&#x0A; &#x0A;Mit Valerion (Thomas), Najago (Thorsten), Azila (Heike)&#x0A;in &#x5C;textbf{Tura}.&#x0A;&#x0A;Tyra Geminiano wird durch Salvator Veducia vergiftet. Die todbringenden Kerzen (3) sind vom&#x0A;Alchimisten/Thaunaturgen Paar Hennoch und Feolo hergestellt.&#x0A;NÃ¤chtliche Untersuchung der Alchimistenwerkstatt bringt Feolo den Tod,&#x0A;mir Folterwerkzeuge (Halskrause, Zange, scharfes Messer, Daumenschrauben), &#x0A;die ich an Hennoch ausprobiere, der uns daraufhin die Geschichte erzÃ¤hlt.&#x0A;AuÃ&#x9F;erdem habe ich noch QuiGong-Kugeln und 2 Rattenfallen und einige TrÃ¼nke:&#x5C;&#x5C;&#x0A;2x Heiltrank&#x5C;&#x5C;&#x0A;2x Krafttrunk&#x5C;&#x5C;&#x0A;2x verlangsammendes Waffengift&#x5C;&#x5C;&#x0A;2x Schaden bewirkendes Waffengift&#x5C;&#x5C;&#x0A;mitgenommen.&#x5C;&#x5C;[1ex]&#x0A;&#x0A;Nachdem wir den Culsutempel und den Convendo unterrichtet hatten wurde Tyras Grab &#x0A;wieder geÃ¶ffnet und Trya wird wieder gesund. Dank des Informationsaustausches mit&#x0A;den Nachtfaltern (Korbuzis) wissen wir wie Salvator Ã¼berfÃ¼hrt werden kann.&#x0A;Der belastende Brief (Tyras Vater Lorengo ist vor lÃ¤ngerer Zeit bei einem Ã&#x9C;berfall in der &#x0A;NÃ¤he Birkas ermordet worden) befindet sich in der 'Schatzkammer' der Geminianos. &#x0A;Als Dank erhalte ich ein&#x0A;&#x5C;textbf{Empfehlugsschreiben} von Tyra, dem Culsu Tempel und dem Convendo:&#x0A;  Schreiben, dass besagt, dass ihr geholfen habt, eine  &#x0A;  VerschwÃ¶rung gegenÃ¼ber dem Hause Giminiano aufzudecken und einen  &#x0A;  Todeswirker unschÃ¤dlich gemacht habt.&#x0A;Ein &#x5C;textbf{Brief der Nachtfalter}, die ein Auge auf mich haben werden irritiert mich mehr, &#x0A;als daÃ&#x9F; er mich freut ...&#x0A;&#x0A;&#x5C;section{Zu neuen Ufern}&#x0A;&#x0A;Charactere s.o. zusÃ¤tzlich mit Alian (Maike)&#x0A;&#x0A;Eine riesige Welle, hervorgerufen durch den Meersmagier Acastis vom Schiff 'Fliegende Flunder',&#x0A;Ã¼berrollt unser Schiff und wir landen auf einer Pirateninsel. Letzendlich geraten einige von uns&#x0A;(Najago und Azila) in die Gefangenschaft der Piraten. &#x0A;Es gelingt uns jedoch sie zu befreien und den Piraten zu entkommen, indem wir ihren KapitÃ¤n &#x0A;Valetri di Valcone als Geisel nehmen und das kleinere ihrer beiden Schiffe ausborgen.&#x0A;Der Magier der Piraten (Viterbo) ist offenbar vorher mit dem Amulett verschwunden.&#x0A;ZusÃ¤tzlich befreien wir die Tochter des Freiherren von Fisto, die sich uns gegenÃ¼ber zunÃ¤chst als &#x0A;Diensmagd ausgibt und bringen sie zu ihrem Vater zurÃ¼ck.&#x0A;Dieser Ã¼berredet uns an einer Strafaktion gegen die Piraten teilzunehmen. &#x0A;Am Ende einer groÃ&#x9F;en Schlacht schlieÃ&#x9F;lich steht unsere Kampftruppe des FÃ¼rsten schlieÃ&#x9F;lich &#x0A;siegreich da nimmt 19 Piraten gefangen (oder tÃ¶tet diese)&#x0A;und beschlagnahmt 20 TÃ¼rkise, ein Ruderboot, ein Segelboot, GewÃ¼rze, Perlenketten und eine &#x0A;SaphirbestÃ¼ckte Goldbrosche.&#x0A;Zwei besondere SchmuckstÃ¼cke (ein Diadem und ein Dolch) gehÃ¶ren offenbar den Nachtfaltern.&#x0A;Aufgrund meiner besonderen Verbindungen biete ich mich an, diese beiden GegenstÃ¤nde&#x0A;persÃ¶nlich zurÃ¼ckzubringen, wofÃ¼r mir nicht nur der FÃ¼rst, sondern auch meine GefÃ¤hrten &#x0A;dankbar sind.&#x0A;&#x0A;DafÃ¼r erhalte ich ein Etui mit Dietrichen, die sehr gut gearbeitet sind und nicht so leicht abbrechen &#x0A;(WM: +2, bei einem kritischen Fehler einen erneuten EW: SchlÃ¶sser Ã&#x96;ffnen, &#x0A;wenn der gelingt, ist der Dietrich nicht abgebrochen)&#x0A;&#x0A;&#x5C;section{Im Wald da sind die RÃ¤uber}&#x0A;&#x0A;Con Abenteuer (Bacherach 2005) in Alba mit Sonja (Breana aus Fuardain),&#x0A;Christian (Fingal MacCairil), Andreas (Elinel NiCairil) und Matthias (Dryanor aus Clanngardan)&#x0A;&#x0A;Wir jagen eine RÃ¤uberbande es stellt sich schlieÃ&#x9F;lich heraus, daÃ&#x9F; die bestohlenen HÃ¤ndler den &#x0A;RaubÃ¼berfall selber inszeniert haben, um die Preise fÃ¼r ihre Waren hochzutreiben. &#x0A;Mir gelingt es die beiden davon zu Ã¼berzeugen, daÃ&#x9F; alle Parteien mehr davon haben, wenn &#x0A;wir unsere Erkenntnisse nicht an die groÃ&#x9F;e Glocke hÃ¤ngen, sondern fÃ¼r unser Schweigen von &#x0A;den beiden einen kleinen Bonus erhalten ...&#x0A;&#x0A;&#x5C;section{Sandobars letze Reise}&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;&#x0A;</Text>
+  <AusrÃ¼stung>
+   <RÃ¼stung>LR</RÃ¼stung>
+   <RÃ¼stung2>OR</RÃ¼stung2>
    <Waffe Bezeichnung="kleiner Schild" Erfolgswert="2"/>
-   <Waffe Bezeichnung="Langschwert" Erfolgswert="6"/>
-   <Waffe Bezeichnung="Dolch" Erfolgswert="7"/>
-   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Schuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Dietriche und Nachschlüssel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+   <Waffe Bezeichnung="Langschwert" Erfolgswert="7"/>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="9"/>
+   <Gegenstand Bezeichnung="KÃ¶rper" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+    <Gegenstand Bezeichnung="GÃ¼rtel" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" sichtbar="true"/>
+    <Gegenstand Besonderheit="Leder" Bezeichnung="Rucksack" sichtbar="true">
+     <Gegenstand Besonderheit="warm" Bezeichnung="Decke"/>
+     <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld"/>
+     <Gegenstand Bezeichnung="Dietriche und NachschlÃ¼ssel" sichtbar="true"/>
     </Gegenstand>
    </Gegenstand>
-  </Ausrüstung>
+  </AusrÃ¼stung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="8"/>
-   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="HÃ¶ren" Wert="8"/>
    <Sinn Bezeichnung="Riechen" Wert="8"/>
    <Sinn Bezeichnung="Schmecken" Wert="8"/>
    <Sinn Bezeichnung="Tasten" Wert="8"/>
    <Sinn Bezeichnung="Sechster Sinn" Wert="1"/>
    <Beruf Bezeichnung="Zimmermann"/>
-   <ang-Fertigkeit Bezeichnung="Einprägen" Wert="4"/>
-   <Fertigkeit Bezeichnung="Baukunde" Wert="4"/>
+   <ang-Fertigkeit Bezeichnung="EinprÃ¤gen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Baukunde" Wert="5"/>
    <Fertigkeit Bezeichnung="Beredsamkeit" Wert="6"/>
-   <Fertigkeit Bezeichnung="Landeskunde" Wert="9" Zusatz="Küstenstaaten"/>
+   <Fertigkeit Bezeichnung="Geheimzeichen" Wert="6" Zusatz="Zinken (Meer der fÃ¼nf Winde)"/>
+   <Fertigkeit Bezeichnung="GelÃ¤ndelauf" Wert="10"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="4" Zusatz="Alba"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="9" Zusatz="KÃ¼stenstaaten"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="4"/>
    <Fertigkeit Bezeichnung="Lippenlesen" Wert="7"/>
-   <Fertigkeit Bezeichnung="Menschenkenntnis" Praxispunkte="1" Wert="6"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="7"/>
    <Fertigkeit Bezeichnung="Rechnen" Wert="7"/>
-   <Fertigkeit Bezeichnung="Schlösser öffnen" Praxispunkte="1" Wert="7"/>
+   <Fertigkeit Bezeichnung="Schauspielern" Wert="8"/>
+   <Fertigkeit Bezeichnung="SchlÃ¶sser Ã¶ffnen" Praxispunkte="1" Wert="7"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="6"/>
    <Fertigkeit Bezeichnung="Spurenlesen" Wert="7"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="9"/>
-   <Fertigkeit Bezeichnung="Verhören" Praxispunkte="1" Wert="8"/>
+   <Fertigkeit Bezeichnung="VerhÃ¶ren" Praxispunkte="1" Wert="10"/>
+   <Fertigkeit Bezeichnung="Verkleiden" Wert="12"/>
    <Fertigkeit Bezeichnung="Wahrnehmung" Wert="5"/>
-   <Waffe Bezeichnung="Dolch" Wert="7"/>
+   <Waffe Bezeichnung="Dolch" Wert="9"/>
    <Waffe Bezeichnung="Handaxt" Wert="5"/>
    <Waffe Bezeichnung="kleiner Schild" Wert="2"/>
-   <Waffe Bezeichnung="Langschwert" Wert="6"/>
+   <Waffe Bezeichnung="Langschwert" Wert="7"/>
    <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
    <Grundkenntnis Bezeichnung="Einhandschwert"/>
    <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Albisch" Wert="9"/>
    <Sprache Bezeichnung="Comentang" Wert="10"/>
    <Sprache Bezeichnung="Neu-Vallinga" Wert="19"/>
    <Sprache Bezeichnung="Scharidisch" Wert="12"/>
-   <Urschrift Bezeichnung="Neu-Vallinga" Wert="12"/>
-   <Urschrift Bezeichnung="Comentang" Wert="8"/>
+   <Urschrift Bezeichnung="Scharidisch" Buchstaben="Aranische Silbenschrift" Wert="4"/>
+   <Urschrift Bezeichnung="Albisch" Buchstaben="Valianisches Alphabet" Wert="7"/>
+   <Urschrift Bezeichnung="Neu-Vallinga" Buchstaben="Valianisches Alphabet" Wert="12"/>
+   <Urschrift Bezeichnung="Comentang" Buchstaben="Valianisches Alphabet" Wert="8"/>
   </Fertigkeiten>
   <Optionen>
    <CheckOptions Name="Originalregeln" Wert="true"/>
    <CheckOptions Name="NSC zulassen" Wert="true"/>
    <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
-   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Grundwerte Ã¼ber 100 zulassen" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
