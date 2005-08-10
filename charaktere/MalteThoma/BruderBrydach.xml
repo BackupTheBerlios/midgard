@@ -1,38 +1,38 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Bruder Brydach" Spieler="Malte Thoma" Zeitpunkt="Vor Rawindra" Grad="5"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="PK" Überleben="Überleben im Wald" Stadt_Land="Stadt" Hand="Rechtshänder"/>
-  <Basiseigenschaften St="99" Gw="91" Gs="100" Ko="91" In="83" Zt="35"/>
-  <abgeleiteteEigenschaften Au="62" pA="100" Wk="91" Sb="25" B="25" GG="4" SG="3"/>
-  <Erfolgswerte Abwehr="13" Zaubern="15" ZauberResistenz="12"/>
-  <Gesundheit LP="17" AP="30"/>
-  <Beschreibung Alter="28" Gestalt="normal" Gewicht="80" Größe="179" Stand="Volk" Herkunft="Ywerdon" Glaube="Plenedd, Bress, Baidd"/>
-  <Vermögen GS="2530" SS="5"/>
-  <Steigern GFP="2099" AEP="18" EPproGFP="33" benötigte_Tage="76">
+  <Figur Grad="5" Name="Bruder Brydach" Spieler="Malte Thoma" Zeitpunkt="Vor Rawindra"/>
+  <Typ AbkÃ¼rzung="PK" Geschlecht="m" Hand="RechtshÃ¤nder" Spezies="Mensch" Stadt_Land="Stadt" Ãœberleben="Ã&#x9C;berleben im Wald"/>
+  <Basiseigenschaften Gs="100" Gw="91" In="83" Ko="91" St="99" Zt="35"/>
+  <abgeleiteteEigenschaften Au="62" B="25" GG="4" SG="3" Sb="25" Wk="91" pA="100"/>
+  <Erfolgswerte Abwehr="13" ZauberResistenz="12" Zaubern="15"/>
+  <Gesundheit AP="30" LP="17"/>
+  <Beschreibung Alter="28" Gestalt="normal" Gewicht="80" Glaube="Plenedd, Bress, Baidd" GrÃ¶ÃŸe="179" Herkunft="Ywerdon" Stand="Volk"/>
+  <VermÃ¶gen GS="2530" SS="5"/>
+  <Steigern AEP="18" EPproGFP="33" GFP="2099" benÃ¶tigte_Tage="76">
    <Praxispunkte Zaubern="1"/>
   </Steigern>
-  <Text Größe="7" Bild="/home/thoma/magus/charaktere/MalteThoma/BruderBrydach2.jpg">Bruder Brydach gehört der Gemeinschaft des 'Stabes Plynedd' an.&#x0A;Diese Gemeinschaft wurde vor langer Zeit von Cynwal ap Awen und Gwenta fer&#x0A;Awen gegründet. Das Paar war der Ansicht, daß die Verehrung von&#x0A;Plenydd dem Lichtbringer, seiner Kinder Baidd und Bress, den Todesbooten,&#x0A;und seiner Schwester Dwiannon ein wesentlicher Aspekt fehlte:&#x0A;Es gab niemandem, der sich dem Kampf gegen die dunklen Mächte mit&#x0A;physischer Kraft entgegenstellte. Dies änderten die beiden indem sie&#x0A;junge Männer und Frauen ausbildeten&#x0A;und in die Welt hinausschickten um gegen die dunkelen Mächte zu kämpfen.&#x0A;Für die Brüdern und Schwestern dieser Gemeinschaft, die ihren Familiennamen&#x0A;ablegen, wenn sie in den Orden eintreten, gibt es sowohl Zeiten der Einkehr,&#x0A;die durch Gebete und Enthaltsamkeit geprägt ist, als auch Zeiten der&#x0A;Wanderschaft. Während dieser Zeit verläßt ein Ordensmitglied das Kloster&#x0A;und wandert durch die Welt, um Erfahrung zu sammeln unnd den Kampf gegen&#x0A;Finsternis voranzutreiben. Während dieser Zeit&#x0A;der Wanderschaft dürfen die Mitglieder sich weitgehend so verhalten, wie es&#x0A;ihnen beliebt, solange sie die wesentlichen Dinge nicht aus den Augen verlieren.&#x0A;Durch ihre Kleidung demonstrieren sie ihre Zugehörigkeit zu dem Orden,&#x0A;den sie nie verleugnen würden. Dadurch werden sie in Clanngardan&#x0A;und Ywerdon sofort als Mitglieder des 'Stabes Plynedd' erkannnt und geachtet.&#x0A;Es ist ihnen erlaubt körperlichen Beziehungen einzugehen, heiraten dürfen&#x0A;sie jedoch nur ein Mitglied des Ordens.&#x0A;Frauen die während ihrer Zeit der Wanderschaft schwanger werden, bringen&#x0A;die Kinder im Kloster zur Welt und das Kind wird von allen&#x0A;Mitgliedern gleichermaßen erzogen. Und freudig als neues Mitglied der Gemeinschaft&#x0A;aufgenommen.&#x0A;Männer, die mit einem Nichtordensmitglied ein&#x0A;Kind zeugen, müssen die Frau auf die Mögliichkeit hinweisen, das Neugeborene&#x0A;an der Abtei abzugeben, wenn diese es selber nicht aufziehen kann oder will.&#x0A;&#x0A;Es ist allgemein bekannt, daß die Kinder von der Gemeinschaft des&#x0A;'Stabes Plynedd'&#x0A;eine gute Erziehung erhalten und in ihr Leben den Göttern weihen, daher werden auch&#x0A;oft Kinder von verzweifelten Frauen an der Pforte abgelegt,&#x0A;die sonst möglicherweise abgetrieben hätten.&#x0A;&#x0A;Jedes Kind, daß zu dem Orden kommt darf darin bleiben, Männner und Frauen,&#x0A;die erst nach der Pubertät um die Aufnahem bitten, werden nur aufgenommen,&#x0A;wenn sie über die körperlichen unnd geistigen Fähigeiten verfügen&#x0A;für die Belange des Ordens einzutreten.&#x0A;&#x0A;Bruder Brydach ist eines dieser Waisenkind, das vor den Toren der Abtei&#x0A;abgelegt wurde. Ob er das Kind eines der Brüder ist, ist unklar und auch&#x0A;ohne Bedeutung.&#x0A;&#x0A;Ein Bruder (oder eine Schwester) des Ordens gilt als&#x0A;Priester(Krieg), kann aber nicht jede Waffe lernen und maximal eine&#x0A;Lederrüstung tragen.&#x0A;&#x0A;Ordensvorschriften:&#x0A;&#x5C;begin{punkte}&#x0A;&#x5C;item Das Haupthaar scheren (gilt nur für Männer) und eine einfache &#x0A;   braunen Kutte &#x0A;   als Zeichen der Demut vor den Göttern tragen&#x0A;&#x5C;item Keine größere Menge Metall (Rüstung, Schwert) am Körper tragen,&#x0A;   es unterbindet &#x0A;   den Energiefluß zwischen Himmel und Erde (hier zeigt sich das&#x0A;   druidische Erbe Ywerdons; Münzen oder Edelmetalle sind erlaubt)&#x0A;&#x5C;item Nur stumpfe Waffen verwenden&#x5C;&#x5C;&#x0A;   (schließlich soll kein verdorbenes Blut den Boden Midgards berühren)&#x0A;&#x5C;item Das Böse muß in all seinen Ausprägungen aktiv bekämpft werden&#x0A;&#x5C;item Aus der Politik heraushalten&#x0A;&#x5C;item niemals jemanden übervorteilen&#x0A;&#x5C;item Heiraten darf man nur einen Partner, der dem 'Stap Plynedd' angehört&#x0A;&#x5C;item Wer nur asketisch lebt kann nicht gut kämpfen (aber man darf es auch&#x0A;   nicht übertreiben)&#x0A;&#x5C;item andere 'gute' Götter respektieren&#x0A;&#x5C;end{punkte}&#x0A;&#x0A;Abenteuer:&#x0A;&#x5C;begin{punkte}&#x0A;&#x5C;item Malte Thoma: Das Überwasserhaus&#x0A;&#x5C;item Bertram Bleck: Die zwei Dörfer(?)&#x0A;&#x5C;item Sebastian Horstman: Der weinende Brunnen&#x0A;&#x5C;item Harald Popp: Das Grüne Sigel(?)&#x0A;&#x5C;end{punkte}&#x0A;</Text>
-  <Ausrüstung>
-   <Rüstung>LR</Rüstung>
-   <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="0" Bezeichnung="Kampfstab"/>
-   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Schuhe" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Rucksack" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="Leder" sichtbar="true">
-     <Gegenstand Anzahl="1" Bezeichnung="Decke" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="warm"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Geld" Beschreibung="" Region="" Gewicht="0" RüstungOhneGewicht="false" Besonderheit=""/>
+  <Text GrÃ¶ÃŸe="7">Bruder Brydach gehÃ¶rt der Gemeinschaft des 'Stabes Plynedd' an.&#x0A;Diese Gemeinschaft wurde vor langer Zeit von Cynwal ap Awen und Gwenta fer&#x0A;Awen gegrÃ¼ndet. Das Paar war der Ansicht, daÃ&#x9F; die Verehrung von&#x0A;Plenydd dem Lichtbringer, seiner Kinder Baidd und Bress, den Todesbooten,&#x0A;und seiner Schwester Dwiannon ein wesentlicher Aspekt fehlte:&#x0A;Es gab niemandem, der sich dem Kampf gegen die dunklen MÃ¤chte mit&#x0A;physischer Kraft entgegenstellte. Dies Ã¤nderten die beiden indem sie&#x0A;junge MÃ¤nner und Frauen ausbildeten&#x0A;und in die Welt hinausschickten um gegen die dunkelen MÃ¤chte zu kÃ¤mpfen.&#x0A;FÃ¼r die BrÃ¼dern und Schwestern dieser Gemeinschaft, die ihren Familiennamen&#x0A;ablegen, wenn sie in den Orden eintreten, gibt es sowohl Zeiten der Einkehr,&#x0A;die durch Gebete und Enthaltsamkeit geprÃ¤gt ist, als auch Zeiten der&#x0A;Wanderschaft. WÃ¤hrend dieser Zeit verlÃ¤Ã&#x9F;t ein Ordensmitglied das Kloster&#x0A;und wandert durch die Welt, um Erfahrung zu sammeln unnd den Kampf gegen&#x0A;Finsternis voranzutreiben. WÃ¤hrend dieser Zeit&#x0A;der Wanderschaft dÃ¼rfen die Mitglieder sich weitgehend so verhalten, wie es&#x0A;ihnen beliebt, solange sie die wesentlichen Dinge nicht aus den Augen verlieren.&#x0A;Durch ihre Kleidung demonstrieren sie ihre ZugehÃ¶rigkeit zu dem Orden,&#x0A;den sie nie verleugnen wÃ¼rden. Dadurch werden sie in Clanngardan&#x0A;und Ywerdon sofort als Mitglieder des 'Stabes Plynedd' erkannnt und geachtet.&#x0A;Es ist ihnen erlaubt kÃ¶rperlichen Beziehungen einzugehen, heiraten dÃ¼rfen&#x0A;sie jedoch nur ein Mitglied des Ordens.&#x0A;Frauen die wÃ¤hrend ihrer Zeit der Wanderschaft schwanger werden, bringen&#x0A;die Kinder im Kloster zur Welt und das Kind wird von allen&#x0A;Mitgliedern gleichermaÃ&#x9F;en erzogen. Und freudig als neues Mitglied der Gemeinschaft&#x0A;aufgenommen.&#x0A;MÃ¤nner, die mit einem Nichtordensmitglied ein&#x0A;Kind zeugen, mÃ¼ssen die Frau auf die MÃ¶gliichkeit hinweisen, das Neugeborene&#x0A;an der Abtei abzugeben, wenn diese es selber nicht aufziehen kann oder will.&#x0A;&#x0A;Es ist allgemein bekannt, daÃ&#x9F; die Kinder von der Gemeinschaft des&#x0A;'Stabes Plynedd'&#x0A;eine gute Erziehung erhalten und in ihr Leben den GÃ¶ttern weihen, daher werden auch&#x0A;oft Kinder von verzweifelten Frauen an der Pforte abgelegt,&#x0A;die sonst mÃ¶glicherweise abgetrieben hÃ¤tten.&#x0A;&#x0A;Jedes Kind, daÃ&#x9F; zu dem Orden kommt darf darin bleiben, MÃ¤nnner und Frauen,&#x0A;die erst nach der PubertÃ¤t um die Aufnahem bitten, werden nur aufgenommen,&#x0A;wenn sie Ã¼ber die kÃ¶rperlichen unnd geistigen FÃ¤higeiten verfÃ¼gen&#x0A;fÃ¼r die Belange des Ordens einzutreten.&#x0A;&#x0A;Bruder Brydach ist eines dieser Waisenkind, das vor den Toren der Abtei&#x0A;abgelegt wurde. Ob er das Kind eines der BrÃ¼der ist, ist unklar und auch&#x0A;ohne Bedeutung.&#x0A;&#x0A;Ein Bruder (oder eine Schwester) des Ordens gilt als&#x0A;Priester(Krieg), kann aber nicht jede Waffe lernen und maximal eine&#x0A;LederrÃ¼stung tragen.&#x0A;&#x0A;Ordensvorschriften:&#x0A;&#x5C;begin{punkte}&#x0A;&#x5C;item Das Haupthaar scheren (gilt nur fÃ¼r MÃ¤nner) und eine einfache &#x0A;   braunen Kutte &#x0A;   als Zeichen der Demut vor den GÃ¶ttern tragen&#x0A;&#x5C;item Keine grÃ¶Ã&#x9F;ere Menge Metall (RÃ¼stung, Schwert) am KÃ¶rper tragen,&#x0A;   es unterbindet &#x0A;   den EnergiefluÃ&#x9F; zwischen Himmel und Erde (hier zeigt sich das&#x0A;   druidische Erbe Ywerdons; MÃ¼nzen oder Edelmetalle sind erlaubt)&#x0A;&#x5C;item Nur stumpfe Waffen verwenden&#x5C;&#x5C;&#x0A;   (schlieÃ&#x9F;lich soll kein verdorbenes Blut den Boden Midgards berÃ¼hren)&#x0A;&#x5C;item Das BÃ¶se muÃ&#x9F; in all seinen AusprÃ¤gungen aktiv bekÃ¤mpft werden&#x0A;&#x5C;item Aus der Politik heraushalten&#x0A;&#x5C;item niemals jemanden Ã¼bervorteilen&#x0A;&#x5C;item Heiraten darf man nur einen Partner, der dem 'Stap Plynedd' angehÃ¶rt&#x0A;&#x5C;item Wer nur asketisch lebt kann nicht gut kÃ¤mpfen (aber man darf es auch&#x0A;   nicht Ã¼bertreiben)&#x0A;&#x5C;item andere 'gute' GÃ¶tter respektieren&#x0A;&#x5C;end{punkte}&#x0A;&#x0A;Abenteuer:&#x0A;&#x5C;begin{punkte}&#x0A;&#x5C;item Malte Thoma: Das Ã&#x9C;berwasserhaus&#x0A;&#x5C;item Bertram Bleck: Die zwei DÃ¶rfer(?)&#x0A;&#x5C;item Sebastian Horstman: Der weinende Brunnen&#x0A;&#x5C;item Harald Popp: Das GrÃ¼ne Sigel(?)&#x0A;&#x5C;item Thorsten Barthusel: Der verschwundene Saddu&#x0A;&#x5C;end{punkte}&#x0A;&#x0A;</Text>
+  <AusrÃ¼stung>
+   <RÃ¼stung>LR</RÃ¼stung>
+   <RÃ¼stung2>OR</RÃ¼stung2>
+   <Waffe Bezeichnung="Kampfstab" Erfolgswert="8"/>
+   <Gegenstand Bezeichnung="KÃ¶rper" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+    <Gegenstand Bezeichnung="GÃ¼rtel" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" sichtbar="true"/>
+    <Gegenstand Besonderheit="Leder" Bezeichnung="Rucksack" sichtbar="true">
+     <Gegenstand Besonderheit="warm" Bezeichnung="Decke"/>
+     <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld"/>
     </Gegenstand>
    </Gegenstand>
-  </Ausrüstung>
+  </AusrÃ¼stung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="8"/>
-   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="HÃ¶ren" Wert="8"/>
    <Sinn Bezeichnung="Riechen" Wert="8"/>
    <Sinn Bezeichnung="Schmecken" Wert="8"/>
    <Sinn Bezeichnung="Tasten" Wert="8"/>
@@ -42,19 +42,19 @@
    <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
    <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
-   <Fertigkeit Bezeichnung="Sagenkunde" Wert="6" Praxispunkte="1"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Praxispunkte="1" Wert="6"/>
    <Fertigkeit Bezeichnung="Zauberkunde" Wert="4"/>
    <Waffe Bezeichnung="Kampfstab" Wert="8"/>
    <Waffe Bezeichnung="Streitkolben" Wert="6"/>
-   <Zauber Bezeichnung="Austreibung des Bösen"/>
+   <Zauber Bezeichnung="Austreibung des BÃ¶sen"/>
    <Zauber Bezeichnung="Bannen von Dunkelheit"/>
    <Zauber Bezeichnung="Bannen von Finsterwerk"/>
-   <Zauber Bezeichnung="Bannsphäre, Goldene"/>
+   <Zauber Bezeichnung="BannsphÃ¤re, Goldene"/>
    <Zauber Bezeichnung="Erkennen der Aura"/>
    <Zauber Bezeichnung="Felsenfaust"/>
    <Zauber Bezeichnung="Feuerwand"/>
    <Zauber Bezeichnung="Flammenkreis"/>
-   <Zauber Bezeichnung="Göttlicher Schutz vor dem Bösen"/>
+   <Zauber Bezeichnung="GÃ¶ttlicher Schutz vor dem BÃ¶sen"/>
    <Zauber Bezeichnung="Handauflegen"/>
    <Zauber Bezeichnung="Heilen von Wunden"/>
    <Zauber Bezeichnung="Segnen"/>
@@ -70,17 +70,17 @@
    <Sprache Bezeichnung="Scharidisch" Wert="4"/>
    <Sprache Bezeichnung="Twyneddisch" Wert="19"/>
    <Sprache Bezeichnung="Waelska" Wert="6"/>
-   <Urschrift Bezeichnung="Hochcoraniaid" Wert="13"/>
-   <Urschrift Bezeichnung="Twyneddisch" Wert="13"/>
-   <Urschrift Bezeichnung="Albisch" Wert="9"/>
-   <Urschrift Bezeichnung="Erainnisch" Wert="8"/>
+   <Urschrift Bezeichnung="Hochcoraniaid" Buchstaben="Coraniaid-Alphabet" Wert="13"/>
+   <Urschrift Bezeichnung="Twyneddisch" Buchstaben="Valianisches Alphabet" Wert="13"/>
+   <Urschrift Bezeichnung="Albisch" Buchstaben="Valianisches Alphabet" Wert="9"/>
+   <Urschrift Bezeichnung="Erainnisch" Buchstaben="Valianisches Alphabet" Wert="8"/>
   </Fertigkeiten>
   <Optionen>
    <CheckOptions Name="Originalregeln" Wert="true"/>
    <CheckOptions Name="NSC zulassen" Wert="false"/>
    <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="true"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="false"/>
-   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Grundwerte Ã¼ber 100 zulassen" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
