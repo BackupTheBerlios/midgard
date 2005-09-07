@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -72,6 +73,7 @@ void table_ausruestung::showAusruestung()
      (*iter)[m_columns.sichtbar] = i->getAusruestung().Sichtbar();
      (*iter)[m_columns.region] = i->getAusruestung().Region();
      (*iter)[m_columns.ausruestung] = const_cast<AusruestungBaum*>(&*i);
+     (*iter)[m_columns.anzahl] = itos(i->getAusruestung().Anzahl());
      showChildren(iter->children(),i->getChildren());
    }
 
@@ -93,6 +95,7 @@ void table_ausruestung::showChildren(Gtk::TreeModel::Children r,const std::list<
      (*iter)[m_columns.sichtbar] = i->getAusruestung().Sichtbar();
      (*iter)[m_columns.region] = i->getAusruestung().Region();
      (*iter)[m_columns.ausruestung] = const_cast<AusruestungBaum*>(&*i);
+     (*iter)[m_columns.anzahl] = itos(i->getAusruestung().Anzahl());
      showChildren(iter->children(),i->getChildren());
    }  
 }
@@ -374,4 +377,13 @@ void table_ausruestung::on_button_ausruestung_druck()
 table_ausruestung::ModelColumns::ModelColumns()
 {  add(name); add(material); add(region);
    add(gewicht); add(sichtbar); add(ausruestung);
+   add(anzahl);
+}
+
+void table_ausruestung::cell_edited(const Glib::ustring &path,
+                  const Glib::ustring&new_text,unsigned idx)
+{
+}
+void table_ausruestung::cell_edited_bool(const Glib::ustring &path)
+{
 }

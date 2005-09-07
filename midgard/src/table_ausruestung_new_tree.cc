@@ -180,6 +180,7 @@ gewechselt:
 
 void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
 {
+#if 0
   const Data_NewPreis *dt=dynamic_cast<const Data_NewPreis*>(&*d);
 //  spinbutton_anzahl->update();
   unsigned int anzahl=1; // spinbutton_anzahl->get_value_as_int();
@@ -210,6 +211,7 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
   else return;
   hauptfenster->getChar().undosave("Ausrüstung "+dt->Ware()->Name()+" hinzugefügt");
   showAusruestung();
+#endif
 }
 
 

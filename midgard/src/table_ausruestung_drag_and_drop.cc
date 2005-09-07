@@ -24,6 +24,7 @@
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    typedef Gtk::SelectionData &selection_data_t;
 #  define GTKMM24(x) x
+#include <sigc++/bind.h>
 #else
    typedef GtkSelectionData* selection_data_t;
 #  define GTKMM24(x)
@@ -146,6 +147,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
   Ausruestung_tree->set_model(m_refStore);
   Ausruestung_tree->append_column("Titel",m_columns.name);
   Ausruestung_tree->append_column("Material",m_columns.material);
+  Ausruestung_tree->append_column("Anzahl",m_columns.anzahl);
   Ausruestung_tree->append_column("Gewicht",m_columns.gewicht);
   Ausruestung_tree->append_column("Sichtbar",m_columns.sichtbar);
   Ausruestung_tree->append_column("Region",m_columns.region);
@@ -159,6 +161,22 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
    fill_all_Combos_Art_Einheit_Region();
    fill_all_Combo_Art2();
 //  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
+  dynamic_cast<Gtk::CellRendererText*>(Ausruestung_tree->get_column(sTitel)->get_first_cell_renderer())
+      ->property_editable()=true;
+  dynamic_cast<Gtk::CellRendererText*>(Ausruestung_tree->get_column(sTitel)->get_first_cell_renderer())
+      ->signal_edited().connect(SigC::bind(SigC::slot(*this,&table_ausruestung::cell_edited),sTitel));
+  dynamic_cast<Gtk::CellRendererText*>(Ausruestung_tree->get_column(sMaterial)->get_first_cell_renderer())
+      ->property_editable()=true;
+  dynamic_cast<Gtk::CellRendererText*>(Ausruestung_tree->get_column(sMaterial)->get_first_cell_renderer())
+      ->signal_edited().connect(SigC::bind(SigC::slot(*this,&table_ausruestung::cell_edited),sMaterial));
+  dynamic_cast<Gtk::CellRendererText*>(Ausruestung_tree->get_column(sAnzahl)->get_first_cell_renderer())
+      ->property_editable()=true;
+  dynamic_cast<Gtk::CellRendererText*>(Ausruestung_tree->get_column(sAnzahl)->get_first_cell_renderer())
+      ->signal_edited().connect(SigC::bind(SigC::slot(*this,&table_ausruestung::cell_edited),sAnzahl));
+  Ausruestung_tree->get_column(sSichtbar)->get_first_cell_renderer()
+      ->property_sensitive()=true;
+  dynamic_cast<Gtk::CellRendererToggle*>(Ausruestung_tree->get_column(sSichtbar)->get_first_cell_renderer())
+      ->signal_toggled().connect(SigC::slot(*this,&table_ausruestung::cell_edited_bool));
 }
 
 #if 0

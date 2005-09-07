@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -38,7 +39,7 @@ class table_ausruestung : public table_ausruestung_glade
         Glib::RefPtr<Gtk::TreeStore> m_refStore;
 
 	struct ModelColumns : public Gtk::TreeModelColumnRecord
-	{  Gtk::TreeModelColumn<Glib::ustring> name,material,region,gewicht;
+	{  Gtk::TreeModelColumn<Glib::ustring> name,material,region,gewicht,anzahl;
 	   Gtk::TreeModelColumn<bool> sichtbar;
 	   Gtk::TreeModelColumn<AusruestungBaum *> ausruestung;
 	   ModelColumns();
@@ -47,6 +48,7 @@ class table_ausruestung : public table_ausruestung_glade
 	                                   
    public:
         enum e_spalten{None,Farbe,Material,Stand,Max};
+        enum spalten_oben { sTitel, sMaterial, sAnzahl, sGewicht, sSichtbar, sRegion };
    private:
         void fill_new_tree_titles(const std::map<e_spalten,std::string> &VSpalten);
         std::pair<e_spalten,std::string> enum_from_string(const std::string &s);
@@ -111,6 +113,10 @@ private:
         void on_combo_entry_region_activate();
         void on_entry_beschreibung_activate();
         void on_button_artikel_speichern_clicked();
+        
+        void cell_edited(const Glib::ustring &path,
+                  const Glib::ustring&new_text,unsigned idx);
+        void cell_edited_bool(const Glib::ustring &path);
 
         // drag & drop
         // for later realization
