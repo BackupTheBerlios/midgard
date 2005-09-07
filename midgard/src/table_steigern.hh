@@ -169,6 +169,15 @@ private:
         void on_steigern_zusatz_leaf_selected(cH_RowDataBase d);
         void on_leaf_selected_alte_fert(cH_RowDataBase d);
         void on_leaf_selected_alte_fert2(cH_RowDataBase d,bool &handled);
+        void on_alte_waffen_clicked(cH_RowDataBase row,bool &handled);
+        void on_neue_waffen_clicked(cH_RowDataBase row,bool &handled);
+        void on_alte_grund_clicked(cH_RowDataBase row,bool &handled);
+        void on_neue_grund_clicked(cH_RowDataBase row,bool &handled);
+        void on_alte_sprache_clicked(cH_RowDataBase row,bool &handled);
+        void on_neue_sprache_clicked(cH_RowDataBase row,bool &handled);
+        void on_alte_schrift_clicked(cH_RowDataBase row,bool &handled);
+        void on_neue_schrift_clicked(cH_RowDataBase row,bool &handled);
+        
         void on_alte_fert_reorder();
         void on_leaf_selected_neue_fert(cH_RowDataBase d);
         void on_leaf_selected_alte_waffen(cH_RowDataBase d);
