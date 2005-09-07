@@ -16,17 +16,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
  
-// generated 2002/5/20 8:42:42 CEST by thoma@Tiger.(none)
-// using glademm V0.6.4b_cvs
-//
-// newer (non customized) versions of this file go to table_ausruestung.hh_new
-
-// you might replace
-//    class foo : public foo_glade { ... };
-// by
-//    typedef foo_glade foo;
-// if you didn't make any modifications to the widget
-
 #ifndef _TABLE_AUSRUESTUNG_HH
 #  include "table_ausruestung_glade.hh"
 #  define _TABLE_AUSRUESTUNG_HH
@@ -91,7 +80,7 @@ private:
         void newArt(const std::string &art,const std::string art2);
         bool genug_geld(const std::string &_E_,const int kosten) const;
 private:
-        SigC::Connection sichtbarConnection;
+//        SigC::Connection sichtbarConnection;
         void zeige_werte();
         
 

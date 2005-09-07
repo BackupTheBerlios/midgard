@@ -24,6 +24,7 @@
 #include "Waffe.hh"
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/LernListen.hh>
+#include <Misc/create_parse.h>
 
 void table_steigern::waffen_zeigen()
 {  if (notebook_lernen->get_current_page()!=PAGE_WAFFEN) return;
@@ -131,4 +132,18 @@ void table_steigern::on_neue_grund_clicked(cH_RowDataBase row,bool &handled)
     handled=true;
   }
 //  waffengrund_zeigen();
+}
+
+bool table_steigern::waffen_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval)
+{  Handle <const Data_SimpleTree> dst=row.cast_dynamic<const Data_SimpleTree>();
+   MBEmlt mbe=dst->getMBE();
+   try
+   { if (idx==Data_SimpleTree::PPa && ManuProC::parse<int>(newval)!=(*mbe).Praxispunkte())
+     {  getKnownTree((*mbe).What())->getModel().about_to_change(row);
+        mbe->setPraxispunkte(ManuProC::parse<int>(newval));
+        getKnownTree((*mbe).What())->getModel().has_changed(row);
+        return true;
+     }
+   } catch(...) {} // parse can throw
+   return false;
 }

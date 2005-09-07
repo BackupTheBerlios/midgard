@@ -17,6 +17,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <Misc/create_parse.h>
 #include "midgard_CG.hh"
 #include "table_steigern.hh"
 #include "Sprache.hh"
@@ -180,4 +181,32 @@ void table_steigern::on_neue_schrift_clicked(cH_RowDataBase row,bool &handled)
   { MidgardBasicElement_leaf_neu(row);
     handled=true;
   }
+}
+
+bool table_steigern::sprache_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval)
+{  Handle <const Data_SimpleTree> dst=row.cast_dynamic<const Data_SimpleTree>();
+   MBEmlt mbe=dst->getMBE();
+   try
+   { if (idx==Data_SimpleTree::PPa && ManuProC::parse<int>(newval)!=(*mbe).Praxispunkte())
+     {  getKnownTree((*mbe).What())->getModel().about_to_change(row);
+        mbe->setPraxispunkte(ManuProC::parse<int>(newval));
+        getKnownTree((*mbe).What())->getModel().has_changed(row);
+        return true;
+     }
+   } catch(...) {} // parse can throw
+   return false;
+}
+
+bool table_steigern::schrift_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval)
+{  Handle <const Data_SimpleTree> dst=row.cast_dynamic<const Data_SimpleTree>();
+   MBEmlt mbe=dst->getMBE();
+   try
+   { if (idx==Data_SimpleTree::PPsa && ManuProC::parse<int>(newval)!=(*mbe).Praxispunkte())
+     {  getKnownTree((*mbe).What())->getModel().about_to_change(row);
+        mbe->setPraxispunkte(ManuProC::parse<int>(newval));
+        getKnownTree((*mbe).What())->getModel().has_changed(row);
+        return true;
+     }
+   } catch(...) {} // parse can throw
+   return false;
 }

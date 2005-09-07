@@ -108,6 +108,9 @@ private:
         void zaubern_klasse_gewaehlt() ;
         void zaubern_klasse_gewaehlt_abbrechen();
         bool fert_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval);
+        bool waffen_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval);
+        bool sprache_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval);
+        bool schrift_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval);
         
         // Grad anstieg
 private:
