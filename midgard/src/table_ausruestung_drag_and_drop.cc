@@ -176,6 +176,8 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
   Ausruestung_tree->get_column(sSichtbar)->get_first_cell_renderer()
       ->property_sensitive()=true;
   dynamic_cast<Gtk::CellRendererToggle*>(Ausruestung_tree->get_column(sSichtbar)->get_first_cell_renderer())
+      ->property_activatable()=true;
+  dynamic_cast<Gtk::CellRendererToggle*>(Ausruestung_tree->get_column(sSichtbar)->get_first_cell_renderer())
       ->signal_toggled().connect(SigC::slot(*this,&table_ausruestung::cell_edited_bool));
 }
 

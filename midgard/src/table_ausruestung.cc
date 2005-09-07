@@ -385,5 +385,5 @@ void table_ausruestung::cell_edited(const Glib::ustring &path,
 {
 }
 void table_ausruestung::cell_edited_bool(const Glib::ustring &path)
-{
+{ std::cout << "toggle visible\n";
 }
