@@ -50,8 +50,9 @@ void table_steigern::alte_fertigkeiten_zeigen()
 void table_steigern::on_leaf_selected_alte_fert(cH_RowDataBase d)
 {
 #warning wozu das?
-  if (button_was_tun->get_index()==Button_PP_eingeben)
-    alte_fert_tree->get_selection()->unselect_all();
+  // CP: das unselektiert die Zeile - ist aber harmlos IIRC
+//  if (button_was_tun->get_index()==Button_PP_eingeben)
+//    alte_fert_tree->get_selection()->unselect_all();
 }
 
 #warning !1-click
@@ -72,31 +73,36 @@ void table_steigern::on_alte_fert_reorder()
    }
 }
 
-
 #warning das sollte vereinheitlicht werden!
 // vielleicht in table_steigern::neu_lernen tun
+void table_steigern::on_neue_fert_clicked(cH_RowDataBase rdb, bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { // MidgardBasicElement_leaf_neu(rdb);
+    MBEmlt MBE = rdb.cast_dynamic<const Data_SimpleTree>()->getMBE();
+    if ((*MBE)->Name()=="KiDo") 
+      { zeige_werte();
+        Ausgabe(Ausgabe::ActionNeeded,"Jetzt muss ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!");
+#warning Kido Stil mit Wizard realisieren!
+  //      hauptfenster->load_for_mainpage(midgard_CG::PAGE_LERNEN);
+  //          Wizard::KIDO_STIL
+        MidgardBasicElement_leaf_neu(rdb);
+      }
+    else if ((*MBE)->Name()=="Zaubern") 
+      {  
+        kaempfer_lernt_zaubern();
+      }
+    else 
+    {  
+       MidgardBasicElement_leaf_neu(rdb);
+       return;
+    }
+    handled=true;
+  }
+}
+
 void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
 {  
-  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
-  MBEmlt MBE = dt->getMBE();
-  if ((*MBE)->Name()=="KiDo") 
-    { zeige_werte();
-      Ausgabe(Ausgabe::ActionNeeded,"Jetzt muss ein Stil unter 'Lernschema' -> 'KiDo' gewählt werden !!!");
-#warning Kido Stil mit Wizard realisieren!
-//      hauptfenster->load_for_mainpage(midgard_CG::PAGE_LERNEN);
-//          Wizard::KIDO_STIL
-      MidgardBasicElement_leaf_neu(d);
-    }
-  else if ((*MBE)->Name()=="Zaubern") 
-    {  
-      kaempfer_lernt_zaubern();
-    }
-  else 
-  {  
-     MidgardBasicElement_leaf_neu(d);
-     return;
-  }
-  fertigkeiten_zeigen();
+//  fertigkeiten_zeigen();
 }
 
 

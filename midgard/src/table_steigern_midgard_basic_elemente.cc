@@ -102,8 +102,8 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE());
  if (neu_lernen(MBE))
- { if ((*MBE).What()!=MidgardBasicElement::FERTIGKEIT 
-       || !(*MBE)->ZusatzEnum(hauptfenster->getAben().getVTyp()))
+ { if (/* (*MBE).What()!=MidgardBasicElement::FERTIGKEIT 
+       || */ !(*MBE)->ZusatzEnum(hauptfenster->getAben().getVTyp()))
      getLearnTree((*MBE).What())->getModel().remove_line(d);
 #warning ist das das richtige Element?
    getKnownTree((*MBE).What())->getModel().append_line(d);

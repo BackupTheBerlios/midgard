@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -68,23 +69,12 @@ void table_steigern::neue_sprache_zeigen()
 
 void table_steigern::on_leaf_selected_neue_sprache(cH_RowDataBase d)
 {  
-  MidgardBasicElement_leaf_neu(d);
-  sprachen_zeigen();
-  schriften_zeigen();
+//  sprachen_zeigen();
+//  schriften_zeigen();
 }
     
 void table_steigern::on_leaf_selected_alte_sprache(cH_RowDataBase d)
 {  
-  if(MidgardBasicElement_leaf_alt(d))
-   {
-     neue_schrift_wegen_sprache();
-     neue_sprache_zeigen();
-     schriften_zeigen();
-     if(hauptfenster->getAben().reduzieren) alte_sprache_zeigen();
-     else dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_sprache_tree);
-   }
-  if(!spinbutton_pp_eingeben->is_visible())
-     alte_sprache_tree->get_selection()->unselect_all();
 }
     
 void table_steigern::on_alte_sprache_reorder()
@@ -100,18 +90,13 @@ void table_steigern::on_alte_sprache_reorder()
 
 void table_steigern::on_leaf_selected_alte_schrift(cH_RowDataBase d)
 {  
-  if(MidgardBasicElement_leaf_alt(d))
-   {
-     neue_schrift_wegen_sprache();
-     schriften_zeigen();
-//???     on_sprache_laden_clicked();
-   }
+
 }   
     
 void table_steigern::on_leaf_selected_neue_schrift(cH_RowDataBase d)
 {  
-  MidgardBasicElement_leaf_neu(d);
-  schriften_zeigen();
+//  MidgardBasicElement_leaf_neu(d);
+//  schriften_zeigen();
 //  on_sprache_laden_clicked();
 }   
 
@@ -156,4 +141,43 @@ int table_steigern::andereSprache_gleicheSchriftart(std::string art)
            e = (*i)->Erfolgswert();
    }
   return e;
+}
+
+void table_steigern::on_alte_sprache_clicked(cH_RowDataBase row,bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { 
+    if(MidgardBasicElement_leaf_alt(row))
+     {
+       neue_schrift_wegen_sprache();
+       neue_sprache_zeigen();
+       schriften_zeigen();
+       if(hauptfenster->getAben().reduzieren) alte_sprache_zeigen();
+       else dynamic_cast<const Data_SimpleTree*>(&*row)->redisplay(alte_sprache_tree);
+       handled=true;
+     }
+  }
+}
+
+void table_steigern::on_neue_sprache_clicked(cH_RowDataBase row,bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { MidgardBasicElement_leaf_neu(row);
+    handled=true;
+  }
+}
+void table_steigern::on_alte_schrift_clicked(cH_RowDataBase row,bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { if(MidgardBasicElement_leaf_alt(row))
+     {
+       neue_schrift_wegen_sprache();
+       schriften_zeigen();
+  //???     on_sprache_laden_clicked();
+       handled=true;
+     }
+  }
+}
+void table_steigern::on_neue_schrift_clicked(cH_RowDataBase row,bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { MidgardBasicElement_leaf_neu(row);
+    handled=true;
+  }
 }

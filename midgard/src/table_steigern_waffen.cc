@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -56,42 +57,22 @@ void table_steigern::alte_waffen_zeigen()
 
 void table_steigern::on_leaf_selected_neue_grund(cH_RowDataBase d)
 {  
-  MidgardBasicElement_leaf_neu(d);
-  neue_waffen_zeigen();
-  waffengrund_zeigen();
 }
 
 
 void table_steigern::on_leaf_selected_neue_waffen(cH_RowDataBase d)
 {  
-   MidgardBasicElement_leaf_neu(d);
-   waffen_zeigen();
 }
  
 void table_steigern::on_leaf_selected_alte_grund(cH_RowDataBase d)
 {  
-  if(hauptfenster->getAben().reduzieren)
-   {
-     Ausgabe(Ausgabe::Warning,"WARNUNG: Beim verlernen von Grundkenntnissen werden die\n"
-     	"bereits gelernten Waffen, die zu dieser\n"
-     	"Grundkenntnis gehöhren, NICHT verlernt");
-     MidgardBasicElement_leaf_alt(d);
-     neue_waffen_zeigen();
-     waffengrund_zeigen();
-   }
+
 }
 
 void table_steigern::on_leaf_selected_alte_waffen(cH_RowDataBase d)
 {  
-  if (MidgardBasicElement_leaf_alt(d))
-   {
-     dynamic_cast<const Data_SimpleTree*>(&*d)->redisplay(alte_waffen_tree);
-     neue_waffen_zeigen();
-     zeige_werte();
-     if(hauptfenster->getAben().reduzieren) alte_waffen_zeigen();
-   }
-  if(!spinbutton_pp_eingeben->is_visible())
-     alte_waffen_tree->get_selection()->unselect_all(); 
+//  if(!spinbutton_pp_eingeben->is_visible())
+//     alte_waffen_tree->get_selection()->unselect_all(); 
 }
 
 void table_steigern::on_alte_waffen_reorder()
@@ -102,4 +83,52 @@ void table_steigern::on_alte_waffen_reorder()
       case Data_SimpleTree::NAMEa : hauptfenster->getAben().List_Waffen().sort(MBEmlt::sort(MBEmlt::sort::NAME)); ;break;
       default : Ausgabe(Ausgabe::Error,"Sortieren nach diesem Parameter ist nicht möglich");
    }
+}
+
+void table_steigern::on_alte_waffen_clicked(cH_RowDataBase row,bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { 
+    if (MidgardBasicElement_leaf_alt(row))
+    // notwendig?
+     {
+       dynamic_cast<const Data_SimpleTree*>(&*row)->redisplay(alte_waffen_tree);
+       neue_waffen_zeigen();
+//       zeige_werte();
+       if(hauptfenster->getAben().reduzieren) alte_waffen_zeigen();
+     }
+    handled=true;
+  }
+}
+
+void table_steigern::on_neue_waffen_clicked(cH_RowDataBase row,bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { MidgardBasicElement_leaf_neu(row);
+    handled=true;
+  }
+//  neue_waffen_zeigen();
+//  waffengrund_zeigen();
+}
+
+void table_steigern::on_alte_grund_clicked(cH_RowDataBase row,bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { if(hauptfenster->getAben().reduzieren)
+     {
+       Ausgabe(Ausgabe::Warning,"WARNUNG: Beim verlernen von Grundkenntnissen werden die\n"
+          "bereits gelernten Waffen, die zu dieser\n"
+          "Grundkenntnis gehöhren, NICHT verlernt");
+       MidgardBasicElement_leaf_alt(row);
+       neue_waffen_zeigen();
+       waffengrund_zeigen();
+       handled=true;
+     }
+  }
+}
+
+void table_steigern::on_neue_grund_clicked(cH_RowDataBase row,bool &handled)
+{ if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { MidgardBasicElement_leaf_neu(row);
+    neue_waffen_zeigen();
+    handled=true;
+  }
+//  waffengrund_zeigen();
 }
