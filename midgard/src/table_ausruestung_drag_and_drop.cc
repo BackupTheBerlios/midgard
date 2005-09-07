@@ -158,7 +158,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 //   fill_new_preise();
    fill_all_Combos_Art_Einheit_Region();
    fill_all_Combo_Art2();
-  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
+//  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
 }
 
 #if 0

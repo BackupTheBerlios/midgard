@@ -119,9 +119,9 @@ void table_ausruestung::on_Ausruestung_tree_select_row()
 //  Gtk::TreeModel::Selection selectionList = Ausruestung_tree->get_selection();
 //  if(!tree_valid(selectionList)) return;
   AusruestungBaum *A=(*i)[m_columns.ausruestung];
-  sichtbarConnection.disconnect();
-  checkbutton_sichtbar->set_active(A->getAusruestung().Sichtbar());
-  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
+//  sichtbarConnection.disconnect();
+//  checkbutton_sichtbar->set_active(A->getAusruestung().Sichtbar());
+//  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   button_ausruestung_loeschen->set_sensitive(true);
   besitz=A;
 }
@@ -130,7 +130,7 @@ void table_ausruestung::on_Ausruestung_tree_select_row()
 void table_ausruestung::on_checkbutton_sichtbar_toggled()
 {
   if(!besitz) return;
-  const_cast<Ausruestung&>(besitz->getAusruestung()).setSichtbar(checkbutton_sichtbar->get_active());
+//  const_cast<Ausruestung&>(besitz->getAusruestung()).setSichtbar(checkbutton_sichtbar->get_active());
   showAusruestung();
 }
 

@@ -181,14 +181,14 @@ gewechselt:
 void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
 {
   const Data_NewPreis *dt=dynamic_cast<const Data_NewPreis*>(&*d);
-  spinbutton_anzahl->update();
-  unsigned int anzahl=spinbutton_anzahl->get_value_as_int();
+//  spinbutton_anzahl->update();
+  unsigned int anzahl=1; // spinbutton_anzahl->get_value_as_int();
   if(checkbutton_ausruestung_geld->get_active())
    {
      if(!genug_geld(dt->Ware()->Einheit(),dt->Kosten()*anzahl)) return;
      zeige_werte();
    }
-  bool sichtbar=checkbutton_sichtbar->get_active();
+  bool sichtbar=true; // checkbutton_sichtbar->get_active();
   std::string material;
   std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M=dt->getMod();
   for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
