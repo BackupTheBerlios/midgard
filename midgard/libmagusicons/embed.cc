@@ -1,4 +1,4 @@
-// $Id: embed.cc,v 1.8 2004/06/08 10:36:36 christof Exp $
+// $Id: embed.cc,v 1.9 2005/09/07 11:20:59 christof Exp $
 
 #define MAKE_PNG
 
@@ -166,6 +166,11 @@ static void embed_one_file(const std::string &file, const std::string &name, con
          {  std::cerr << "png (imagemagick) conversion failed for " << filename << '\n';
             return;
          }
+      }
+      system("pngcrush -q tmp.png tmp2.png >/dev/null");
+      if (!stat("tmp2.png",&st) && st.st_size)
+      { if (rename("tmp2.png","tmp.png")) 
+          std::cerr << "rename after pngcrush failed\n";
       }
       is.clear();
       is.open("tmp.png",std::ios_base::in);
