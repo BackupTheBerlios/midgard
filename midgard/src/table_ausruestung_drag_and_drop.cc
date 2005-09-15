@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -71,16 +72,18 @@ std::cerr << "drag_data_received " << dest.to_string() << ' ' << model
    if (model!=GTK_TREE_MODEL(gobj())) 
    {  std::cerr << "my model is @"<< gobj() << '\n';
 //      goto out;
-    out:
+//    out:
       if (path) gtk_tree_path_free(path);
       return false;
    }
-   // von Node suchen, löschen, nach Node suchen, einfügen
+   // von Node suchen, lÃ¶schen, nach Node suchen, einfÃ¼gen
 std::cerr << "gtk-tree-model-drop-append=" << get_data("gtk-tree-model-drop-append") << '\n';
    
    Gtk::TreeIter sourceit=get_iter(Gtk::TreeModel::Path(path,false)),
    	destit=get_iter(dest);
+#if 0   	
    move(sourceit,destit);
+#endif   
 //   Gtk::TreeIter newit=insert(destit);
    if (path) gtk_tree_path_free(path);
    return true;
@@ -93,7 +96,7 @@ void table_ausruestung::on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk:
 {
 }
 
-#if 0
+#if 1
 //static  Gdk_Pixmap drag_icon;
 //#include "/tmp/testdrag_and_drop.xpm"
 
@@ -160,6 +163,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 //   fill_new_preise();
    fill_all_Combos_Art_Einheit_Region();
    fill_all_Combo_Art2();
+   preise_tree_neu->enable_model_drag_source();
 //  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   dynamic_cast<Gtk::CellRendererText*>(Ausruestung_tree->get_column(sTitel)->get_first_cell_renderer())
       ->property_editable()=true;
@@ -182,7 +186,8 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 }
 
 #if 0
-void table_ausruestung::tree_drag_data_received(GdkDragContext *context, 
+// GdkDragContext *context, 
+void table_ausruestung::tree_drag_data_received(const Glib::RefPtr<Gdk::DragContext>& context,
                                   gint x,gint y,
                                   selection_data_t data,
                                   guint info,guint32 time)

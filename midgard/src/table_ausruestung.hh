@@ -128,7 +128,7 @@ private:
 #endif
                                      guint               info,
                                      guint32             time );
-#if 0        
+#if 1
         enum {TARGET_STRING,TARGET_ROOTWIN,TARGET_URL};
         static const GtkTargetEntry target_table[4];
         std::vector<st_ausruestung> vec_aus;

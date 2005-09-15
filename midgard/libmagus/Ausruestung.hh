@@ -59,6 +59,7 @@ class Ausruestung
      bool Sichtbar() const {return sichtbar;}
      std::string SichtbarStr() const {if(sichtbar) return "*"; else return "";}
      void setSichtbar(bool s) {sichtbar=s;}
+     void Sichtbar(bool s) {sichtbar=s;}
      bool RuestungOhneGewicht() const {return ruestung_ohne_gewicht;}
 
 };
@@ -81,6 +82,7 @@ class AusruestungBaum
           { child.push_back(a); return child.back(); }
 
       const Ausruestung &getAusruestung() const {return ausruestung;}
+      Ausruestung &getAusruestung() {return ausruestung;}
 
       AusruestungBaum *getParent() const {return parent;}
       void setParent(AusruestungBaum *p) {parent=p;}

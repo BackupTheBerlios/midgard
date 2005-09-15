@@ -384,6 +384,24 @@ void table_ausruestung::cell_edited(const Glib::ustring &path,
                   const Glib::ustring&new_text,unsigned idx)
 {
 }
-void table_ausruestung::cell_edited_bool(const Glib::ustring &path)
-{ std::cout << "toggle visible\n";
+
+void table_ausruestung::cell_edited_bool(const Glib::ustring &_path)
+{ //std::cout << "toggle visible\n";
+  Gtk::TreeModel::Path path=Gtk::TreeModel::Path(_path);
+  AusruestungBaum &be=hauptfenster->getAben().getBesitz();
+  AusruestungBaum::iterator bi=be.begin(),end=be.end();
+  for (Gtk::TreeModel::Path::const_iterator i=path.begin();i!=path.end();)
+  { for (int cnt=*i;cnt>0 && bi!=end;--cnt) ++bi;
+    // bi+=*i;
+    assert(bi!=end);
+    ++i;
+    if (i!=path.end())
+    { end=bi->end();
+      bi=bi->begin();
+      assert(bi!=end);
+//      assert(bi<end);
+    }
+  }
+  bi->getAusruestung().Sichtbar(!bi->getAusruestung().Sichtbar());
+  showAusruestung();
 }
