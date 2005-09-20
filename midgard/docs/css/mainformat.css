@@ -1,0 +1,53 @@
+/* FILE: mainformat.css
+* 
+* Zentrale CSS-Definitionen für midgard.berlios.de
+*
+*/
+
+/* Magus Style */
+
+.MagStyFnt {sans-serif; font-weight:bold; }
+
+/* Tab Background */
+
+.tbckgnd { background-color:#EAEAEA; }
+
+/* Linux - Farbe (grün; bg,fg)  */
+
+.LinColFnt {color:#36903A; }
+.LinColBgd {background-color:#CCFFD5; }
+
+/* Windows - Farbe (blau; bg, fg) */
+
+.WinColFnt {color:#233092; }
+.WinColBgd {background-color:#80D5F6; }
+
+/* Source - Farbe (gelb; bg, fg) */
+
+.SrcColFnt {color:#DFB614; }
+.SrcColBgd {background-color:#FAFBB3; }
+
+/* Regeln - Farbe (rot; bg, fg) */
+
+.RulColFnt {color:#902022; }
+.RulColBgd {background-color:#FFB3A9; }
+
+/* Anchor */
+a:link { sans-serif; text-decoration:none }
+a:visited { sans-serif; text-decoration:none }
+a:hover { sans-serif; background-color:#E6E6E6; text-decoration:none }
+a:active { sans-serif; background-color:#E6E6E6; text-decoration:none }
+a:focus { sans-serif; background-color:#E6E6E6; text-decoration:none }
+/* a:hover { sans-serif; font-weight:bold; text-decoration:none }
+a:active { sans-serif; font-weight:bold; text-decoration:none }
+a:focus { sans-serif; font-weight:bold; text-decoration:none } */
+
+/* ToDo-Color */
+.ToDoColFnt {color:#D4D4D4; }
+
+/* Commandline Font */
+.CmdFnt { fixed; font-size:9pt; }
+
+/* Menu-Font */
+
+.MenFnt { fixed; font-size:smaller; font-weight:bold }

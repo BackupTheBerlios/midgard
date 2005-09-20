@@ -1,0 +1,13 @@
+/* FILE: faqformat.css
+* 
+* FAQ - CSS-Definitionen für midgard.berlios.de
+*
+*/
+
+/* Remark-Color */
+
+.RemColBgd { background-color:#EAEAEA; }
+
+/* Question-Link-Font */
+
+.QstLnkFnt { color:#149a02; font-size:larger }

@@ -1,0 +1,29 @@
+/* FILE: navformat.css
+* 
+* Navigations CSS-Definitionen für midgard.berlios.de
+*
+*/
+
+
+/* Big Nav-Font */
+
+.BigNavFnt { sans-serif; font-size:14pt; }
+.BigNavFntS { sans-serif; font-size:14pt; font-weight:bold; }
+
+/* Small Nav-Font */
+
+.SmlNavFnt { sans-serif; font-size:12pt; }
+.SmlNavFntS { sans-serif; font-size:12pt; font-weight:bold; }
+
+/* Tiny Nav-Font */
+
+.TnyNavFnt { sans-serif; font-size:9pt; }
+.TnyNavFntS { sans-serif; font-size:9pt; font-weight:bold; }
+
+/* Nav-Background-Color */
+
+.NavBGCol { background-color:#CACACA; }
+
+/* Nav-Marker-Color */
+
+.NavMrkCol { Color:#00B2DF; }
