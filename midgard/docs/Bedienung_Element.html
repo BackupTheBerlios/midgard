@@ -2,496 +2,626 @@
 <HEAD>
 <title>MAGUS - Midgard Abenteurer Generieren Und Steigern</title>
 <link rel="shortcut icon" href="image/magus-fav.ico">
-<link rel="stylesheet" type="text/css" href="magus.css">
+<link rel="stylesheet" type="text/css" href="css/magus.css">
 <style type="text/css">
 </style>
 </HEAD>
 <BODY class="body" text="#000000"><a name="TOP"></a>
 <table width="100%">
-  <tr >
-    <td class="HeadLine" align="center"> <h1 >MAGUS - Hilfe</h1> </td>
-
-  </tr>
-  <tr>
-    <td>
-    <table>
-      <tr>
-        <td>
-        <table>
-          <tr align="center">
-            <td ><a href="http://www.midgard-online.de/"><img src="image/NavBar/0-MidLogo.png" alt="Midgard-Online" width="208" height="50" border="0"></a><br>
-            <font size="-1"><a href="http://www.midgard-online.de/">http://www.midgard-online.de/</a></font> </td>
-          </tr>
-        </table>
-        <table class="NavFont">
-          <tr>
-            <td><img src="image/NavBar/0-MagLogo.png" width="31" height="50" border="0" alt="MAGUS Homepages"></td>
-            <td><a href="http://midgard.berlios.de">MAGUS&nbsp;-&nbsp;Homepage</a> </td>
-          </tr>
-          <tr>
-            <td ><img src="image/NavBar/Zauberstab4.png" alt="Startseite" width=79 height=50 border=0>  </td>
-            <td><a href="index.html">Index</a></td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Disk-Down.png" alt="Download" width="50" height="50" border="0">  </td>
-            <td ><a href="Download.html">Download & Installation</a></td>
-          </tr>
-          <tr class="Active">
-            <td><img src="image/NavBar/Fert_Lesen.png" width="50" height="50" border="0" alt="Bedienung"> </td>
-            <td><a href="BedienungMain.html">Bedienung</a><br>
-            <font size="-1">-&nbsp;<font class="Here">Oberflächenelemente</font></font><br>
-            <font size="-1">- <a href="Bedienung_Modul.html">Programmmodule</a></font><br>
-            <font size="-1">- <a href="Bedienung_Genesis.html">generieren</a></font><br>
-            <font size="-1">-&nbsp;<a href="Bedienung_Steigern.html">steigern&nbsp;&amp;&nbsp;verwalten</a></font><br>
-            <font size="-1">- <a href="Bedienung_Ausruest.html">ausrüsten</a></font><br>
-            <font size="-1">- <a href="Bedienung_Beschreib.html">beschreiben</a></font><br>
-            <font size="-1">- <a href="Bedienung_Option.html">Optionen</a></font>
-            </td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Abwehr.png" width="79" height="50" border="0" alt="Trouble">  </td>
-            <td><a href="Trouble.html">Troubleshooting</a></td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Info-trans.png" width="79" height="50" border="0" alt="About">  </td>
-            <td><a href="About.html">About</a></td>
-          </tr>
-        </table>
-        </td>
-        <td class="TextBox" align="center"><h2><a href="BedienungMain.html">Bedienung</a></h2>
-        <table>
-          <tr>
-            <td>
+ <tr>
+  <td>
+   <table>
+    <tr>
+     <td class="TextBox" align="center"><h2><a href="BedienungMain.html">Bedienung - Oberfl&auml;chenelemente</a></h2>
+     </td>
+     </tr>
+     <tr>
+      <td  class="TextBox">
+       MAGuS verf&uuml;gt &uuml;ber die folgenden Oberfl&auml;chenelemente:
+       <ul>
+        <li><a href="#MEN">Men&uuml;leiste</a></li>
+        <li><a href="#BUT">St&auml;ndige Buttonleiste</a></li>
+        <li><a href="#NOTE">Notebook-Seiten</a></li>
+        <li><a href="#STAT">Statusleiste</a></li>
+        <li><a href="#MAUS">Maus-Men&uuml;s</a></li>
+       </ul>
+      </td>
+     </tr>
+     <tr>
+      <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+     </tr>
+     <tr>
+      <td  class="TextBox"><a name="MEN"></a><h4>Men&uuml;leiste</h4>
+       <div align="center"><img src="image/Bedienung/Elemente/Menubar.png" width="710" height="34" border="0"></div><br>
+       &Uuml;er die Pulldown-Men&uuml;s lassen sich verschiedene Programmfunktionen steuern:<br>
+        <ul class="small">
+         <li><b>Datei:</b>
+          <ul>
+           <li><i>Neuer Abenteurer</i>:<br>
+            MAGuS wird zur&uuml;ckgesetzt und es kann ein neuer Abenteurer generiert werden.</li>
+           <li><i>Neuer Abenteurer mit Wizard</i>:<br>
+            MAGuS wird zur&uuml;ckgesetzt und der Wizard wird gestartet, mit dessen Unterst&uuml;tzung ein neur Grad 1
+            Abenteurer erschaffen werden kann.</li>
+           <li><i>Wizard beenden</i>:<br>
+            Der Wizard wird abgeschaltet (auch w&auml;hrend der Generierung eines Abenteurers m&ouml;glich).</li>
+           <li><i>&Ouml;ffnen</i>:<br>
+            Laden eines existierenden Abenteurers:</li>
+           <li><i>Zuletzt geladen</i>:<br>
+            Laden eines Abenteurers aus Liste der n zuletzt bearbeiteten Abenteurer (n - 1-9)
+           </li> 
+           <li><i>Speichern</i>:<br>
+            Speichern eines existierenden Abenteurers</li>
+           <li><i>Speichern unter</i>:<br>
+            Speichert einen Abenteurer in ein w&auml;hlbares Verzeichnis unter einem frei w&auml;hlbaren Namen (Default:
+            [Abenteurername].magus)</li>
+           <li><i>Exportieren</i>:<br>
+            Exportiert die aktuelle Figur als Textdatei (.txt) im offiziellen Abenteuer-Format</li>
+           <li><i>Drucken</i>:<br>
+            Erstellt die Dokumente im PDF-Format <font class="tiny">(Dieses Men&uuml; ist auch &uuml;ber die rechte <a href="#MAUS">Maustaste</a> zug&auml;nglich)</font><br>
+            <ul>
+             <li><i>Abenteurerdokument</i>:<br>
+              Erstellt das &quot;Hauptdokument&quot; mit allen wichtigen Werten und Fertigkeiten</li>
+             <li><i>Ausr&uuml;stungsdokument</i>:
               <ul>
-                <li><font class="Here">Oberflächenelemente</font></li>
-                <li><a href="Bedienung_Modul.html">Programmmodule</a></li>
-                <li><a href="Bedienung_Genesis.html">generieren</a></li>
-                <li><a href="Bedienung_Steigern.html">steigern &amp; verwalten</a></li>
-                <li><a href="Bedienung_Ausruest.html">ausrüsten</a></li>
-                <li><a href="Bedienung_Beschreib.html">beschreiben</a></li>
-                <li><a href="Bedienung_Option.html">Optionen</a></li>
+               <li><i>Nur sichtbares</i>:<br>
+                Es wird ein Dokument erstellt, welches nur die f&uuml;r dritte sichtbare Ausr&uuml;stung zeigt</li>
+               <li><i>Alles drucken</i>:<br>
+                Es wird ein Dokument mit allen Ausr&uuml;stungsteilen erstellt.</li>
               </ul>
-            </td>
-          </tr>
-        </table>
-        </td>
-        <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
-        <td  class="TextBox">
-        MAGUS verfügt über die folgenden Oberflächenelemente:
-        <ul>
-          <li><a href="#MEN">Menüleiste</a></li>
-          <li><a href="#BUT">Ständige Buttonleiste</a></li>
-          <li><a href="#NOTE">Notebook-Seiten</a></li>
-          <li><a href="#STAT">Statusleiste</a></li>
-          <li><a href="#MAUS">Maus-Menü</a></li>
+             <li><i>Beschreibung</i>:<br>
+              Das Dokument mit der Abenteurerbeschreibung wird erstellt</li>
+             <li><i>Alles drucken</i>:<br>
+              Alle obigen Dokumente werden erstellt.</li>
+             <li><i>Leeres Abenteurerblatt</i>:<br>
+              Es wird ein leeres &quot;Hauptdokument&quot; erzeugt.</li>
+             <li><i>Spielleiterbogen</i>:<br>
+              Es wird ein Spielleiterbogen erstellt, welcher wichtige Spielwerte und Fertigkeiten aller 
+              im Augenblick in MAGuS ge&ouml;ffneten Figuren enth&auml;lt.</li>
+             </li>
+            </ul>
+           <li><i>Schlie&szlig;en</i>:<br>
+            Der aktuell bearbeitete Abenteurer wird geschlossen (Mit Nachfrage falls dieser 
+            noch nicht gespeichert wurde) 
+           </li>
+           <li><i>Beenden</i>:<br>
+            Beendet MAGUS (mit Nachfrage wenn ungesicherte Abenteurer existieren)</li>
+           </li>
+           <li>Ferner werden hier die zuletzt bearbeiteten Figuren angezeigt (bis zu 10)</li>
+          </ul>
+         </li>
+         <li><b>Bearbeiten</b>:
+          <ul>
+           <li><i>R&uuml;ckg&auml;ngig</i>:<br>
+            Letzten Schritt r&uuml;ckg&auml;ngig machen</li>
+           <li><i>Erneut/Vorw&auml;rts</i>:<br>
+            R&uuml;ckg&auml;ngig gemachten Schritt wiederholen</li>
+<!--           <li><i>Geschichte</i>:<br>
+            Wechsel auf die Notebookseite &quot;News &amp; Geschichte&quot;</li> -->
+          </ul>
+         </li>
+         <li><b>Abenteurer</b>:<br>
+          Die Liste der aktuell in Magus geÃ¶ffneten Abenteurer. Durch die Auswahl eines 
+          Eintrages, wird der entsprechende Abenteurer zum aktuell bearbeiteten.          
+         </li>
+         <li><b>Ansicht &amp; Fenster</b>:<br>
+          <ul>
+           <li><i>Ansicht &amp; Fenster</i>:<br>
+            <ul>
+             <li><i>Info Fenster zeigen</i>:<br>
+              &ouml;ffnet das Info-Fenster</li>
+             <li><i>Lernschema/Steigern auswï¿½lbar machen</i>:<br>
+              Hiermit werden die Funktionen auf den Notebookseiten &quot;Lernschema&quot; und &quot;Steigern&quot;
+              aktiviert.</li>
+            </ul>
+           </li>          
+           <li><i>Gestaltung</i>:<br>
+            Erm&ouml;licht das Anpassen des Erscheinungsbildes vom MAGUS (siehe: <a href="Bedienung_Option.html">Optionen</a>)
+           </li>
+           <li><i>Optionen</i>:<br>
+            Wechsel auf die Notebookseite &quot;Optionen&quot;
+           </li>
+          </ul>
+         </li>
+         <li><b>Regionen</b>:<br>
+          Hier k&ouml;nnen Regionen und Regelerweiterweiterungen angew&auml;hlt werden (siehe: <a href="Bedienung_Option.html">Optionen</a>) 
+         </li>
+         <li><b>Erweiterungen</b>:<br>
+          Hier k&ouml;nnen einige Einstellungen vorgenommen werden, die das Verhalten von MAGuS
+          beeinflussen.
+          <ul>
+           <li><i>Originalregeln:</i><br>
+            MAGuS arbeitet mit Originalregeln. (Das Midgard-Logo erscheint in der Statuszeile)
+           </li>
+           <li><i>NSC zulassen</i>:<br>
+            Modus f&uuml;r Nichtspieler-Figuren wird aktiviert           
+           </li>
+           <li><i>Zauberbeschreibung drucken</i>:<br>
+            Auf dem Zauberdokument wird zus&auml;tzlich eine Kurzbeschreibung der jeweiligen Zauber ausgedruckt
+           </li>
+           <li>Ausserdem sinf einige Hausregeln anw&auml;hlbar.
+           </li>
+          </ul>
+         </li>         
+         <li><b>Hilfe</b>:
+          <ul>
+           <li><i>Anleitung</i>:<br>
+            &ouml;ffnet diese Hilfe
+           </li>           
+           <li><i>&Uuml;ber MAGuS</i>:<br>
+            Wechsel auf die Notebookseite &quot;&Uuml;ber MAGuS&quot;
+           </li>
+           <li><i>Neuigkeiten</i>:<br>
+            Wechsel auf die Notebookseite &quot;Neuigkeiten&quot;
+           </li>
+          </ul>
+         </li>             
         </ul>
-
-        </td>
-        <td>  </td>
+       </td>
       </tr>
       <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
+       <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
       </tr>
       <tr>
-        <td> </td>
-        <td  class="TextBox"><a name="MEN"></a><h4>Menüleiste</h4>
-          <div align="center"><img src="image/Bedienung/Elemente/Menubar.png" width=356 height=26 border=0></div><br>
-          Über die Pulldown-Menüs lassen sich verschiedene Programmfunktionen steuern:<br>
-          <ul class="small">
-          <li><b>Datei:</b>
-            <ul>
-              <li><i>Neuer Abenteurer</i>:<br>
-                MAGUS wird zurückgesetzt und es kann ein neuer Abenteurer generiert werden.</li>
-              <li><i>Neuer Abenteurer mit Wizard</i>:<br>
-                MAGUS wird zurückgesetzt und der Wizard wird gestartet, mit dessen Unterstützung ein neur Grad 1
-                Abenteurer erschaffen werden kann.</li>
-              <li><i>Wizard beenden</i>:<br>
-                Der Wizard wird abgeschaltet (auch während der Generierung eines Abenteurers möglich).</li>
-              <li><i>Öffnen</i>:<br>
-                Laden eines existierenden Abenteurers:</li>
-              <li><i>Speichern</i>:<br>
-                Speichern eines existierenden Abenteurers</li>
-              <li><i>Speichern unter</i>:<br>
-                Speichert einen Abenteurer in ein wählbares Verzeichnis unter einem frei wählbaren Namen (Default:
-                [Abenteurername].magus)</li>
-              <li><i>Exportieren</i>:<br>
-                Exportiert die aktuelle Figur als Textdatei (.txt) im offiziellen Abenteuer-Format</li>
-              <li><i>Drucken</i>:<br>
-                Erstellt die Dokumente im PDF-Format <font class="tiny">(Dieses Menü ist auch über die rechte <a href="#MAUS">Maustaste</a> zugänglich)</font><br>
-                <ul>
-                  <li><i>Abenteurerdokument</i>:<br>
-                  Erstellt das &quot;Hauptdokument&quot; mit allen wichtigen Werten und Fertigkeiten</li>
-                  <li><i>Ausrüstungsdokument</i>:
-                  <ul>
-                    <li><i>Nur sichtbares</i>:<br>
-                      Es wird ein Dokument erstellt, welches nur die für dritte sichtbare Ausrüstung zeigt</li>
-                    <li><i>Alles drucken</i>:<br>
-                      Es wird ein Dokument mit allen Ausrüstungsteilen erstellt.</li>
-                  </ul>
-                  <li><i>Beschreibung</i>:<br>
-                    Das Dokument mit der Abenteurerbeschreibung wird erstellt</li>
-                  <li><i>Alles drucken</i>:<br>
-                    Alle obigen Dokumente werden erstellt.</li>
-                  <li><i>Leeres Abenteurerblatt</i>:<br>
-                    Es wird ein leeres &quot;Hauptdokument&quot; erzeugt.</li>
-                  <li><i>Spielleiterbogen</i>:<br>
-                    Es wird ein Spielleiterbogen erstellt, welcher wichtige Spielwerte und Fertigkeiten aller
-                    in MAGUS geöffneten Figuren enthält.</li>
-                  </li>
-                </ul>
-                <li><i>Beenden</i>:<br>
-                  Beendet MAGUS mit Nachfrage bei ungesicherten Abenteurern</li>
-              </li>
-              <li>Ferner werden hier die zuletzt bearbeiteten Figuren angezeigt (bis zu 10)</li>
-            </ul>
-          </li>
-          <li><b>Bearbeiten</b>:
-          <ul>
-            <li><i>Rückgängig</i>:<br>
-              Letzten Schritt rückgängig machen</li>
-            <li><i>Erneut/Vorwärts</i>:<br>
-              Rückgängig gemachten Schritt wiederholen</li>
-            <li><i>Geschichte</i>:<br>
-              Wechsel auf die Notebookseite &quot;News &amp; Geschichte&quot;</li>
-          </ul>
-          </li>
-          <li><b>Hilfe</b>:
-          <ul>
-            <li><i>Anleitung</i>:<br>
-              Öffnet diese Hilfe</li>
-            <li><i>Hilfe</i>:<br>
-              Öffnet ein Fenster mit einer Kurz-Hilfe</li>
-            <li><i>Info &amp; Credits</i>:<br>
-              Wechsel auf die Notebookseite &quot;Info &amp; Credits&quot;</li>
-            <li><i>News</i>:<br>
-              Wechsel auf die Notebookseite &quot;News &amp; Geschichte&quot;</li>
-          </ul>
-          </li>
-          <li><b>Ansicht &amp; Fenster</b>:<br>
-          <ul>
-            <li><i>Optionen</i>:<br>
-              Wechsel auf die Notebookseite &quot;Optionen&quot;</li>
-            <li><i>Ansicht &amp; Fenster</i>:<br>
-            <ul>
-              <li><i>Info Fenster zeigen</i>:<br>
-                Öffnet das Info-Fenster</li>
-              <li><i>Lernschema/Steigern auswählbar machen</i>:<br>
-                Hiermit werden die Funktionen auf den Notebookseiten &quot;Lernschema&quot; und &quot;Steigern&quot;
-                aktiviert.</li>
-            </ul>
-            </li>
-            <li><i>Gestaltung</i>:<br>
-              Ermöglicht das Anpassen des Erscheinungsbildes vom MAGUS (siehe: <a href="Bedienung_Option.html">Optionen</a>)</li>
-          </ul>
-          </li>
-          <li><b>Regionen</b>:<br>
-          Hier können Regionen und Regelerweiterweiterungen gewählt werden (siehe: <a href="Bedienung_Option.html">Optionen</a>) </li>
-          </ul>
-        </td>
-        <td>  </td>
-      </tr>
-      <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
-        <td  class="TextBox small"><a name="BUT"></a>
-        <h4>Ständige Buttonleiste</h4>
-        <div align="center"><img src="image/Bedienung/Elemente/ButtonBar.png" width=550 height=41 border=0></div><br>
-        Über die ständige Buttonleiste sind einige wichtige Funktionen von MAGUS zugänglich, die von jeder Stelle
-        im Programm aus genutzt werden können.<br><br>
+       <td  class="TextBox small"><a name="BUT"></a>
+        <h4>St&auml;ndige Buttonleiste</h4>
+        <div align="center"><img src="image/Bedienung/Elemente/ButtonBar.png" width="761" height="71" border="0"></div><br>
+        &Uuml;ber die st&auml;ndige Buttonleiste sind einige wichtige Funktionen von MAGuS zug&auml;nglich, die von jeder Stelle
+        im Programm aus genutzt werden k&ouml;nnen.<br><br>
         <table class="norm">
-          <tr>
-            <td align="center" valign="center" class="body"><img src="image/MAGUS-Logo-small.png" width=50 height=32 border=0><br>
-            <font class="tiny">MAGUS-Style</font>
-              </td>
-            <td>Über die Optionen läßt sich das Aussehen von MAGUS verändern. Die Buttonleiste existiert zwei Varianten:<br>
-            In der MAGUS-Style Variante, und dem WindowsXP nachempfunden Win32-Style </td>
-            <td align="center" valign="center" class="body">
-            <img src="image/WinLogo-small.png" width=32 height=30 border=0><br>
-            <font class="tiny">Win32-Style</font>
-              </td>
+         <tr>
+          <td align="center" valign="center" class="body"><img src="image/MAGUS-Logo-small.png" width=50 height=32 border=0><br>
+           <font class="tiny">MAGUS-Style</font>
+          </td>
+          <td>&Uuml;er die Optionen l&auml;&szlig;t sich das Aussehen von MAGuS ver&auml;ndern. Die Buttonleiste existiert in drei Varianten:<br>
+           In der MAGuS-Style Variante, dem origin&auml;rem gtk+-Style und dem WindowsXP nachempfunden Win32-Style 
+          </td>
+          <td align="center" valign="center" class="body">
+           <font class="tiny">Shortcut</font>
+          </td> 
+          <td align="center" valign="center" class="body">
+           <img src="image/gtk-logo.png" width="32" height="42" border="0"><br>
+           <font class="tiny">Gtk-Style</font>
+          </td>
+          <td align="center" valign="center" class="body">
+           <img src="image/WinLogo-small.png" width=32 height=30 border=0><br>
+           <font class="tiny">Win32-Style</font>
+          </td>          
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Neu.png" alt="Button:  Neu" width=62 height=53 border=0>  </td>
-            <td><i>Neu</i>:<br>
-              Neuer Abenteurer: MAGUS wird zurückgesetzt und es kann ein neuer Abenteurer generiert werden.</td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Neu.png" alt="WinStyle-Button: Neu" width=62 height=45 border=0>  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Neu_W.png" alt="Button:  Neu" width="106" height="71" border="0">  </td>
+           <td><i>Neuer Abenteurer</i>:<br>
+            1) <i>Neu mit Wizard</i>: MAGuS wird zur&uuml;ckgesetzt und es kann ein neuer Abenteurer mit Wizardunterst&uuml;tzung generiert werden.<br>
+            2) <i>Neu ohne Wizard</i>: MAGuS wird zur&uuml;ckgesetzt und es kann ein neuer Abenteurer generiert werden.<br>
+           </td>
+           <td valign="center" class="body" style="font-size:80%">
+            <ol>
+             <li>STRG+N</li>
+             <li>ALT+N</li>
+            </ol>
+           </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Neu_GTK.png" width="106" height="69" align="middle" border="0"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Neu.png" alt="WinStyle-Button: Neu" width="110" height="69" align="middle" border="0"></td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Open.png" alt="Button: Öffnen" width=62 height=53 border=0>  </td>
-            <td><i>Öffnen</i>:<br>
-              Laden eines existierenden Abenteurers </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Open.png" alt="Win-Button: Öffnen" width=62 height=45 border=0>  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Open.png" alt="Button: &Ouml;ffnen" width="71" height="71" border="0">  </td>
+           <td><i>&Ouml;ffnen</i>:<br>
+            Laden eines existierenden Abenteurers </td>
+           <td align="center" valign="center" class="body" style="font-size:80%">STRG+O</td> 
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Open_GTK.png" width="66" height="68" align="middle" border="0"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Open.png" alt="Win-Button: &Ouml;ffnen" width="74" height="69" align="middle" border="0">  </td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Save.png" width=62 height=53 border=0>  </td>
-            <td><i>Speichern</i>:<br>
-              <i>linke Maustaste</i>: Speichern eines Abenteurers<br>
-              <i>rechte Maustaste</i>: Speichern unter  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Save.png" width=62 height=45 border=0>  </td>
-          </tr>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Save.png" width="70" height="71" border="0">  </td>
+           <td><i>Speichern</i>:<br>
+            <i>Speichern</i>: Speichern des aktuellen Abenteurers<br>
+            <i>Speichern unter</i>: Speichern des aktuellen Abenteurers mit der M&ouml;glichkeit einen (neuen) Dateinamen zu vergeben
+           </td>
+           <td valign="center" class="body" style="font-size:80%">
+            <ol>
+             <li>STRG+S</li>
+             <li> - </li>
+            </ol>
+           </td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Buttons/Button_Save_GTK.png" width="72" height="69" align="middle" border="0"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Save.png" width="77" height="68" border="0">  </td>
+          </tr>          
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Print.png" alt="Button: Drucken" width=62 height=53 border=0>  </td>
-            <td><i>Drucken</i>:<br>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Print.png" alt="Button: Drucken" width="77" height="71" border="0">  </td>
+           <td><i>Drucken</i>:<br>
             Es werden folgende PDF-Dokumente erzeugt:<br>
-            <i>linke Maustaste</i>: Das Abenteurer Dokument wird erzeugt.<br>
-            <i>mittlere Maustaste</i>: Ein Dokument mit der Abenteurerbeschreibung wird erzeugt<br>
-            <i>rechte Maustaste</i>: Das Ausrüstungsdokument wird erzeugt.  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Print.png" alt="Win-Button: Drucken" width=62 height=45 border=0>  </td>
+            <ol>
+             <li><i>Abenteurer Dokument</i>: Das Abenteurer Dokument (einschlie&szlig;lich Zauber) wird erzeugt.</li>
+             <li><i>sichtbare Ausr&uuml;stung</i>: Ein Dokument mit der f&uuml;r dritte sichtbaren Ausr&uuml;stung wird erzeugt</li>
+             <li><i>gesamte Ausr&uuml;stung</i>: Ein Dokument mit der gesamten Ausr&uuml;stung wird erzeugt.</li>
+             <li><i>Beschreibung</i>: Ein Dokument mit der Abenteurerbeschreibung wird erzeugt</li>
+             <li><i>Alles Drucken</i> Alle Dokumente werden erzeugt</li>
+             <li><i>Leeres Abenteurerblatt</i> Ein leeres Abenteurer Dokument wird erzeugt</li>
+             <li><i>Spielleiterbogen</i>Eine &Uuml;bersicht f&uuml;r den Spielleiter mit den wichtigsten Werten aller ge&ouml;ffneten Figuren wird erzeugt</li>
+            </ol>
+           </td>
+           <td valign="center" class="body" style="font-size:80%">
+            <ol>
+             <li>STRG+P</li>
+             <li>STRG+A</li>
+             <li>ALT+A</li>
+             <li>STRG+B</li>
+             <li>ALT+P</li>
+             <li>STRG+E</li>
+             <li>ALT+S</li>
+            </ol>
+           </td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Buttons/Button_Print_GTK.png" width="81" height="70" align="middle" border="0"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Print.png" alt="Win-Button: Drucken" width="81" height="69" align="middle" border="0">  </td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Back.png" width="62" height="53" border="0" alt="Button: Zurück">  </td>
-            <td><i>Zurück</i>:<br>
-               Letzten Schritt rückgängig machen</td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Back.png" alt="Win-Button: Zurück" width=62 height=45 border=0>  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Back.png" alt="Button: Zur&uuml;ck" width="51" height="71" border="0">  </td>
+           <td><i>Zur&uuml;ck</i>:<br>
+            Letzten Schritt r&uuml;ckg&auml;ngig machen
+           </td>
+           <td align="center" valign="center" class="body" style="font-size:80%">STRG-Z</td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Buttons/Button_Back_GTK.png" width="52" height="69" align="middle" border="0"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Back.png" alt="Win-Button: Zur&uuml;ck" width="52" height="69" align="middle" border="0">  </td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Forward.png" width="62" height="53" border="0" alt="Button: Vorwärts">  </td>
-            <td><i>Vorwärts</i>:<br>
-              Rückgängig gemachten Schritt wiederholen  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Forward.png" alt="Win-Button: Vorwärds" width="62" height="45" border="0">  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Forward.png" alt="Button: Vorw&auml;rts" width="61" height="71" border="0">  </td>
+           <td><i>Vorw&auml;rts</i>:<br>
+            R&uuml;ckg&auml;ngig gemachten Schritt wiederholen</td>
+           <td align="center" valign="center" class="body" style="font-size:80%">STRG-R</td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Buttons/Button_Forward_GTK.png" width="66" height="69" align="middle" border="0"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Forward.png" alt="Win-Button: Vorw&auml;rts" width="65" height="68" align="middle" border="0">  </td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Menu.png" width="62" height="53" border="0" alt="Button: Menü">  </td>
-            <td><i>Menü</i>:<br>
-              Es wird ein mit dem Menü der rechten Maustaste identisches Menü geöffnet. </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Menu.png" width="62" height="45" border="0" alt="Win-Button: Menü">  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Menu.png" alt="Button: Men&uuml;" width="54" height="71" border="0">  </td>
+           <td><i>Men&uuml;</i>:<br>
+            Ein mit dem Men&uuml; der <a href="#MAUS">rechten Maustaste</a> identisches Men&uuml; wird ge&ouml;ffnet. 
+           </td>
+           <td align="center" valign="center" class="body" style="font-size:80%"> - </td>
+           <td align="center" valign="center" class="body"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Menu.png" alt="Win-Button: Men&uuml;" width="61" height="69" align="middle" border="0">  </td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Info.png" alt="Button: Info" width=62 height=53 border=0>  </td>
-            <td><i>Info</i>:<br>
-              Wechsel auf die Notebookseite &quot;Info &amp; Credits&quot;  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Info.png" alt="Win-Button: Info" width=62 height=45 border=0>  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Info.png" alt="Button: Info" width="55" height="71" border="0">  </td>
+           <td><i>Info</i>:<br>
+            Wechsel auf die Notebookseite &quot;&Uuml;ber MAGuS&quot;
+           </td>
+           <td align="center" valign="center" class="body" style="font-size:80%"> - </td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Buttons/Button_Info_GTK.png" width="54" height="69" align="middle" border="0"></td> 
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Info.png" alt="Win-Button: Info" width="60" height="69" align="middle" border="0">  </td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Help.png" alt="Button: Hilfe" width=62 height=53 border=0>  </td>
-            <td><i>Hilfe</i>:<br>
-              Öffnet ein Fenster mit einer Kurz-Hilfe  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Help.png" alt="Win-Button: Hilfe" width=62 height=45 border=0>  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Anleit.png" alt="Button: Anleitung" width="65" height="71" border="0">  </td>
+           <td><i>Anleitung</i>:<br>
+            &Ouml;ffnet diese Hilfe
+           </td>
+           <td align="center" valign="center" class="body" style="font-size:80%"> - </td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Buttons/Button_Help_GTK.png" width="69" height="68" align="middle" border="0"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Anleit.png" alt="Win-Button: Anleitung" width="69" height="66" align="middle" border="0">  </td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Anleit.png" alt="Button: Anleitung" width=62 height=53 border=0>  </td>
-            <td><i>Anleitung</i>:<br>
-              Öffnet diese Hilfe  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Anleit.png" alt="Win-Button: Anleitung" width=62 height=45 border=0>  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Exit.png" alt="Button: Schliessen" width="68" height="71" border="0">  </td>
+           <td><i>Schlie&szlig;en</i>:<br>
+            Beendet MAGuS mit Nachfrage bei ungesicherten Abenteurern
+           </td>
+           <td align="center" valign="center" class="body" style="font-size:80%">STRG-Q</td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Buttons/Button_Exit_GTK.png" width="69" height="67" align="bottom" border="0"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Exit.png" alt="Win-Button: Schliessen" width="69" height="68" align="middle" border="0">  </td>
           </tr>
-          <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Button_Exit.png" alt="Button: Schliessen" width=62 height=53 border=0>  </td>
-            <td><i>Schließen</i>:<br>
-              Beendet MAGUS mit Nachfrage bei ungesicherten Abenteurern  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Buttons/Win_Button_Exit.png" alt="Win-Button: Schliessen" width=62 height=45 border=0>  </td>
-          </tr>
-        </table>
+         </table>
         </td>
-        <td>  </td>
-      </tr>
-      <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
+       </tr>
+       <tr>
+        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+       </tr>
+       <tr>
         <td  class="TextBox small"><a name="NOTE"></a>
-        <h4>Notebook-Seiten</h4>
-        <div align="center"><img src="image/Bedienung/Elemente/Notebook-Tabs.png" alt="Notebook-Tabulatoren" width="703" height="49" border="0"></div><br>
-        Die Notebook-Seiten grenzen die verschiedenen Module von MAGUS untereinander ab.<br><br>
-        <table class="norm">
+         <h4>Notebook-Seiten</h4>
+         <div align="center"><img src="image/Bedienung/Elemente/Notebook-Tabs.png" alt="Notebook-Tabulatoren" width="811" height="59" border="0"></div><br>
+         Die Notebook-Seiten grenzen die verschiedenen Module von MAGuS untereinander ab.<br><br>
+         <table class="norm">
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/MAGUS-Logo-small.png" width=50 height=32 border=0><br>
-            <font class="tiny">MAGUS-Style</font>  </td>
-            <td>Auch für die Notebook-Tabulatoren (oder auch -reiter) gibt es sowohl MAGUS-, als auch an WindowsXP angelehnte Icons.  </td>
-            <td align="center" valign="center" class="body"><img src="image/WinLogo-small.png" width=32 height=30 border=0><br>
-            <font class="tiny">Win32-Style</font>  </td>
-          </tr>
+           <td align="center" valign="center" class="body"><img src="image/MAGUS-Logo-small.png" width=50 height=32 border=0><br>
+            <font class="tiny">MAGuS-Style</font>  
+           </td>
+           <td>Auch f&uuml;r die Notebook-Tabulatoren (oder auch -reiter) gibt es MAGuS-Style, Gtk+-Style und an WindowsXP angelehnte Icons.</td>
+           <td align="center" valign="center" class="body">
+            <img src="image/gtk-logo.png" width="32" height="42" border="0"><br>
+            <font class="tiny">Gtk-Style</font>
+           </td>
+           <td align="center" valign="center" class="body"><img src="image/WinLogo-small.png" width=32 height=30 border=0><br>
+            <font class="tiny">Win32-Style</font>
+           </td>
+          </tr>          
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Info.png" width="203" height="65" border="0">  </td>
-            <td><i>Info &amp; Credits</i>:<br>
-              Diese Notebookseite informiert u.a. über die Programmautoren und Copyright Vermerke. Werden ausschließlich
-              offizielle Regelergänzungen verwendet, so ist das Midgard-Logo sichtbar.</td>
-            <td align="center" valign="center" class="body">  </td>
-          </tr>
-          <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Grundwerte.png" alt="Notebooktabulator: Grundwerte" width=90 height=66 border=0>  </td>
+            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Grundwerte.png" alt="Notebooktabulator: Grundwerte" width="105" height="69" border="0">  </td>
             <td><i>Grundwerte</i>:<br>
-              Auf dieser Seite werden die Grundeigenschaften und Grundlegenden Werte der Figuren ermittelt und verwaltet.</td>
-            <td align="center" valign="center" class="body">  </td>
+             Auf dieser Seite werden die Grundeigenschaften und Grundlegenden Werte der Figuren ermittelt und verwaltet.
+            </td>
+            <td align="center" valign="center" class="body"></td>
+            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Win_Notebook_Grundwerte.png" width="105" height="68" align="middle" border="0"></td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Lernschema.png" alt="Notebookseite: Lernschema" width=91 height=66 border=0>  </td>
-            <td><i>Lernschema</i>:<br>
-              Hier werden die alle Fertigkeiten und Eigenschaften bestimmt, die ein Abenteurer bei seiner Erschaffung besitzt  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Win_Notebook_Lernschema.png" alt="Win-Notebookseite: Lernschema" width=79 height=65 border=0>  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Lernschema.png" alt="Notebookseite: Lernschema" width="110" height="69" border="0">  </td>
+           <td><i>Lernschema</i>:<br>
+            Hier werden die alle Fertigkeiten und Eigenschaften bestimmt, die ein Abenteurer bei seiner Erschaffung besitzt  
+           </td>
+           <td align="center" valign="center" class="body"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Win_Notebook_Lernschema.png" alt="Win-Notebookseite: Lernschema" width="110" height="68" align="middle" border="0">  </td>
           </tr>
           <tr>
-            <td  align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Steigern.png" alt="Notbookseite: Steigern" width=91 height=67 border=0>  </td>
-            <td><i>Steigern</i>:<br>
-            Auf der Notebook-Seite &quot;Steigern&quot; findet das Steigern und die Verwaltung der Abenteurer statt.  </td>
-            <td  align="center" valign="center" class="body">  </td>
+           <td  align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Steigern.png" alt="Notbookseite: Steigern" width="91" height="68" border="0">  </td>
+           <td><i>Steigern</i>:<br>
+            Auf der Notebook-Seite &quot;Steigern&quot; findet das Steigern und die Verwaltung der Abenteurer statt.
+           </td>
+           <td align="center" valign="center" class="body"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Win_Notebook_Steigern.png" width="79" height="68" align="middle" border="0"></td>
           </tr>
           <tr>
-            <td  align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Beschreibung.png" alt="Notebookseite: Beschreibung" width=92 height=66 border=0>  </td>
-            <td><i>Beschreibung</i>:<br>
-            Eine ausführliche Beschreibung des Abenteurers kann auf der Notebookseite &quot;Beschreibung&quot; erstellt werden.</td>
-            <td align="center" valign="center" class="body">  </td>
+           <td  align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Beschreibung.png" alt="Notebookseite: Beschreibung" width="121" height="68" border="0">  </td>
+           <td><i>Beschreibung</i>:<br>
+            Eine ausf&uuml;hrliche Beschreibung des Abenteurers kann auf der Notebookseite &quot;Beschreibung&quot; erstellt werden.
+           </td>
+           <td align="center" valign="center" class="body"></td>
+           <td align="center" valign="center" class="body"></td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Ausruestung.png" alt="Notebookseite: Ausrüstung" width="91" height="66" border="0">  </td>
-            <td><i>Ausrüstung:</i><br>
-            Ein Abenteurer erhält seine Ausrüstung auf af dieser Notebookseite.  </td>
-            <td align="center" valign="center" class="body">  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Ausruestung.png" alt="Notebookseite: Ausrstung" width="101" height="68" border="0">  </td>
+           <td><i>Ausr&uuml;stung:</i><br>
+            Ein Abenteurer erh&Ã¤uml;lt seine Ausr&uuml;stung auf a&uuml;f dieser Notebookseite.
+           </td>
+           <td align="center" valign="center" class="body"></td> 
+           <td align="center" valign="center" class="body"></td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Optionen.png" alt="Notebookseite: Optionen" width=62 height=66 border=0>  </td>
-            <td><i>Optionen</i>:<br>
-            Auf der Seite &quot;Optionen&quot; können verschiedene Eigenschaften von MAGUS -wie das Erscheinungsbild und
-            verwendete Hilfsprogramme- verändert werden  </td>
-            <td align="center" valign="center" class="body">  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Optionen.png" alt="Notebookseite: Optionen" width="120" height="68" border="0">  </td>
+           <td><i>Einstellungen</i>:<br>
+            Auf der Seite &quot;Optionen&quot; k&ouml;nnen verschiedene Eigenschaften von MAGuS -wie das Erscheinungsbild und
+            verwendete Hilfsprogramme- ver&auml;ndert werden
+           </td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Notebook/Notebook_Optionen_GTK.png" width="120" height="68" align="middle" border="0"></td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Win_Notebook_Optionen.png" width="120" height="68" align="middle" border="0"></td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Geschichte.png" width="123" height="66" border="0" alt="Notebookseite: News und Geschichte">  </td>
-            <td><i>News &amp; Geschichte</i>:<br>
-            Hier findet sich eine history der aktuellen MAGUS-Sitzung, sowie die Möglichkeit zwischen, unterschiedlichen
-            geöffneten Figuren zu wechseln.  </td>
-            <td align="center" valign="center" class="body">  </td>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Info.png" width="114" height="68" border="0"></td>
+            <td><i>&Uuml;ber MAGuS</i>:<br>
+             Diese Notebookseite informiert u.a. &uuml;ber die Programmautoren und Copyright Vermerke.
+            </td>
+            <td align="center" valign="center" class="body"></td>
+            <td align="center" valign="center" class="body"></td>
           </tr>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Zufall.png" alt="Notebookseite: Zufallsgenerator" width=102 height=66 border=0>  </td>
-            <td><i>Zufallsgenerator</i>:<br>
-            MAGUS bietet hier die Möglichkeit, (Nichtspieler-)Figuren schnell und regelkonform nach dem Zufallsprinzip zu
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Geschichte.png" alt="Notebookseite: News" width="108" height="68" border="0">  </td>
+           <td><i>Neuigkeiten</i>:<br>
+            Hier findet sich eine &Uuml;bersicht &uuml;ber den aktuellen Stand der MAGuS-Entwicklung.  
+           </td>
+           <td align="center" valign="center" class="body"></td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Notebook/Win_Notebook_Geschichte.png" width="108" height="68" align="middle" border="0"></td>
+          </tr>
+          <tr>
+           <td align="center" valign="center" class="body"><img src="image/Bedienung/Notebook/Notebook_Zufall.png" alt="Notebookseite: Zufallsgenerator" width="145" height="68" border="0">  </td>
+           <td><i>Zufallsgenerator</i>:<br>
+            MAGuS bietet hier die M&ouml;glichkeit, (Nichtspieler-)Figuren schnell und regelkonform nach dem Zufallsprinzip zu
             generieren und zu steigern. </td>
-            <td align="center" valign="center" class="body">  </td>
+           <td align="center" valign="center" class="body"></td>
+           <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Notebook/Win_Notebook_Zufall.png" width="145" height="68" align="middle" border="0"></td>
           </tr>
         </table>
-        </td>
-        <td>  </td>
+       </tr>
       </tr>
       <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
+       <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
       </tr>
       <tr>
-        <td>  </td>
-        <td  class="TextBox small"><a name="STAT"></a>
+       <td  class="TextBox small"><a name="STAT"></a>
         <h4>Statuszeile</h4><br>
-        <div align="center"><img src="image/Bedienung/Elemente/Statusleiste.png" alt="Statuszeile" width=366 height=32 border=0></div><br>
+        <div align="center"><img src="image/Bedienung/Elemente/Statusleiste.png" alt="Statuszeile" width="810" height="50" border="0"></div><br>
         In der Statuszeile werden verschiedene Informationen angezeigt. So werden die Anweisungen des Wizards ebenso in der Statuszeile
-        angezeigt, wie (in Form von Icons) die aktiven Regionen, sowie verschiedene MAGUS-Modi.<br><br>
-        <table class="norm">
+        angezeigt, wie (in Form von Icons) die aktiven Regionen, sowie verschiedene MAGuS-Modi.<br><br>
+        <table class="norm" width="100%">
+       <tr>
+        <td align="center" valign="center" class="body"><img src="image/MAGUS-Logo-small.png" alt="MAGUS Logo" width=50 height=32 border=0>  </td>
+        <td>Auch f&uuml;r die Statuszeile existieren eine MAGuS- und eine an WindowsXP angelehnte Version der Icons  </td>
+        <td align="center" valign="center" class="body"><img src="image/WinLogo-small.png" alt="WinLogo" width=32 height=30 border=0>  </td>
+       </tr>
+       <tr>
+        <td align="center" valign="center" class="body"><img src="image/Bedienung/Elemente/Stat-Mid-Logo.png" alt="Midgard-Logo" width="82" height="22" border="0">  </td>
+        <td><i>Midgard-Logo</i>:<br><a name="IEIN"></a>
+         Wenn MAGuS im Orginal-Regel-Modus ist, ist das Midgard-Logo in der Statuszeile sichtbar.<br>
+        </td>
+        <td align="center" valign="center" class="body"></td>
+       </tr>
+       <tr>
+        <td align="center" valign="center" class="body"><img src="image/Bedienung/Elemente/NSC-Icon.png" alt="Icon f&uuml;r NSC-Modus" width="21" height="19" border="0">  </td>
+        <td><i>Nichtspielerfiguren-Icon</i>:<br>
+         Wenn sich MAGuS im Modus f&uuml;r Nichtspielerfiguren befindet, so ist dieses Icon in der 
+         Statuszeile sichtbar
+        </td>
+        <td align="center" valign="center" class="body"><img src="image/Bedienung/Elemente/Win_NSC-Icon.png" alt="WinIcon: NSC" width=18 height=17 border=0>  </td>
+       </tr>
+       <tr>
+        <td align="center" valign="center" class="body">
+         <table>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/MAGUS-Logo-small.png" alt="MAGUS Logo" width=50 height=32 border=0>  </td>
-            <td>Auch für die Statuszeile existieren eine MAGUS-  und eine an WindowsXP angelehnte Version der Icons  </td>
-            <td align="center" valign="center" class="body"><img src="image/WinLogo-small.png" alt="WinLogo" width=32 height=30 border=0>  </td>
+           <td><img src="image/Bedienung/Elemente/MAGuS-Icon-Norm.png" alt="Icon- Wizard" width="16" height="55" align="middle" border="0"></td>
+           <td><IMG src="image/Bedienung/Elemente/MAGuS-Icon-Fade.png" width="16" height="55" align="middle" border="0"></td>
+           <td><img src="image/Bedienung/Elemente/No-MAGuS-Icon.png" width="16" height="55" align="middle" border="0"></td>
           </tr>
+         </table>
+        </td>
+        <td><i>MAGuS-Icon</i>:<br>
+         Das MAGuS-Icon zeigt drei verschiedene Modi an, in welchen sich MAGuS befinden kann:<br>
+         <i>normales Icon</i>: Der Wizard ist aktiv<br>
+         <i>ausgegrautes Icon</i>: doppeltes W&uuml;rfeln wird verhindert<br>
+         <i>durchgestrichenes Icon</i>: Alle Funktionen sind anw&auml;hlbar, der Wizard ist deaktiviert
+        </td>
+        <td align="center" valign="center" class="body">
+         <table>
           <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Elemente/NSC-Icon.png" alt="Icon für NSC-Modus" width=28 height=26 border=0>  </td>
-            <td>Icon für den <i>Nichtspielerfiguren-Modus</i>  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Elemente/Win_NSC-Icon.png" alt="WinIcon: NSC" width=18 height=17 border=0>  </td>
+           <td><img src="image/Bedienung/Elemente/Win_Wizard-Icon.png" alt="WinIcon - Wizard" width=16 height=16 border=0></td>
+           <td><IMG src="image/Bedienung/Elemente/MAGuS-Icon-Fade.png" width="16" height="55" align="middle" border="0"></td>
+           <td><img src="image/Bedienung/Elemente/No-MAGuS-Icon.png" width="16" height="55" align="middle" border="0"></td>
           </tr>
-          <tr>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Elemente/Wizard-Icon.png" alt="Icon- Wizard" width=16 height=25 border=0>  </td>
-            <td>Icon für den <i>aktiven Wizard</i>  </td>
-            <td align="center" valign="center" class="body"><img src="image/Bedienung/Elemente/Win_Wizard-Icon.png" alt="WinIcon - Wizard" width=16 height=16 border=0>  </td>
-          </tr>
+         </table>
+       </td>
+      <tr>
+       <td align="center" valign="center" class="body">
+        <table>
+         <tr><td><img src="image/Bedienung/Elemente/Icon-WuerfelMode.png" alt="Icon Wuerfelmodus" width="24" height="28" align="middle" border="0"></td></tr>
+         <tr><td><img src="image/Bedienung/Elemente/Icon-Eingabe.png" alt="Icon Eingabe" width="24" height="29" align="middle" border="0"></td></tr>
         </table>
+       </td>
+        <td><i>Eingabemodus-Icon</i>:<br>
+         &Uuml;ber dieses Icon ist der Eingabe-Modus von MAGuS ausw&auml;hlbar:<br>
+         <i>W&uuml;rfeln</i>:<br>
+         Die Werte werden durch MAGuS ausgew&uuml;rfelt<br>
+         <i>Eingabe</i>:<br>
+         Die Werte werden von Hand eingegeben<br>
         </td>
-        <td>  </td>
-      </tr>
-      <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
-        <td  class="TextBox small"><a name="MAUS"></a>
-        <h4>Maus-Menü</h4>
-        Es gibt zwei verschiedene Menüs, die über die rechte Maustaste zugänglich sind. Das Standard-Menü erhält man,
-        sobald man die rechte Maustaste über einer leeren Fläche betätigt. Ein zweites Menü existiert für Auswahlfenster.
-        Dieses erhält man, indem man die rechte Maustaste innerhalb eines Auswahlfensters betätigt<br>
-
-        <ol>
-          <li><i>Standard-Menü</i>:
+        <td align="center" valign="center" class="body"></td>
+       </tr>
+       <tr>
+        <td align="center" valign="center" class="body"><img src="image/Bedienung/Elemente/Status-Regionen.png" alt="Regionen" width="65" height="42" align="middle" border="0">  </td>
+        <td><i>Regionen</i>:<br>
+         Die Icons der aktiven Regionen werden angezeigt
+        </td>
+        <td align="center" valign="center" class="body"><IMG src="image/Bedienung/Elemente/Status-Regionen_win.png" width="32" height="52" align="middle" border="0"></td>
+       </tr>
+      </table>
+     </td>
+    <//table>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr>
+    <tr>
+     <td  class="TextBox small"><a name="MAUS"></a>
+      <h4>Maus-Men&uuml;s</h4>
+      Es gibt drei verschiedene Men&uuml;s, die &uuml;ber die rechte Maustaste zug&auml;nglich sind.<br> 
+      Das Standard-Men&uuml; erh&auml;lt man, sobald man die rechte Maustaste &uuml;ber einer leeren Fl&auml;che bet&auml;tigt.<br> 
+      Ein zweites Men&uuml; existiert f&uuml;r Auswahlfenster. Dieses erh&auml;lt man, indem man die rechte Maustaste innerhalb eines Auswahlfensters bet&ouml;tigt<br>
+      Ein drittes Men&uuml; erscheint in Texteingabe-Feldern.<br>
+      <ol>
+       <li><i>Standard-Men&uuml;</i>:
+        <ul>
+         <li><i>Original-Regel-Men&uuml;</i>:<br>
           <ul>
-            <li><i>Drucken</i>:<br>
-              <ul>
-              <li><i>Abenteurer drucken (LaTeX)</i>:<br>
-                Erstellt das &quot;Hauptdokument&quot; mit allen wichtigen Werten und Fertigkeiten</li>
-              <li><i>Abenteurer Beschreibung drucken</i>:<br>
-                Das Dokument mit der Abenteurerbeschreibung wird erstellt</li>
-              <li><i>Ausrüstungsdokument drucken (Alles)</i>:<br>
-                Es wird ein Dokument mit allen Ausrüstungsteilen erstellt.</li>
-              <li><i>Ausrüstungsdokument drucken (Nur sichtbare Gegenstände)</i>:<br>
-                Es wird ein Dokument erstellt, welches nur die für dritte sichtbare Ausrüstung zeigt</li>
-              <li><i>Leeres Abenteurerdokument drucken</i>:<br>
-                Es wird ein leeres &quot;Hauptdokument&quot; erzeugt.</li>
-              </ul>
+           <li><i>alle Regeln abschalten</i>:<br>
+            Bietet dem Spielleiter die M&ouml;glichkeit Figuren ohne Einschr&auml;nkungen durch Regeln zu 
+            erschaffen.
+           </li>
+           <li><i>Originalregeln</i>:<br>
+            Mit aktivierten Orignalregeln wird eine Spielfigur im Rahmen der original Midgardregeln erschaffen.
+           </li> 
+           <li><i>Lernschema- und Steigern-Fenster aktivieren</i>:<br>
+            Die genannten Fenster werden aktiviert
+           </li>
+           <li><i>Werte editieren</i>:<br>
+            Die Grundwerte k&ouml;nnen editiert werden
+           </li>
+           <li><i>Mit EP/PP steigern</i>:<br>
+            EP/PP werden beim Steigern aufgewand
+           </li>
+           <li><i>NSC-Modus</i>:<br>
+            Der Modus zur Bearbeitung von Nichtspielerfiguren wird ein- oder ausgeschaltet.
+           </li>
+          </ul>
+         </li>
+         <li><i>Drucken</i>:<br>
+          <ul>
+           <li><i>Abenteurer drucken (LaTeX)</i>:<br>
+            Erstellt das &quot;Hauptdokument&quot; mit allen wichtigen Werten und Fertigkeiten</li>
+           <li><i>Abenteurer Beschreibung drucken</i>:<br>
+            Das Dokument mit der Abenteurerbeschreibung wird erstellt</li>
+           <li><i>Ausr&uuml;stungsdokument drucken (Alles)</i>:<br>
+            Es wird ein Dokument mit allen Ausr&uuml;stungsteilen erstellt.</li>
+           <li><i>Ausr&uuml;stungsdokument drucken (Nur sichtbare Gegenst&auml;nde)</i>:<br>
+            Es wird ein Dokument erstellt, welches nur die f&uuml;r dritte sichtbare Ausr&uuml;stung zeigt</li>
+           <li><i>Leeres Abenteurerdokument drucken</i>:<br>
+            Es wird ein leeres &quot;Hauptdokument&quot; erzeugt.</li>
+          </ul>
+         </li>
+         <li><i>Regionen</i>:<br>
+          Hier k&ouml;nnen Regionen und Regelerweiterweiterungen gew&auml;hlt werden (siehe: <a href="Bedienung_Option.html">Optionen</a>)
+          Unterr dem Punkt <i>Ausgew&auml;hlte Regionen zum Standard machen</i> k&ouml;nnen die aktivierten Regionen 
+          als Standard f&uuml;r weitere Figuren definiert werden, so dass nicht f&uuml;r jede neue Figur die Regionen einzeln aktiviert werden m&uuml;ssen.
+         </li>
+         <li><i>Erweiterungen</i>:<br>
+          <ul>
+           <li><i>Originalregeln</i>:<br>
+            Mit aktivierten Orignalregeln wird eine Spielfigur im Rahmen der original Midgardregeln erschaffen.
+           </li>
+           <li><i>NSC-Modus</i>:<br>
+            Der Modus zur Bearbeitung von Nichtspielerfiguren wird ein- oder ausgeschaltet.
+           </li>
+           <li><i>Zauberbeschreibung drucken</i>:<br>
+            Auf dem Abenteurer-Dokument wird bei Zaubern zus&auml;tzlich eine Kurzbeschreibung ausgedruckt
+           </li>
+            <li><i>1GS entspricht 1 GFP</i>:<br>
+             Hausregel f&uuml;r Gruppen, die mit gezehntelten Goldbetr&auml;gen spielen, bei der 1 GFP statt 
+             10GS nur einem GS entspricht.
             </li>
-            <li><i>Regionen</i>:<br>
-              Hier können Regionen und Regelerweiterweiterungen gewählt werden (siehe: <a href="Bedienung_Option.html">Optionen</a>)</li>
-            <li><i>Ansicht &amp; Fenster</i>:<br>
-              <ul>
-                <li><i>Info Fenster zeigen</i>:<br>
-                  Öffnet das Info-Fenster</li>
-                <li><i>Lernschema/Steigern auswählbar machen</i>:<br>
-                  Hiermit werden die Funktionen auf den Notebookseiten &quot;Lernschema&quot; und &quot;Steigern&quot;
-                  aktiviert.</li>
-              </ul>
+            <li><i>Grundwerte &uuml;ber 100 zulassen</i>:<br>
+             Hausregel f&uuml;r Gruppen, die Grundwerte &uuml;ber 100 zulassen.
             </li>
-          </ul></li>
-          <li><i>Auswahlfenster-Menü</i><br>
-            Mit diesem Menü läßt sich das Erscheinungsbild des jeweiligen Auswahlfensters beeinflussen:<br>
-            <ul>
-              <li><i>Zurücksetzen</i><br>
-                Die Standardeinstellungen des Auswahlfensters werden wiederhergestellt,</li>
-              <li><i>Abbrechen</i><br>
-                Menü wird geschlossen</li>
-              <li><i>Sichtbare Spalten</i><br>
-                Es wird ein Untermenü geöffent, in dem (abhängig vom jeweilige Auswahlfenster) einzelne Spalten an- oder
-                abgewählt werden können.</li>
-              <li><i>Optionen</i><br>
-                Hier können, abhängig vom Auswahlfenster verschiedene Optionen aktiviert oder deaktiviert werden werden
-                <ul>
-                  <li><i>Spaltenüberschriften anzeigen</i>:<br>
-                    Anzeige der Spaltenüberschriften Ein/Aus (Standard: Ein)</li>
-                  <li><i>Standardreihenfolge</i>:<br>
-                    Mit Standardreihenfolge auffüllen</li>
-                  <li><i>gewählte Knoten expandieren</i>:<br>
-                    Ausklappen zusammengefasster Listen</li>
-                  <li> <font class="ToDo"><i>farblich markieren</i>:<br>
-                    ???</font></li>
-                  <li><i>Alle Knoten expandieren</i>:<br>
-                     Ausklappen aller zusammengefasster Listen</li>
-                  <li><i>Alle Knoten kollabieren</i>:<br>
-                     Einklappen zusammengefasster Listen</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ol>
-        </td>
-        <td>  </td>
-      </tr>
-      <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
-      </tr>
-    </table>
-    </td>
-  </tr>
-  <tr>
-    <td>  </td>
-  </tr>
+          </ul>
+         </li> 
+         <li><i>Ansicht &amp; Fenster</i>:<br>
+          <ul>
+           <li><i>Info Fenster zeigen</i>:<br>
+            &Ouml;ffnet das Info-Fenster</li>
+           <li><i>Lernschema/Steigern ausw&auml;hlbar machen</i>:<br>
+            Hiermit werden die Funktionen auf den Notebookseiten &quot;Lernschema&quot; und &quot;Steigern&quot; aktiviert.</li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+       <li><i>Auswahlfenster-Men&uuml;</i><br>
+        Mit diesem Men&uuml; l&auml;&szlig;t sich das Erscheinungsbild des jeweiligen Auswahlfensters beeinflussen:<br>
+        <ul>
+         <li><i>Zur&uuml;cksetzen</i><br>
+          Die Standardeinstellungen des Auswahlfensters werden wiederhergestellt,
+         </li>
+         <li><i>Abbrechen</i><br>
+          Men&uuml; wird geschlossen
+         </li>
+         <li><i>Neuordnen</i>:<br>
+          Die Spalten werden in der gewÃ¤hlten Reihenfolge angeordnet
+         </li>
+         <li><i>Sichtbare Spalten</i><br>
+          Es wird ein Untermen&uuml; ge&ouml;ffent, in dem (abh&auml;ngig vom jeweilige Auswahlfenster) einzelne Spalten an- oder
+          abgew&auml;hlt werden k&ouml;nnen.
+         </li>
+         <li><i>Optionen</i><br>
+          Hier k&ouml;nnen, abh&auml;ngig vom Auswahlfenster verschiedene Optionen aktiviert oder deaktiviert werden
+          <ul>
+           <li><i>Spalten&uuml;berschriften anzeigen</i>:<br>
+            Anzeige der Spalten&uuml;berschriften Ein/Aus (Standard: Ein)</li>
+           <li><i>Standardreihenfolge</i>:<br>
+            Mit Standardreihenfolge auff&uuml;llen
+           </li>
+           <li><i>gew&auml;hlte Knoten expandieren</i>:<br>
+            Ausklappen zusammengefasster Listen
+           </li>
+           <li><i>Tiefe farblich markieren</i>:<br>
+            Die Tiefe von Listen wird farblich markiert</font></li>
+           <li><i>Alles aufklappen</i>:<br>
+            Ausklappen aller zusammengefasster Listen</li>
+           <li><i>Alles zuklappen</i>:<br>
+            Einklappen zusammengefasster Listen</li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+       <li><i>Editor-Men&uuml;</i>:<br>
+        Innerhalb von Texteingabefeldern iat (abh&auml;ngig vom Windowmanager?) ein Standardeditiermen&uuml; verf&uuml;gbar
+       </li>
+      </ol>
+     </td>
+    </tr>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
 </table>
 </body>
 </html>

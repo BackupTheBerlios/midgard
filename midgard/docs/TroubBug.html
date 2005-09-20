@@ -2,143 +2,81 @@
 <HEAD>
 <title>MAGUS - Midgard Abenteurer Generieren Und Steigern</title>
 <link rel="shortcut icon" href="image/magus-fav.ico">
-<link rel="stylesheet" type="text/css" href="magus.css">
+<link rel="stylesheet" type="text/css" href="css/magus.css">
 <style type="text/css">
 </style>
 </HEAD>
 <BODY class="body" text="#000000"><a name="TOP"></a>
 <table width="100%">
-  <tr >
-    <td class="HeadLine" align="center"> <h1 >MAGUS - Hilfe</h1> </td>
-
-  </tr>
-  <tr>
-    <td>
-    <table>
-      <tr>
-        <td>
-        <table>
-          <tr align="center">
-            <td ><a href="http://www.midgard-online.de/"><img src="image/NavBar/0-MidLogo.png" alt="Midgard-Online" width="208" height="50" border="0"></a><br>
-            <font size="-1"><a href="http://www.midgard-online.de/">http://www.midgard-online.de/</a></font> </td>
-          </tr>
-        </table>
-        <table class="NavFont">
-          <tr>
-            <td><img src="image/NavBar/0-MagLogo.png" width="31" height="50" border="0" alt="MAGUS Homepages"></td>
-            <td><a href="http://midgard.berlios.de">MAGUS - Homepage</a> </td>
-          </tr>
-          <tr>
-            <td ><img src="image/NavBar/Zauberstab4.png" alt="Startseite" width=79 height=50 border=0>  </td>
-            <td><a href="index.html">Index</a></td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Disk-Down.png" alt="Download" width="50" height="50" border="0">  </td>
-            <td ><a href="Download.html">Download & Installation</a></td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Fert_Lesen.png" width="50" height="50" border="0" alt="Bedienung"> </td>
-            <td><a href="BedienungMain.html">Bedienung</a></td>
-          </tr>
-          <tr class="Active">
-            <td><img src="image/NavBar/Abwehr.png" width="79" height="50" border="0" alt="Trouble">  </td>
-            <td><a href="Trouble.html">Troubleshooting</a><br>
-            -&nbsp;<a href="TroubKomp.html"><font size="-1">Kompilierprobleme</font></a><br>
-            -&nbsp;<a href="TroubInst.html"><font size="-1">Installationsprobleme</font></a><br>
-            -&nbsp;<a href="TroubUse.html"><font size="-1"></font>Benutzung</a><br>
-            -&nbsp;<a href="TroubFAQ.html"><font size="-1">FAQ</font></a><br>
-            -&nbsp;<font class="Here"><font size="-1">Bugreport</font></font><br>
-            </td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Info-trans.png" width="79" height="50" border="0" alt="About">  </td>
-            <td><a href="About.html">About</a></td>
-          </tr>
-        </table>
-        </td>
-        <td class="TextBox" align="center">
-        <h2><a href="Trouble.html">Troubleshooting</a></h2>
-          <table>
-            <tr>
-              <td>
-              <ul>
-                <li><a href="TroubKomp.html">Kompilierprobleme</a>  </li>
-                <li><a href="TroubInst.html">Installationsprobleme</a>  </li>
-                <li><a href="TroubUse.html">Benutzung</a>  </li>
-                <li><a href="TroubFAQ.html">FAQ</a>  </li>
-                <li><font class="Here">Bugreport</font>  </li>
-              </ul>
-              </td>
-            </tr>
-          </table>
-        </td>
-        <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
-        <td  class="TextBox">
-          <h4>Bugreport</h4>
-            Wie ihr einen Fehler melden könnt:<br>
-            Einen Fehler (und natürlich auch Verbesserungsvorschläge) mailt ihr am besten an die
-            <a href="https://lists.berlios.de/mailman/listinfo/midgard-general">MAGUS-Mailingliste</a>, indem ihr eine Mail an
-            <a href="mailto:midgard-general@lists.berlios.de">midgard-general@lists.berlios.de</a> schickt, oder einen Bugreport
-            unter <a href="http://midgard.berlios.de/bugform.html">http://midgard.berlios.de/bugform.html</a> ausfüllt.<br><br>
-
-           Notwendige Angaben:<br>
-          <ol>
-            <li><b>Betriebssystem</b>:<br>
-              Wichtig: Welches Betriebssystem und welche Version verwendet ihr?
-              <ul>
-                <li><i>Linux</i>:<br>
-                  Distribution und Version (z.B: Redhat 7.1, oder SuSE 8.0)</li>
-                <li><i>Windows</i>:<br>
-                  Version (z.B: Win95/98/ME, Windows NT/2000, WindowsXP) </li>
-              </ul>
-            </li>
-          <li><b>MAGUS - Version</b>:<br>
-            Genauso wichtig ist die Angabe, auf welche Version von MAGUS ihr euch bezieht. Eventuell existiert bereits eine
-            neuere Version, in welcher der Fehler bereits behoben ist.<br>
-            <ul>
-              <li><i>Zip und/oder rpm/tgz Archive</i>:<br>
-                Gebt hier bitte die genaue Bezeichnung des Archivs an, da sich bei der Versionsnummerierung selbst durchaus ein
-                Bug einschleichen kann...</li>
-              <li><i>CVS</i>:<br>
-                Gebt hier bitte das Datum und die Uhrzeit(!) des letzten Checkouts/Updates an.</li>
-            </ul>
-          </li>
-          <li><b>Fehlerbeschreibung</b>:<br>
-            Eine möglichst genaue Beschreibung des Fehlers hilft, die Ursache zu finden und zu beseitigen.<br>
-            Gebt hierzu bitte möglichst genau an;<br>
-            <ul>
-              <li>an welcher Stelle ist der Fehler aufgetreten?</li>
-              <li>was habt ihr vor dem Fehler gemacht?</li>
-              <li>lässt sich der Fehler reprouzieren oder tritt er unregelmässig auf?</li>
-            </ul>
-          </li>
-        </ol>
-        <br>
-        Was ihr möglichst nicht machen solltet:<br>
+ <tr>
+  <td>
+   <table>
+    <tr>
+     <td class="TextBox" align="center"><h2>Troubleshooting - Bugreport</h2></td>
+    </tr>
+    <tr>
+     <td  class="TextBox">
+      <h4>Bugreport</h4>
+      Wie ihr einen Fehler melden k&ouml;nnt:<br>
+      Einen Fehler (und nat&uuml;rlich auch Verbesserungsvorschl&auml;ge) mailt ihr am besten an die
+      <a href="https://lists.berlios.de/mailman/listinfo/midgard-general">MAGuS-Mailingliste</a>, indem ihr eine Mail an
+      <a href="mailto:midgard-general@lists.berlios.de">midgard-general@lists.berlios.de</a> schickt, oder einen Bugreport
+      unter <a href="http://midgard.berlios.de/bugform.html">http://midgard.berlios.de/bugform.html</a> ausf&uuml;llt.<br><br>
+      Notwendige Angaben:<br>
+      <ol>
+       <li><b>Betriebssystem</b>:<br>
+        Wichtig: Welches Betriebssystem und welche Version verwendet ihr?
         <ul>
-          <li>Schreibt den Fehlerbericht nicht als Word-Dokument oder in einem anderen Textverarbeitungsformat, sondern
-            als einfachen Text im E-Mail-Programm</li>
-          <li>Schickt bitte keine Snapshots</li>
-          <li>Die Adressen (Zahlenkolonnen) der Windowsfehlermeldungen sind (euphemistisch ausgedrückt) leider
-            wenig aussagekräftig. Einzig der Name des "Moduls", welches den Fehler verursacht ist hilfreich </li>
+         <li><i>Linux</i>:<br>
+          Distribution und Version (z.B: Redhat 7.1, oder SuSE 9.0)
+         </li>
+         <li><i>Windows</i>:<br>
+          Version (z.B: Win95/98/ME, Windows NT/2000, WindowsXP) 
+         </li>
         </ul>
-        </td>
-        <td>  </td>
-      </tr>
-       <tr>
-        <td>  </td>
-        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-        <td>  </td>
-      </tr>
-    </table>
-    </td>
-  </tr>
-  <tr>
-    <td>  </td>
-  </tr>
+       </li>
+       <li><b>MAGuS - Version</b>:<br>
+        Genauso wichtig ist die Angabe, auf welche Version von MAGuS ihr euch bezieht. Eventuell existiert bereits eine
+        neuere Version, in welcher der Fehler inzwischen behoben ist.<br>
+        <ul>
+         <li><i>Zip und/oder rpm/tgz Archive</i>:<br>
+          Gebt hier bitte die genaue Bezeichnung des Archivs an, da sich bei der Versionsnummerierung selbst durchaus ein
+          Bug einschleichen kann...
+         </li>
+         <li><i>CVS</i>:<br>
+          Gebt hier bitte das Datum und die Uhrzeit(!) des letzten Checkouts/Updates an.
+         </li>
+        </ul>
+       </li>
+       <li><b>Fehlerbeschreibung</b>:<br>
+        Eine m&ouml;glichst genaue Beschreibung des Fehlers hilft, die Ursache zu finden und zu beseitigen.<br>
+        Gebt hierzu bitte m&ouml;glichst genau an;<br>
+        <ul>
+         <li>an welcher Stelle ist der Fehler aufgetreten?</li>
+         <li>was habt ihr vor dem Fehler gemacht?</li>
+         <li>l&auml;sst sich der Fehler reprouzieren oder tritt er unregelm&auml;&szlig;ig auf?</li>
+        </ul>
+       </li>
+      </ol>
+      <br>
+      Was ihr m&ouml;glichst nicht machen solltet:<br>
+      <ul>
+       <li>Schreibt den Fehlerbericht nicht als Word-Dokument oder in einem anderen Textverarbeitungsformat, sondern
+        als einfachen Text im E-Mail-Programm
+       </li>
+       <li>Schickt bitte keine Snapshots</li>
+       <li>Die Adressen (Zahlenkolonnen) der Windowsfehlermeldungen sind (euphemistisch ausgedr&uuml;ckt) 
+        leider wenig aussagekr&auml;ftig. Einzig der Name des "Moduls", welches den Fehler verursacht ist hilfreich 
+       </li>
+      </ul>
+     </td>
+    </tr>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
 </table>
 </body>
 </html>

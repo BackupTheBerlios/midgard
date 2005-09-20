@@ -2,182 +2,110 @@
 <HEAD>
 <title>MAGUS - Midgard Abenteurer Generieren Und Steigern</title>
 <link rel="shortcut icon" href="image/magus-fav.ico">
-<link rel="stylesheet" type="text/css" href="magus.css">
+<link rel="stylesheet" type="text/css" href="css/magus.css">
+<link rel="stylesheet" type="text/css" href="css/mainformat.css">
 <style type="text/css">
 </style>
 </HEAD>
 <BODY class="body" text="#000000"><a name="TOP"></a>
 <table width="100%">
-  <tr >
-    <td class="HeadLine" align="center"> <h1 >MAGUS - Hilfe</h1> </td>
-
-  </tr>
-  <tr>
-    <td>
-    <table>
-      <tr>
+ <tr>
+  <td>
+   <table>
+    <tr>
+     <td class="TextBox" align="center"><h2 ><a href="getit.html">How To Get It</a></h2> <br>
+      <img src="image/Install/MAGUS-Tux-Logo-med.png" width=131 height=200 border=0>
+      <table>
+       <tr>
         <td>
-        <table>
-          <tr align="center">
-            <td ><a href="http://www.midgard-online.de/"><img src="image/NavBar/0-MidLogo.png" alt="Midgard-Online" width="208" height="50" border="0"></a><br>
-            <font size="-1"><a href="http://www.midgard-online.de/">http://www.midgard-online.de/</a></font> </td>
-          </tr>
-        </table>
-        <table class="NavFont">
-          <tr>
-            <td><img src="image/NavBar/0-MagLogo.png" width="31" height="50" border="0" alt="MAGUS Homepages"></td>
-            <td><a href="http://midgard.berlios.de">MAGUS - Homepage</a> </td>
-          </tr>
-          <tr>
-            <td ><img src="image/NavBar/Zauberstab4.png" alt="Startseite" width=79 height=50 border=0>  </td>
-            <td><a href="index.html">Index</a></td>
-          </tr>
-          <tr class="active">
-            <td><img src="image/NavBar/Disk-Down.png" alt="Download" width="50" height="50" border="0">  </td>
-            <td ><a href="Download.html">Download & Installation</a><br>
-            - <a href="VorausAllg.html"><font size="-1">Voraussetzungen</font></a><br>
-            - <font size="-1"><a href="getit.html">How To Get It</a></font><br>
-            <font size="-2">&nbsp;&nbsp;- </font><font size="-2" class="Here">Linux</font><br>
-            <font size="-2">&nbsp;&nbsp;- </font><a href="getitWin.html"><font size="-2">Windows</font></a><br>
-            <font size="-2">&nbsp;&nbsp;- </font><font size="-2" class="ToDo">XML</font><br>
-
-            - <a href="InstallAllg.html"><font size="-1">Installation</font><a href="BedienungMain.html"></a></a>
-            </td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Fert_Lesen.png" width="50" height="50" border="0" alt="Bedienung"> </td>
-            <td><a href="BedienungMain.html">Bedienung</a></td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Abwehr.png" width="79" height="50" border="0" alt="Trouble">  </td>
-            <td><a href="Trouble.html">Troubleshooting</a></td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Info-trans.png" width="79" height="50" border="0" alt="About">  </td>
-            <td><a href="About.html">About</a></td>
-          </tr>
-        </table>
-        </td>
-        <td class="TextBox" align="center"><h2 ><a href="getit.html">How To Get It</a></h2> <br>
-        <img src="image/Install/MAGUS-Tux-Logo-med.png" width=131 height=200 border=0>
-        <table>
-          <tr>
-          <td>
-        <ul>
+         <ul>
           <li><font size="-1" class="Here">Linux</font></li>
           <li><font size="-1"><a href="getitWin.html">Windows</a></font></li>
           <li><font size="-1" class="ToDo">XML-Daten</font></li>
-        </ul>
+         </ul>
         </td>
-        </tr>
-        </table>
-        </td>
-        <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
-        <td  class="TextBox">
-           Es gibt mehrere Möglichkeiten, wie man MAGUS auf den eigenen Rechner
-           bekommen kann:<br>
-           <ul>
-             <li><a href="#CVS">Sourcecode aus dem CVS</a></li>
-             <li><a href="#STAR">Sourcecode als tgz-Archiv</a></li>
-             <li><a href="#RPM">kompiliertes Binary als rpm-Paket</a></li>
-             <li><a href="#BTAR">kompiliertes Binary als tgz-Archiv</a></li>
-           </ul>
-           <br>
-        </td>
-        <td>  </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class="TextBox">
-           <a Name="CVS"></a>
-           <h4>Sourcecode aus dem CVS:</h4>
-           Im <a href="http://developer.berlios.de/cvs/?group_id=90">CVS-Repository</a> befindet sich der Sourcecode der
-           jeweils aktuellste MAGUS-Version, die jedoch nicht immer Lauffähig ist, und sich jederzeit ändern kann.<br>
-           Um das CVS zu nutzen, muss das Sript <a href="http://cvs.berlios.de/cgi-bin/viewcvs.cgi/*checkout*/midgard/midgard/midgard_cvs">&quot;midgard_cvs&quot;</a> heruntergeladen
-           und in ein eigenes Verzeichnis  kopiert werden. In dieses Verzeichnis werden hinterher alle benötigten Dateien
-           kopiert, es ist also sinnvoll hierfür ein eigenes Verzeichnis zu erzeugen.<br>
-           Im nächsten Schritt werden die benötigten Dateien heruntergeladen:<br>
-           Es wird in das oben genannte Verzeichnis gewechselt und dort das Skript mit folgendem Kommando ausgeführt
-           (vorher online gehen ;-)):<br>
-           <pre>
-           &quot;./midgard_cvs checkout&quot;
-           </pre>
-           Die folgenden Passwortabfragen werden mit &lt;ENTER&gt; quittiert.<br>
-
-           Eine Aktualisierung des Quellcodes erfolgt ebenfalls mit dem CVS-Skript (online):<br>
-           <pre>
-           &quot;./midgard_cvs update&quot;
-           </pre>
-
-
-        </td>
-        <td>  </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class="TextBox">
-           <a Name="STAR"></a>
-           <h4>Sourcecode als tgz-Archiv</h4>
-           Da zur Zeit die Änderungen des Sourcecodes innerhalb kurzer erfolgen, existiert
-           zur Zeit kein TGZ-Archiv des Sourcecodes.
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-      <td></td>
-      <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-      <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class="TextBox">
-           <a Name="RPM"></a>
-           <h4>kompiliertes Binary als rpm-Paket</h4>
-           Fertige rpm-Pakete gibt es an zwei Orten:<br>
-           Unter
-           <a href="http://developer.berlios.de/project/filelist.php?group_id=90">http://developer.berlios.de/project/filelist.php?group_id=90</a>
-           finden sich die offiziellen Releases, neuere, aber nicht unbedingt stabile, Versionen befinden sich auf dem
-           FTP-Server unter <a href="ftp://ftp.berlios.de/pub/midgard/bin/rpm/">ftp://ftp.berlios.de/pub/midgard/bin/rpm/</a><br>
-           Zur Zeit gibt es nur ein rpm-Paket für eine modifizierte SuSE 7.2, so dass nicht gewährleistet ist,
-           ob diese Version auch unter anderen Distributionen lauffähig ist.
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-      <td></td>
-      <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-      <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class="TextBox">
-        <a name="BTGZ"></a>
-        <h4>kompiliertes Binary als tgz-Archiv</h4>
-        Unter
-        <a href="ftp://ftp.berlios.de/pub/midgard/bin/">ftp://ftp.berlios.de/pub/midgard/bin/</a> existiert ein
-        - mittlerweile veraltetes - tgz-gepacktes Binary.
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-      <td></td>
-      <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-      <td></td>
-      </tr>
-    </table>
-    </td>
-  </tr>
-  <tr>
-    <td>  </td>
-  </tr>
+       </tr>
+      </table>
+     </td>
+    </tr>
+    <tr>
+     <td  class="TextBox">
+      Es gibt mehrere M&ouml;glichkeiten, wie man MAGuS auf den eigenen Rechner bekommen kann:<br>
+      <ul>
+       <li><a href="#CVS">Sourcecode aus dem CVS</a></li>
+       <li><a href="#STAR">Sourcecode als tgz-Archiv</a></li>
+       <li><a href="#RPM">kompiliertes Binary als rpm-Paket</a></li>
+       <!-- <li><a href="#BTAR">kompiliertes Binary als tgz-Archiv</a></li> -->
+      </ul>
+     </td>
+    </tr>
+    <tr>
+     <td class="TextBox SrcColFnt">
+      <a Name="CVS"></a>
+      <h4>Sourcecode aus dem CVS:</h4>
+      Im <a href="http://developer.berlios.de/cvs/?group_id=90">CVS-Repository</a> befindet sich der Sourcecode der
+      jeweils aktuellsten MAGUS-Version, die jedoch nicht immer Lauff&auml;hig ist, und sich jederzeit &auml;ndern kann.<br>
+      Um das CVS zu nutzen, muss das Sript <a href="http://cvs.berlios.de/cgi-bin/viewcvs.cgi/*checkout*/midgard/midgard/midgard_cvs?rev=1.2">&quot;midgard_cvs&quot;</a> heruntergeladen
+      und in ein eigenes Verzeichnis kopiert werden. In dieses Verzeichnis werden hinterher alle ben&ouml;tigten Dateien
+      kopiert, es ist also sinnvoll hierf&uuml;r ein eigenes Verzeichnis zu erzeugen.<br>
+      Im n&auml;chsten Schritt werden die ben&ouml;tigten Dateien heruntergeladen:<br>
+      Es wird in das oben genannte Verzeichnis gewechselt und dort das Skript mit folgendem Kommando ausgef&uuml;hrt
+      (vorher online gehen ;-)):<br>
+      <pre>
+      &quot;./midgard_cvs checkout&quot;
+      </pre>
+      Die folgenden Passwortabfragen werden mit &lt;ENTER&gt; quittiert.<br>
+      Eine Aktualisierung des Quellcodes erfolgt ebenfalls mit dem CVS-Skript (online):<br>
+      <pre>
+      &quot;./midgard_cvs update&quot;
+      </pre>
+     </td>
+    </tr>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr>
+    <tr>
+     <td class="TextBox SrcColFnt">
+      <a Name="STAR"></a>
+      <h4>Sourcecode als tgz-Archiv</h4>
+      Da zur Zeit die &Auml;nderungen des Sourcecodes innerhalb kurzer Zeitabst&auml;nde erfolgen, existiert
+      zur Zeit kein TGZ-Archiv des Sourcecodes.
+     </td>
+    </tr>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr>
+    <tr>
+     <td class="TextBox LinColFnt">
+      <a Name="RPM"></a>
+      <h4>kompiliertes Binary als rpm-Paket</h4>
+      Fertige rpm-Pakete gibt es an zwei Orten:<br>
+      Unter
+      <a href="http://developer.berlios.de/project/filelist.php?group_id=90">http://developer.berlios.de/project/filelist.php?group_id=90</a>
+      finden sich die offiziellen Releases, neuere, aber nicht unbedingt stabile, Versionen befinden sich auf dem
+      FTP-Server unter <a href="ftp://ftp.berlios.de/pub/midgard/bin/rpm/">ftp://ftp.berlios.de/pub/midgard/bin/rpm/</a><br>
+      Unter <A href="http://www.mathematik.uni-wuerzburg.de/~vaeth/magus/index.html" target="extern">http://www.mathematik.uni-wuerzburg.de/~vaeth/magus/index.html</A>
+      hat Martin V&auml;th ein RPM-Paket f&uuml;r SuSE bereitgestellt.
+     </td>
+    </tr>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr>
+<!--    <tr>
+     <td class="TextBox">
+      <a name="BTGZ"></a>
+      <h4>kompiliertes Binary als tgz-Archiv</h4>
+      Unter
+      <a href="ftp://ftp.berlios.de/pub/midgard/bin/">ftp://ftp.berlios.de/pub/midgard/bin/</a> existiert ein
+      - mittlerweile veraltetes - tgz-gepacktes Binary.
+     </td>
+    </tr>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr> -->
+   </table>
+  </td>
+ </tr>
 </table>
 </body>
 </html>

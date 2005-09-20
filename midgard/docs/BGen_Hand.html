@@ -2,319 +2,234 @@
 <HEAD>
 <title>MAGUS - Midgard Abenteurer Generieren Und Steigern</title>
 <link rel="shortcut icon" href="image/magus-fav.ico">
-<link rel="stylesheet" type="text/css" href="magus.css">
+<link rel="stylesheet" type="text/css" href="css/magus.css">
 <style type="text/css">
 </style>
 </HEAD>
 <BODY class="body" text="#000000"><a name="TOP"></a>
 <table width="100%">
-  <tr >
-    <td class="HeadLine" align="center"> <h1 >MAGUS - Hilfe</h1> </td>
-
-  </tr>
-  <tr>
-    <td>
-    <table>
-      <tr>
+<tr>
+ <td>
+  <table>
+   <tr>
+    <td class="TextBox" align="center"><h2>Bedienung - Abenteurer Genese - Eingabe von Hand</h2></td>
+   </tr>
+   <tr>
+    <td  class="TextBox">
+     <h4>Eingabe von Hand</h4>
+      Die M&ouml;glichkeit eine Figur <i>von Hand</i> einzugeben, dient dazu, eine Spielfigur m&ouml;glichst
+      frei zu gestalten, oder eine bereits existierende (auch h&ouml;hergradige) Figur in MAGuS einzugeben.<br>
+      Es ist bei jedem Schritt m&ouml;glich, auch die unter <a href="BGen_Rule.html">Schritt f&uuml;r Schritt</a>
+      angegebene Variante zu nutzen.
+      <ul>
+       <li><a href="#GRU">Grundwerte</a></li>
+       <li><a href="#LRN">Lernschema</a></li>
+       <li><a href="#END">Fertigstellen</a></li>
+      </ul>
+     </td>
+    </tr>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr>
+    <tr>
+     <td  class="TextBox"><a name="GRU"></a>
+      <h4>Grundwerte</h4>
+      Als erstes wird im <a href="Bedienung_Element.html#MEN">Men&uuml; <i>Datei</i></a> wird der Eintrag
+      <i>Neuer Abenteurer</i> aktiviert. Falls der Wizard noch aktiv sein sollte, wird er im gleichen
+      Men&uuml; beendet.<br>
+      Bei Bedarf werden eine oder mehrere Regionen und/oder Regelerweiterungen aktiviert.<br>
+      Um einen Abenteurer &quot;von Hand&quot; einzugeben, muss der Button <a href="BMod_GW.html#GEN"><i>Werte editieren</i></a>
+      aktiviert sein, sowie das <a href="Bedienung_Element.html#Stat">Icon Werte eingeben</a> in der Statuszeile<br><br>
+      <table class="small">
+       <tr>
+        <td></td>
+        <td class="body tiny"><b>Anmerkungen</b>  </td>
+       </tr>
+       <tr>
         <td>
-        <table>
-          <tr align="center">
-            <td ><a href="http://www.midgard-online.de/"><img src="image/NavBar/0-MidLogo.png" alt="Midgard-Online" width="208" height="50" border="0"></a><br>
-            <font size="-1"><a href="http://www.midgard-online.de/">http://www.midgard-online.de/</a></font> </td>
-          </tr>
-        </table>
-        <table class="NavFont">
-          <tr>
-            <td><img src="image/NavBar/0-MagLogo.png" width="31" height="50" border="0" alt="MAGUS Homepages"></td>
-            <td><a href="http://midgard.berlios.de">MAGUS - Homepage</a> </td>
-          </tr>
-          <tr>
-            <td ><img src="image/NavBar/Zauberstab4.png" alt="Startseite" width=79 height=50 border=0>  </td>
-            <td><a href="index.html">Index</a></td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Disk-Down.png" alt="Download" width="50" height="50" border="0">  </td>
-            <td ><a href="Download.html">Download & Installation</a></td>
-          </tr>
-          <tr class="Active">
-            <td><img src="image/NavBar/Fert_Lesen.png" width="50" height="50" border="0" alt="Bedienung"> </td>
-            <td ><a href="BedienungMain.html">Bedienung</a><br>
-            <font size="-1">- <a href="Bedienung_Element.html">Oberflächenelemente</a></font><br>
-            <font size="-1">- <a href="Bedienung_Modul.html">Programmmodule</a></font><br>
-            <font size="-1">- <a href="Bedienung_Genesis.html">generieren</a></font><br>
-            <font size="-2">&nbsp;&nbsp;-&nbsp;<a href="BGen_Wizard.html">Mit Wizard</a></font><br>
-            <font size="-2">&nbsp;&nbsp;-&nbsp;<a href="BGen_Rule.html">Schritt&nbsp;für&nbsp;Schritt</a></font><br>
-            <font size="-2">&nbsp;&nbsp;-&nbsp;<font class="Here">Eingabe von Hand</font></font><br>
-            <font size="-2">&nbsp;&nbsp;-&nbsp;<a href="BGen_ZGen.html">Mit Zufallsgenerator</a></font><br>
-            <font size="-1">-&nbsp;<a href="Bedienung_Steigern.html">steigern&nbsp;&amp;&nbsp;verwalten</a></font><br>
-            <font size="-1">- <a href="Bedienung_Ausruest.html">ausrüsten</a></font><br>
-            <font size="-1">- <a href="Bedienung_Beschreib.html">beschreiben</a></font><br>
-            <font size="-1">- <a href="Bedienung_Option.html">Optionen</a></font>
-            </td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Abwehr.png" width="79" height="50" border="0" alt="Trouble">  </td>
-            <td><a href="Trouble.html">Troubleshooting</a></td>
-          </tr>
-          <tr>
-            <td><img src="image/NavBar/Info-trans.png" width="79" height="50" border="0" alt="About">  </td>
-            <td><a href="About.html">About</a></td>
-          </tr>
-        </table>
+         An erster Stelle erfolgt die Auswahl der <font class="highlight"><i>Spezies</i></font>. Voreingestellt ist hier
+         &quot;Mensch&quot;, so dass dieser Schritt bei menschlichen Figuren &uuml;bersprungen werden kann.<br>
+         Wird als <i>Spezies</i> Elf gew&auml;hlt, wird durch eine Abfrage dar&uuml;ber entschieden, ob ein <i>Doppelabenteurer</i>
+         generiert werden soll.<br>
         </td>
-        <td class="TextBox" align="center"><h2><a href="BedienungMain.html">Bedienung</a></h2>
-        <table>
-          <tr>
-            <td>
-              <ul>
-                <li><a href="Bedienung_Element.html">Oberflächenelemente</a></li>
-                <li><a href="Bedienung_Modul.html">Programmmodule</a></li>
-                <li><a href="Bedienung_Genesis.html">generieren</a>
-                <ul class="tiny">
-                  <li><a href="BGen_Wizard.html">Mit Wizard generieren</a>  </li>
-                  <li><a href="BGen_Rule.html">Schritt für Schritt</a>  </li>
-                  <li><font class="Here">Eingabe von Hand</font> </li>
-                  <li><a href="BGen_ZGen.html">Mit Zufallsgenerator</a>  </li>
-                </ul>
-                </li>
-                <li><a href="Bedienung_Steigern.html">steigern &amp; verwalten</a></li>
-                <li><a href="Bedienung_Ausruest.html">ausrüsten</a></li>
-                <li><a href="Bedienung_Beschreib.html">beschreiben</a></li>
-                <li><a href="Bedienung_Option.html">Optionen</a></li>
-              </ul>
-            </td>
-          </tr>
-        </table>
+        <td class="body tiny"> </td>
+       </tr>
+       <tr>
+        <td>Eingabe der <font class="highlight">Basiseigenschaften</font>:<br>
+         Die Werte der Basiseigenschaften werden in die entsprechenden <a href="BMod_GW.html#VAL">Eingabefelder im Wertebereich</a>
+         eingegeben.
         </td>
-        <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
-        <td  class="TextBox">
-          <h4>Eingabe von Hand</h4>
-          Die Möglichkeit eine Figur <i>von Hand</i> einzugeben, dient dazu, eine Spielfigur möglichst
-          frei zu gestalten, oder eine bereits existierende (auch höhergradige) Figur in MAGUS einzugeben.<br>
-          Es ist bei jedem Schritt möglich, auch die unter <a href="BGen_Rule.html">Schritt für Schritt</a>
-          angegebene Variante zu nutzen.
-          <ul>
-            <li><a href="#GRU">Grundwerte</a></li>
-            <li><a href="#LRN">Lernschema</a></li>
-            <li><a href="#END">Fertigstellen</a></li>
-          </ul>
+        <td  valign="center" class="body tiny">Die Basiseigenschaften k&ouml;nnen alternativ auch ausgew&uuml;rfelt werden.</td>
+       </tr>
+       <tr>
+        <td>Das <font class="highlight">Geschlecht</font> wird festgelegt</td>
+        <td valign="center" class="body tiny">Dieser Schritt kann auch zu einem anderen Zeitpunkt <i>vor</i> der Festlegung
+         des Abenteurertyps erfolgen.
         </td>
-        <td>  </td>
-      </tr>
-      <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
-        <td  class="TextBox"><a name="GRU"></a>
-          <h4>Grundwerte</h4>
-          Als erstes wird im <a href="Bedienung_Element.html#MEN">Menü <i>Datei</i></a> wird der Eintrag
-          <i>Neuer Abenteurer</i> aktiviert. Falls der Wizard noch aktiv sein sollte, wird er im gleichen
-          Menü beendet.<br>
-          Bei Bedarf werden eine oder mehrere Regionen und/oder Regelerweiterungen aktiviert.<br>
-          Um einen Abenteurer &quot;von Hand&quot; einzugeben, muss der Button <a href="BMod_GW.html#GEN"><i>Werte editieren</i></a>
-          aktiviert sein.<br><br>
-          <table class="small">
-             <tr>
-               <td></td>
-               <td class="body tiny"><b>Anmerkungen</b>  </td>
-             </tr>
-             <tr>
-               <td>
-                 An erster Stelle erfolgt die Auswahl der <font class="highlight"><i>Spezies</i></font>. Voreingestellt ist hier
-                 &quot;Mensch&quot;, so dass dieser Schritt bei menschlichen Figuren übersprungen werden kann.<br>
-                 Wird als <i>Spezies</i> Elf gewählt, wird durch eine Abfragedarüber entschieden, ob ein <i>Doppelabenteurer</i>
-                 werden generiert werden soll.<br>
-               </td>
-               <td class="body tiny"> </td>
-             </tr>
-             <tr>
-               <td>Eingabe der <font class="highlight">Basiseigenschaften</font>:<br>
-                 Die Werte der Basiseigenschaften werden in die entsprechenden <a href="BMod_GW.html#VAL">Eingabefelder im Wertebereich</a>
-                 eingegeben.
-               </td>
-               <td  valign="center" class="body tiny">Die Basis eigenschaften können alternativ auch ausgewürfelt werden.</td>
-             </tr>
-             <tr>
-               <td>Das <font class="highlight">Geschlecht</font> wird festgelegt</td>
-               <td valign="center" class="body tiny">Dieser Schritt kann auch zu einem anderen Zeitpunkt <i>vor</i> der Festlegung
-                 des Abenteurertyps erfolgen.</td>
-             </tr>
-             <tr>
-               <td>Auswahl des <font class="highlight">Abenteurertyps</font><br>
-               </td>
-               <td  valign="center" class="body tiny">Alle Einträge in der Auswahlliste sind eingeklammert, da MAGUS in diesem
-               Modus nicht prüft, ob die Voraussetzungen für den jeweiligen Typ erfüllt sind.</td>
-             </tr>
-             <tr>
-               <td>Eingabe der <font class="highlight">Herkunft</font> (Stadt/Land)</td>
-               <td valign="center" class="body tiny">Dieser Schritt kann auch zu einem anderen Zeitpunkt <i>vor</i> der Festlegung
-                 des Abenteurertyps erfolgen. </td>
-             </tr>
-             <tr>
-               <td>Eingabe der <font class="highlight">Abgeleiteten Werte</font>:<br>
-                 Die Werte werden in die jeweiligen Felder im Wertebereich eingegeben.</td>
-               <td valign="center" class="body tiny">Die <i>abgeleiteten Werte</i> können alternativ über den
-                 dazugehörigen Button bestimmt werden.</td>
-             </tr>
-             <tr>
-               <td>Im Folgenden müssen <font class="highlight">Stand</font>, <font class="highlight">Händigkeit</font>,
-               <font class="highlight">LP</font>, <font class="highlight">AP</font>, das <font class="highlight">Alter</font>,
-               sowie <font class="highlight">Gewicht</font> und <font class="highlight">Größe</font> eingegeben werden. Bei dieser
-               Gelegenheit kann zugleich ein <font class="highlight">Name</font> für die Figur vergeben werden.</td>
-               <td  valign="center" class="body tiny">Dieser Schritt entfällt, wenn der Button abgeleitete Werte benutzt wird.</td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Erfolgswerte berechnen</font>:<br>
-                 Wenn alle Werte eingegeben sind muss der Button <i>Werte für Grad 1 setzen</i> betätigt werden, um die
-                 <i>Erfolgswerte</i> für <i>Resistenz</i>, <i>Abwehr</i>, <i>Gift</i> und <i>Zaubern</i> zu berechnen. </td>
-               <td valign="center" class="body tiny"> </td>
-             </tr>
-          </table><br>
-          Nachdem die Grundwerte der Figur eingegeben sind, kann der Button <i>Werte editieren</i> deaktiviert werden und auf
-          die Seite Lernschema gewechselt werden.
+       </tr>
+       <tr>
+        <td>Auswahl des <font class="highlight">Abenteurertyps</font><br></td>
+        <td  valign="center" class="body tiny">Alle Eintr&auml;ge in der Auswahlliste sind eingeklammert, da MAGuS in diesem
+         Modus nicht pr&uuml;ft, ob die Voraussetzungen f&uuml;r den jeweiligen Typ erf&uuml;llt sind.
         </td>
-        <td>  </td>
-      </tr>
-      <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
-        <td  class="TextBox"><a name="LRN"></a>
-        <h4>Lernschema</h4>
-          Auf dieser Seite wird die Figur mit Fertigkeiten und einer ersten Ausrüstung vervolständigt.<br>
-          Ggf. muss die Seite <a href="BMod_LS.html">Lernschema</a> mit über Das <a href="Bedienung_Element.html#MAUS">Mausmenü</a>
-          noch aktiviert werden.<br><br>
-          <table class="small">
-            <tr>
-              <td></td>
-              <td class="body tiny"><b>Anmerkungen</b>  </td>
-            </tr>
-            <tr>
-              <td><font class="highlight">Herkunft</font>:<br>
-                Mit der Betätigung des <a href="BMod_LS.html#BBAR">Buttons <i>Herkunft</i></a> wird das Auswahlfenster für das Herkunftsland geöffnet. Um aus
-                allen vorhandenen Herkunftsländer auswählen zu können, muss <i>Einschränkungen aufheben</i> aktiviert werden.
-              </td>
-              <td  valign="center" class="body tiny"></td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Muttersprache</font>:<br>
-                 Nach der Auswahl der Herkunft, wird automatisch die passende <i>Muttersprache</i> vorgeschlagen. Auch hier kann
-                 die Auswahl durch <i>Einschränkungen aufheben</i> auf alle Sprachen ausgeweitet werden.</td>
-               <td valign="center" class="body tiny"> </td>
-             </tr>
-             <tr>
-              <td><font class="highlight">Überleben (ungelernt)</font>:<br>
-                Unmittelbar nach dem die <i>Muttersprache</i> gewählt wurde, wird das Gelände für die <i>ungelernte</i>
-                Fertigkeit <i>Überleben</i> vorgeschlagen. Die Auswahl läßt sich ebenfalls mit <i>Einschränkungen aufheben</i>
-                erweitern.
-              </td>
-              <td  valign="center" class="body tiny"></td>
-             </tr>
-             <tr>
-               <td><font class="highlight">angeborene Fertigkeiten</font>:<br>
-                 Um eine <i>angeborene Fertigkeit</i> auszuwählen, wird der entsprechende Button mit der <i>rechten Maustaste</i>
-                 betätigt. Im Anschluß daran öffnet sich das Auswahlfenster für die <i>angeborenen Fertigkeiten</i> und eine oder
-                 mehrere Fertigkeiten können ausgewählt werden.
-               </td>
-               <td valign="center" class="body tiny">Alternativ kann auch normal mit der <i>linken Maustaste</i> &quot;gewürfelt&quot;
-                 werden. </td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Lernpunkte</font>:<br>
-                 Um die Lernpunkte zu bestimmen wird der Button <i>Lernpunkte editieren</i> betätigt. Die Lernpunkte werden
-                 direkt bei den entsprechenden Fertigkeiten eingegeben. Zusätzlich kann der Würfelwurf für den Beruf eingegeben
-                 werden.
-               </td>
-               <td valign="center" class="body tiny">Alternativ können die Lernpunkte such mit dem Button <i>Lernpunkte</i>
-                 ausgewürfelt werden.</td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Fertigkeiten</font>:<br>
-                 Die Auswahl der Fertigkeiten erfolgt durch selektieren des zur Fertigkeit gehörenden <a href="BMod_LS.html#LPV">Buttons</a>
-                 und der Auswahl der gewünschten Fertigkeiten. Um alle lernbaren Fertigkeiten angezeigt zu bekommen, kann
-                 <i>zu teure Fertigkeiten zeigen</i> aktivert werden.
-               </td>
-               <td valign="center" class="body tiny">Falls eine Fertigkeit zu teuer ist, kann der Wert für
-                 die entsprechende Kategorie erhöht werden. </td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Beruf</font>:<br>
-                 Wenn der Button <i>Lernpunkte editieren</i> aktiv ist, kann der Würfelwurf direkt eigegeben, und über die
-                 Fertigkeit ein Beruf aus der Liste ausgewählt werden.<br>
-                 Alternativ kann mit Hilfe der <i>rechten Maustaste</i> ein Berufsnahme direkt eingegeben werden,
-                 jedoch ohne den Vorteil einer zugehörigen Fertigkeit.
-               </td>
-               <td valign="center" class="body tiny">Alternativ kann auf den Beruf gewürfelt werden. </td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Geld</font>:<br>
-                 Wird der Button mit der <i>rechten Maustaste</i> betätigt, kann der Würfelwurf auf Geld direkt
-                 eingegeben werden.</td>
-               <td valign="center" class="body tiny">Alternativ kann herkömmlich gewürfelt werden.</td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Waffen</font>:<br>
-                 Analog zur Bestimmung des Geldes kann der Würfelwurf auf Waffen eingegeben werden. im Anschluß werden die
-                 Waffen aus der sich öffnenden Liste ausgewählt.</td>
-               <td valign="center" class="body tiny">siehe Geld </td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Rüstung</font>:<br>
-                 Analog zur Auswahl der Waffen kann der Würfelwurf für die Rüstung eingegeben werden.</td>
-               <td valign="center" class="body tiny">siehe Geld </td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Ausrüstung</font>:<br>
-                 Auf die Ausrüstung für Fertigkeiten kann nur herkömmlich mit der <i>linken Maustaste</i>
-                 ausgweürfelt werden.</td>
-               <td valign="center" class="body tiny"> </td>
-             </tr>
-             <tr>
-               <td><font class="highlight">Spezialwaffe</font>:<br>
-                 Zum Schluß kann bei Kämpfern noch eine Spezialwaffe ausgewählt werden, indem dieser Button aktiviert
-                 wird und die entsprechende Waffe ausgewählt wird.</td>
-               <td valign="center" class="body tiny"> </td>
-             </tr>
-          </table>
+       </tr>
+       <tr>
+        <td>Eingabe der <font class="highlight">Herkunft</font> (Stadt/Land)</td>
+        <td valign="center" class="body tiny">Dieser Schritt kann auch zu einem anderen Zeitpunkt <i>vor</i> der Festlegung
+         des Abenteurertyps erfolgen. 
         </td>
-        <td>  </td>
-      </tr>
-      <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
-      </tr>
-      <tr>
-        <td>  </td>
-        <td  class="TextBox"><a name="END"></a>
-          <h4>Fertigstellen</h4>
-          Falls noch kein Name eingegeben wurde, muß dieser noch eingegeben werden. Mit dem Speichern des
-          der Figur ist die Erschaffung abgeschlossen.<br>
-          Um eine höhergradige Figur zu generieren, muss diese noch <a href="Bedienung_Steigern.html">gesteigert</a> werden.
+       </tr>
+       <tr>
+        <td>Eingabe der <font class="highlight">Abgeleiteten Werte</font>:<br>
+         Die Werte werden in die jeweiligen Felder im Wertebereich eingegeben.
         </td>
-        <td>  </td>
-      </tr>
-      <tr>
-         <td>  </td>
-         <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
-         <td>  </td>
-      </tr>
-
-    </table>
-    </td>
-  </tr>
-  <tr>
-    <td>  </td>
-  </tr>
+        <td valign="center" class="body tiny">Die <i>abgeleiteten Werte</i> k&ouml;nnen alternativ &uuml;ber den
+         dazugeh&ouml;rigen Button bestimmt werden.
+        </td>
+       </tr>
+       <tr>
+        <td>Im Folgenden m&uuml;ssen <font class="highlight">Stand</font>, <font class="highlight">H&auml;ndigkeit</font>,
+         <font class="highlight">LP</font>, <font class="highlight">AP</font>, das <font class="highlight">Alter</font>,
+         sowie <font class="highlight">Gewicht</font> und <font class="highlight">Gr&ouml;&szlig;e</font> eingegeben werden. Bei dieser
+         Gelegenheit kann zugleich ein <font class="highlight">Name</font> f&uuml;r die Figur vergeben werden.
+        </td>
+        <td  valign="center" class="body tiny">Dieser Schritt entf&auml;llt, wenn der Button abgeleitete Werte benutzt wird.</td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Erfolgswerte berechnen</font>:<br>
+         Wenn alle Werte eingegeben sind muss der Button <i>Werte f&uuml;r Grad 1 setzen</i> ben&ouml;tigt werden, um die
+         <i>Erfolgswerte</i> f&uuml;r <i>Resistenz</i>, <i>Abwehr</i>, <i>Gift</i> und <i>Zaubern</i> zu berechnen. 
+        </td>
+        <td valign="center" class="body tiny"> </td>
+       </tr>
+      </table><br>
+      Nachdem die Grundwerte der Figur eingegeben sind, kann der Button <i>Werte editieren</i> deaktiviert werden und auf
+      die Seite Lernschema gewechselt werden.
+     </td>
+    </tr>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr>
+    <tr>
+     <td  class="TextBox"><a name="LRN"></a>
+      <h4>Lernschema</h4>
+      Auf dieser Seite wird die Figur mit Fertigkeiten und einer ersten Ausr&uuml;stung vervollst&auml;ndigt.<br>
+      Ggf. muss die Seite <a href="BMod_LS.html">Lernschema</a> &uuml;ber das <a href="Bedienung_Element.html#MAUS">Mausmen&uuml;</a>
+      noch aktiviert werden.<br><br>
+      <table class="small">
+       <tr>
+        <td></td>
+        <td class="body tiny"><b>Anmerkungen</b>  </td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Herkunft</font>:<br>
+         Mit der Bet&auml;tigung des <a href="BMod_LS.html#BBAR">Buttons <i>Herkunft</i></a> wird das Auswahlfenster 
+         f&uuml;r das Herkunftsland ge&ouml;ffnet. Um aus allen vorhandenen Herkunftsl&auml;nder ausw&auml;hlen zu 
+         k&ouml;nnen, muss <i>Einschr&auml;nkungen aufheben</i> aktiviert werden.
+        </td>
+        <td  valign="center" class="body tiny"></td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Muttersprache</font>:<br>
+         Nach der Auswahl der Herkunft, wird automatisch die passende <i>Muttersprache</i> vorgeschlagen. Auch 
+         hier kann die Auswahl durch <i>Einschr&auml;nkungen aufheben</i> auf alle Sprachen ausgeweitet werden.
+        </td>
+        <td valign="center" class="body tiny"> </td>
+       </tr>
+       <tr>
+        <td><font class="highlight">&Uuml;berleben (ungelernt)</font>:<br>
+         Unmittelbar nach dem die <i>Muttersprache</i> gew&auml;hlt wurde, wird das Gel&auml;nde f&uuml;r die <i>ungelernte</i>
+         Fertigkeit <i>&Uuml;berleben</i> vorgeschlagen. Die Auswahl l&auml;&szlig;t sich ebenfalls mit <i>Einschr&auml;nkungen 
+         aufheben</i> erweitern.
+        </td>
+        <td  valign="center" class="body tiny"></td>
+       </tr>
+       <tr>
+        <td><font class="highlight">angeborene Fertigkeiten</font>:<br>
+         Um eine <i>angeborene Fertigkeit</i> auszuw&auml;hlen, wird der entsprechende Button 
+         bet&auml;igt. Im Anschlu&szlig; daran &ouml;ffnet sich das Auswahlfenster f&uuml;r die <i>angeborenen Fertigkeiten</i> und eine oder
+         mehrere Fertigkeiten k&ouml;nnen ausgew&auml;hlt werden.
+        </td>
+        <td valign="center" class="body tiny"></td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Lernpunkte</font>:<br>
+         Um die Lernpunkte zu bestimmen wird der Button <i>Lernpunkte</i> bet&auml;tigt. Die Lernpunkte werden
+         direkt bei den entsprechenden Fertigkeiten eingegeben. Zus&auml;tzlich kann der W&uuml;rfelwurf f&uuml;r den Beruf 
+         eingegeben werden.
+        </td>
+        <td valign="center" class="body tiny"></td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Fertigkeiten</font>:<br>
+         Die Auswahl der Fertigkeiten erfolgt durch selektieren des zur Fertigkeit geh&ouml;renden <a href="BMod_LS.html#LPV">Buttons</a>
+         und der Auswahl der gew&uuml;nschten Fertigkeiten. Um alle lernbaren Fertigkeiten angezeigt zu bekommen, kann
+         <i>zu teure Fertigkeiten zeigen</i> aktivert werden.
+        </td>
+        <td valign="center" class="body tiny">Falls eine Fertigkeit zu teuer ist, kann die Anzahl der Lernpunkte f&uuml;r
+         die entsprechende Kategorie erh&ouml;ht werden. 
+        </td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Beruf</font>:<br>
+         Wenn der Button <i>Lernpunkte</i> aktiv ist, kann der W&uuml;rfelwurf direkt eigegeben, und &uuml;ber die
+         Fertigkeit ein Beruf aus der Liste ausgew&auml;hlt werden.<br>
+         Alternativ kann ein Berufsname direkt eingegeben werden, jedoch ohne den Vorteil einer zugeh&ouml;rigen Fertigkeit.
+        </td>
+        <td valign="center" class="body tiny"></td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Geld</font>:<br>
+         Wird der Button bet&auml;tigt, kann der W&uuml;rfelwurf auf Geld direkt eingegeben werden.
+        </td>
+        <td valign="center" class="body tiny"></td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Waffen</font>:<br>
+         Analog zur Bestimmung des Geldes kann der W&uuml;rfelwurf auf Waffen eingegeben werden. im Anschlu&szlig; 
+         werden die Waffen aus der sich &ouml;ffnenden Liste ausgew&auml;hlt.
+        </td>
+        <td valign="center" class="body tiny"></td>
+       </tr>
+       <tr>
+        <td><font class="highlight">R&uuml;stung</font>:<br>
+         Analog zur Auswahl der Waffen kann der W&uuml;rfelwurf f&uuml;r die R&uuml;stung eingegeben werden.
+        </td>
+        <td valign="center" class="body tiny"></td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Ausr&uuml;stung</font>:<br>
+         Auf die Ausr&uuml;stung f&uuml;r Fertigkeiten kann nur herk&ouml;mmlich ausgew&uuml;rfelt werden.
+        </td>
+        <td valign="center" class="body tiny"> </td>
+       </tr>
+       <tr>
+        <td><font class="highlight">Spezialwaffe</font>:<br>
+         Zum Schlu&szlig; kann bei K&auml;mpfern noch eine Spezialwaffe ausgew&auml;hlt werden, indem 
+         dieser Button aktiviert wird und die entsprechende Waffe ausgew&auml;hlt wird.
+        </td>
+        <td valign="center" class="body tiny"> </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+    <tr>
+     <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+    </tr>
+    <tr>
+     <td  class="TextBox"><a name="END"></a>
+      <h4>Fertigstellen</h4>
+      Falls noch kein Name eingegeben wurde, mu&szlig; dieser noch eingegeben werden. Mit dem 
+      Speichern der Figur ist die Erschaffung abgeschlossen.<br>
+      Um eine h&ouml;hergradige Figur zu generieren, muss diese noch <a href="Bedienung_Steigern.html">gesteigert</a> werden.
+     </td>
+    </tr>
+   <tr>
+    <td align="center"><a href="#TOP"><font size="-2">Zum Seitenanfang</font></a></td>
+   </tr>
+  </table>
+ </td>
+</tr>
 </table>
 </body>
 </html>
