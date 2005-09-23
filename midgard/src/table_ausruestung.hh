@@ -117,6 +117,7 @@ private:
         void cell_edited(const Glib::ustring &path,
                   const Glib::ustring&new_text,unsigned idx);
         void cell_edited_bool(const Glib::ustring &path);
+        void redisplay(Gtk::TreeModel::Row const& r, Ausruestung const& a);
 
         // drag & drop
         // for later realization

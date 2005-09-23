@@ -47,6 +47,17 @@ void table_ausruestung::refresh()
    // wenn sich die Regionen geändert haben ...
    fill_new_preise();
 }
+
+void table_ausruestung::redisplay(Gtk::TreeModel::Row const& r, Ausruestung const& a)
+{
+     r[m_columns.name] = a.getAusruestung().Name();
+     r[m_columns.material] = a.getAusruestung().Material();
+     r[m_columns.gewicht] = a.getAusruestung().SGewicht();
+     r[m_columns.sichtbar] = a.getAusruestung().Sichtbar();
+     r[m_columns.region] = a.getAusruestung().Region();
+     r[m_columns.ausruestung] = const_cast<AusruestungBaum*>(&a);
+     r[m_columns.anzahl] = itos(a.getAusruestung().Anzahl());
+}
    
 void table_ausruestung::showAusruestung()
 {
@@ -67,13 +78,7 @@ void table_ausruestung::showAusruestung()
   AusruestungBaum &be=hauptfenster->getAben().getBesitz();
   for(AusruestungBaum::const_iterator i=be.begin();i!=be.end();++i)
    { Gtk::TreeModel::iterator iter = m_refStore->append();
-     (*iter)[m_columns.name] = i->getAusruestung().Name();
-     (*iter)[m_columns.material] = i->getAusruestung().Material();
-     (*iter)[m_columns.gewicht] = i->getAusruestung().SGewicht();
-     (*iter)[m_columns.sichtbar] = i->getAusruestung().Sichtbar();
-     (*iter)[m_columns.region] = i->getAusruestung().Region();
-     (*iter)[m_columns.ausruestung] = const_cast<AusruestungBaum*>(&*i);
-     (*iter)[m_columns.anzahl] = itos(i->getAusruestung().Anzahl());
+     redisplay(*iter,*i);
      showChildren(iter->children(),i->getChildren());
    }
 
@@ -89,13 +94,7 @@ void table_ausruestung::showChildren(Gtk::TreeModel::Children r,const std::list<
 { // we should use a non const iterator - once available
   for(std::list<AusruestungBaum>::const_iterator i=AB.begin();i!=AB.end();++i)
    { Gtk::TreeModel::iterator iter = m_refStore->append(r);
-     (*iter)[m_columns.name] = i->getAusruestung().Name();
-     (*iter)[m_columns.material] = i->getAusruestung().Material();
-     (*iter)[m_columns.gewicht] = i->getAusruestung().SGewicht();
-     (*iter)[m_columns.sichtbar] = i->getAusruestung().Sichtbar();
-     (*iter)[m_columns.region] = i->getAusruestung().Region();
-     (*iter)[m_columns.ausruestung] = const_cast<AusruestungBaum*>(&*i);
-     (*iter)[m_columns.anzahl] = itos(i->getAusruestung().Anzahl());
+     redisplay(*iter,*i);
      showChildren(iter->children(),i->getChildren());
    }  
 }
@@ -382,26 +381,42 @@ table_ausruestung::ModelColumns::ModelColumns()
 
 void table_ausruestung::cell_edited(const Glib::ustring &path,
                   const Glib::ustring&new_text,unsigned idx)
-{
-}
-
-void table_ausruestung::cell_edited_bool(const Glib::ustring &_path)
-{ //std::cout << "toggle visible\n";
-  Gtk::TreeModel::Path path=Gtk::TreeModel::Path(_path);
+{ Gtk::TreeModel::Path path=Gtk::TreeModel::Path(_path);
   AusruestungBaum &be=hauptfenster->getAben().getBesitz();
   AusruestungBaum::iterator bi=be.begin(),end=be.end();
   for (Gtk::TreeModel::Path::const_iterator i=path.begin();i!=path.end();)
   { for (int cnt=*i;cnt>0 && bi!=end;--cnt) ++bi;
-    // bi+=*i;
     assert(bi!=end);
     ++i;
     if (i!=path.end())
     { end=bi->end();
       bi=bi->begin();
       assert(bi!=end);
-//      assert(bi<end);
+    }
+  }
+  switch(idx)
+  { case sTitel: bi->getAusruestung().Name(new_text); break;
+    case sMaterial: bi->getAusruestung().Material(new_text); break;
+    case sAnzahl: bi->getAusruestung().Anzahl(atoi(new_text)); break;
+    default: assert(false);
+  }
+  redisplay(*m_refStore->get_iter(_path),*bi);
+}
+
+void table_ausruestung::cell_edited_bool(const Glib::ustring &_path)
+{ Gtk::TreeModel::Path path=Gtk::TreeModel::Path(_path);
+  AusruestungBaum &be=hauptfenster->getAben().getBesitz();
+  AusruestungBaum::iterator bi=be.begin(),end=be.end();
+  for (Gtk::TreeModel::Path::const_iterator i=path.begin();i!=path.end();)
+  { for (int cnt=*i;cnt>0 && bi!=end;--cnt) ++bi;
+    assert(bi!=end);
+    ++i;
+    if (i!=path.end())
+    { end=bi->end();
+      bi=bi->begin();
+      assert(bi!=end);
     }
   }
   bi->getAusruestung().Sichtbar(!bi->getAusruestung().Sichtbar());
-  showAusruestung();
+  redisplay(*m_refStore->get_iter(_path),*bi);
 }

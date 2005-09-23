@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -60,8 +60,10 @@ class Ausruestung
      std::string SichtbarStr() const {if(sichtbar) return "*"; else return "";}
      void setSichtbar(bool s) {sichtbar=s;}
      void Sichtbar(bool s) {sichtbar=s;}
+     void Name(std::string const& n) { name=n; }
+     void Material(std::string const& m) { material=m; }
+     void Anzahl(int a) { anzahl=a; }
      bool RuestungOhneGewicht() const {return ruestung_ohne_gewicht;}
-
 };
 
 class AusruestungBaum
