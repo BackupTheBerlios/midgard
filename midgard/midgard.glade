@@ -20,6 +20,7 @@
   <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
   <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="focus_on_map">True</property>
+  <property name="urgency_hint">False</property>
   <signal name="delete_event" handler="on_midgard_CG_delete_event"/>
   <signal name="button_press_event" handler="on_eventbox_MCG_button_press_event"/>
 
@@ -326,6 +327,8 @@
 	    <widget class="GtkMenuBar" id="main_menubar">
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
+	      <property name="pack_direction">GTK_PACK_DIRECTION_LTR</property>
+	      <property name="child_pack_direction">GTK_PACK_DIRECTION_LTR</property>
 
 	      <child>
 		<widget class="GtkMenuItem" id="magus1">
@@ -4738,6 +4741,7 @@ setzen</property>
 			    <widget class="GtkToolButton" id="button_abg_werte">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">abgeleitete Werte</property>
 			      <property name="can_focus">True</property>
 			      <property name="label" translatable="yes">Abgeleitete
 Werte</property>
@@ -13114,7 +13118,7 @@ Drucken</property>
 		  <child>
 		    <widget class="GtkTable" id="table81">
 		      <property name="visible">True</property>
-		      <property name="n_rows">4</property>
+		      <property name="n_rows">3</property>
 		      <property name="n_columns">1</property>
 		      <property name="homogeneous">False</property>
 		      <property name="row_spacing">0</property>
@@ -13163,6 +13167,7 @@ Drucken</property>
 			    <widget class="GtkToggleToolButton" id="togglebutton_gruppe_neu">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">neue Kategorie hinzufügen</property>
 			      <property name="label" translatable="yes">Neue Art</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">New_Art-50.xpm</property>
@@ -13182,6 +13187,7 @@ Drucken</property>
 			    <widget class="GtkToggleToolButton" id="togglebutton_artikel_neu">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">neuer Gegenstand</property>
 			      <property name="label" translatable="yes">Neuer Artikel</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">New_Art-50.xpm</property>
@@ -13214,6 +13220,7 @@ Drucken</property>
 			    <widget class="GtkToolButton" id="button_ausruestung_loeschen">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">löschen</property>
 			      <property name="label" translatable="yes">Löschen</property>
 			      <property name="use_underline">True</property>
 			      <property name="icon">Trash-32.xpm</property>
@@ -13245,6 +13252,7 @@ Drucken</property>
 			    <widget class="GtkToggleToolButton" id="checkbutton_ausruestung_geld">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Geld verbrauchen</property>
 			      <property name="label" translatable="yes">Mit Geld
 ausrüsten</property>
 			      <property name="use_underline">True</property>
@@ -13265,6 +13273,7 @@ ausrüsten</property>
 			    <widget class="GtkToggleToolButton" id="togglebutton_unverkauflich">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">unverkäufliches anbieten</property>
 			      <property name="label" translatable="yes">Unverkäufliches
 anzeigen</property>
 			      <property name="use_underline">True</property>
@@ -13277,7 +13286,7 @@ anzeigen</property>
 			    </widget>
 			    <packing>
 			      <property name="expand">False</property>
-			      <property name="homogeneous">False</property>
+			      <property name="homogeneous">True</property>
 			    </packing>
 			  </child>
 
@@ -13844,7 +13853,7 @@ anzeigen</property>
 		      <child>
 			<widget class="GtkTable" id="table_artikel">
 			  <property agent="glademm" name="cxx_visibility">protected</property>
-			  <property name="n_rows">2</property>
+			  <property name="n_rows">3</property>
 			  <property name="n_columns">8</property>
 			  <property name="homogeneous">False</property>
 			  <property name="row_spacing">0</property>
@@ -14537,6 +14546,7 @@ anzeigen</property>
 			    <widget class="GtkButton" id="button_artikel_speichern">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Gegenstand anlegen</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
 			      <property name="focus_on_click">True</property>
@@ -14596,9 +14606,63 @@ speichern</property>
 			      <property name="left_attach">7</property>
 			      <property name="right_attach">8</property>
 			      <property name="top_attach">0</property>
-			      <property name="bottom_attach">2</property>
+			      <property name="bottom_attach">3</property>
 			      <property name="x_options">shrink</property>
-			      <property name="y_options">shrink|fill</property>
+			      <property name="y_options">shrink</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkFrame" id="frame120">
+			      <property name="visible">True</property>
+			      <property name="label_xalign">0</property>
+			      <property name="label_yalign">0.5</property>
+			      <property name="shadow_type">GTK_SHADOW_NONE</property>
+
+			      <child>
+				<widget class="GtkEntry" id="entry_beschreibung">
+				  <property agent="glademm" name="cxx_visibility">protected</property>
+				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
+				  <property name="editable">True</property>
+				  <property name="visibility">True</property>
+				  <property name="max_length">0</property>
+				  <property name="text" translatable="yes"></property>
+				  <property name="has_frame">True</property>
+				  <property name="invisible_char">*</property>
+				  <property name="activates_default">False</property>
+				</widget>
+			      </child>
+
+			      <child>
+				<widget class="GtkLabel" id="label689">
+				  <property name="visible">True</property>
+				  <property name="label" translatable="yes">Beschreibung des Artikels (optional)</property>
+				  <property name="use_underline">False</property>
+				  <property name="use_markup">False</property>
+				  <property name="justify">GTK_JUSTIFY_LEFT</property>
+				  <property name="wrap">False</property>
+				  <property name="selectable">False</property>
+				  <property name="xalign">0.5</property>
+				  <property name="yalign">0.5</property>
+				  <property name="xpad">0</property>
+				  <property name="ypad">0</property>
+				  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+				  <property name="width_chars">-1</property>
+				  <property name="single_line_mode">False</property>
+				  <property name="angle">0</property>
+				</widget>
+				<packing>
+				  <property name="type">label_item</property>
+				</packing>
+			      </child>
+			    </widget>
+			    <packing>
+			      <property name="left_attach">0</property>
+			      <property name="right_attach">7</property>
+			      <property name="top_attach">2</property>
+			      <property name="bottom_attach">3</property>
+			      <property name="x_options">fill</property>
 			    </packing>
 			  </child>
 			</widget>
@@ -14607,61 +14671,6 @@ speichern</property>
 			  <property name="right_attach">1</property>
 			  <property name="top_attach">2</property>
 			  <property name="bottom_attach">3</property>
-			  <property name="x_options">expand|shrink|fill</property>
-			  <property name="y_options">shrink</property>
-			</packing>
-		      </child>
-
-		      <child>
-			<widget class="GtkFrame" id="frame120">
-			  <property name="visible">True</property>
-			  <property name="label_xalign">0</property>
-			  <property name="label_yalign">0.5</property>
-			  <property name="shadow_type">GTK_SHADOW_NONE</property>
-
-			  <child>
-			    <widget class="GtkEntry" id="entry_beschreibung">
-			      <property agent="glademm" name="cxx_visibility">protected</property>
-			      <property name="visible">True</property>
-			      <property name="can_focus">True</property>
-			      <property name="editable">True</property>
-			      <property name="visibility">True</property>
-			      <property name="max_length">0</property>
-			      <property name="text" translatable="yes"></property>
-			      <property name="has_frame">True</property>
-			      <property name="invisible_char">*</property>
-			      <property name="activates_default">False</property>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkLabel" id="label689">
-			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Beschreibung des Artikels (optional)</property>
-			      <property name="use_underline">False</property>
-			      <property name="use_markup">False</property>
-			      <property name="justify">GTK_JUSTIFY_LEFT</property>
-			      <property name="wrap">False</property>
-			      <property name="selectable">False</property>
-			      <property name="xalign">0.5</property>
-			      <property name="yalign">0.5</property>
-			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
-			      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-			      <property name="width_chars">-1</property>
-			      <property name="single_line_mode">False</property>
-			      <property name="angle">0</property>
-			    </widget>
-			    <packing>
-			      <property name="type">label_item</property>
-			    </packing>
-			  </child>
-			</widget>
-			<packing>
-			  <property name="left_attach">0</property>
-			  <property name="right_attach">1</property>
-			  <property name="top_attach">3</property>
-			  <property name="bottom_attach">4</property>
 			  <property name="x_options">expand|shrink|fill</property>
 			  <property name="y_options">shrink</property>
 			</packing>
@@ -14785,6 +14794,7 @@ speichern</property>
 			    <widget class="GtkButton" id="button_art_speichern">
 			      <property agent="glademm" name="cxx_visibility">protected</property>
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Kategorie anlegen</property>
 			      <property name="can_focus">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
 			      <property name="focus_on_click">True</property>
@@ -17580,6 +17590,7 @@ Christof Petig</property>
 			<widget class="GtkToggleButton" id="togglebutton_vorgaben">
 			  <property agent="glademm" name="cxx_visibility">protected</property>
 			  <property name="visible">True</property>
+			  <property name="tooltip" translatable="yes">Werte vorgeben</property>
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
 			  <property name="focus_on_click">True</property>
@@ -17651,6 +17662,7 @@ machen</property>
 			<widget class="GtkButton" id="button_zufall_voll">
 			  <property agent="glademm" name="cxx_visibility">protected</property>
 			  <property name="visible">True</property>
+			  <property name="tooltip" translatable="yes">Abenteurer erwürfeln</property>
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
 			  <property name="focus_on_click">True</property>
@@ -17770,6 +17782,7 @@ Grad 1 erzeugen</property>
 		      <child>
 			<widget class="GtkButton" id="button_steigern">
 			  <property name="visible">True</property>
+			  <property name="tooltip" translatable="yes">steigern</property>
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
 			  <property name="focus_on_click">True</property>
@@ -19014,6 +19027,7 @@ werk</property>
 				<widget class="GtkToggleButton" id="togglebutton_prototyp">
 				  <property agent="glademm" name="cxx_visibility">protected</property>
 				  <property name="visible">True</property>
+				  <property name="tooltip" translatable="yes">Standardwerte verändern</property>
 				  <property name="can_focus">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <property name="focus_on_click">True</property>
@@ -19457,6 +19471,7 @@ werk</property>
   <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
   <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="focus_on_map">True</property>
+  <property name="urgency_hint">False</property>
   <signal name="delete_event" handler="on_WindowInfo_delete_event"/>
 
   <child>
@@ -19674,6 +19689,7 @@ löschen</property>
   <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
   <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="focus_on_map">True</property>
+  <property name="urgency_hint">False</property>
   <property name="show_fileops">True</property>
 
   <child internal-child="cancel_button">
@@ -19715,6 +19731,7 @@ löschen</property>
   <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
   <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="focus_on_map">True</property>
+  <property name="urgency_hint">False</property>
 
   <child>
     <widget class="GtkVBox" id="vbox67">
@@ -20161,6 +20178,7 @@ löschen</property>
   <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
   <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="focus_on_map">True</property>
+  <property name="urgency_hint">False</property>
   <property name="has_separator">False</property>
   <signal name="delete_event" handler="on_WindowInfo_delete_event"/>
 

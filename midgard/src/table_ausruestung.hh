@@ -137,8 +137,12 @@ private:
         guint n_targets;// = sizeof(target_table) / sizeof(target_table[0]);       
 
         void tree_drag_data_received(const Glib::RefPtr<Gdk::DragContext>&context,
-                                  gint x,gint y,
-                                  GtkSelectionData   *data,
+                                  int x,int y,
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+                                     const Gtk::SelectionData   &data,
+#else // gtkmm 2.2
+				     GtkSelectionData *data,
+#endif
                                   guint info,guint32 time);
 
 

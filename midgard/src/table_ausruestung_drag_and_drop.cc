@@ -24,10 +24,12 @@
 
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    typedef Gtk::SelectionData &selection_data_t;
+   typedef const Gtk::SelectionData &const_selection_data_t;
 #  define GTKMM24(x) x
 #include <sigc++/bind.h>
 #else
    typedef GtkSelectionData* selection_data_t;
+   typedef GtkSelectionData* const_selection_data_t;
 #  define GTKMM24(x)
 #endif
 
@@ -135,14 +137,15 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
                              target_table, n_targets,
                              static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE ) );
 
-//  Ausruestung_tree->signal_drag_data_received().connect(slot(this,&(table_ausruestung::drag_data_received)));
+  
 
   checkbutton_ausruestung_geld->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
   checkbutton_ausruestung_geld->drag_dest_set ( Gtk::DEST_DEFAULT_ALL,
                           target_table, n_targets - 1, /* no rootwin */
                           static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
 #endif                          
-
+  Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
+  
   Ausruestung_tree=manage(new Gtk::TreeView());
   m_refStore= MyTreeStore::create(m_columns);
   Ausruestung_tree->enable_model_drag_source();
@@ -185,13 +188,14 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
       ->signal_toggled().connect(SigC::slot(*this,&table_ausruestung::cell_edited_bool));
 }
 
-#if 0
 // GdkDragContext *context, 
-void table_ausruestung::tree_drag_data_received(const Glib::RefPtr<Gdk::DragContext>& context,
+void table_ausruestung::tree_drag_data_received(
+                                  const Glib::RefPtr<Gdk::DragContext>& context,
                                   gint x,gint y,
-                                  selection_data_t data,
+                                  const_selection_data_t data,
                                   guint info,guint32 time)
 {
+#if 0
   Gdk_DragContext gdc ( context );
   if ( ( data -> length >= 0 ) && ( data -> format == 8 ) )
     {
@@ -219,6 +223,7 @@ std::cout << "Finaly we got: "<<P->Ware()->Name()<<' '<<P->Kosten()<<'\n';
       return;
     }
   Gtk::Widget::drag_finish ( gdc , false, false, time );
+#endif
 }
 
 
@@ -232,7 +237,14 @@ std::cout << "Traget Drop\n";
 }
 */
 
-void table_ausruestung::on_preise_tree_neu_drag_data_get(GdkDragContext *context,
+#if 0
+void table_ausruestung::on_preise_tree_neu_drag_data_get(
+#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+                                     Gtk::SelectionData   &selection_data,
+#else // gtkmm 2.2
+				     GtkSelectionData *selection_data,
+#endif
+                                     GdkDragContext *context,
                                      selection_data_t selection_data,
                                      guint               info,
                                      guint32             time )
