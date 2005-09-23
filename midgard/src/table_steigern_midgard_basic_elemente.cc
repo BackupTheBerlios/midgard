@@ -112,11 +112,11 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
 }
 
 bool table_steigern::neu_lernen(MBEmlt &MBE,const int bonus)
-{
+{hauptfenster->getChar()->begin_undo();
  bool ok=hauptfenster->getAben().neu_lernen(MBE,bonus);
- if(!ok) return false;
+ if(!ok) { hauptfenster->getChar()->cancel_undo(); return false; }
 //ab hier neuer code:
- hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
+ hauptfenster->getChar()->name_undo((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
  std::list<MBEmlt> &liste=getLearnList((*MBE).What());
  Abenteurer &A=hauptfenster->getAben();
  if ((*MBE).What()==MidgardBasicElement::FERTIGKEIT

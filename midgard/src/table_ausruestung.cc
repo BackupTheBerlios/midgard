@@ -48,7 +48,7 @@ void table_ausruestung::refresh()
    fill_new_preise();
 }
 
-void table_ausruestung::redisplay(Gtk::TreeModel::Row const& r, Ausruestung const& a)
+void table_ausruestung::redisplay(Gtk::TreeModel::Row const& r, AusruestungBaum const& a)
 {
      r[m_columns.name] = a.getAusruestung().Name();
      r[m_columns.material] = a.getAusruestung().Material();
@@ -379,7 +379,7 @@ table_ausruestung::ModelColumns::ModelColumns()
    add(anzahl);
 }
 
-void table_ausruestung::cell_edited(const Glib::ustring &path,
+void table_ausruestung::cell_edited(const Glib::ustring &_path,
                   const Glib::ustring&new_text,unsigned idx)
 { Gtk::TreeModel::Path path=Gtk::TreeModel::Path(_path);
   AusruestungBaum &be=hauptfenster->getAben().getBesitz();
@@ -397,7 +397,7 @@ void table_ausruestung::cell_edited(const Glib::ustring &path,
   switch(idx)
   { case sTitel: bi->getAusruestung().Name(new_text); break;
     case sMaterial: bi->getAusruestung().Material(new_text); break;
-    case sAnzahl: bi->getAusruestung().Anzahl(atoi(new_text)); break;
+    case sAnzahl: bi->getAusruestung().Anzahl(atoi(new_text.c_str())); break;
     default: assert(false);
   }
   redisplay(*m_refStore->get_iter(_path),*bi);
