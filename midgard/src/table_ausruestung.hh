@@ -118,6 +118,8 @@ private:
                   const Glib::ustring&new_text,unsigned idx);
         void cell_edited_bool(const Glib::ustring &path);
         void redisplay(Gtk::TreeModel::Row const& r, AusruestungBaum const& a);
+        AusruestungBaum &get_Var(Gtk::TreeModel::Path const& p);
+        AusruestungBaum::iterator get_Iter(Gtk::TreeModel::Path const& p,bool &is_end);
 
         // drag & drop
         // for later realization

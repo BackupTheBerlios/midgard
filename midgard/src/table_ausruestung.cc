@@ -379,44 +379,46 @@ table_ausruestung::ModelColumns::ModelColumns()
    add(anzahl);
 }
 
+AusruestungBaum &table_ausruestung::get_Var(Gtk::TreeModel::Path const& path)
+{ bool is_end;
+  AusruestungBaum::iterator bi=get_Iter(path,is_end);
+  assert(!is_end);
+  return *bi;
+}
+
+AusruestungBaum::iterator table_ausruestung::get_Iter(Gtk::TreeModel::Path const& path, bool& is_end)
+{ AusruestungBaum &be=hauptfenster->getAben().getBesitz();
+  AusruestungBaum::iterator bi=be.begin(),end=be.end();
+  for (Gtk::TreeModel::Path::const_iterator i=path.begin();i!=path.end();)
+  { assert(bi!=end);
+    for (int cnt=*i;cnt>0 && bi!=end;--cnt) ++bi;
+    ++i;
+    if (i!=path.end())
+    { assert(bi!=end);
+      end=bi->end();
+      bi=bi->begin();
+    }
+  }
+  is_end=bi==end;
+  return bi;
+}
+
 void table_ausruestung::cell_edited(const Glib::ustring &_path,
                   const Glib::ustring&new_text,unsigned idx)
 { Gtk::TreeModel::Path path=Gtk::TreeModel::Path(_path);
-  AusruestungBaum &be=hauptfenster->getAben().getBesitz();
-  AusruestungBaum::iterator bi=be.begin(),end=be.end();
-  for (Gtk::TreeModel::Path::const_iterator i=path.begin();i!=path.end();)
-  { for (int cnt=*i;cnt>0 && bi!=end;--cnt) ++bi;
-    assert(bi!=end);
-    ++i;
-    if (i!=path.end())
-    { end=bi->end();
-      bi=bi->begin();
-      assert(bi!=end);
-    }
-  }
+  AusruestungBaum &ausr=get_Var(path);
   switch(idx)
-  { case sTitel: bi->getAusruestung().Name(new_text); break;
-    case sMaterial: bi->getAusruestung().Material(new_text); break;
-    case sAnzahl: bi->getAusruestung().Anzahl(atoi(new_text.c_str())); break;
+  { case sTitel: ausr.getAusruestung().Name(new_text); break;
+    case sMaterial: ausr.getAusruestung().Material(new_text); break;
+    case sAnzahl: ausr.getAusruestung().Anzahl(atoi(new_text.c_str())); break;
     default: assert(false);
   }
-  redisplay(*m_refStore->get_iter(_path),*bi);
+  redisplay(*m_refStore->get_iter(path),ausr);
 }
 
 void table_ausruestung::cell_edited_bool(const Glib::ustring &_path)
 { Gtk::TreeModel::Path path=Gtk::TreeModel::Path(_path);
-  AusruestungBaum &be=hauptfenster->getAben().getBesitz();
-  AusruestungBaum::iterator bi=be.begin(),end=be.end();
-  for (Gtk::TreeModel::Path::const_iterator i=path.begin();i!=path.end();)
-  { for (int cnt=*i;cnt>0 && bi!=end;--cnt) ++bi;
-    assert(bi!=end);
-    ++i;
-    if (i!=path.end())
-    { end=bi->end();
-      bi=bi->begin();
-      assert(bi!=end);
-    }
-  }
-  bi->getAusruestung().Sichtbar(!bi->getAusruestung().Sichtbar());
-  redisplay(*m_refStore->get_iter(_path),*bi);
+  AusruestungBaum &ausr=get_Var(path);
+  ausr.getAusruestung().Sichtbar(!ausr.getAusruestung().Sichtbar());
+  redisplay(*m_refStore->get_iter(path),ausr);
 }
