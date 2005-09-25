@@ -34,14 +34,14 @@ class table_ausruestung : public table_ausruestung_glade
         friend class table_ausruestung_glade;
         friend class midgard_CG;
         midgard_CG *hauptfenster;
-        AusruestungBaum *besitz;
+        __deprecated AusruestungBaum *besitz;
         Gtk::TreeView *Ausruestung_tree;
         Glib::RefPtr<Gtk::TreeStore> m_refStore;
 
 	struct ModelColumns : public Gtk::TreeModelColumnRecord
 	{  Gtk::TreeModelColumn<Glib::ustring> name,material,region,gewicht,anzahl;
 	   Gtk::TreeModelColumn<bool> sichtbar;
-	   Gtk::TreeModelColumn<AusruestungBaum *> ausruestung;
+//	   Gtk::TreeModelColumn<AusruestungBaum *> ausruestung;
 	   ModelColumns();
 	};
 	ModelColumns m_columns;
@@ -121,6 +121,7 @@ private:
         AusruestungBaum &get_Var(Gtk::TreeModel::Path const& p);
         AusruestungBaum::iterator get_Iter(Gtk::TreeModel::Path const& p,bool &is_end);
 
+#if 0
         // drag & drop
         // for later realization
         void on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,
@@ -131,7 +132,6 @@ private:
 #endif
                                      guint               info,
                                      guint32             time );
-#if 1
         enum {TARGET_STRING,TARGET_ROOTWIN,TARGET_URL};
         static const GtkTargetEntry target_table[4];
         std::vector<st_ausruestung> vec_aus;

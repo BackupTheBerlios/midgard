@@ -55,7 +55,6 @@ void table_ausruestung::redisplay(Gtk::TreeModel::Row const& r, AusruestungBaum 
      r[m_columns.gewicht] = a.getAusruestung().SGewicht();
      r[m_columns.sichtbar] = a.getAusruestung().Sichtbar();
      r[m_columns.region] = a.getAusruestung().Region();
-     r[m_columns.ausruestung] = const_cast<AusruestungBaum*>(&a);
      r[m_columns.anzahl] = itos(a.getAusruestung().Anzahl());
 }
    
@@ -113,29 +112,15 @@ bool table_ausruestung::tree_valid(const Glib::RefPtr<Gtk::TreeSelection> &selec
 
 void table_ausruestung::on_Ausruestung_tree_select_row()
 { Gtk::TreeIter i= Ausruestung_tree->get_selection()->get_selected();
-  if (!i) // i==m_refStore->children().end())
+  if (!i)
   {  button_ausruestung_loeschen->set_sensitive(false);
      besitz=0;
-     return;
   }
-//  Gtk::TreeModel::Selection selectionList = Ausruestung_tree->get_selection();
-//  if(!tree_valid(selectionList)) return;
-  AusruestungBaum *A=(*i)[m_columns.ausruestung];
-//  sichtbarConnection.disconnect();
-//  checkbutton_sichtbar->set_active(A->getAusruestung().Sichtbar());
-//  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
-  button_ausruestung_loeschen->set_sensitive(true);
-  besitz=A;
+  else
+  { button_ausruestung_loeschen->set_sensitive(true);
+    besitz=&get_Var(m_refStore->get_path(i));
+  }
 }
-
-
-void table_ausruestung::on_checkbutton_sichtbar_toggled()
-{
-  if(!besitz) return;
-//  const_cast<Ausruestung&>(besitz->getAusruestung()).setSichtbar(checkbutton_sichtbar->get_active());
-  showAusruestung();
-}
-
 
 void table_ausruestung::on_ausruestung_loeschen_clicked()
 {
@@ -143,17 +128,6 @@ void table_ausruestung::on_ausruestung_loeschen_clicked()
   AusruestungBaum *Parent = besitz->getParent();
   if(Parent)  Parent->remove(*besitz);  
   else Ausgabe(Ausgabe::Error,"Keine Herkunftsnode gesetzt");
-
-/*
-  Gtk::CTree_Helpers::Row parent = selectionList.begin()->get_parent();  
-  for(Gtk::CTree_Helpers::Row::iterator i=parent.begin();i!=parent.end();++i)
-   {
-     Gtk::CTree_Helpers::Cell& cell = *i;   
-std::cout <<"Cell: " <<cell.get_text()<<'\n';
-//cout <<i->get_data()<<'\n';
-//     if ((*i)->get_data() == A);// { parent.remove(i); break;}
-   }
-*/
   showAusruestung();
 }
 
@@ -375,8 +349,7 @@ void table_ausruestung::on_button_ausruestung_druck()
 
 table_ausruestung::ModelColumns::ModelColumns()
 {  add(name); add(material); add(region);
-   add(gewicht); add(sichtbar); add(ausruestung);
-   add(anzahl);
+   add(gewicht); add(sichtbar); add(anzahl);
 }
 
 AusruestungBaum &table_ausruestung::get_Var(Gtk::TreeModel::Path const& path)

@@ -95,6 +95,7 @@ std::cerr << "gtk-tree-model-drop-append=" << get_data("gtk-tree-model-drop-appe
    return Gtk::TreeStore::drag_data_received_vfunc(dest,selection_data);
 }
 
+#if 0
 void table_ausruestung::on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk::DragContext>&context,
                                      selection_data_t    selection_data,
                                      guint               info,
@@ -102,7 +103,6 @@ void table_ausruestung::on_preise_tree_neu_drag_data_get(const Glib::RefPtr<Gdk:
 {
 }
 
-#if 1
 //static  Gdk_Pixmap drag_icon;
 //#include "/tmp/testdrag_and_drop.xpm"
 
@@ -192,6 +192,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
       ->signal_toggled().connect(SigC::slot(*this,&table_ausruestung::cell_edited_bool));
 }
 
+#if 0
 // GdkDragContext *context, 
 void table_ausruestung::tree_drag_data_received(
                                   const Glib::RefPtr<Gdk::DragContext>& context,
@@ -229,7 +230,7 @@ std::cout << "Finaly we got: "<<P->Ware()->Name()<<' '<<P->Kosten()<<'\n';
   Gtk::Widget::drag_finish ( gdc , false, false, time );
 #endif
 }
-
+#endif
 
 
 /*
