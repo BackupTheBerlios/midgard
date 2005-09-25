@@ -363,7 +363,7 @@ AusruestungBaum::iterator table_ausruestung::get_Iter(Gtk::TreeModel::Path const
 { AusruestungBaum &be=hauptfenster->getAben().getBesitz();
   AusruestungBaum::iterator bi=be.begin(),end=be.end();
   for (Gtk::TreeModel::Path::const_iterator i=path.begin();i!=path.end();)
-  { assert(bi!=end);
+  { assert(!*i || bi!=end);
     for (int cnt=*i;cnt>0 && bi!=end;--cnt) ++bi;
     ++i;
     if (i!=path.end())
