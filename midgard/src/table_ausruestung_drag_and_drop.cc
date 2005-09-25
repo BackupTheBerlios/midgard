@@ -36,7 +36,7 @@
 class MyTreeStore : public Gtk::TreeStore
 {	MyTreeStore(const Gtk::TreeModelColumnRecord& cols) 
 		: Gtk::TreeStore(cols) {}
-	virtual bool drag_data_get_vfunc(const Gtk::TreeModel::Path& path, const_selection_data_t selection_data);
+	virtual bool drag_data_get_vfunc(const Gtk::TreeModel::Path& path, selection_data_t selection_data);
 	virtual bool drag_data_delete_vfunc(const Gtk::TreeModel::Path& path);
 	virtual bool drag_data_received_vfunc(const TreeModel::Path& dest, const_selection_data_t selection_data);
 public:
@@ -49,7 +49,7 @@ public:
 
 #if 1
 bool MyTreeStore::drag_data_get_vfunc(const Gtk::TreeModel::Path& path, 
-					const_selection_data_t selection_data)
+					selection_data_t selection_data)
 { 
 std::cerr << "drag_data_get " << path.to_string() << ' ' << selection_data GTKMM24(.gobj())->target << '\n'; 
    return Gtk::TreeStore::drag_data_get_vfunc(path,selection_data);
