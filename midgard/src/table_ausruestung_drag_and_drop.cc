@@ -36,7 +36,7 @@
 class table_ausruestung::MyTreeStore : public Gtk::TreeStore
 {	MyTreeStore(const Gtk::TreeModelColumnRecord& cols, table_ausruestung *cont) 
 		: Gtk::TreeStore(cols), container(cont) {}
-	virtual bool drag_data_get_vfunc(const Gtk::TreeModel::Path& path, selection_data_t selection_data);
+//	virtual bool drag_data_get_vfunc(const Gtk::TreeModel::Path& path, selection_data_t selection_data);
 	virtual bool drag_data_delete_vfunc(const Gtk::TreeModel::Path& path);
 	virtual bool drag_data_received_vfunc(const TreeModel::Path& dest, const_selection_data_t selection_data);
 	table_ausruestung *container;
@@ -48,7 +48,7 @@ public:
 	}
 };
 
-#if 1
+#if 0 // is not called, don't know why ...
 bool table_ausruestung::MyTreeStore::drag_data_get_vfunc(const Gtk::TreeModel::Path& path, 
 					selection_data_t selection_data)
 { 
@@ -60,9 +60,17 @@ std::cerr << "drag_data_get " << path.to_string() << ' ' << selection_data GTKMM
 
 bool table_ausruestung::MyTreeStore::drag_data_delete_vfunc(const Gtk::TreeModel::Path& path)
 { 
-std::cerr << "drag_data_delete " << path.to_string() << '\n';
+//std::cerr << "drag_data_delete " << path.to_string() << '\n';
+  
+  bool is_end;
+  AusruestungBaum::iterator iter=container->get_Iter(path,is_end);
+  assert(!is_end);
+  Gtk::TreePath parentpath=path;
+  if (parentpath.up())
+  { container->get_Var(parentpath).erase(iter);
+  }
+  else std::cerr << "up() failed\n";
   return Gtk::TreeStore::drag_data_delete_vfunc(path);
-//  return true;
 }
 
 #include <gtk/gtktreednd.h>
@@ -70,27 +78,18 @@ std::cerr << "drag_data_delete " << path.to_string() << '\n';
 bool table_ausruestung::MyTreeStore::drag_data_received_vfunc(const Gtk::TreeModel::Path& dest, 
 					const_selection_data_t selection_data)
 {  
-std::cerr << "drag_data_received(" << dest.to_string() << ")\n";
+//std::cerr << "drag_data_received(" << dest.to_string() << ")\n";
    Glib::RefPtr<TreeModel> model;
    Gtk::TreePath path;
    if (!Gtk::TreePath::get_from_selection_data(selection_data,model,path))
      return false;
-std::cerr << "drag_data_received " << dest.to_string() << ' ' << model->gobj()
-<< ' ' << path.to_string() << '\n';
+//std::cerr << "drag_data_received " << dest.to_string() << ' ' << model->gobj()
+//<< ' ' << path.to_string() << '\n';
    if (model->gobj()!=static_cast<Gtk::TreeModel*>(this)->gobj())
    {  std::cerr << "my model is @"<< gobj() << '\n';
-//      goto out;
-//    out:
-//      if (path) gtk_tree_path_free(path);
       return false;
    }
-   // von Node suchen, löschen, nach Node suchen, einfügen
    
-#if 0   	
-   Gtk::TreeIter sourceit=get_iter(path),
-   	destit=get_iter(dest);
-   move(sourceit,destit);
-#endif
    bool is_end;
    AusruestungBaum::iterator destiter=container->get_Iter(dest,is_end);
    AusruestungBaum &source=container->get_Var(path);
@@ -99,8 +98,6 @@ std::cerr << "drag_data_received " << dest.to_string() << ' ' << model->gobj()
    { container->get_Var(parentpath).insert(destiter,source);
    }
    else std::cerr << "up() failed\n";
-//   Gtk::TreeIter newit=insert(destit);
-//   if (path) gtk_tree_path_free(path); // crash - why?
    return Gtk::TreeStore::drag_data_received_vfunc(dest,selection_data);
 }
 

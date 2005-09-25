@@ -23,6 +23,7 @@
 #include <string>
 #include <map>
 #include <list>
+#include <Misc/compiler_ports.h>
 //#include "dtos1.h"
 
 class AusruestungBaum;
@@ -94,7 +95,10 @@ class AusruestungBaum
       const std::list<AusruestungBaum> &getChildren() const {return child;}
       std::list<AusruestungBaum> &getChildren() {return child;}
 
-      void remove(const AusruestungBaum &A) {child.remove(A);}
+      // believe me you want erase!
+      __deprecated void remove(const AusruestungBaum &A) {child.remove(A);}
+      AusruestungBaum::iterator erase(AusruestungBaum::iterator i)
+      { return child.erase(i); }
          
       bool empty() const
           {  return child.empty(); }
