@@ -33,22 +33,23 @@
 #  define GTKMM24(x)
 #endif
 
-class MyTreeStore : public Gtk::TreeStore
-{	MyTreeStore(const Gtk::TreeModelColumnRecord& cols) 
-		: Gtk::TreeStore(cols) {}
+class table_ausruestung::MyTreeStore : public Gtk::TreeStore
+{	MyTreeStore(const Gtk::TreeModelColumnRecord& cols, table_ausruestung *cont) 
+		: Gtk::TreeStore(cols), container(cont) {}
 	virtual bool drag_data_get_vfunc(const Gtk::TreeModel::Path& path, selection_data_t selection_data);
 	virtual bool drag_data_delete_vfunc(const Gtk::TreeModel::Path& path);
 	virtual bool drag_data_received_vfunc(const TreeModel::Path& dest, const_selection_data_t selection_data);
+	table_ausruestung *container;
 public:
-	static Glib::RefPtr<MyTreeStore> MyTreeStore::create(const Gtk::TreeModelColumnRecord& cols)
-	{  MyTreeStore *x=new MyTreeStore(cols);
+	static Glib::RefPtr<MyTreeStore> MyTreeStore::create(const Gtk::TreeModelColumnRecord& cols, table_ausruestung *cont)
+	{  MyTreeStore *x=new MyTreeStore(cols,cont);
  	   x->reference();
 	   return Glib::RefPtr<MyTreeStore>(x);
 	}
 };
 
 #if 1
-bool MyTreeStore::drag_data_get_vfunc(const Gtk::TreeModel::Path& path, 
+bool table_ausruestung::MyTreeStore::drag_data_get_vfunc(const Gtk::TreeModel::Path& path, 
 					selection_data_t selection_data)
 { 
 std::cerr << "drag_data_get " << path.to_string() << ' ' << selection_data GTKMM24(.gobj())->target << '\n'; 
@@ -57,7 +58,7 @@ std::cerr << "drag_data_get " << path.to_string() << ' ' << selection_data GTKMM
 }
 #endif
 
-bool MyTreeStore::drag_data_delete_vfunc(const Gtk::TreeModel::Path& path)
+bool table_ausruestung::MyTreeStore::drag_data_delete_vfunc(const Gtk::TreeModel::Path& path)
 { 
 std::cerr << "drag_data_delete " << path.to_string() << '\n';
   return Gtk::TreeStore::drag_data_delete_vfunc(path);
@@ -66,30 +67,38 @@ std::cerr << "drag_data_delete " << path.to_string() << '\n';
 
 #include <gtk/gtktreednd.h>
 
-bool MyTreeStore::drag_data_received_vfunc(const Gtk::TreeModel::Path& dest, 
+bool table_ausruestung::MyTreeStore::drag_data_received_vfunc(const Gtk::TreeModel::Path& dest, 
 					const_selection_data_t selection_data)
-{  GtkTreeModel *model=0;
-   GtkTreePath *path=0;
+{  
 std::cerr << "drag_data_received(" << dest.to_string() << ")\n";
-   if (!gtk_tree_get_row_drag_data(const_cast<GtkSelectionData*>(selection_data GTKMM24(.gobj())),&model,&path)) 
-      return false;
-std::cerr << "drag_data_received " << dest.to_string() << ' ' << model
-<< ' ' << Gtk::TreeModel::Path(path,false).to_string() << '\n';
-   if (model!=GTK_TREE_MODEL(gobj())) 
+   Glib::RefPtr<TreeModel> model;
+   Gtk::TreePath path;
+   if (!Gtk::TreePath::get_from_selection_data(selection_data,model,path))
+     return false;
+std::cerr << "drag_data_received " << dest.to_string() << ' ' << model->gobj()
+<< ' ' << path.to_string() << '\n';
+   if (model->gobj()!=static_cast<Gtk::TreeModel*>(this)->gobj())
    {  std::cerr << "my model is @"<< gobj() << '\n';
 //      goto out;
 //    out:
-      if (path) gtk_tree_path_free(path);
+//      if (path) gtk_tree_path_free(path);
       return false;
    }
    // von Node suchen, löschen, nach Node suchen, einfügen
-std::cerr << "gtk-tree-model-drop-append=" << get_data("gtk-tree-model-drop-append") << '\n';
    
 #if 0   	
-   Gtk::TreeIter sourceit=get_iter(Gtk::TreeModel::Path(path,false)),
+   Gtk::TreeIter sourceit=get_iter(path),
    	destit=get_iter(dest);
    move(sourceit,destit);
-#endif   
+#endif
+   bool is_end;
+   AusruestungBaum::iterator destiter=container->get_Iter(dest,is_end);
+   AusruestungBaum &source=container->get_Var(path);
+   Gtk::TreePath parentpath=dest;
+   if (parentpath.up())
+   { container->get_Var(parentpath).insert(destiter,source);
+   }
+   else std::cerr << "up() failed\n";
 //   Gtk::TreeIter newit=insert(destit);
 //   if (path) gtk_tree_path_free(path); // crash - why?
    return Gtk::TreeStore::drag_data_received_vfunc(dest,selection_data);
@@ -150,7 +159,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 #endif                          
   
   Ausruestung_tree=manage(new Gtk::TreeView());
-  m_refStore= MyTreeStore::create(m_columns);
+  m_refStore= MyTreeStore::create(m_columns,this);
 //  Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
   Ausruestung_tree->enable_model_drag_source();
   Ausruestung_tree->enable_model_drag_dest();

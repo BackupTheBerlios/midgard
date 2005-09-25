@@ -39,4 +39,25 @@ std::string Ausruestung::SGewicht() const
   return gewicht;
 }
 
+void AusruestungBaum::fixLinks()
+{ for (iterator i=child.begin();i!=child.end();++i)
+    i->setParent(this);
+}
 
+void AusruestungBaum::setParent(AusruestungBaum *p) 
+{ parent=p;
+  fixLinks();
+}
+
+AusruestungBaum &AusruestungBaum::push_back(const Ausruestung& a)
+{ child.push_back(a);
+  iterator _new=--child.end();
+  _new->setParent(this);
+  return *_new; 
+}
+
+AusruestungBaum &AusruestungBaum::insert(iterator where, const AusruestungBaum& a)
+{ iterator _new=child.insert(where,a);
+  _new->setParent(this);
+  return *_new;
+}

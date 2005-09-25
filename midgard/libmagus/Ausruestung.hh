@@ -80,14 +80,16 @@ class AusruestungBaum
       AusruestungBaum(const Ausruestung& a) 
          : ausruestung(a),parent(0) {}
       
-      AusruestungBaum &push_back(const Ausruestung& a)
-          { child.push_back(a); return child.back(); }
+      AusruestungBaum &push_back(const Ausruestung& a);
+      AusruestungBaum &insert(iterator where, const AusruestungBaum& a);
 
       const Ausruestung &getAusruestung() const {return ausruestung;}
       Ausruestung &getAusruestung() {return ausruestung;}
 
       AusruestungBaum *getParent() const {return parent;}
-      void setParent(AusruestungBaum *p) {parent=p;}
+      // you should not need these!
+      void setParent(AusruestungBaum *p);
+      void fixLinks();
 
       const std::list<AusruestungBaum> &getChildren() const {return child;}
       std::list<AusruestungBaum> &getChildren() {return child;}

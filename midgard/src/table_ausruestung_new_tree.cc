@@ -180,14 +180,19 @@ gewechselt:
 
 void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
 {
+  
 #if 0
+  hauptfenster->getChar().start_undo();
   const Data_NewPreis *dt=dynamic_cast<const Data_NewPreis*>(&*d);
 //  spinbutton_anzahl->update();
   unsigned int anzahl=1; // spinbutton_anzahl->get_value_as_int();
   if(checkbutton_ausruestung_geld->get_active())
    {
-     if(!genug_geld(dt->Ware()->Einheit(),dt->Kosten()*anzahl)) return;
-     zeige_werte();
+     if(!genug_geld(dt->Ware()->Einheit(),dt->Kosten()*anzahl)) 
+     { hauptfenster->getChar().cancel_undo();
+       return;
+     }
+//     zeige_werte();
    }
   bool sichtbar=true; // checkbutton_sichtbar->get_active();
   std::string material;
@@ -200,16 +205,14 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
   
   if(!besitz && dt->Ware()->Art()=="Neu")
    {
-     AusruestungBaum &B=hauptfenster->getAben().getBesitz().push_back(A);
-     B.setParent(&hauptfenster->getAben().getBesitz());     
+     hauptfenster->getAben().getBesitz().push_back(A);
    }
   else if(besitz)
    {
-     AusruestungBaum &B=besitz->push_back(A);
-     B.setParent(besitz);
+     besitz->push_back(A);
    }
   else return;
-  hauptfenster->getChar().undosave("Ausrüstung "+dt->Ware()->Name()+" hinzugefügt");
+  hauptfenster->getChar().name_undo("Ausrüstung "+dt->Ware()->Name()+" hinzugefügt");
   showAusruestung();
 #endif
 }

@@ -30,7 +30,7 @@ class midgard_CG;
 
 class table_ausruestung : public table_ausruestung_glade
 {  
-        
+        class MyTreeStore;
         friend class table_ausruestung_glade;
         friend class midgard_CG;
         midgard_CG *hauptfenster;
