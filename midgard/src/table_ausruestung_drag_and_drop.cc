@@ -78,15 +78,14 @@ bool table_ausruestung::MyTreeStore::drag_data_delete_vfunc(const Gtk::TreeModel
 bool table_ausruestung::MyTreeStore::drag_data_received_vfunc(const Gtk::TreeModel::Path& dest, 
 					const_selection_data_t selection_data)
 {  
-//std::cerr << "drag_data_received(" << dest.to_string() << ")\n";
    Glib::RefPtr<TreeModel> model;
    Gtk::TreePath path;
    if (!Gtk::TreePath::get_from_selection_data(selection_data,model,path))
      return false;
-//std::cerr << "drag_data_received " << dest.to_string() << ' ' << model->gobj()
-//<< ' ' << path.to_string() << '\n';
    if (model->gobj()!=static_cast<Gtk::TreeModel*>(this)->gobj())
    {  std::cerr << "my model is @"<< gobj() << '\n';
+std::cerr << "drag_data_received " << dest.to_string() << ' ' << model->gobj()
+<< ' ' << path.to_string() << '\n';
       return false;
    }
    
@@ -177,6 +176,8 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
    fill_all_Combos_Art_Einheit_Region();
    fill_all_Combo_Art2();
    preise_tree_neu->enable_model_drag_source();
+#warning nur zum Test
+//   preise_tree_neu->enable_model_drag_dest();
 //  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
   dynamic_cast<Gtk::CellRendererText*>(Ausruestung_tree->get_column(sTitel)->get_first_cell_renderer())
       ->property_editable()=true;

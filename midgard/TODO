@@ -1,10 +1,9 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 ? Praxispunkte eingeben geht nicht
-- PP Waffen und Schriften
 - Steigern mit PP+EP
 - PP eingeben wird nicht angezeigt
 - PP Abwehr
-- Löschen von Ausrüstung (vielleicht erneuter Versuch von Dnd)
+- PP
 ####
 
 - Anzeige FP+GS frei
@@ -18,12 +17,10 @@
 - statt on_leaf_selected_alte_fert2 kann MidgardBasicElement_leaf_alt genommen werden
 		(abgesehen vom bool Rückgabewert)
 - View auf Programmoptionen (Execute etc.) statt OberSetzenFromMenu
+- Heimatverzeichnis unter XP stimmt nicht
+- Win32: SHAddToRecentDocs(SHARD_PATH, Datei);
 
-Bugreport Sanni:
-Auswahl/Besitz: Teilweise als aufklappbare Einträge ohne Namen und 
-mit dem Wert +0
-
-Dazu kommen sporadische Segfaults.
+? Dazu kommen sporadische Segfaults.
 
 + Filerequester Umstellung beenden 
 	(fehlt nur noch die Ersetzung von xml_fileselection durch WinFileReq)
@@ -31,7 +28,7 @@ Dazu kommen sporadische Segfaults.
 - Zauberbeschreibung drucken tatsächlich vom Abenteurer abhängig?
 
 - Wizard testen, vor allem die beiden Varianten des Begrüßungsfensters
-- Einstellbarer Kontrast zum Hintergrundbild
+? Einstellbarer Kontrast zum Hintergrundbild
 - Dialoge statt set_insensitive(nearly_everything):
 	- Zusatz
 	- Würfelvarianten
@@ -40,12 +37,6 @@ Dazu kommen sporadische Segfaults.
 - aktiver Wizard sollte focus und page direkt setzen (und wenn möglich
 	machen)
 - Zusatz etc in Dialog tun
-######################################################################
-
-#### das finde ich (CP) beunruhigend #################################
-- irgendwie werden ziemlich oft neue Abenteurer erzeugt (die Nummern gehen
-	hoch) [vermutlich in Undo, durch push_back]
-	=> 
 ######################################################################
 
 - WinFileReq sollte gtk 2.4 Requester nehmen
