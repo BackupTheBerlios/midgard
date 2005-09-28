@@ -2145,7 +2145,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 9	PM	f	waffenloser Kampf	Waffenfertigkeiten	4
 \.
 --
--- TOC entry 4 (OID 30366)
+-- TOC entry 4 (OID 30364)
 -- Name: lernschema_4_typ_name_wert; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -2153,7 +2153,7 @@ CREATE UNIQUE INDEX lernschema_4_typ_name_wert ON lernschema_4 USING btree (typ,
 
 
 --
--- TOC entry 3 (OID 30364)
+-- TOC entry 3 (OID 30365)
 -- Name: lernschema_4_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

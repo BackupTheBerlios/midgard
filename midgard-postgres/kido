@@ -79,7 +79,7 @@ YubeChian	Finger des Friedens	Eingeweihter	Sanfte Techniken	200	0	Im Handgemenge
 YuehSchu	Axt und Baum	Schüler	beide	60	0	Blockade und Angriff. Mißlingt der EW.KiDo: Nur Blockade.
 \.
 --
--- TOC entry 3 (OID 28136)
+-- TOC entry 3 (OID 28134)
 -- Name: kido_name_orig; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -87,7 +87,7 @@ CREATE UNIQUE INDEX kido_name_orig ON kido USING btree (name_orig);
 
 
 --
--- TOC entry 4 (OID 28134)
+-- TOC entry 4 (OID 28135)
 -- Name: kido_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

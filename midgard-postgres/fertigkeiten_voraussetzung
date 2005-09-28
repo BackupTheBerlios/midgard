@@ -72,7 +72,7 @@ FengSchui	\N	\N	\N	81	\N	\N	\N	\N	\N		\N
 FengTsu	\N	61	\N	\N	\N	\N	\N	61	\N		\N
 Gassenwissen	\N	\N	\N	61	\N	\N	31	\N	\N	\N	\N
 Gastlandsprache	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N
-Gaukeln	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12
+Gaukeln	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	61
 Geheimmechanismen öffnen	\N	\N	\N	61	\N	\N	\N	\N	\N	\N	\N
 Geheimzeichen	\N	\N	\N	21	\N	\N	\N	\N	\N	\N	\N
 Geländelauf	\N	31	\N	\N	\N	\N	\N	\N	0	\N	\N
@@ -208,7 +208,7 @@ Zeichensprache	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	31
 Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	61	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 19392)
+-- TOC entry 3 (OID 19390)
 -- Name: fertigkeiten_voraussetzung_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -216,7 +216,7 @@ CREATE UNIQUE INDEX fertigkeiten_voraussetzung_name ON fertigkeiten_voraussetzun
 
 
 --
--- TOC entry 4 (OID 19390)
+-- TOC entry 4 (OID 19391)
 -- Name: fertigkeiten_voraussetzung_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

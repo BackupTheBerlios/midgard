@@ -86,7 +86,7 @@ Zwerg	Th	\N
 Zwerg	To	\N
 \.
 --
--- TOC entry 4 (OID 30961)
+-- TOC entry 4 (OID 30959)
 -- Name: spezies_typen_spezies; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -94,7 +94,7 @@ CREATE INDEX spezies_typen_spezies ON spezies_typen USING btree (spezies);
 
 
 --
--- TOC entry 3 (OID 30959)
+-- TOC entry 3 (OID 30960)
 -- Name: spezies_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

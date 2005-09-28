@@ -179,7 +179,7 @@ Zeichensprache	Zeichensprache
 Zunge verschlucken	Zunge verschlucken
 \.
 --
--- TOC entry 3 (OID 31307)
+-- TOC entry 3 (OID 31305)
 -- Name: steigern_fertigkeiten_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -187,7 +187,7 @@ CREATE UNIQUE INDEX steigern_fertigkeiten_name ON steigern_fertigkeiten USING bt
 
 
 --
--- TOC entry 4 (OID 31305)
+-- TOC entry 4 (OID 31306)
 -- Name: steigern_fertigkeiten_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

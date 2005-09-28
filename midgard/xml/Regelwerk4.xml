@@ -1,6 +1,6 @@
 ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.42 $" Copyright="JÃ¼rgen E. Franke" Jahr="2001" MAGUS-Bild="10" MAGUS-Index="-2" Maintainer="Malte Thoma" Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.43 $" Copyright="JÃ¼rgen E. Franke" Jahr="2001" MAGUS-Bild="10" MAGUS-Index="-2" Maintainer="Malte Thoma" Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Version="1.0" offiziell="true">
  <SteigernKosten>
   <Kosten Fertigkeit="Bewegung" Wert11="20" Wert12="20" Wert13="50" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="800" Wert19="800" Wert20="800"/>
   <Kosten Fertigkeit="Lanzenstechen" Wert2="100" Wert3="100" Wert4="150" Wert5="150" Wert6="200" Wert7="200" Wert8="400"/>
@@ -2788,7 +2788,7 @@
    <Ausnahme Typ="ScW"/>
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="Wa"/>
-   <Voraussetzungen Gs="12"/>
+   <Voraussetzungen Gs="61"/>
    <Besitz Min="51" Name="BÃ¤lle, Reifen und Keulen zum Jonglieren" Position="Rucksack"/>
    <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Gl"/>
    <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="Sp"/>
@@ -5530,6 +5530,7 @@
    <angeboreneFertigkeit Art="v" Name="RÃ¤uber"/>
    <angeboreneFertigkeit Art="v" Name="Scharfrichter"/>
    <angeboreneFertigkeit Art="v" Name="Schlachter"/>
+   <angeboreneFertigkeit Art="v" Name="schwere Armbrust"/>
    <angeboreneFertigkeit Art="v" Name="Seemann"/>
    <angeboreneFertigkeit Art="v" Name="SklavenhÃ¤ndler"/>
    <angeboreneFertigkeit Art="v" Name="Stangenwaffe"/>
@@ -5540,7 +5541,6 @@
    <angeboreneFertigkeit Art="v" Name="Zureiter"/>
    <angeboreneFertigkeit Art="v" Name="Zweihandschlagwaffe"/>
    <angeboreneFertigkeit Art="v" Name="Zweihandschwert"/>
-   <angeboreneFertigkeit Art="v" Name="schwere Armbrust"/>
    <Sprache Name="Gnomenon"/>
   </Spezies>
   <Spezies Land="true" MAGUS-Index="1" Name="Elf" Name-weiblich="Elfe">
@@ -5585,8 +5585,8 @@
    <angeboreneFertigkeit Art="sv" Name="Glefe "/>
    <angeboreneFertigkeit Art="sv" Name="Handarmbrust"/>
    <angeboreneFertigkeit Art="sv" Name="Hellebarde"/>
-   <angeboreneFertigkeit Art="sv" Name="Kampf in VollrÃ¼stung"/>
    <angeboreneFertigkeit Art="sv" Name="Kampfgabeln"/>
+   <angeboreneFertigkeit Art="sv" Name="Kampf in VollrÃ¼stung"/>
    <angeboreneFertigkeit Art="sv" Name="Katapult bedienen"/>
    <angeboreneFertigkeit Art="sv" Name="Kharrata"/>
    <angeboreneFertigkeit Art="sv" Name="Kompositbogen"/>
@@ -5594,6 +5594,7 @@
    <angeboreneFertigkeit Art="sv" Name="Kriegshammer"/>
    <angeboreneFertigkeit Art="sv" Name="KrummsÃ¤bel"/>
    <angeboreneFertigkeit Art="sv" Name="Lasso"/>
+   <angeboreneFertigkeit Art="sv" Name="leichte Armbrust"/>
    <angeboreneFertigkeit Art="sv" Name="Morgenstern"/>
    <angeboreneFertigkeit Art="sv" Name="Netz"/>
    <angeboreneFertigkeit Art="sv" Name="Ochsenzunge"/>
@@ -5602,6 +5603,7 @@
    <angeboreneFertigkeit Art="sv" Name="Peitsche"/>
    <angeboreneFertigkeit Art="sv" Name="Rapier"/>
    <angeboreneFertigkeit Art="sv" Name="Schlachtbeil"/>
+   <angeboreneFertigkeit Art="sv" Name="schwere Armbrust"/>
    <angeboreneFertigkeit Art="sv" Name="Skhallanta"/>
    <angeboreneFertigkeit Art="sv" Name="Speerschleuder"/>
    <angeboreneFertigkeit Art="sv" Name="Stabkeule"/>
@@ -5609,20 +5611,18 @@
    <angeboreneFertigkeit Art="sv" Name="Stockschleuder"/>
    <angeboreneFertigkeit Art="sv" Name="Streitaxt"/>
    <angeboreneFertigkeit Art="sv" Name="Trinken"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfeisen"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfhammer"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfpfeil"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfscheibe"/>
-   <angeboreneFertigkeit Art="sv" Name="WurfspieÃ&#x9F;"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfstern"/>
-   <angeboreneFertigkeit Art="sv" Name="leichte Armbrust"/>
-   <angeboreneFertigkeit Art="sv" Name="schwere Armbrust"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Dschungel"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Gebirge"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Schnee"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Sumpf"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben in der Steppe"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben in der WÃ¼ste"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfeisen"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfhammer"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfpfeil"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfscheibe"/>
+   <angeboreneFertigkeit Art="sv" Name="WurfspieÃ&#x9F;"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfstern"/>
    <angeboreneFertigkeit Art="v" Name="Bergmann"/>
    <angeboreneFertigkeit Art="v" Name="FÃ¤lschen"/>
    <angeboreneFertigkeit Art="v" Name="Gassenwissen"/>
@@ -5673,6 +5673,7 @@
    <angeboreneFertigkeit Art="sv" Name="Fuchtel"/>
    <angeboreneFertigkeit Art="sv" Name="Garotte"/>
    <angeboreneFertigkeit Art="sv" Name="Glefe"/>
+   <angeboreneFertigkeit Art="sv" Name="groÃ&#x9F;er Schild"/>
    <angeboreneFertigkeit Art="sv" Name="Handarmbrust"/>
    <angeboreneFertigkeit Art="sv" Name="Hellebarde"/>
    <angeboreneFertigkeit Art="sv" Name="Kampfgabeln"/>
@@ -5684,6 +5685,7 @@
    <angeboreneFertigkeit Art="sv" Name="Langbogen"/>
    <angeboreneFertigkeit Art="sv" Name="Lanze"/>
    <angeboreneFertigkeit Art="sv" Name="Lasso"/>
+   <angeboreneFertigkeit Art="sv" Name="leichte Armbrust"/>
    <angeboreneFertigkeit Art="sv" Name="Magierstecken"/>
    <angeboreneFertigkeit Art="sv" Name="Morgenstern"/>
    <angeboreneFertigkeit Art="sv" Name="Netz"/>
@@ -5693,21 +5695,13 @@
    <angeboreneFertigkeit Art="sv" Name="Peitsche"/>
    <angeboreneFertigkeit Art="sv" Name="Rapier"/>
    <angeboreneFertigkeit Art="sv" Name="Schlachtbeil"/>
+   <angeboreneFertigkeit Art="sv" Name="schwere Armbrust"/>
    <angeboreneFertigkeit Art="sv" Name="Skhallanta"/>
    <angeboreneFertigkeit Art="sv" Name="Speerschleuder"/>
    <angeboreneFertigkeit Art="sv" Name="Stabkeule"/>
    <angeboreneFertigkeit Art="sv" Name="Stielhammer"/>
    <angeboreneFertigkeit Art="sv" Name="Stockschleuder"/>
    <angeboreneFertigkeit Art="sv" Name="Streitkolben"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfeisen"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfhammer"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfpfeil"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfscheibe"/>
-   <angeboreneFertigkeit Art="sv" Name="WurfspieÃ&#x9F;"/>
-   <angeboreneFertigkeit Art="sv" Name="Wurfstern"/>
-   <angeboreneFertigkeit Art="sv" Name="groÃ&#x9F;er Schild"/>
-   <angeboreneFertigkeit Art="sv" Name="leichte Armbrust"/>
-   <angeboreneFertigkeit Art="sv" Name="schwere Armbrust"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Dschungel"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Gebirge"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Schnee"/>
@@ -5715,6 +5709,12 @@
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Wald"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben in der Steppe"/>
    <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben in der WÃ¼ste"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfeisen"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfhammer"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfpfeil"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfscheibe"/>
+   <angeboreneFertigkeit Art="sv" Name="WurfspieÃ&#x9F;"/>
+   <angeboreneFertigkeit Art="sv" Name="Wurfstern"/>
    <angeboreneFertigkeit Art="v" Name="Bergmann"/>
    <angeboreneFertigkeit Art="v" Name="Bootsbauer"/>
    <angeboreneFertigkeit Art="v" Name="Falkner"/>
@@ -5729,10 +5729,11 @@
    <angeboreneFertigkeit Art="v" Name="Magierstecken"/>
    <angeboreneFertigkeit Art="v" Name="Netz"/>
    <angeboreneFertigkeit Art="v" Name="Peitsche"/>
-   <angeboreneFertigkeit Art="v" Name="Rechtsgelehrter"/>
    <angeboreneFertigkeit Art="v" Name="RÃ¤uber"/>
+   <angeboreneFertigkeit Art="v" Name="Rechtsgelehrter"/>
    <angeboreneFertigkeit Art="v" Name="Sattler"/>
    <angeboreneFertigkeit Art="v" Name="Scharfrichter"/>
+   <angeboreneFertigkeit Art="v" Name="schwere Armbrust"/>
    <angeboreneFertigkeit Art="v" Name="Seemann"/>
    <angeboreneFertigkeit Art="v" Name="SklavenhÃ¤ndler"/>
    <angeboreneFertigkeit Art="v" Name="Stadtwache"/>
@@ -5744,7 +5745,6 @@
    <angeboreneFertigkeit Art="v" Name="Zureiter"/>
    <angeboreneFertigkeit Art="v" Name="Zweihandschlagwaffe"/>
    <angeboreneFertigkeit Art="v" Name="Zweihandschwert"/>
-   <angeboreneFertigkeit Art="v" Name="schwere Armbrust"/>
    <Land Name="Halfdal"/>
    <Sprache Name="Halftan"/>
   </Spezies>
@@ -5813,6 +5813,7 @@
    <angeboreneFertigkeit Art="v" Name="RÃ¤uber"/>
    <angeboreneFertigkeit Art="v" Name="Scharfrichter"/>
    <angeboreneFertigkeit Art="v" Name="Schlachter"/>
+   <angeboreneFertigkeit Art="v" Name="schwere Armbrust"/>
    <angeboreneFertigkeit Art="v" Name="Seemann"/>
    <angeboreneFertigkeit Art="v" Name="SklavenhÃ¤ndler"/>
    <angeboreneFertigkeit Art="v" Name="Stangenwaffe"/>
@@ -5823,7 +5824,6 @@
    <angeboreneFertigkeit Art="v" Name="Zureiter"/>
    <angeboreneFertigkeit Art="v" Name="Zweihandschlagwaffe"/>
    <angeboreneFertigkeit Art="v" Name="Zweihandschwert"/>
-   <angeboreneFertigkeit Art="v" Name="schwere Armbrust"/>
    <Sprache Name="Gnomenon"/>
   </Spezies>
   <Spezies MAGUS-Index="5" Name="Zwerg" Name-weiblich="Zwergin" RaufenBonus="1">
@@ -5866,6 +5866,7 @@
    <angeboreneFertigkeit Art="sv" Name="Kurzbogen"/>
    <angeboreneFertigkeit Art="sv" Name="Langbogen"/>
    <angeboreneFertigkeit Art="sv" Name="Lasso"/>
+   <angeboreneFertigkeit Art="sv" Name="leichter Speer"/>
    <angeboreneFertigkeit Art="sv" Name="Magierstecken"/>
    <angeboreneFertigkeit Art="sv" Name="Netz"/>
    <angeboreneFertigkeit Art="sv" Name="Ochsenzunge"/>
@@ -5875,6 +5876,11 @@
    <angeboreneFertigkeit Art="sv" Name="Skhallanta"/>
    <angeboreneFertigkeit Art="sv" Name="Speerschleuder"/>
    <angeboreneFertigkeit Art="sv" Name="Stockschleuder"/>
+   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Dschungel"/>
+   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Sumpf"/>
+   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Wald"/>
+   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben in der Steppe"/>
+   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben in der WÃ¼ste"/>
    <angeboreneFertigkeit Art="sv" Name="Wurfeisen"/>
    <angeboreneFertigkeit Art="sv" Name="Wurfmesser"/>
    <angeboreneFertigkeit Art="sv" Name="Wurfpfeil"/>
@@ -5882,12 +5888,6 @@
    <angeboreneFertigkeit Art="sv" Name="Wurfspeer"/>
    <angeboreneFertigkeit Art="sv" Name="WurfspieÃ&#x9F;"/>
    <angeboreneFertigkeit Art="sv" Name="Wurfstern"/>
-   <angeboreneFertigkeit Art="sv" Name="leichter Speer"/>
-   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Dschungel"/>
-   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Sumpf"/>
-   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben im Wald"/>
-   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben in der Steppe"/>
-   <angeboreneFertigkeit Art="sv" Name="Ã&#x9C;berleben in der WÃ¼ste"/>
    <angeboreneFertigkeit Art="v" Name="Akrobat"/>
    <angeboreneFertigkeit Art="v" Name="Barbier"/>
    <angeboreneFertigkeit Art="v" Name="Bettler"/>
@@ -6573,17 +6573,17 @@
   <Typ AbkÃ¼rzung="PC" Ausdauer="z" Berufswahl="z" Bezeichnung-Frau="Chaosprieserin" Bezeichnung-Mann="Chaospriester" Lernpflichten="Schreiben: Muttersprache muÃ&#x9F; auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen." MAGUS-Index="45" NSC_only="true" SchreibenPflicht="true" SprÃ¼cheMitPraxisPunkten="Wunder" Zauberer="true" kannZaubern="true">
    <Modifikation Geld="3" RÃ¼stung="4" Stand="20"/>
    <Herkunft Kultwaffe="Dolch" Land="Aran"/>
-   <Herkunft Kultwaffe="Wurfspeer" Land="Clanngadarn"/>
    <Herkunft Kultwaffe="leichter Speer" Land="Clanngadarn"/>
+   <Herkunft Kultwaffe="Wurfspeer" Land="Clanngadarn"/>
    <Herkunft Kultwaffe="Dolch" Land="Eschar"/>
-   <Herkunft Kultwaffe="Wurfspeer" Land="Fuardain"/>
    <Herkunft Kultwaffe="leichter Speer" Land="Fuardain"/>
+   <Herkunft Kultwaffe="Wurfspeer" Land="Fuardain"/>
    <Herkunft Kultwaffe="Dolch" Land="KanThaiPan"/>
    <Herkunft Kultwaffe="Magierstab" Land="KanThaiPan"/>
    <Herkunft Kultwaffe="waffenloser Kampf" Land="KanThaiPan"/>
    <Herkunft Kultwaffe="Dolch" Land="Nahuatlan"/>
-   <Herkunft Kultwaffe="Wurfspeer" Land="Ywerddon"/>
    <Herkunft Kultwaffe="leichter Speer" Land="Ywerddon"/>
+   <Herkunft Kultwaffe="Wurfspeer" Land="Ywerddon"/>
    <Gruppe Name="PRI"/>
    <Gruppe Name="ZAU"/>
   </Typ>

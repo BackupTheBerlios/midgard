@@ -64,7 +64,7 @@ COPY spezies (nr, spezies, st, gs, gw, ko, "in", zt, sb, au, lp, hand_bonus, ap_
 5	Zwerg	61	\N	-80	61	\N	\N	\N	-80	1	\N	\N	0	\N	4	4	4	4	\N	\N	2	1	6	130	4	-90	-70	3	12	1	\N	\N	Zwergin
 \.
 --
--- TOC entry 4 (OID 30880)
+-- TOC entry 4 (OID 30878)
 -- Name: spezies_spezies; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -72,7 +72,7 @@ CREATE UNIQUE INDEX spezies_spezies ON spezies USING btree (spezies);
 
 
 --
--- TOC entry 3 (OID 30878)
+-- TOC entry 3 (OID 30879)
 -- Name: spezies_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

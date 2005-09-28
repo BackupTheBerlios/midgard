@@ -8,7 +8,7 @@ ALTER TABLE ONLY public.spezies_angeborene_fert DROP CONSTRAINT spezies_angebore
 DROP INDEX public.spezies_angeborene_fert_spezies;
 DROP TABLE public.spezies_angeborene_fert;
 --
--- TOC entry 2 (OID 52243)
+-- TOC entry 2 (OID 52247)
 -- Name: spezies_angeborene_fert; Type: TABLE; Schema: public; Owner: thoma
 --
 
@@ -22,7 +22,7 @@ CREATE TABLE spezies_angeborene_fert (
 
 
 --
--- Data for TOC entry 5 (OID 52243)
+-- Data for TOC entry 5 (OID 52247)
 -- Name: spezies_angeborene_fert; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
@@ -366,7 +366,7 @@ Zwerg	v	Waldarbeiter	\N	\N
 Zwerg	v	Zureiter	\N	\N
 \.
 --
--- TOC entry 4 (OID 52587)
+-- TOC entry 4 (OID 52589)
 -- Name: spezies_angeborene_fert_spezies; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -374,7 +374,7 @@ CREATE INDEX spezies_angeborene_fert_spezies ON spezies_angeborene_fert USING bt
 
 
 --
--- TOC entry 3 (OID 52585)
+-- TOC entry 3 (OID 52590)
 -- Name: spezies_angeborene_fert_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

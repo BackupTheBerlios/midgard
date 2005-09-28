@@ -56,7 +56,7 @@ Waelska	Runen	20	\N	\N	\N	\N
 Zwergenrunen Futhark	Runen	20	\N	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 31045)
+-- TOC entry 3 (OID 31043)
 -- Name: schrift_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -64,7 +64,7 @@ CREATE UNIQUE INDEX schrift_name ON schrift USING btree (name);
 
 
 --
--- TOC entry 4 (OID 31043)
+-- TOC entry 4 (OID 31044)
 -- Name: schrift_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

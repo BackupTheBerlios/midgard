@@ -194,7 +194,7 @@ Zündletter (Berührung)	600	magische Letter	3		4 GS	\N	\N
 Zündletter (Schlüsselwort)	600	magische Letter	3		4 GS	\N	\N
 \.
 --
--- TOC entry 3 (OID 38823)
+-- TOC entry 3 (OID 38821)
 -- Name: zauberwerk_name_art_stufe; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -202,7 +202,7 @@ CREATE UNIQUE INDEX zauberwerk_name_art_stufe ON zauberwerk USING btree (name, a
 
 
 --
--- TOC entry 4 (OID 38821)
+-- TOC entry 4 (OID 38822)
 -- Name: zauberwerk_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

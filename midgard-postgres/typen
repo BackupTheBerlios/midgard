@@ -105,7 +105,7 @@ COPY typen (typnr, typs, typl, typlw, typz, ausdauer, stand, sb, ruestung, regio
 58	MMa	Meeresmagier	Meeresmagierin	z	z	10	30	4	G	3	z	l	\N	\N	\N	\N	\N	21	\N	\N	Die Alte Sprache muß Maralinga sein. Schreiben: Valinga muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 \.
 --
--- TOC entry 4 (OID 31567)
+-- TOC entry 4 (OID 31565)
 -- Name: typen_typnr; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -113,7 +113,7 @@ CREATE UNIQUE INDEX typen_typnr ON typen USING btree (typnr);
 
 
 --
--- TOC entry 5 (OID 31568)
+-- TOC entry 5 (OID 31566)
 -- Name: typen_typs; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -121,7 +121,7 @@ CREATE UNIQUE INDEX typen_typs ON typen USING btree (typs);
 
 
 --
--- TOC entry 3 (OID 31565)
+-- TOC entry 3 (OID 31567)
 -- Name: typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

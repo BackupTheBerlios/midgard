@@ -55,7 +55,7 @@ COPY waffen_steigern (schwierigkeit, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p
 7	\N	\N	\N	40	40	60	80	160	320	640	1280	2400	4000	8000	8000	12000	12000	20000	\N	\N	\N	\N
 \.
 --
--- TOC entry 4 (OID 32485)
+-- TOC entry 4 (OID 32483)
 -- Name: waffen_steigern_schwierigkeit; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -63,7 +63,7 @@ CREATE UNIQUE INDEX waffen_steigern_schwierigkeit ON waffen_steigern USING btree
 
 
 --
--- TOC entry 3 (OID 32483)
+-- TOC entry 3 (OID 32484)
 -- Name: waffen_steigern_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

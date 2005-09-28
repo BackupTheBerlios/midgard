@@ -204,7 +204,7 @@ COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert,
 \N	\N	\N	5	Orakelkunst	4	60	E	\N	In	\N	\N	12	11	\N
 \.
 --
--- TOC entry 4 (OID 19212)
+-- TOC entry 4 (OID 19210)
 -- Name: fertigkeiten_fertigkeit_region; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -212,7 +212,7 @@ CREATE UNIQUE INDEX fertigkeiten_fertigkeit_region ON fertigkeiten USING btree (
 
 
 --
--- TOC entry 3 (OID 19210)
+-- TOC entry 3 (OID 19211)
 -- Name: fertigkeit_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

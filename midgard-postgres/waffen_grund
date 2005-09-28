@@ -55,7 +55,7 @@ Zweihandschlagwaffe	600	\N
 Zweihandschwert	800	\N
 \.
 --
--- TOC entry 3 (OID 32405)
+-- TOC entry 3 (OID 32403)
 -- Name: waffen_grund_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -63,7 +63,7 @@ CREATE UNIQUE INDEX waffen_grund_name ON waffen_grund USING btree (name);
 
 
 --
--- TOC entry 4 (OID 32403)
+-- TOC entry 4 (OID 32404)
 -- Name: waffen_grund_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

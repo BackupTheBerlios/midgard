@@ -186,7 +186,7 @@ Waffenzubehör		verzierter Waffengürtel	1	3	GS
 Waffenzubehör		verzierte Schwertscheide	1	20	GS
 \.
 --
--- TOC entry 3 (OID 30799)
+-- TOC entry 3 (OID 30797)
 -- Name: Preise_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -194,7 +194,7 @@ CREATE UNIQUE INDEX "Preise_name" ON preise USING btree (name);
 
 
 --
--- TOC entry 4 (OID 30797)
+-- TOC entry 4 (OID 30798)
 -- Name: Preise_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

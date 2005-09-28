@@ -12081,7 +12081,7 @@ Zwingkreis, Silberner	ScW	A	\N
 Zwingkreis, Silberner	tBe	S	\N
 \.
 --
--- TOC entry 3 (OID 52242)
+-- TOC entry 3 (OID 52244)
 -- Name: zauber_typen_name_typ; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -12089,7 +12089,7 @@ CREATE UNIQUE INDEX zauber_typen_name_typ ON zauber_typen USING btree (name, typ
 
 
 --
--- TOC entry 4 (OID 52240)
+-- TOC entry 4 (OID 52245)
 -- Name: zauber_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

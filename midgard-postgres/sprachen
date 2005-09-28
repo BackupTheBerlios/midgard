@@ -76,7 +76,7 @@ COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, 
 10	Waelska	20	\N	\N	8	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 31096)
+-- TOC entry 3 (OID 31094)
 -- Name: sprachen_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -84,7 +84,7 @@ CREATE UNIQUE INDEX sprachen_name ON sprachen USING btree (name);
 
 
 --
--- TOC entry 4 (OID 31094)
+-- TOC entry 4 (OID 31095)
 -- Name: sprachen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

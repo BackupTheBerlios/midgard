@@ -4193,7 +4193,7 @@ Zweizack	wHx	A
 Zweizack	Wi	S
 \.
 --
--- TOC entry 3 (OID 36659)
+-- TOC entry 3 (OID 36657)
 -- Name: waffen_typen_name_typ; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -4201,7 +4201,7 @@ CREATE UNIQUE INDEX waffen_typen_name_typ ON waffen_typen USING btree (name, typ
 
 
 --
--- TOC entry 4 (OID 36657)
+-- TOC entry 4 (OID 36658)
 -- Name: waffen_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

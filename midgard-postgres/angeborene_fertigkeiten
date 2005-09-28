@@ -46,7 +46,7 @@ COPY angeborene_fertigkeiten (min, max, name, wert) FROM stdin;
 96	99	Einprägen	4
 \.
 --
--- TOC entry 3 (OID 17168)
+-- TOC entry 3 (OID 17166)
 -- Name: angeborene_fertigkeiten_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -54,7 +54,7 @@ CREATE UNIQUE INDEX angeborene_fertigkeiten_name ON angeborene_fertigkeiten USIN
 
 
 --
--- TOC entry 4 (OID 17166)
+-- TOC entry 4 (OID 17167)
 -- Name: angeborene_fertigkeiten_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

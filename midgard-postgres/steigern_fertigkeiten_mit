@@ -130,7 +130,7 @@ Zaubern	ZEP
 Zeichensprache	ZEP
 \.
 --
--- TOC entry 3 (OID 31419)
+-- TOC entry 3 (OID 31417)
 -- Name: steigern_fertigkeiten_mit_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -138,7 +138,7 @@ CREATE INDEX steigern_fertigkeiten_mit_name ON steigern_fertigkeiten_mit USING b
 
 
 --
--- TOC entry 4 (OID 31417)
+-- TOC entry 4 (OID 31418)
 -- Name: steigern_fertigkeiten_mit_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

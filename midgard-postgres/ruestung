@@ -53,7 +53,7 @@ Tschahaatha(VR)	VR(R)	5	0	0	8	R	\N	\N	2	\N	\N	PR
 Vollrüstung	VR	5	61	40	12	\N	2	1	2	600	45	VR
 \.
 --
--- TOC entry 4 (OID 31012)
+-- TOC entry 4 (OID 31010)
 -- Name: ruestung_ruestung_s; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -61,7 +61,7 @@ CREATE UNIQUE INDEX ruestung_ruestung_s ON ruestung USING btree (ruestung_s);
 
 
 --
--- TOC entry 3 (OID 31010)
+-- TOC entry 3 (OID 31011)
 -- Name: ruestung_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

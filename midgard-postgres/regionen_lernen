@@ -8,7 +8,7 @@ ALTER TABLE ONLY public.regionen_lernen DROP CONSTRAINT regionen_lernen_pkey;
 DROP INDEX public.regionen_lernen_region_name;
 DROP TABLE public.regionen_lernen;
 --
--- TOC entry 2 (OID 52606)
+-- TOC entry 2 (OID 52610)
 -- Name: regionen_lernen; Type: TABLE; Schema: public; Owner: thoma
 --
 
@@ -21,7 +21,7 @@ CREATE TABLE regionen_lernen (
 
 
 --
--- Data for TOC entry 5 (OID 52606)
+-- Data for TOC entry 5 (OID 52610)
 -- Name: regionen_lernen; Type: TABLE DATA; Schema: public; Owner: thoma
 --
 
@@ -29,7 +29,7 @@ COPY regionen_lernen (region, name, lp_stadt, lp_land) FROM stdin;
 Minangpahit	Giftmischen	2	1
 \.
 --
--- TOC entry 4 (OID 52614)
+-- TOC entry 4 (OID 52616)
 -- Name: regionen_lernen_region_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -37,7 +37,7 @@ CREATE UNIQUE INDEX regionen_lernen_region_name ON regionen_lernen USING btree (
 
 
 --
--- TOC entry 3 (OID 52612)
+-- TOC entry 3 (OID 52617)
 -- Name: regionen_lernen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

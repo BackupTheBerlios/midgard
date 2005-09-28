@@ -129,7 +129,7 @@ Zeichensprache	\N	\N	\N	\N	10	10	10	10	20	50	100	100	100	100	\N	\N	\N	\N	\N	\N	\
 Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	\N	50	100	200	400	800	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 31502)
+-- TOC entry 3 (OID 31500)
 -- Name: steigern_fertigkeiten_werte_nam; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -137,7 +137,7 @@ CREATE UNIQUE INDEX steigern_fertigkeiten_werte_nam ON steigern_fertigkeiten_wer
 
 
 --
--- TOC entry 4 (OID 31500)
+-- TOC entry 4 (OID 31501)
 -- Name: steigern_fertigkeiten_werte_pke; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

@@ -50,7 +50,7 @@ Schwerttanz	Beidhändiger Kampf
 Tauchen	Schwimmen
 \.
 --
--- TOC entry 4 (OID 19424)
+-- TOC entry 4 (OID 19422)
 -- Name: fertigkeiten_voraussetzungen_2_; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -58,7 +58,7 @@ CREATE INDEX fertigkeiten_voraussetzungen_2_ ON fertigkeiten_voraussetzungen_2 U
 
 
 --
--- TOC entry 3 (OID 19422)
+-- TOC entry 3 (OID 19423)
 -- Name: fertigkeiten_voraus_2_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

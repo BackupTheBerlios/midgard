@@ -144,7 +144,7 @@ Wurfstern	\N	\N	61	Wurfscheibe	5	Wurfwaffe	W6	-3	\N	W	\N	\N	\N	\N	\N	0	5	10	15	\
 Zweizack	\N	\N	11	Spießwaffe	3	Angriff	W6	\N	\N	E	\N	\N	\N	\N	G	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 32369)
+-- TOC entry 3 (OID 32367)
 -- Name: waffen_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -152,7 +152,7 @@ CREATE UNIQUE INDEX waffen_name ON waffen USING btree (name);
 
 
 --
--- TOC entry 4 (OID 32367)
+-- TOC entry 4 (OID 32368)
 -- Name: waffen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

@@ -276,7 +276,7 @@ Zollpächter	t	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Zureiter	t	\N	\N	t	t	t	t	\N	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 18544)
+-- TOC entry 3 (OID 18542)
 -- Name: berufe_voraussetzung_4_beruf; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -284,7 +284,7 @@ CREATE UNIQUE INDEX berufe_voraussetzung_4_beruf ON berufe_voraussetzung_4 USING
 
 
 --
--- TOC entry 4 (OID 18542)
+-- TOC entry 4 (OID 18543)
 -- Name: berufe_voraussetzung_4_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

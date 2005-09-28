@@ -8590,7 +8590,7 @@ Zunge verschlucken	Wa	S
 Zunge verschlucken	wHx	S
 \.
 --
--- TOC entry 3 (OID 28016)
+-- TOC entry 3 (OID 28014)
 -- Name: fertigkeiten_typen_name; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -8598,7 +8598,7 @@ CREATE INDEX fertigkeiten_typen_name ON fertigkeiten_typen USING btree (name);
 
 
 --
--- TOC entry 4 (OID 28017)
+-- TOC entry 4 (OID 28015)
 -- Name: fertigkeiten_typen_name_typ; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -8606,7 +8606,7 @@ CREATE UNIQUE INDEX fertigkeiten_typen_name_typ ON fertigkeiten_typen USING btre
 
 
 --
--- TOC entry 5 (OID 28014)
+-- TOC entry 5 (OID 28016)
 -- Name: fertigkeiten_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

@@ -1615,7 +1615,7 @@ Zweihandschwert	wHx	A
 Zweihandschwert	Wi	S
 \.
 --
--- TOC entry 3 (OID 38255)
+-- TOC entry 3 (OID 38253)
 -- Name: waffen_grund_typen_name_typ; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -1623,7 +1623,7 @@ CREATE UNIQUE INDEX waffen_grund_typen_name_typ ON waffen_grund_typen USING btre
 
 
 --
--- TOC entry 4 (OID 38253)
+-- TOC entry 4 (OID 38254)
 -- Name: waffen_grund_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

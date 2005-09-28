@@ -1268,7 +1268,7 @@ Zündletter (Schlüsselwort)	3	Sw	G	magische Letter
 Zündletter (Schlüsselwort)	3	Th	G	magische Letter
 \.
 --
--- TOC entry 3 (OID 40070)
+-- TOC entry 3 (OID 40068)
 -- Name: zauberwerk_typen_name_stufe_typ; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -1276,7 +1276,7 @@ CREATE UNIQUE INDEX zauberwerk_typen_name_stufe_typ ON zauberwerk_typen USING bt
 
 
 --
--- TOC entry 4 (OID 40068)
+-- TOC entry 4 (OID 40069)
 -- Name: zauberwerk_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

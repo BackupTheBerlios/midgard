@@ -56,7 +56,7 @@ Ma	14	Adept des formbaren Chaos	Magan	\N
 Ma	15	Adept des Todes	Eis	\N
 \.
 --
--- TOC entry 4 (OID 40165)
+-- TOC entry 4 (OID 40163)
 -- Name: spezialgebiete_spezialgebiet; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -64,7 +64,7 @@ CREATE UNIQUE INDEX spezialgebiete_spezialgebiet ON spezialgebiete USING btree (
 
 
 --
--- TOC entry 3 (OID 40163)
+-- TOC entry 3 (OID 40164)
 -- Name: spezialgebiete_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

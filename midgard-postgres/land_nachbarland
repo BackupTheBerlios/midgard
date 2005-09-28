@@ -67,7 +67,7 @@ Moravod	Waeland
 Tegarische Steppe	Valian
 \.
 --
--- TOC entry 3 (OID 28243)
+-- TOC entry 3 (OID 28241)
 -- Name: land_nachbarland_land_1_land_2; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -75,7 +75,7 @@ CREATE UNIQUE INDEX land_nachbarland_land_1_land_2 ON land_nachbarland USING btr
 
 
 --
--- TOC entry 4 (OID 28241)
+-- TOC entry 4 (OID 28242)
 -- Name: land_nachbarland_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

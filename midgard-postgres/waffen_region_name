@@ -91,7 +91,7 @@ Wurfspeer	YariNage	K	\N	\N	\N	\N	\N
 Wurfstern	Tschakram	R	\N	\N	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 32472)
+-- TOC entry 3 (OID 32470)
 -- Name: waffen_region_name_alias; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -99,7 +99,7 @@ CREATE UNIQUE INDEX waffen_region_name_alias ON waffen_region_name USING btree (
 
 
 --
--- TOC entry 4 (OID 32470)
+-- TOC entry 4 (OID 32471)
 -- Name: waffen_region_name_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 

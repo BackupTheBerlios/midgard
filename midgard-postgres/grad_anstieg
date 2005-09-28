@@ -49,7 +49,7 @@ COPY grad_anstieg (grad, abwehr, abwehr_kosten, resistenz, resistenz_kosten, gfp
 15	\N	\N	\N	\N	150000	\N	\N	3	2000
 \.
 --
--- TOC entry 3 (OID 40185)
+-- TOC entry 3 (OID 40183)
 -- Name: grad_anstieg_grad; Type: INDEX; Schema: public; Owner: thoma
 --
 
@@ -57,7 +57,7 @@ CREATE UNIQUE INDEX grad_anstieg_grad ON grad_anstieg USING btree (grad);
 
 
 --
--- TOC entry 4 (OID 40183)
+-- TOC entry 4 (OID 40184)
 -- Name: grad_anstieg_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
 --
 
