@@ -1,6 +1,4 @@
-// $Id: embed.cc,v 1.9 2005/09/07 11:20:59 christof Exp $
-
-#define MAKE_PNG
+// $Id: embed.cc,v 1.10 2005/10/04 09:38:29 christof Exp $
 
 #include <iostream>
 #include <cstdio>
@@ -8,64 +6,9 @@
 #include <fstream>
 #include <map>
 #include <sys/stat.h>
+#include <Misc/itos.h>
 
 static std::string path="../pixmaps/";
-
-#ifndef MAKE_PNG
-// parts taken from
-/* xpmtoppm.c - read an X11 pixmap file and produce a portable pixmap
-**
-** Copyright (C) 1991 by Jef Poskanzer.
-**
-** Permission to use, copy, modify, and distribute this software and its
-** documentation for any purpose and without fee is hereby granted, provided
-** that the above copyright notice appear in all copies and that both that
-** copyright notice and this permission notice appear in supporting
-** documentation.  This software is provided "as is" without express or
-** implied warranty.
-**
-*/
-
-#define MAX_LINE 2048
-  /* The maximum size XPM input line we can handle. */
-  
-static std::string
-readXpm3Header(FILE * const stream)
-{   char line[MAX_LINE],w[MAX_LINE];
-    
-    /* Read the assignment line */
-    fgets(line, sizeof(line), stream);
-    
-    *w=0;
-    sscanf(line,"static char%*[ *]%[_A-Za-z0-9]",w);
-    return w;
-}
-
-static std::string ReadXPMFile(FILE * const stream)
-{  char line[MAX_LINE], str1[MAX_LINE];
-   int rc;
-
-    /* Read the header line */
-    fgets(line, sizeof(line), stream);
-    
-    rc = sscanf(line, "/* %s */", str1);
-    if (rc == 1 && strncmp(str1, "XPM", 3) == 0) {
-        /* It's an XPM version 3 file */
-        return readXpm3Header(stream);
-    }
-    // we don't care about Version 1 files, the parsing is too
-    // complicated and we should reasonably never encounter one
-    return "";
-}
-
-static std::string xpmname2(const std::string &file_with_path)
-{  FILE *f;
-   if (!(f=fopen(file_with_path.c_str(),"r"))) return "";
-   std::string res=ReadXPMFile(f);
-   fclose(f);
-   return res;
-}
-#endif
 
 const std::string CName(const std::string &tag) throw()
 {  std::string ret("");
@@ -117,7 +60,7 @@ struct payload
 
 static std::map<std::string,payload> already_there;
 
-static void embed_one_file(const std::string &file, const std::string &name, const std::string &domain="")
+static void embed_one_file(const std::string &file, const std::string &name, const std::string &domain="", int size=0)
 {  // file schon drin? dann muss nur noch unter anderem Namen registriert werden
    std::map<std::string,payload>::const_iterator it=already_there.find(file);
    if (it!=already_there.end())
@@ -146,16 +89,6 @@ static void embed_one_file(const std::string &file, const std::string &name, con
    if (!memcmp(buf,"/* XPM *",8))
    {  // xpm image ...
       is.close();
-#ifndef MAKE_PNG
-      std::string xpmname=xpmname2(filename);
-      if (xpmname.empty())
-      { std::cerr << "error parsing xpm image " << file << '\n'; return; }
-      std::cout << "#include \"" << filename << "\"\n";
-      std::cout << "static MagusIcons::data_registry " << CName(domain+name) << "_reg(";
-      if (!domain.empty()) std::cout << "MagusIcons::" << domain << ", ";
-      std::cout << '"' << name << "\", " << xpmname << ");\n";
-      already_there[file]=payload(xpmname);
-#else
       system(("xpmtoppm --alphaout tmp_alpha.pbm \""+filename+"\" >tmp.ppm").c_str());
       system("pnmtopng -alpha tmp_alpha.pbm -compression 9 tmp.ppm >tmp.png");
       struct stat st;
@@ -167,6 +100,14 @@ static void embed_one_file(const std::string &file, const std::string &name, con
             return;
          }
       }
+      if (size)
+      { std::cerr << "scaling to " << size << "\n";
+        system(("convert -scale x"+itos(size)+" tmp.png tmp2.png").c_str());
+        if (!stat("tmp2.png",&st) && st.st_size)
+        { if (rename("tmp2.png","tmp.png")) 
+            std::cerr << "rename after resize failed\n";
+        }
+      }
       system("pngcrush -q tmp.png tmp2.png >/dev/null");
       if (!stat("tmp2.png",&st) && st.st_size)
       { if (rename("tmp2.png","tmp.png")) 
@@ -176,10 +117,22 @@ static void embed_one_file(const std::string &file, const std::string &name, con
       is.open("tmp.png",std::ios_base::in);
       unsigned sz=embed_binary(name,is,domain);
       already_there[file]=payload(CName(domain+name)+"_data",sz);
-#endif      
    }
    else // if (!memcmp(buf,"‰PNG",4) || !memcmp(buf,"ÿØ",2))
    {  is.seekg(0, std::ios_base::beg);
+      if (size)
+      { is.close();
+        std::cerr << "scaling to " << size << "\n";
+        system(("convert -scale x"+itos(size)+" \""+filename+"\" tmp.png").c_str());
+        system("pngcrush -q tmp.png tmp2.png >/dev/null");
+        struct stat st;
+        if (!stat("tmp2.png",&st) && st.st_size)
+        { if (rename("tmp2.png","tmp.png")) 
+            std::cerr << "rename after pngcrush failed\n";
+        }
+        is.clear();
+        is.open("tmp.png",std::ios_base::in);
+      }
       unsigned sz=embed_binary(name,is,domain);
       already_there[file]=payload(CName(domain+name)+"_data",sz);
    }
@@ -190,9 +143,19 @@ static void read_file(const std::string &file, const std::string &domain="")
    std::ifstream is(file.c_str());
    if (!is.good()) { std::cerr << "error opening " << file << '\n'; return; }
    while (is.getline(buf,sizeof buf).good())
-   {  char *tab_pos=strchr(buf,'\t');
-      if (tab_pos) { *tab_pos=0; ++tab_pos; }
-      embed_one_file(buf,tab_pos?tab_pos:buf,domain);
+   {  int size=0;
+      char *tab_pos=strchr(buf,'\t'), *size_pos=0;
+      if (tab_pos) 
+      { *tab_pos=0; 
+        ++tab_pos;
+        size_pos=strchr(tab_pos,'\t');
+        if (size_pos)
+        { *size_pos=0;
+          ++size_pos;
+          size=atoi(size_pos);
+        }
+      }
+      embed_one_file(buf,tab_pos?tab_pos:buf,domain,size);
    }
 }
 

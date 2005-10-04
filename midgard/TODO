@@ -148,3 +148,23 @@ was bedeutet:
 
 Funktionen können ersetzt werden:
 on_leaf_selected_neue_zauberwerk -> MidgardBasicElement_leaf_neu
+==7803== 
+==7803== Invalid free() / delete / delete[]
+==7803==    at 0x11B1DCCC: operator delete(void*) (vg_replace_malloc.c:246)
+==7803==    by 0x642B97: destruct_object(void*) (in /home/christof/berlios~1/magus2/midgard/src/.libs/magus)
+==7803==    by 0x14518539: g_datalist_clear (in /usr/lib/libglib-2.0.so.0.800.1)
+==7803==    by 0x141CBA56: g_object_unref (in /usr/lib/libgobject-2.0.so.0.800.1)
+==7803==    by 0x12A02450: (within /usr/lib/libgtk-x11-2.0.so.0.800.3)
+==7803==    by 0x141C93BF: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.800.1)
+==7803==    by 0x141D83FD: (within /usr/lib/libgobject-2.0.so.0.800.1)
+==7803==    by 0x141D93EB: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.800.1)
+==7803==    by 0x141D97A2: g_signal_emit (in /usr/lib/libgobject-2.0.so.0.800.1)
+==7803==    by 0x12AA27E2: (within /usr/lib/libgtk-x11-2.0.so.0.800.3)
+==7803==    by 0x141CC3EF: g_object_run_dispose (in /usr/lib/libgobject-2.0.so.0.800.1)
+==7803==    by 0x129CAF5F: (within /usr/lib/libgtk-x11-2.0.so.0.800.3)
+==7803==  Address 0x18480928 is 8 bytes inside a block of size 128 alloc'd
+==7803==    at 0x11B1D263: operator new(unsigned long) (vg_replace_malloc.c:168)
+==7803==    by 0x64316C: _Z16Association_implIiN3Gtk5ImageE15int_ImageButtonERNT1_10ConnectionERT0_ (in /home/christof/berlios~1/magus2/midgard/src/.libs/magus)
+==7803==    by 0x6431E2: ManuProC::Association(Gtk::EventBox&, Gtk::Image&) (in /home/christof/berlios~1/magus2/midgard/src/.libs/magus)
+==7803==    by 0x5E67AD: midgard_CG::midgard_CG(WindowInfo*, std::_List_iterator<AbenteurerListe::Item>) (in /home/christof/berlios~1/magus2/midgard/src/.libs/magus)
+==7803==    by 0x5C2F06: main (in /home/christof/berlios~1/magus2/midgard/src/.libs/magus)
