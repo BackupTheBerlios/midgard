@@ -119,6 +119,20 @@ const GtkTargetEntry table_ausruestung::target_table[4] = {
            };
 #endif
 
+static void drag_data_display(const Glib::RefPtr<Gdk::DragContext>& context,
+                                  gint x,gint y,
+                                  const_selection_data_t data,
+                                  guint info,guint32 time)
+{ std::cout << "drag data received: " << x << "," << y << " " << info << ' ';
+  std::cout << context->get_action() << ' ' << '\n';
+}
+
+static bool drag_drop_display(const Glib::RefPtr<Gdk::DragContext>& context,
+                                  gint x,gint y,guint32 time)
+{ std::cout << "drop: " << x << "," << y << " " << time << '\n';
+  return true; // ?
+}
+
 table_ausruestung::table_ausruestung(GlademmData *_data)
 : table_ausruestung_glade(_data) , hauptfenster(), besitz(),
 	Ausruestung_tree()
@@ -153,8 +167,10 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
                           target_table, n_targets - 1, /* no rootwin */
                           static_cast < GdkDragAction > ( GDK_ACTION_COPY | GDK_ACTION_MOVE) );
 #endif                          
-  
+
   Ausruestung_tree=manage(new Gtk::TreeView());
+  Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(&drag_data_display),false);
+  Ausruestung_tree->signal_drag_drop().connect(SigC::slot(&drag_drop_display),false);
   m_refStore= MyTreeStore::create(m_columns,this);
 //  Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
   Ausruestung_tree->enable_model_drag_source();
