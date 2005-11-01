@@ -225,7 +225,7 @@ void Data_SimpleTree::redisplay(SimpleTree *tree) const
   tree->redisplay(this,Data_SimpleTree::VERLERNEN);
 }
 
-bool Data_SimpleTree::changeValue(guint seqnr,gpointer gp,const Glib::ustring &newvalue)
+bool Data_SimpleTree::changeValue(guint idx,gpointer gp,const Glib::ustring &newval)
 { MidgardBasicTree::variante Variante = 
                MidgardBasicTree::variante(reinterpret_cast<long>(gp));
   try
