@@ -38,7 +38,7 @@ class Beruf_Data : public RowDataBase
         
       enum spalten{BERUF,GELERNT,FERT,WERT,KAT};
       
-      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
+      virtual cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
          switch(spalten(seqnr))
           {

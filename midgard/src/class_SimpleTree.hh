@@ -51,14 +51,14 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_ZAUBERWERK {NAMEn_ZW,STUFEn_ZW,ARTn_ZW,KOSTENn_ZW,PREISn_ZW,ZEITAUFWANDn_ZW,REGIONn_ZW};
    enum Spalten_WAFFE_LERNSCHEMA {ART_WL,NAME_WL,GRUND_WL,SCHADEN_WL};
 
-   virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const;
+   virtual cH_EntryValue Value(guint seqnr,gpointer gp) const;
    enum WEV {FWhat,FName,FErfolgswert,FErfolgswerBonus,
              FWurf,FLernpunkte,FLernpunkte0,FLernart,FPflicht,
              FGrundkenntnis,FZauberAP,FAttribut,FVoraussetung,FSchwierigkeit,
              FKosten,FStandard,FGelernt,FPraxispunkt,
              FSteigern,FReduzieren,FVerlernen,FRegion,
              FUrsprung,FArtderSchrift};
-   const cH_EntryValue retEV(const WEV &what) const;
+   cH_EntryValue retEV(const WEV &what) const;
    const MBEmlt &getMBE() const {return MBE;}
    void redisplay(SimpleTree *tree) const;
 };

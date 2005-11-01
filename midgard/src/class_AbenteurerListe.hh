@@ -33,7 +33,7 @@ class Data_AbenteurerListe : public RowDataBase
 //      Data_AbenteurerListe(const VAbenteurer::st_abenteurer& c) 
 //         : Char(c.abenteurer), saved(c.gespeichert) {}
 
-      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
+      virtual cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
          switch(spalten(seqnr))
           {

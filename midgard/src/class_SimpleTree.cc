@@ -33,7 +33,7 @@
 #include "midgard_CG.hh"
 #include <Misc/itos.h>
 
-const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
+cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
 {
   switch (what) {
       case FName: return cH_EntryValueIntGermanString((*MBE)->Name()+" "+(*MBE).Zusatz());
@@ -71,7 +71,7 @@ const cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
  return cH_EntryValue();
 }
 
-const cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
+cH_EntryValue Data_SimpleTree::Value(guint seqnr,gpointer gp) const
 { 
       MidgardBasicTree::variante Variante = 
                MidgardBasicTree::variante(reinterpret_cast<long>(gp));

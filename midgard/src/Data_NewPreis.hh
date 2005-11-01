@@ -41,7 +41,7 @@ class Data_NewPreis : public RowDataBase
      enum spalten {ART,ART2,NAME,V_FARBE,V_MATERIAL,V_STAND,GEWICHT,
                    KOSTEN,BESCHREIBUNG,REGION};
      
-     virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
+     virtual cH_EntryValue Value(guint seqnr,gpointer gp) const 
       {
         std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M_=
             const_cast<std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>&>(M);

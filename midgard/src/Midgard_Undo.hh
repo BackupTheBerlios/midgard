@@ -1,4 +1,4 @@
-// $Id: Midgard_Undo.hh,v 1.8 2003/11/25 07:29:51 christof Exp $
+// $Id: Midgard_Undo.hh,v 1.9 2005/11/01 23:55:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -34,7 +34,7 @@ class Data_Undo : public RowDataBase
      Data_Undo(Midgard_Undo::st_undo u) : U(u) {}
      
      enum spalten{NR,BEZ};
-     virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
+     virtual cH_EntryValue Value(guint seqnr,gpointer gp) const
       {
         switch(spalten(seqnr))
          {

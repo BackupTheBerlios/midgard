@@ -36,7 +36,7 @@ class Data_Prototyp : public RowDataBase
       
      enum spalten {PROTOTYP,ART,NAME,FAKTOR};
      
-     virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const 
+     virtual cH_EntryValue Value(guint seqnr,gpointer gp) const 
       {
         switch(spalten(seqnr)) {
            case ART: return cH_EntryValueIntString(art);

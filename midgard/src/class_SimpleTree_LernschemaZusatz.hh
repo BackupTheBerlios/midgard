@@ -37,7 +37,7 @@ class Data_Herkunft : public RowDataBase
          : Land(l),erlaubt(e),MBE(M) {}
 
       enum Spalten {LAND,KONTINENT,SPRACHEN};
-      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
+      virtual cH_EntryValue Value(guint seqnr,gpointer gp) const
         {
          switch((Spalten)seqnr) 
            {
@@ -74,7 +74,7 @@ class Data_Zusatz : public RowDataBase
          : MBE(mbe),zusatz(z){}
 
       enum Spalten {NAME,TYP,REGION};
-      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
+      virtual cH_EntryValue Value(guint seqnr,gpointer gp) const
         {
          switch((Spalten)seqnr) 
            {

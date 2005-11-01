@@ -1,4 +1,4 @@
-// $Id: Data_waffenbesitz.hh,v 1.12 2003/11/24 16:21:42 christof Exp $
+// $Id: Data_waffenbesitz.hh,v 1.13 2005/11/01 23:55:34 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -38,7 +38,7 @@ class Data_waffenbesitz :  public RowDataBase
          : waffe(w), hauptfenster(h) {}
 
       enum SPALTEN_A {NAME_A,SCHADEN_A,REGION,MAGBONUS,MAGTEXT};
-      virtual const cH_EntryValue Value(guint seqnr,gpointer gp) const
+      virtual cH_EntryValue Value(guint seqnr,gpointer gp) const
        {
           switch(seqnr) {
             case NAME_A : return cH_EntryValueIntString(waffe->AliasName());
