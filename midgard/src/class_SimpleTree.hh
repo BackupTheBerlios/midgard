@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2004 Christof Petig
+ *  Copyright (C) 2004-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -52,6 +52,7 @@ class Data_SimpleTree : public RowDataBase
    enum Spalten_WAFFE_LERNSCHEMA {ART_WL,NAME_WL,GRUND_WL,SCHADEN_WL};
 
    virtual cH_EntryValue Value(guint seqnr,gpointer gp) const;
+   virtual bool changeValue(guint seqnr,gpointer gp,const Glib::ustring &newvalue);
    enum WEV {FWhat,FName,FErfolgswert,FErfolgswerBonus,
              FWurf,FLernpunkte,FLernpunkte0,FLernart,FPflicht,
              FGrundkenntnis,FZauberAP,FAttribut,FVoraussetung,FSchwierigkeit,

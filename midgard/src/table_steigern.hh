@@ -1,6 +1,6 @@
 /*  MAGuS: Midgard Abenteurer Generieren Und Steigern
  *  Copyright (C) 2002 Malte Thoma
- *  Copyright (C) 2004 Christof Petig
+ *  Copyright (C) 2004-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -107,10 +107,6 @@ private:
         void kaempfer_lernt_zaubern() ;
         void zaubern_klasse_gewaehlt() ;
         void zaubern_klasse_gewaehlt_abbrechen();
-        bool fert_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval);
-        bool waffen_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval);
-        bool sprache_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval);
-        bool schrift_col_changed(cH_RowDataBase row,unsigned idx,const std::string &newval);
         
         // Grad anstieg
 private:

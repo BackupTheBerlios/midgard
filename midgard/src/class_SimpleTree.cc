@@ -32,6 +32,7 @@
 #include "Zauberwerk.hh"
 #include "midgard_CG.hh"
 #include <Misc/itos.h>
+#include <Misc/create_parse.h>
 
 cH_EntryValue Data_SimpleTree::retEV(const WEV &what) const
 {
@@ -222,4 +223,26 @@ void Data_SimpleTree::redisplay(SimpleTree *tree) const
   tree->redisplay(this,Data_SimpleTree::STEIGERN);
   tree->redisplay(this,Data_SimpleTree::REDUZIEREN);
   tree->redisplay(this,Data_SimpleTree::VERLERNEN);
+}
+
+bool Data_SimpleTree::changeValue(guint seqnr,gpointer gp,const Glib::ustring &newvalue)
+{ MidgardBasicTree::variante Variante = 
+               MidgardBasicTree::variante(reinterpret_cast<long>(gp));
+  try
+   { if ((Variante==MidgardBasicTree::LONG_ALT_ || 
+               Variante==MidgardBasicTree::SPRACHEN_ALT ||
+               Variante==MidgardBasicTree::WAFFE_ALT) 
+        && idx==Data_SimpleTree::PPa 
+        && ManuProC::parse<int>(newval)!=(*MBE).Praxispunkte())
+     {  MBE->setPraxispunkte(ManuProC::parse<int>(newval));
+        return true;
+     }
+     if (Variante==MidgardBasicTree::SCHRIFT_ALT
+        && idx==Data_SimpleTree::PPsa 
+        && ManuProC::parse<int>(newval)!=(*MBE).Praxispunkte())
+     {  MBE->setPraxispunkte(ManuProC::parse<int>(newval));
+        return true;
+     }
+   } catch(...) {} // parse can throw
+   return false;
 }
