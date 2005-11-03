@@ -97,6 +97,7 @@ class cH_Zauberwerk : public Handle<const Zauberwerk>
             cH_Zauberwerk x(_x->getMBE());
             cH_Zauberwerk y(_y->getMBE());
             switch(es) {
+               default:
                case(NAME) : return x->Name() < y->Name()  ;
                case(STUFE): return x->Stufe() < y->Stufe();
                case(ART): return x->Art() < y->Art() ;  
