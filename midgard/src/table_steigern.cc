@@ -240,10 +240,10 @@ table_steigern::table_steigern(GlademmData *_data)
      spinbutton_pp_eingeben->hide();
  scrolledwindow_landauswahl->hide();
  // Praxispunkte editierbar machen (testweise)
-   alte_fert_tree->getModel().set_editable(Data_SimpleTree::PPa); 
-   alte_waffen_tree->getModel().set_editable(Data_SimpleTree::PPa); 
-   alte_sprache_tree->getModel().set_editable(Data_SimpleTree::PPa);
-   alte_schrift_tree->getModel().set_editable(Data_SimpleTree::PPsa); 
+   alte_fert_tree->getStore()->set_editable(Data_SimpleTree::PPa); 
+   alte_waffen_tree->getStore()->set_editable(Data_SimpleTree::PPa); 
+   alte_sprache_tree->getStore()->set_editable(Data_SimpleTree::PPa);
+   alte_schrift_tree->getStore()->set_editable(Data_SimpleTree::PPsa); 
   flashing_gradanstieg->set(MagusImage("Anpass-trans-50.xpm"),MagusImage("Anpass-trans-50_invers.xpm"),0);
   flashing_eigenschaft->set(MagusImage("Red-Dice-trans-50.xpm"),MagusImage("Red-Dice-trans-50_invers.xpm"),0);
 //  steigern_mit_EP_bool.signal_changed().connect(SigC::slot(*this,&table_steigern::Window2Abenteurer));
