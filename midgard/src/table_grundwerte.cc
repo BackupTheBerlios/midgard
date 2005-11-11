@@ -188,7 +188,6 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
    combo_typ2->get_entry()->set_text(A.Typ2()->Name(A.Geschlecht()));
 }
 
-#include <Misc/Trace.h>
 const UniqueValue::value_t table_grundwerte::trace_channel
                   =ManuProC::Tracer::channels.get();
 

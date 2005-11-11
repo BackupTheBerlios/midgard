@@ -81,6 +81,7 @@ private:
         std::map<std::string,std::list<std::string> > MNewArt;
         void newArt(const std::string &art,const std::string art2);
         bool genug_geld(const std::string &_E_,const int kosten) const;
+        void neu_clicked(const cH_RowDataBase& row,int col,bool& handled);
 private:
 //        SigC::Connection sichtbarConnection;
         void zeige_werte();

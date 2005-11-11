@@ -21,6 +21,7 @@
 #include "midgard_CG.hh"
 #include "Data_NewPreis.hh"
 #include <Misc/mystring.h>
+#include <Misc/TraceNV.h>
 
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
    typedef Gtk::SelectionData &selection_data_t;
@@ -32,6 +33,9 @@
    typedef GtkSelectionData* const_selection_data_t;
 #  define GTKMM24(x)
 #endif
+
+static const UniqueValue::value_t trace_channel=ManuProC::Tracer::channels.get();
+static ManuProC::Tracer::Environment trace_channel_e("DEBUG_DND",trace_channel);
 
 class table_ausruestung::MyTreeStore : public Gtk::TreeStore
 {	MyTreeStore(const Gtk::TreeModelColumnRecord& cols, table_ausruestung *cont) 
@@ -60,8 +64,7 @@ std::cerr << "drag_data_get " << path.to_string() << ' ' << selection_data GTKMM
 
 bool table_ausruestung::MyTreeStore::drag_data_delete_vfunc(const Gtk::TreeModel::Path& path)
 { 
-//std::cerr << "drag_data_delete " << path.to_string() << '\n';
-  
+  ManuProC::Trace _t(trace_channel,__FUNCTION__,path.to_string());  
   bool is_end;
   AusruestungBaum::iterator iter=container->get_Iter(path,is_end);
   assert(!is_end);
@@ -77,11 +80,13 @@ bool table_ausruestung::MyTreeStore::drag_data_delete_vfunc(const Gtk::TreeModel
 
 bool table_ausruestung::MyTreeStore::drag_data_received_vfunc(const Gtk::TreeModel::Path& dest, 
 					const_selection_data_t selection_data)
-{  
+{  ManuProC::Trace _t(trace_channel,__FUNCTION__,dest.to_string());  
    Glib::RefPtr<TreeModel> model;
    Gtk::TreePath path;
    if (!Gtk::TreePath::get_from_selection_data(selection_data,model,path))
+   { ManuProC::Trace(trace_channel,"=","false");  
      return false;
+   }
    if (model->gobj()!=static_cast<Gtk::TreeModel*>(this)->gobj())
    {  std::cerr << "my model is @"<< gobj() << '\n';
 std::cerr << "drag_data_received " << dest.to_string() << ' ' << model->gobj()
@@ -130,7 +135,7 @@ static void drag_data_display(const Glib::RefPtr<Gdk::DragContext>& context,
 static bool drag_drop_display(const Glib::RefPtr<Gdk::DragContext>& context,
                                   gint x,gint y,guint32 time)
 { std::cout << "drop: " << x << "," << y << " " << time << '\n';
-  return true; // ?
+  return false; // ?
 }
 
 table_ausruestung::table_ausruestung(GlademmData *_data)
@@ -169,10 +174,9 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 #endif                          
 
   Ausruestung_tree=manage(new Gtk::TreeView());
-  Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(&drag_data_display),false);
-  Ausruestung_tree->signal_drag_drop().connect(SigC::slot(&drag_drop_display),false);
+//  Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(&drag_data_display),false);
+//  Ausruestung_tree->signal_drag_drop().connect(SigC::slot(&drag_drop_display),false);
   m_refStore= MyTreeStore::create(m_columns,this);
-//  Ausruestung_tree->signal_drag_data_received().connect(SigC::slot(*this,&table_ausruestung::tree_drag_data_received));
   Ausruestung_tree->enable_model_drag_source();
   Ausruestung_tree->enable_model_drag_dest();
   Ausruestung_tree->set_model(m_refStore);
@@ -191,7 +195,7 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
 //   fill_new_preise();
    fill_all_Combos_Art_Einheit_Region();
    fill_all_Combo_Art2();
-   preise_tree_neu->enable_model_drag_source();
+//   preise_tree_neu->enable_model_drag_source();
 #warning nur zum Test
 //   preise_tree_neu->enable_model_drag_dest();
 //  sichtbarConnection=checkbutton_sichtbar->signal_toggled().connect(SigC::slot(*static_cast<class table_ausruestung*>(this), &table_ausruestung::on_checkbutton_sichtbar_toggled));
@@ -213,6 +217,12 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
       ->property_activatable()=true;
   dynamic_cast<Gtk::CellRendererToggle*>(Ausruestung_tree->get_column(sSichtbar)->get_first_cell_renderer())
       ->signal_toggled().connect(SigC::slot(*this,&table_ausruestung::cell_edited_bool));
+  preise_tree_neu->signal_clicked.connect(SigC::slot(*this,table_ausruestung::neu_clicked));
+}
+
+void table_ausruestung::neu_clicked(const cH_RowDataBase& row,int col,bool& handled)
+{
+#warning Ware von unten nach oben übernehmen
 }
 
 #if 0
