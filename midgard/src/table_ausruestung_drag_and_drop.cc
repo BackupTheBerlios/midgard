@@ -217,12 +217,13 @@ table_ausruestung::table_ausruestung(GlademmData *_data)
       ->property_activatable()=true;
   dynamic_cast<Gtk::CellRendererToggle*>(Ausruestung_tree->get_column(sSichtbar)->get_first_cell_renderer())
       ->signal_toggled().connect(SigC::slot(*this,&table_ausruestung::cell_edited_bool));
-  preise_tree_neu->signal_clicked.connect(SigC::slot(*this,table_ausruestung::neu_clicked));
+  preise_tree_neu->signal_clicked().connect(SigC::slot(*this,&table_ausruestung::neu_clicked));
 }
 
 void table_ausruestung::neu_clicked(const cH_RowDataBase& row,int col,bool& handled)
-{
+{ // hauptfenster->getAben().getBesitz().push_back(row.cast_dynamic<Data_NewPreis>()->Ware());
 #warning Ware von unten nach oben übernehmen
+// siehe on_preise_tree_neu_leaf_selected
 }
 
 #if 0
