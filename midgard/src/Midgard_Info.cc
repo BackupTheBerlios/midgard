@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.88 2005/11/14 07:26:17 christof Exp $
+// $Id: Midgard_Info.cc,v 1.89 2005/11/14 07:27:06 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2005 Christof Petig
@@ -28,6 +28,7 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #include "config.h"
 #include <libmagus/Datenbank.hh>
 #include <libmagus/magus_paths.h>
+#include <libmagus/LaTeX_drucken.hh>
 
 Midgard_Info::Midgard_Info(GlademmData *data) : Midgard_Info_glade(data)
 {
@@ -119,6 +120,6 @@ std::string Midgard_Info::umbruch(std::string s)
 
 void Midgard_Info::lizenz_anzeigen()
 { std::string license=magus_paths::with_path("LICENSE.pdf");
-  LaTeX_drucken::pdf_viewer(license);
+  LaTeX_drucken::DisplayPDF(license);
 //Ausgabe(Ausgabe::Error,"hier müsste jetzt die GPL hin");
 }

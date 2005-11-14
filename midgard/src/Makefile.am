@@ -1,7 +1,7 @@
-# $Id: Makefile.am,v 1.240 2005/06/22 13:50:55 christof Exp $
+# $Id: Makefile.am,v 1.241 2005/11/14 07:27:05 christof Exp $
 
 bin_PROGRAMS = magus$(EXEEXT)
-noinst_PROGRAMS = text2c$(EXEEXT)
+noinst_PROGRAMS = text2c$(EXEEXT) LICENSE.pdf
 
 if WINDOWS
 PORT_FILES=magus.rc 
@@ -172,3 +172,9 @@ AM_LDFLAGS = @KOMPONENTEN2_LDFLAGS@ $(LINK_OPTIONS) -L../libmagusicons \
 CLEANFILES = *~ *_new $(BUILT_SOURCES) *_old
 
 #AM_CXXFLAGS= -g -Wall
+
+LICENSE.tex: ../win32/gpl-ger.tex
+	ln -s $< $@
+
+LICENSE.pdf: LICENSE.tex
+	pdflatex $<

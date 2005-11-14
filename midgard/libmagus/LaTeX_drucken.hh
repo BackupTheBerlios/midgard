@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.9 2004/12/21 08:18:01 thoma Exp $
+// $Id: LaTeX_drucken.hh,v 1.10 2005/11/14 07:27:00 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -109,6 +109,7 @@ class LaTeX_drucken
     void latex_beschreibung_drucken(const Abenteurer &a);      
     void Spielleiterbogen(VAbenteurer &a); // nicht const wegen sort_gw()
 
+    static void DisplayPDF(const std::string &file);
 };
 
 #endif

@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.29 2005/02/21 12:35:06 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.30 2005/11/14 07:26:54 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -970,12 +970,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
   ManuProC::Trace(LibMagus::trace_channel,"system",cmd);
   system(cmd.c_str());
 
-  std::string pdfcommand=Programmoptionen->Viewer()+" "+file2+".pdf";
-  Ausgabe(Ausgabe::Debug,pdfcommand);
-//  const_cast<midgard_CG*>(hauptfenster)->set_status(pdfcommand,false);
-  ManuProC::Trace(LibMagus::trace_channel,"CreateProcess",pdfcommand);
-  if (!WinLux::CreateProcess(pdfcommand))
-     Ausgabe(Ausgabe::Error,pdfcommand+" startet nicht");
+  DisplayPDF(file2+".pdf");
 
 //  unlink((file+".tex").c_str());
   unlink((file2+".aux").c_str());
@@ -983,6 +978,16 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
 //  unlink((pfile+".pdf").c_str());
   ManuProC::Trace(LibMagus::trace_channel,"chdir",currentwd);
   chdir(currentwd);
+}
+
+void LaTeX_drucken::DisplayPDF(const std::string& file)
+{
+  std::string pdfcommand=Programmoptionen->Viewer()+" "+file;
+  Ausgabe(Ausgabe::Debug,pdfcommand);
+//  const_cast<midgard_CG*>(hauptfenster)->set_status(pdfcommand,false);
+  ManuProC::Trace(LibMagus::trace_channel,"CreateProcess",pdfcommand);
+  if (!WinLux::CreateProcess(pdfcommand))
+     Ausgabe(Ausgabe::Error,pdfcommand+" startet nicht");
 }
 
 ///////////////////////////////////////////////////////////////
