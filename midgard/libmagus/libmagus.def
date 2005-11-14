@@ -103,7 +103,6 @@ EXPORTS
 	_ZN10Grundwerte5VhandE  DATA
 	_ZN10Grundwerte6VstandE  DATA
 	_ZN10Grundwerte7setSinnERKSsi 
-	_ZN10Grundwerte7setTyp1E8cH_Typen 
 	_ZN10GrundwerteC1Eb 
 	_ZN10GrundwerteC2ERKS_ 
 	_ZN10GrundwerteC2Eb 
@@ -141,7 +140,6 @@ EXPORTS
 	_ZN10Lernschema4loadERK3TagRKSs 
 	_ZN10Lernschema8getIndexERKSt6vectorI8cH_TypenSaIS1_EERKSsS7_ 
 	_ZN10Model_BaseC2Ev 
-	_ZN10Model_BaseD2Ev 
 	_ZN10Preise_All4loadERSt4listI9cH_PreiseSaIS1_EERK3Tag 
 	_ZN10RadioModel8callbackEPv 
 	_ZN10RadioModelC1E9Model_refIbES1_ 
@@ -282,8 +280,6 @@ EXPORTS
 	_ZN14Magus_Optionen12Strings_initEv 
 	_ZN14Magus_Optionen13OptionenCheckENS_18OptionenCheckIndexE 
 	_ZN14Magus_Optionen13Optionen_initEv 
-	_ZN14Magus_Optionen14pdfViewerCheckENS_14pdfViewerIndexE 
-	_ZN14Magus_Optionen14pdfViewer_initEv 
 	_ZN14Magus_Optionen14setOptionCheckESsbi 
 	_ZN14Magus_Optionen16st_OptionenCheckC1ENS_18OptionenCheckIndexERKSsbi 
 	_ZN14Magus_Optionen17setWindowPositionERKSsiijj 
@@ -304,7 +300,6 @@ EXPORTS
 	_ZN14Magus_Optionen9setStringESsSs 
 	_ZN14Magus_OptionenC1Ev 
 	_ZN14Magus_OptionenC2Ev 
-	_ZN14Model_copyableIbEC1ERKS0_ 
 	_ZN14ResistenzUndCo6AbwehrE  DATA
 	_ZN14ResistenzUndCo6getMBEENS_5was_tE 
 	_ZN14ResistenzUndCo7ZaubernE  DATA
@@ -329,7 +324,6 @@ EXPORTS
 	_ZN15AbenteurerListe4ItemC2ERKS0_ 
 	_ZN15AbenteurerListe7st_undoC1ERKS0_ 
 	_ZN15AusruestungBaum9push_backERK11Ausruestung 
-	_ZN15AusruestungBaumaSERKS_ 
 	_ZN15AusruestungBaumC1ERKS_ 
 	_ZN15BerufsKategorie8wuerfelnEi 
 	_ZN15cH_PreiseNewMod4loadERK3TagRb 
@@ -569,7 +563,6 @@ EXPORTS
 	_ZN8cH_SinneC2ERKSsb 
 	_ZN8cH_Typen4loadERK3Tag 
 	_ZN8cH_Typen5cacheE  DATA
-	_ZN8cH_TypenC1ERKS_ 
 	_ZN8cH_TypenC1ERKSsb 
 	_ZN8cH_TypenC1Ev 
 	_ZN8cH_TypenC2ERKSsb 
@@ -703,7 +696,6 @@ EXPORTS
 	_ZNK10Grundwerte23Ruestung_Abwehr_VerlustERKSt4listI29H_MidgardBasicElement_mutableSaIS1_EE 
 	_ZNK10Grundwerte24Ruestung_Angriff_VerlustERKSt4listI29H_MidgardBasicElement_mutableSaIS1_EE 
 	_ZNK10Grundwerte4STypEv 
-	_ZNK10Grundwerte4Typ1Ev 
 	_ZNK10Grundwerte5bo_AbEv 
 	_ZNK10Grundwerte5bo_AnEv 
 	_ZNK10Grundwerte5bo_AuEv 
@@ -716,9 +708,7 @@ EXPORTS
 	_ZNK10Grundwerte7GestaltEv 
 	_ZNK10Grundwerte7getSinnERKSs 
 	_ZNK10Grundwerte7is_mageEv 
-	_ZNK10Grundwerte7SpeziesEv 
 	_ZNK10Grundwerte7VersionEv 
-	_ZNK10Grundwerte8HerkunftEv 
 	_ZNK10Grundwerte8RuestungEj 
 	_ZNK10Grundwerte9check_350ERKSt6vectorIiSaIiEE 
 	_ZNK10Grundwerte9ep_kostenEi 
@@ -758,7 +748,6 @@ EXPORTS
 	_ZNK12Grad_anstieg8get_GradEi 
 	_ZNK13HandleContent5unrefEv 
 	_ZNK14Magus_Optionen12getIconIndexEv 
-	_ZNK14Magus_Optionen14pdfViewerCheckENS_14pdfViewerIndexE 
 	_ZNK14Magus_Optionen6ViewerEv 
 	_ZNK14Magus_Optionen9getStringENS_11StringIndexE 
 	_ZNK14ResistenzUndCo4WhatEv 
@@ -911,7 +900,6 @@ EXPORTS
 	_ZNSt10_List_baseI9cH_PreiseSaIS0_EE8_M_clearEv 
 	_ZNSt10_List_baseIN10Abenteurer13st_universellESaIS1_EE8_M_clearEv 
 	_ZNSt10_List_baseIN14Magus_Optionen10st_stringsESaIS1_EE8_M_clearEv 
-	_ZNSt10_List_baseIN14Magus_Optionen12st_base_boolINS0_14pdfViewerIndexEEESaIS3_EE8_M_clearEv 
 	_ZNSt10_List_baseIN14Magus_Optionen12st_base_boolINS0_9IconIndexEEESaIS3_EE8_M_clearEv 
 	_ZNSt10_List_baseIN14Magus_Optionen16st_OptionenCheckESaIS1_EE8_M_clearEv 
 	_ZNSt10_List_baseIN14Magus_Optionen17st_WindowPositionESaIS1_EE8_M_clearEv 
@@ -933,7 +921,6 @@ EXPORTS
 	_ZNSt4listI13H_WaffeBesitzSaIS0_EE6removeERKS0_ 
 	_ZNSt4listI13H_WaffeBesitzSaIS0_EEaSERKS2_ 
 	_ZNSt4listI15AusruestungBaumSaIS0_EE5eraseESt14_List_iteratorIS0_E 
-	_ZNSt4listI15AusruestungBaumSaIS0_EE9_M_insertESt14_List_iteratorIS0_ERKS0_ 
 	_ZNSt4listI15AusruestungBaumSaIS0_EEaSERKS2_ 
 	_ZNSt4listI15AusruestungBaumSaIS0_EEC1ERKS2_ 
 	_ZNSt4listI22cH_MidgardBasicElementSaIS0_EE5eraseESt14_List_iteratorIS0_E 
@@ -964,7 +951,6 @@ EXPORTS
 	_ZNSt4listIN8Optionen7st_HausESaIS1_EEaSERKS3_ 
 	_ZNSt4listISsSaISsEE5eraseESt14_List_iteratorISsE 
 	_ZNSt4listISsSaISsEEaSERKS1_ 
-	_ZNSt4pairIK9cH_Region14Model_copyableIbEED1Ev 
 	_ZNSt6vectorI10cH_SpeziesSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0_ 
 	_ZNSt6vectorI11cH_RuestungSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0_ 
 	_ZNSt6vectorI11cH_RuestungSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPS0_S2_EES6_ 
