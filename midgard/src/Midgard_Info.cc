@@ -1,6 +1,7 @@
-// $Id: Midgard_Info.cc,v 1.87 2003/12/30 08:39:28 christof Exp $
+// $Id: Midgard_Info.cc,v 1.88 2005/11/14 07:26:17 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -26,20 +27,12 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 // to redefine VERSION
 #include "config.h"
 #include <libmagus/Datenbank.hh>
-
-#if 0
-void Midgard_Info::database_hide()
-{   
-  frame_datenbank->hide();
-}
-#endif
+#include <libmagus/magus_paths.h>
 
 Midgard_Info::Midgard_Info(GlademmData *data) : Midgard_Info_glade(data)
 {
    versionsnummer->set_text("Version: "+(std::string)VERSION
    		+"\n\"Spirit of Sargon\""); // Hommage to Andr� (my first SL)
-//   while(Gtk::Main::events_pending()) Gtk::Main::iteration() ;
-//   frame_datenbank->show();
    set_Regionen(Datenbank.Regionen);
 }
 
@@ -92,7 +85,7 @@ void Midgard_Info::set_Regionen(const std::vector<cH_Region>& Regionen)
   _pi->show();
   ++row;
 
-  std::string copytxt="MIDGARD ist Copyright 1981-2001 by\nVerlag für F&SF-Spiele, Stelzenberg";
+  std::string copytxt="MIDGARD ist Copyright 1981-2005 by\nVerlag für F&SF-Spiele, Stelzenberg";
   Gtk::Label *_lc=manage (new Gtk::Label(copytxt,0,0));
   Gtk::Image *_pc=manage(new Gtk::Image(MagusImage("Money-50.xpm")));
   _lc->set_justify(Gtk::JUSTIFY_LEFT);
@@ -125,5 +118,7 @@ std::string Midgard_Info::umbruch(std::string s)
 
 
 void Midgard_Info::lizenz_anzeigen()
-{  Ausgabe(Ausgabe::Error,"hier müsste jetzt die GPL hin");
+{ std::string license=magus_paths::with_path("LICENSE.pdf");
+  LaTeX_drucken::pdf_viewer(license);
+//Ausgabe(Ausgabe::Error,"hier müsste jetzt die GPL hin");
 }
