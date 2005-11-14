@@ -2,6 +2,7 @@ EXPORTS
 	Datenbank  DATA
 	magus_class  DATA
 	Programmoptionen  DATA
+	_ZN15AusruestungBaum6insertESt14_List_iteratorIS_ERKS_
 	_Z13EmptyInt_4TeXii 
 	_Z13libmagus_initiPPKcPFvdE 
 	_Z14libmagus_init0iPPKc 
@@ -921,6 +922,7 @@ EXPORTS
 	_ZNSt4listI13H_WaffeBesitzSaIS0_EE6removeERKS0_ 
 	_ZNSt4listI13H_WaffeBesitzSaIS0_EEaSERKS2_ 
 	_ZNSt4listI15AusruestungBaumSaIS0_EE5eraseESt14_List_iteratorIS0_E 
+	_ZNSt4listI15AusruestungBaumSaIS0_EE6insertESt14_List_iteratorIS0_ERKS0_
 	_ZNSt4listI15AusruestungBaumSaIS0_EEaSERKS2_ 
 	_ZNSt4listI15AusruestungBaumSaIS0_EEC1ERKS2_ 
 	_ZNSt4listI22cH_MidgardBasicElementSaIS0_EE5eraseESt14_List_iteratorIS0_E 

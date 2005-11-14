@@ -17,4 +17,4 @@ filesel: filesel.o
 	g++ -o filesel filesel.o -lcomdlg32
 
 clean:
-	rm -f *.o showreg.exe>>>>>>> 1.5
+	rm -f *.o showreg.exe

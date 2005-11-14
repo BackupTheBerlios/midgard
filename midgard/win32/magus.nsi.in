@@ -6,7 +6,7 @@
 !include "MUI.nsh"
 
 !define VERSION @VERSION@
-!define WINVERSION -2
+!define WINVERSION -3
 !define HOME F:
 !define SRCDIR ${HOME}/berlios/midgard
 !define BINDIR ${HOME}/winhome/magus2
@@ -49,6 +49,7 @@ SectionEnd
 Section "gtk+ Bibliotheken" ; (default section)
  SetOutPath "$INSTDIR"
  File "${BINDIR}\libatk-1.0-0.dll"
+ File "${BINDIR}\libcairo-2.dll"
  File "${BINDIR}\libgdk_pixbuf-2.0-0.dll"
  File "${BINDIR}\libgdk-win32-2.0-0.dll"
  File "${BINDIR}\libglib-2.0-0.dll"
