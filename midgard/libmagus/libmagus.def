@@ -2,6 +2,7 @@ EXPORTS
 	Datenbank  DATA
 	magus_class  DATA
 	Programmoptionen  DATA
+	_ZN13LaTeX_drucken10DisplayPDFERKSs
 	_ZN15AusruestungBaum6insertESt14_List_iteratorIS_ERKS_
 	_Z13EmptyInt_4TeXii 
 	_Z13libmagus_initiPPKcPFvdE 
