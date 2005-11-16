@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.16 2004/08/30 13:17:56 christof Exp $
+// $Id: magus_paths.cc,v 1.17 2005/11/16 09:22:16 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -46,34 +46,53 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
    if (magus_verzeichnis.empty())
    {
 #ifdef __MINGW32__ // Standard Dokumentenverzeichnis
+      // %USERPROFILE%\Anwendungsdaten\Magus ???
       char buf[1024];
-      reg_key r1(HKEY_CURRENT_USER, KEY_READ, "Software", "Microsoft", "Windows",
-      	"CurrentVersion", "Explorer", "User Shell Folders", NULL); // "AppData");?
-      if (r1.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
-      {  magus_verzeichnis=buf;
-         Ausgabe(Ausgabe::Debug, magus_verzeichnis+ " from HKEY_CURRENT_USER");
+      // XP: APPDATA
+      if (magus_verzeichnis.empty())
+      { reg_key r1(HKEY_CURRENT_USER, KEY_READ, "Software", "Microsoft", "Windows",
+        	"CurrentVersion", "Explorer", "Shell Folders", NULL);
+        if (r1.get_string("AppData", buf, sizeof buf, "")==ERROR_SUCCESS) 
+        {  magus_verzeichnis=buf;
+           Ausgabe(Ausgabe::Debug, magus_verzeichnis+ " from current user\\APPDATA");
+        }
       }
-      else
+      if (magus_verzeichnis.empty())
+      { reg_key r1(HKEY_USERS, KEY_READ, "Software", "Microsoft", "Windows",
+        	"CurrentVersion", "Explorer", "Shell Folders", NULL);
+        if (r1.get_string("AppData", buf, sizeof buf, "")==ERROR_SUCCESS) 
+        {  magus_verzeichnis=buf;
+           Ausgabe(Ausgabe::Debug, magus_verzeichnis+ " from USERS\\APPDATA");
+        }
+      }
+      if (magus_verzeichnis.empty())
+      { reg_key r1(HKEY_CURRENT_USER, KEY_READ, "Software", "Microsoft", "Windows",
+        	"CurrentVersion", "Explorer", "User Shell Folders", NULL);
+        if (r1.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
+        {  magus_verzeichnis=buf;
+           Ausgabe(Ausgabe::Debug, magus_verzeichnis+ " from HKEY_CURRENT_USER");
+        }
+      }
+      if (magus_verzeichnis.empty())
       {  reg_key r2(HKEY_USERS, KEY_READ, ".Default", "Software", "Microsoft", "Windows",
-      	"CurrentVersion", "Explorer", "User Shell Folders", NULL);
+        	"CurrentVersion", "Explorer", "User Shell Folders", NULL);
          if (r2.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
          {	magus_verzeichnis=buf;
             Ausgabe(Ausgabe::Debug,magus_verzeichnis + " from HKEY_USERS");
          }
-         else
-         {  reg_key r3(HKEY_LOCAL_MACHINE, KEY_READ, "Software", "Microsoft", "Windows",
+      }
+      if (magus_verzeichnis.empty())
+      { reg_key r3(HKEY_LOCAL_MACHINE, KEY_READ, "Software", "Microsoft", "Windows",
          		"CurrentVersion", "Explorer", "User Shell Folders", NULL);
-            if (r3.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
-            {  magus_verzeichnis=buf;
-               Ausgabe(Ausgabe::Debug,magus_verzeichnis+" from HKEY_LOCAL_MACHINE");
-            }
+        if (r3.get_string("Personal", buf, sizeof buf, "")==ERROR_SUCCESS) 
+        {  magus_verzeichnis=buf;
+           Ausgabe(Ausgabe::Debug,magus_verzeichnis+" from HKEY_LOCAL_MACHINE");
+        }
+      }
 
-            // %USERPROFILE%\Anwendungsdaten\Magus ???
-            else 
-            {  magus_verzeichnis="C:\\Eigene Dateien";
-               Ausgabe(Ausgabe::Debug,magus_verzeichnis+ " by hand");
-            }
-         }
+      if (magus_verzeichnis.empty())
+      {  magus_verzeichnis="C:\\Eigene Dateien";
+         Ausgabe(Ausgabe::Debug,magus_verzeichnis+ " by hand");
       }
       magus_verzeichnis+="\\Magus";
       ManuProC::Trace(LibMagus::trace_channel,"magus_verzeichnis=",magus_verzeichnis);
