@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
+ *  Copyright (C) 2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -179,42 +180,50 @@ gewechselt:
 
 
 void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
-{
-  
-#if 1
-  hauptfenster->getChar()->begin_undo();
-  const Data_NewPreis *dt=dynamic_cast<const Data_NewPreis*>(&*d);
-//  spinbutton_anzahl->update();
-  unsigned int anzahl=1; // spinbutton_anzahl->get_value_as_int();
+{ const Data_NewPreis *dt=dynamic_cast<const Data_NewPreis*>(&*d);
+  preise_tree_neu->get_selection()->unselect_all();
   if(checkbutton_ausruestung_geld->get_active())
-   {
-     if(!genug_geld(dt->Ware()->Einheit(),dt->Kosten()*anzahl)) 
-     { hauptfenster->getChar()->cancel_undo();
+   { if(!genug_geld(dt->Ware()->Einheit(),dt->Kosten()*anzahl)) 
+     { // Nachricht?
        return;
      }
-//     zeige_werte();
    }
-  bool sichtbar=true; // checkbutton_sichtbar->get_active();
+  
+  if(!besitz && dt->Ware()->Art()!="Neu")
+   { // einfach _oben_ auswählen
+     Gtk::TreeViewColumn *col=0;
+     Gtk::Path parent;
+     int cellx,celly;
+     if (Ausruestung_tree->get_path_at_pos(0,0,parent,col,cellx,celly))
+     { Ausruestung_tree->get_selection()->select(parent);
+     }
+   }
+  hauptfenster->getChar()->begin_undo();
   std::string material;
   std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod> M=dt->getMod();
   for(std::map<table_ausruestung::e_spalten,PreiseNewMod::st_preismod>::const_iterator i=M.begin();i!=M.end();++i)
      material += i->second.spezifikation + ", ";
   ManuProC::remove_last_from(material,", ");
-  Ausruestung A(anzahl,dt->Ware()->Name(),dt->Ware()->Gewicht(),material,dt->Ware()->Region(),
+  bool sichtbar=true;
+  if (besitz) sichtbar=besitz->getAusruestung().Sichtbar();
+  Ausruestung A(1,dt->Ware()->Name(),dt->Ware()->Gewicht(),material,dt->Ware()->Region(),
       sichtbar,dt->Ware()->Ruestung(),dt->Ware()->Beschreibung());
   
-//  if(!besitz && dt->Ware()->Art()=="Neu")
-//   {
-     hauptfenster->getAben().getBesitz().push_back(A);
-//   }
-//  else if(besitz)
-//   {
-//     besitz->push_back(A);
-//   }
-//  else return;
+  if(besitz)
+   { assert(Ausruestung_tree->get_selection()->count_selected_rows());
+     Gtk::Path parent=Ausruestung_tree->get_selection()->get_selected_rows().front();
+     Gtk::TreeModel::iterator piter=Ausruestung_tree->get_model()->get_iter(parent);
+     AusruestungsBaum &neues=besitz->push_back(A);
+     Gtk::TreeModel::iterator iter = m_refStore->append(piter->children());
+     redisplay(*iter,neues);
+   }
+  else 
+   { AusruestungsBaum &neues=hauptfenster->getAben().getBesitz().push_back(A);
+     Gtk::TreeModel::iterator iter = m_refStore->append();
+     redisplay(*iter,neues);
+   }
   hauptfenster->getChar()->name_undo("Ausrüstung "+dt->Ware()->Name()+" hinzugefügt");
-  showAusruestung();
-#endif
+//  showAusruestung();
 }
 
 
