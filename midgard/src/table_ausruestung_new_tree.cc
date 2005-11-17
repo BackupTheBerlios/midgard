@@ -210,10 +210,13 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
       sichtbar,dt->Ware()->Ruestung(),dt->Ware()->Beschreibung());
   
   if(besitz)
-   { assert(Ausruestung_tree->get_selection()->count_selected_rows());
+   { bool isend;
+     assert(Ausruestung_tree->get_selection()->count_selected_rows());
      Gtk::TreePath parent=*Ausruestung_tree->get_selection()->get_selected_rows().begin();
      Gtk::TreeModel::iterator piter=Ausruestung_tree->get_model()->get_iter(parent);
-     AusruestungBaum &neues=besitz->push_back(A);
+     AusruestungBaum &neues=get_Iter(parent,isend)->push_back(A);
+     assert(!isend);
+//     besitz->push_back(A);
      Gtk::TreeModel::iterator iter = m_refStore->append(piter->children());
      redisplay(*iter,neues);
      Ausruestung_tree->expand_to_path(Ausruestung_tree->get_model()->get_path(*iter));
