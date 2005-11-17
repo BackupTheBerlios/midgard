@@ -1,4 +1,4 @@
-// $Id: Midgard_Info.cc,v 1.89 2005/11/14 07:27:06 christof Exp $
+// $Id: Midgard_Info.cc,v 1.90 2005/11/17 07:25:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2005 Christof Petig
@@ -119,7 +119,7 @@ std::string Midgard_Info::umbruch(std::string s)
 
 
 void Midgard_Info::lizenz_anzeigen()
-{ std::string license=magus_paths::with_path("LICENSE.pdf");
+{ std::string license=magus_paths::with_path("LICENSE.pdf",false,true);
   LaTeX_drucken::DisplayPDF(license);
 //Ausgabe(Ausgabe::Error,"hier müsste jetzt die GPL hin");
 }

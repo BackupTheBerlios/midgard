@@ -1,4 +1,5 @@
 /*  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -40,7 +41,9 @@ bool midgard_CG::timeout_status()
 
 void midgard_CG::on_button_html_hilfe_clicked()
 {
-  std::string pfad="file://"+magus_paths::with_path("index.html",false,false);
+  std::string pfad=magus_paths::with_path("index.html",false,true);
+  if (pfad.empty()) pfad="http://midgard.berlios.de/";
+  else pfad="file://"+pfad;
   std::string s =Programmoptionen->getString(Magus_Optionen::html_viewer).Value()+" \""+pfad+"\"";
   if (!WinLux::CreateProcess(s))
      Ausgabe(Ausgabe::Error,s+" funktioniert nicht");

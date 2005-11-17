@@ -1,7 +1,7 @@
-// $Id: magus_paths.cc,v 1.17 2005/11/16 09:22:16 christof Exp $
+// $Id: magus_paths.cc,v 1.18 2005/11/17 07:25:31 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003-2004 Christof Petig
+ *  Copyright (C) 2003-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

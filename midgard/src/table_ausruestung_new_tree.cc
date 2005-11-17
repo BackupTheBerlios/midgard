@@ -177,13 +177,13 @@ gewechselt:
   return false;
 }
 
-
+#warning Preis abziehen, wenn Anzahl verändert wird
 
 void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
 { const Data_NewPreis *dt=dynamic_cast<const Data_NewPreis*>(&*d);
   preise_tree_neu->get_selection()->unselect_all();
   if(checkbutton_ausruestung_geld->get_active())
-   { if(!genug_geld(dt->Ware()->Einheit(),dt->Kosten()*anzahl)) 
+   { if(!genug_geld(dt->Ware()->Einheit(),dt->Kosten())) 
      { // Nachricht?
        return;
      }
@@ -192,7 +192,7 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
   if(!besitz && dt->Ware()->Art()!="Neu")
    { // einfach _oben_ auswählen
      Gtk::TreeViewColumn *col=0;
-     Gtk::Path parent;
+     Gtk::TreePath parent;
      int cellx,celly;
      if (Ausruestung_tree->get_path_at_pos(0,0,parent,col,cellx,celly))
      { Ausruestung_tree->get_selection()->select(parent);
@@ -211,16 +211,19 @@ void table_ausruestung::on_preise_tree_neu_leaf_selected(cH_RowDataBase d)
   
   if(besitz)
    { assert(Ausruestung_tree->get_selection()->count_selected_rows());
-     Gtk::Path parent=Ausruestung_tree->get_selection()->get_selected_rows().front();
+     Gtk::TreePath parent=*Ausruestung_tree->get_selection()->get_selected_rows().begin();
      Gtk::TreeModel::iterator piter=Ausruestung_tree->get_model()->get_iter(parent);
-     AusruestungsBaum &neues=besitz->push_back(A);
+     AusruestungBaum &neues=besitz->push_back(A);
      Gtk::TreeModel::iterator iter = m_refStore->append(piter->children());
      redisplay(*iter,neues);
+     Ausruestung_tree->expand_to_path(Ausruestung_tree->get_model()->get_path(*iter));
+     Ausruestung_tree->scroll_to_row(Ausruestung_tree->get_model()->get_path(*iter));
    }
   else 
-   { AusruestungsBaum &neues=hauptfenster->getAben().getBesitz().push_back(A);
+   { AusruestungBaum &neues=hauptfenster->getAben().getBesitz().push_back(A);
      Gtk::TreeModel::iterator iter = m_refStore->append();
      redisplay(*iter,neues);
+     Ausruestung_tree->scroll_to_row(Ausruestung_tree->get_model()->get_path(*iter));
    }
   hauptfenster->getChar()->name_undo("Ausrüstung "+dt->Ware()->Name()+" hinzugefügt");
 //  showAusruestung();
