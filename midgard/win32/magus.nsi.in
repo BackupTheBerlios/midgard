@@ -36,11 +36,12 @@ DirText "${NAME} in folgendem Verzeichnis installieren:"
 
 Section "diverse benötigte Bibliotheken" ; (default section)
  SetOutPath "$INSTDIR"
- File "${BINDIR}\charset.dll"
+; File "${BINDIR}\charset.dll"
  File "${BINDIR}\iconv.dll"
  File "${BINDIR}\intl.dll"
  File "${BINDIR}\jpeg62.dll"
  File "${BINDIR}\libpng12.dll"
+ File "${BINDIR}\libpng13.dll"
  File "${BINDIR}\libtiff3.dll"
  File "${BINDIR}\zlib1.dll"
  File "${BINDIR}\mingwm10.dll"
@@ -59,6 +60,7 @@ Section "gtk+ Bibliotheken" ; (default section)
  File "${BINDIR}\libgtk-win32-2.0-0.dll"
  File "${BINDIR}\libpango-1.0-0.dll"
  File "${BINDIR}\libpangowin32-1.0-0.dll"
+ File "${BINDIR}\libpangocairo-1.0-0.dll"
  File /r "${BINDIR}\etc"
  File /r "${BINDIR}\lib"
 SectionEnd
