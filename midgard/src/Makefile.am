@@ -1,7 +1,7 @@
-# $Id: Makefile.am,v 1.241 2005/11/14 07:27:05 christof Exp $
+# $Id: Makefile.am,v 1.242 2005/11/17 07:34:06 christof Exp $
 
 bin_PROGRAMS = magus$(EXEEXT)
-noinst_PROGRAMS = text2c$(EXEEXT) LICENSE.pdf
+noinst_PROGRAMS = text2c$(EXEEXT)
 
 if WINDOWS
 PORT_FILES=magus.rc 
@@ -70,7 +70,7 @@ WindowInfo_glade.hh WindowInfo.hh \
    Data_waffenbesitz.hh \
    Data_NewPreis.hh
 
-BUILT_SOURCES= text2c$(EXEEXT) NEWS.h
+BUILT_SOURCES= text2c$(EXEEXT) NEWS.h LICENSE.pdf
 
 NEWS.h: ../NEWS ../TODO text2c$(EXEEXT)
 	csplit --prefix tmp_news. ../NEWS '/<<<TODO>>>/'
