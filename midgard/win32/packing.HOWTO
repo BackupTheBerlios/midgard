@@ -2,7 +2,11 @@ mount /ia32/usr/share/texmf /usr/share/texmf -t none -o bind
 mount /ia32/etc/texmf /etc/texmf -t none -o bind
 
 TO_STRIP=*.exe
-i586-mingw32msvc-strip 
+i586-mingw32msvc-strip *.exe
+i586-mingw32msvc-strip --strip-unneeded jpeg62.dll lib*.dll 
+i586-mingw32msvc-strip --strip-unneeded lib/gtk-2.0/2.4.0/engines/*.dll
+i586-mingw32msvc-strip --strip-unneeded lib/gtk-2.0/2.4.0/loaders/*.dll
+i586-mingw32msvc-strip --strip-unneeded lib/pango/1.4.0/modules/*.dll
 
 dchroot
 cd ~/winhome/midgard/win32/ 
