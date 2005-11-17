@@ -1,7 +1,7 @@
-// $Id: LaTeX_drucken.cc,v 1.30 2005/11/14 07:26:54 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.31 2005/11/17 07:26:26 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2003-2004 Christof Petig
+ *  Copyright (C) 2003-2005 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

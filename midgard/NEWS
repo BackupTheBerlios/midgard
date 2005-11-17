@@ -6,6 +6,9 @@ Version 0.9.9
 - Hausregeln werden mit Regionen zum Standard gemacht
 - Darstellungsoptionen sollten zum großen Teil wieder etwas bewirken
 	(einige erfordern noch einen Neustart)
+- Drag and drop bei Ausrüstung
+- Lizenz anzeigen
+- diverse bugfixes
 
 Version 0.9.8
 - nerviges Zuklappen der ungelernten Fertigkeiten/Zauber behoben !!!
