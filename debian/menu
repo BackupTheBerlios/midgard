@@ -1,0 +1,3 @@
+?package(magus):needs="X11" section="Games/Adventure"\
+  title="MAGuS" command="/usr/bin/magus"\
+  icon="/usr/share/pixmaps/magus.xpm"

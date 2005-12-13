@@ -1,0 +1,1 @@
+application/x-magus; magus '%s'; edit=magus '%s'; description="Midgard Abenteurer"; test=test "$DISPLAY" != ""

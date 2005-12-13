@@ -1,0 +1,27 @@
+Source: magus
+Section: games
+Priority: optional
+Maintainer: Christof Petig <christof@petig-baender.de>
+Build-Depends: debhelper (>= 4.0.0), libgtkmm-2.4-dev, tetex-base
+
+Package: magus
+Architecture: any
+Depends: magus-data, ${shlibs:Depends}, 
+Recommends: tetex-base, gv, www-browser
+Suggests: magus-help
+Description: Midgard Abenteurer Generieren Und Steigern
+ MAGuS erlaubt das Erzeugen und Steigern von Abenteurern (Charakteren)
+ des Rollenspielsystems Midgard.
+
+Package: magus-data
+Architecture: all
+Description: Regeltabellen, Grafiken, Dokumente für MAGuS
+ MAGuS erlaubt das Erzeugen und Steigern von Abenteurern (Charakteren)
+ des Rollenspielsystems Midgard.
+
+Package: magus-help
+Architecture: all
+Description: Hilfstexte für MAGuS
+ MAGuS erlaubt das Erzeugen und Steigern von Abenteurern (Charakteren)
+ des Rollenspielsystems Midgard.
+
