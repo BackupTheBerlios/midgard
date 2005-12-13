@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.54 2004/12/16 08:26:28 christof Exp $
+# $Id: Makefile.am,v 1.55 2005/12/13 08:09:05 christof Exp $
 
 SIGC_MAJOR=2
 
@@ -29,7 +29,9 @@ AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
 
 CLEANFILES = *~
 
-EXTRA_PROGRAMS= test readxml readxml2 Zufallscharakter model_test \
+bin_PROGRAMS= Zufallscharakter
+
+EXTRA_PROGRAMS= test readxml readxml2 model_test \
 	model_test2 OptionenTest model_test3 test_spec test_Undo
 
 registry.h: ../win32/registry.h ; ln -sf ../win32/$@ .

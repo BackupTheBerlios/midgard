@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.242 2005/11/17 07:34:06 christof Exp $
+# $Id: Makefile.am,v 1.243 2005/12/13 08:09:05 christof Exp $
 
 bin_PROGRAMS = magus$(EXEEXT)
 noinst_PROGRAMS = text2c$(EXEEXT)
@@ -23,11 +23,11 @@ LINK_OBJS=
 WIN_INCLUDES=
 endif
 
-pkgdata_DATA = magus_document_eingabe.tex \
+pkgdata_DATA = magus_document_eingabe.tex magus_document_utf8.tex \
     drache.png schwert.png wurfbeil.png MAGUS-Logo-grey2.png \
-   Alba-grey.png Letter-Feather-grey.png
+   Alba-grey.png Letter-Feather-grey.png LICENSE.pdf
 
-EXTRA_DIST = midgard_document_eingabe.tex.in \
+EXTRA_DIST = magus_document_eingabe.tex magus_document_utf8.tex \
       drache.png  schwert.png wurfbeil.png MAGUS-Logo-grey2.png \
       Alba-grey.png Letter-Feather-grey.png 
 
