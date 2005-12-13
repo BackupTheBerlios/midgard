@@ -1,4 +1,4 @@
-// $Id: magus_paths.cc,v 1.18 2005/11/17 07:25:31 christof Exp $
+// $Id: magus_paths.cc,v 1.19 2005/12/13 08:09:13 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -154,14 +154,17 @@ void magus_paths::init(const std::string &_argv0,const std::string &_magus_verze
 #endif  
   append_dir(magus_verzeichnis);
 #ifndef __MINGW32__
-  append_dir(std::string(currentwd)+"/../xml/");
+
+  append_dir(std::string(currentwd)+"/../xml/");  
   if (BinaryVerzeichnis().find("/libmagus/.libs")!=std::string::npos)
-     append_dir(BinaryVerzeichnis()+"../../src/");
+  {  append_dir(BinaryVerzeichnis()+"../../src/");
+     append_dir(BinaryVerzeichnis()+"../../docs/");
+  }
   else if (BinaryVerzeichnis().find("/libmagus")!=std::string::npos)
      append_dir(BinaryVerzeichnis()+"../src/");
 //  append_dir(std::string(currentwd)+"/../docs/");
   append_dir(PACKAGE_DATA_DIR);
-//  append_dir(std::string(PACKAGE_DATA_DIR)+"/docs/");
+  append_dir(std::string(PACKAGE_DATA_DIR)+"/Hilfe/");
 #else
   append_dir(BinaryVerzeichnis());
   append_dir(BinaryVerzeichnis()+"Daten\\");
