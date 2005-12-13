@@ -1,3 +1,6 @@
+   file "magus2_mt"
+execute "true"
+
         file "pixmaps/abgl_wert_ind.png"
 manual_merge "true"
 
