@@ -1,0 +1,155 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+#
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+#
+# Modified to make a template file for a multi-binary package with separated
+# build-arch and build-indep targets  by Bill Allombert 2001
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+
+
+CFLAGS = -Wall -g
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+
+CXXFLAGS=$(CFLAGS)
+
+CONFIGURE_OPTIONS = --prefix=/usr
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	# since the packages are interdepending, we fake a bit ...
+	cd ManuProC_Base && chmod a+x autogen.sh && ./autogen.sh $(CONFIGURE_OPTIONS)
+	cd GtkmmAddons && chmod a+x autogen.sh && ./autogen.sh $(CONFIGURE_OPTIONS)
+	cd ManuProC_Widgets && chmod a+x autogen.sh && ./autogen.sh $(CONFIGURE_OPTIONS)
+	cd midgard && chmod a+x autogen.sh && ./autogen.sh $(CONFIGURE_OPTIONS)
+
+	touch configure-stamp
+
+
+#Architecture 
+build: build-arch build-indep
+
+build-arch: build-arch-stamp
+build-arch-stamp: configure-stamp 
+
+	# Add here commands to compile the arch part of the package.
+	cd ManuProC_Base && $(MAKE)
+	cd GtkmmAddons && $(MAKE)
+	cd ManuProC_Widgets && $(MAKE)
+	cd midgard && $(MAKE)
+	touch build-arch-stamp
+
+build-indep: build-indep-stamp
+build-indep-stamp: configure-stamp 
+
+	# Add here commands to compile the indep part of the package.
+	#$(MAKE) doc
+	touch build-indep-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-arch-stamp build-indep-stamp #CONFIGURE-STAMP#
+
+	# Add here commands to clean up after the build process.
+	-cd ManuProC_Base && $(MAKE) clean
+	-cd GtkmmAddons && $(MAKE) clean
+	-cd ManuProC_Widgets && $(MAKE) clean
+	-cd midgard && $(MAKE) clean
+	dh_clean 
+
+install: install-indep install-arch
+install-indep:
+	dh_testdir
+	dh_testroot
+	dh_clean -k -i 
+	dh_installdirs -i
+
+	# Add here commands to install the indep part of the package into
+	# debian/<package>-doc.
+	mkdir -p debian/magus-help/usr/share/doc/magus/Hilfe
+	cp -r midgard/docs/* debian/magus-help/usr/share/doc/magus/Hilfe
+	mkdir -p debian/magus-data/usr/share/magus
+	cp midgard/xml/*.xml debian/magus-data/usr/share/magus
+#	cp midgard/src/*.png debian/magus-data/usr/share/magus
+#	cp midgard/src/*.tex debian/magus-data/usr/share/magus
+#	mkdir -p debian/magus/usr/share/doc/magus
+#	cp midgard/src/LICENSE.pdf debian/magus/usr/share/doc/magus
+	mkdir -p debian/magus/usr/share/pixmaps
+	cp midgard/pixmaps/MAGUS_Logo_Small.xpm debian/magus/usr/share/pixmaps/magus.xpm
+	cd midgard/src && $(MAKE) install DESTDIR=$(CURDIR)/debian/magus
+	mkdir -p debian/magus-data/usr/share/magus
+	mv debian/magus/usr/share/magus/* debian/magus-data/usr/share/magus
+	dh_install -i
+
+install-arch:
+	dh_testdir
+	dh_testroot
+	dh_clean -k -s 
+	dh_installdirs -s
+
+	# Add here commands to install the arch part of the package into 
+	# debian/tmp.
+	cd ManuProC_Base && $(MAKE) install DESTDIR=$(CURDIR)/debian/magus
+	cd midgard && $(MAKE) install DESTDIR=$(CURDIR)/debian/magus
+	# not needed
+	rm -r debian/magus/usr/include
+	rm -r debian/magus/usr/lib/*.a debian/magus/usr/lib/*.la debian/magus/usr/lib/*.so
+	rm -r debian/magus/usr/share/magus/*
+
+	dh_install -s
+# Must not depend on anything. This is to be called by
+# binary-arch/binary-indep
+# in another 'make' thread.
+binary-common:
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs
+	dh_installexamples
+	dh_installmenu
+#	dh_installdebconf	
+#	dh_installlogrotate	
+#	dh_installemacsen
+#	dh_installpam
+	dh_installmime
+#	dh_installinit
+#	dh_installcron
+#	dh_installinfo
+#	dh_installman
+	dh_link
+	dh_strip
+	dh_compress 
+	dh_fixperms
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+# Build architecture independant packages using the common target.
+binary-indep: build-indep install-indep
+	$(MAKE) -f debian/rules DH_OPTIONS=-i binary-common
+
+# Build architecture dependant packages using the common target.
+binary-arch: build-arch install-arch
+	$(MAKE) -f debian/rules DH_OPTIONS=-a binary-common
+
+binary: binary-arch binary-indep
+.PHONY: build clean binary-indep binary-arch binary install install-indep install-arch configure
