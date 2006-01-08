@@ -234,7 +234,7 @@ table_steigern::table_steigern(GlademmData *_data)
    clist_ruestung->append_column("B\nVerlust",ruestung_columns.b_verlust);
    clist_ruestung->get_selection()->signal_changed().connect(SigC::slot(*this,&table_steigern::on_ruestung_selection_changed));
 
-// die drei Zeilen können auch noch weg
+// die drei Zeilen können auch noch weg?
      vbox_praxispunkte->hide();
      spinbutton_pp_eingeben->hide();
  scrolledwindow_landauswahl->hide();

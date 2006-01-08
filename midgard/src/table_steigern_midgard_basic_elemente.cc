@@ -33,16 +33,6 @@ bool table_steigern::MidgardBasicElement_leaf_alt(const cH_RowDataBase &d)
 {
  const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
  MBEmlt &MBE = const_cast<MBEmlt&>(dt->getMBE());
- if (button_was_tun->get_index()==Button_PP_eingeben
-     || (togglebutton_praxispunkte->get_active()
-     && radiobutton_pp_fertigkeit->get_active())) 
-  {
-   spinbutton_pp_eingeben->set_value(MBE->Praxispunkte());
-   spinbutton_pp_eingeben->select_region(0,-1);
-   spinbutton_pp_eingeben->show();
-   spinbutton_pp_eingeben->grab_focus();
-   return false;
-  }
 
  ////////////////////////////////////////////////////////////////////////
  AbenteurerAuswahl::LocalUndoRememberer undo(hauptfenster->getChar().actualIterator());

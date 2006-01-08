@@ -38,18 +38,12 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
 {
   if(togglebutton_praxispunkte->get_active())
    {
-//     radiobutton_pp_abwehr->set_active(true);
      vbox_praxispunkte->show();
      if(hauptfenster->getAben().Typ1()->is_mage() || hauptfenster->getAben().Typ2()->is_mage()) 
          radiobutton_pp_zauber->set_sensitive(true);
      else
          radiobutton_pp_zauber->set_sensitive(true);
-
-     try{
-      MBEmlt M=getSelectedNotebookLernen();
-      spinbutton_pp_eingeben->set_value(M->Praxispunkte());
-      spinbutton_pp_eingeben->show();
-     }catch(SimpleTree::noRowSelected &e) {/*std::cerr << e.what()<<'\n'; hauptfenster->set_status("Keine Zeile selektiert");*/}
+     on_radiobutton_pp_all_toggled();
    }
   else
    {
@@ -70,44 +64,36 @@ std::string table_steigern::SpruecheMitPP()
 
 /////////////////////////////////////////////////////////
 
-void table_steigern::on_radiobutton_pp_fertigkeit_toggled()
-{ 
-   spinbutton_pp_eingeben->hide();
-// spinbutton_pp_eingeben->select_region(0,-1);
-// on_radiobutton_pp_all_toggled();
-}
 void table_steigern::on_radiobutton_pp_zauber_toggled()
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getAben().ZaubernPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_spezial_toggled()
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getAben().SpezialPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_abwehr_toggled()    
 {
- spinbutton_pp_eingeben->set_value(hauptfenster->getAben().AbwehrPP());
  on_radiobutton_pp_all_toggled(); 
 }
 void table_steigern::on_radiobutton_pp_resistenz_toggled()
 { 
- spinbutton_pp_eingeben->set_value(hauptfenster->getAben().ResistenzPP());
  on_radiobutton_pp_all_toggled();
 }
 void table_steigern::on_radiobutton_pp_all_toggled()
 {
-/*
-  if(radiobutton_pp_fertigkeit->get_active())
-    spinbutton_pp_eingeben->hide();
-  else
-*/
-   {
+  if (radiobutton_pp_resistenz->get_active())
+    spinbutton_pp_eingeben->set_value(hauptfenster->getAben().ResistenzPP());
+  else if (radiobutton_pp_abwehr->get_active())
+    spinbutton_pp_eingeben->set_value(hauptfenster->getAben().AbwehrPP());
+  else if (radiobutton_pp_spezial->get_active())
+    spinbutton_pp_eingeben->set_value(hauptfenster->getAben().SpezialPP());
+  else if (radiobutton_pp_zauber->get_active())
+    spinbutton_pp_eingeben->set_value(hauptfenster->getAben().ZaubernPP());
+
      spinbutton_pp_eingeben->show();
      spinbutton_pp_eingeben->grab_focus();
      spinbutton_pp_eingeben->select_region(0,-1);
-   }
 }
                                 
 
@@ -124,7 +110,7 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
        hauptfenster->getAben().setSpezialPP(PPanz);
     else if(radiobutton_pp_resistenz->get_active())
        hauptfenster->getAben().setResistenzPP(PPanz);
-    spinbutton_pp_eingeben->hide();
+//    spinbutton_pp_eingeben->hide();
 //    radiobutton_steigern->get_active();
     zeige_werte();
     return;
