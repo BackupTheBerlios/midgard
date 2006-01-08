@@ -129,8 +129,7 @@ cH_KiDo cH_KiDo::load(const Tag &t,bool &is_new)
 void KiDo_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  bool is_new=false;
    cH_KiDo z=cH_KiDo::load(t,is_new);
-   // das &* dient dazu um aus einem cH_KiDo ein cH_MBE zu machen
-   if (is_new) list.push_back(&*z);
+   if (is_new) list.push_back(z);
 }
 
 bool cH_KiDo::sort::operator() (MBEmlt _x,MBEmlt _y) const

@@ -70,7 +70,6 @@ cH_Fertigkeit_angeborene cH_Fertigkeit_angeborene::load(const Tag &t)
 
 void Fertigkeiten_angeborene_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  cH_Fertigkeit_angeborene z=cH_Fertigkeit_angeborene::load(t);
-   // das &* dient dazu um aus einem cH_Fertigkeit_angeborene ein cH_MBE zu machen
-   list.push_back(&*z);
+   list.push_back(z);
 }
 

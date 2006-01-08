@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.21 2006/01/08 08:47:06 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.22 2006/01/08 08:48:07 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -614,7 +614,7 @@ void Abenteurer::desteigern(unsigned kosten)
 
 bool Abenteurer::steigern_usp(int &kosten, ResistenzUndCo::was_t was)
 { int d=1; 
-  MBEmlt mbe=MBEmlt(&*ResistenzUndCo::getMBE(was));
+  MBEmlt mbe=MBEmlt(ResistenzUndCo::getMBE(was));
   // EW setzen?
   return steigern_usp(kosten,mbe,d);
 }

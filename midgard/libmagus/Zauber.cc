@@ -224,7 +224,6 @@ cH_Zauber cH_Zauber::load(const Tag &t,bool &is_new)
 void Zauber_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  bool is_new=false;
    cH_Zauber z=cH_Zauber::load(t,is_new);
-   // das &* dient dazu um aus einem cH_Zauber ein cH_MBE zu machen
-   if (is_new) list.push_back(&*z);
+   if (is_new) list.push_back(z);
 }
 

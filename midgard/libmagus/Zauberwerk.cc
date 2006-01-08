@@ -156,6 +156,5 @@ cH_Zauberwerk cH_Zauberwerk::load(const Tag &t,bool &is_new)
 void Zauberwerk_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  bool is_new=false;
    cH_Zauberwerk z=cH_Zauberwerk::load(t,is_new);
-   // das &* dient dazu um aus einem cH_Zauberwerk ein cH_MBE zu machen
-   if (is_new) list.push_back(&*z);
+   if (is_new) list.push_back(z);
 }

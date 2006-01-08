@@ -84,7 +84,7 @@ class cH_Beruf : public Handle<const Beruf>
     static cH_Beruf load(const Tag &t,bool &is_new);
 
     cH_Beruf(const cH_MidgardBasicElement &x) : Handle<const Beruf>
-      (dynamic_cast<const Beruf *>(&*x)){}
+      (x.cast_dynamic<const Beruf>()){}
 };
 
 class Beruf_All

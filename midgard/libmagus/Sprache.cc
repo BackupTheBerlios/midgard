@@ -184,7 +184,7 @@ std::list<MBEmlt> Sprache::cleanVerwandteSprachen(std::list<MBEmlt> L)
   for(std::map<std::string,int>::const_iterator i=M.begin();i!=M.end();++i)
    {
      const cH_Sprache s(i->first);
-     MBEmlt m(&*s);
+     MBEmlt m(s);
      m->setErfolgswert(i->second);
      N.push_back(m);
    }
@@ -267,7 +267,6 @@ cH_Sprache cH_Sprache::load(const Tag &t,bool &is_new)
 void Sprachen_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  bool is_new=false;
    cH_Sprache z=cH_Sprache::load(t,is_new);
-   // das &* dient dazu um aus einem cH_Sprache ein cH_MBE zu machen
-   if (is_new) list.push_back(&*z);
+   if (is_new) list.push_back(z);
 }
 

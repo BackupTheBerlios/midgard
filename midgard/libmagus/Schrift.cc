@@ -122,8 +122,7 @@ cH_Schrift cH_Schrift::load(const std::string &name,const Tag &t)
 void Schriften_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  FOR_EACH_CONST_TAG_OF(j,t,"Variante")
    {  cH_Schrift z=cH_Schrift::load(j->getAttr("Name"),t);
-      // das &* dient dazu um aus einem cH_Schrift ein cH_MBE zu machen
-      list.push_back(&*z);
+      list.push_back(z);
    }
 }
 

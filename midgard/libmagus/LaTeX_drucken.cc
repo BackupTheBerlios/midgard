@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.31 2005/11/17 07:26:26 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.32 2006/01/08 08:48:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -549,7 +549,7 @@ void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,c
      
      bool grund_ist_gelernt = false;
      if( !(*i)->Waffe()->ZweiteGrundkenntnis().empty() )
-        grund_ist_gelernt=MBEmlt(&*cH_WaffeGrund((*i)->Waffe()->ZweiteGrundkenntnis()))
+        grund_ist_gelernt=MBEmlt(cH_WaffeGrund((*i)->Waffe()->ZweiteGrundkenntnis()))
            ->ist_gelernt(A.List_WaffenGrund());
                     
      if(text.find("Einhändig")!=std::string::npos)

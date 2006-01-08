@@ -127,7 +127,7 @@ reloop:
        { 
          i=-1;
          mutter_9=false;
-         ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
+         ci=find(V.begin(),V.end(),MBEmlt(cH_Fertigkeit("Schreiben: Muttersprache(+9)")));
          if(ci==V.end()) 
             { Ausgabe(Ausgabe::Warning,"Zu blöd zum Schreiben: Muttersprache(+9)");
 //              const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
@@ -138,7 +138,7 @@ reloop:
        { 
          i=-1;
          mutter_12=false;
-         ci=find(V.begin(),V.end(),MBEmlt(&*cH_Fertigkeit("Schreiben: Muttersprache(+12)")));
+         ci=find(V.begin(),V.end(),MBEmlt(cH_Fertigkeit("Schreiben: Muttersprache(+12)")));
          if(ci==V.end()) 
             { Ausgabe(Ausgabe::Warning,"Zu blöd zum Schreiben: Muttersprache(+12)");
               const_cast<Lernpunkte&>(lernpunkte).set_schreiben_pflicht_allg(true);
@@ -194,7 +194,7 @@ reloop:
           if(M->ist_gelernt(Aben.List_Waffen())) {List_gelerntes.push_back(M);goto reloop;}
           Aben.List_Waffen().push_back(M);
           if (!cH_Waffe(M->getMBE())->Grundkenntnis().empty())
-          {  Aben.List_WaffenGrund().push_back(MBEmlt(&*cH_WaffeGrund(cH_Waffe(M->getMBE())->Grundkenntnis())));
+          {  Aben.List_WaffenGrund().push_back(MBEmlt(cH_WaffeGrund(cH_Waffe(M->getMBE())->Grundkenntnis())));
              Aben.List_WaffenGrund().sort(MBEmlt::sort(MBEmlt::sort::NAME));
              Aben.List_WaffenGrund().unique();
           }
@@ -271,14 +271,14 @@ MBEmlt Zufall::getZusatz(MidgardBasicElement::eZusatz was,MBEmlt& MBE,bool nachb
 
   if(was==MidgardBasicElement::ZLand && (*MBE)->Name()=="Landeskunde (Heimat)")
    {
-     Mtmp=MBEmlt(&*cH_Fertigkeit("Landeskunde"));
+     Mtmp=MBEmlt(cH_Fertigkeit("Landeskunde"));
      Mtmp->setZusatz(Aben.Herkunft()->Name());
      MBE->setLernArt(MBE->LernArt()+"_Heimat");
    }
   if(was==MidgardBasicElement::ZSprache)
-       Mtmp=MBEmlt(&*cH_Sprache(V[i].name));
+       Mtmp=MBEmlt(cH_Sprache(V[i].name));
   else if(was==MidgardBasicElement::ZSchrift)
-       Mtmp=MBEmlt(&*cH_Schrift(V[i].name));
+       Mtmp=MBEmlt(cH_Schrift(V[i].name));
 
 
   if(MBE != Mtmp)
@@ -351,7 +351,7 @@ void Zufall::setBeruf()
      bool zusatz=Beruf::Berufsfertigkeit(Aben,F[i]);
      if(zusatz) 
       {
-         MBEmlt M(&*cH_Fertigkeit(F[i].name));
+         MBEmlt M(cH_Fertigkeit(F[i].name));
          getZusatz((*M)->ZusatzEnum(Aben.getVTyp()),M);
       }
      if(F[i].kat==3 || F[i].kat==4) break;

@@ -150,7 +150,7 @@ bool Beruf::Berufsfertigkeit(Abenteurer& A,st_vorteil F)
    }
   else // neue Fertigkeit
    {
-     cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(F.name));
+     cH_MidgardBasicElement cMBE(cH_Fertigkeit(F.name));
      MBEmlt MBE(cMBE);
      MBE->setLernArt("Beruf");
      MBE->setErfolgswert(F.wert);
@@ -186,6 +186,5 @@ cH_Beruf cH_Beruf::load(const Tag &t,bool &is_new)
 void Beruf_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  bool is_new=false;
    cH_Beruf z=cH_Beruf::load(t,is_new);
-   // das &* dient dazu um aus einem cH_Beruf ein cH_MBE zu machen
-   if (is_new) list.push_back(&*z);
+   if (is_new) list.push_back(z);
 }

@@ -1,4 +1,4 @@
-// $Id: AbenteurerLernpunkte.cc,v 1.4 2003/11/24 16:21:42 christof Exp $               
+// $Id: AbenteurerLernpunkte.cc,v 1.5 2006/01/08 08:48:07 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -86,14 +86,14 @@ void AbenteurerLernpunkte::beruf_gewuerfelt(Abenteurer &a,int wurf)
 void AbenteurerLernpunkte::on_beruf_tree_leaf_selected(Abenteurer &A, cH_Beruf b, const st_vorteil &v)
 {
  try{
-    cH_MidgardBasicElement cmbe(&*b);
+    cH_MidgardBasicElement cmbe(b);
     MBEmlt mbe(cmbe);
     a.List_Beruf().clear(); // es kann nur einen Beruf geben
     a.List_Beruf().push_back(mbe);
 
     bool zusatz = Beruf::Berufsfertigkeit(A,v);
     if(zusatz) 
-     { cH_MidgardBasicElement cMBE(&*cH_Fertigkeit(v.name));
+     { cH_MidgardBasicElement cMBE(cH_Fertigkeit(v.name));
        MBEmlt MBE(cMBE);
        lernen_zusatz((*MBE)->ZusatzEnum(a.getVTyp()),MBE);
      }

@@ -58,7 +58,7 @@ std::vector<cH_Prototyp2> zufall_steigern::getSelectedPrototypen()
   std::vector<cH_RowDataBase> VR=tree_prototyp->getSelectedRowDataBase_vec();
   for(std::vector<cH_RowDataBase>::const_iterator i=VR.begin();i!=VR.end();++i)
    {
-     const Data_Prototyp *dt=dynamic_cast<const Data_Prototyp*>(&**i);     
+     const Data_Prototyp *dt=dynamic_cast<const Data_Prototyp*>(*i);     
      P.push_back(dt->getPrototyp());
    }
   return P;

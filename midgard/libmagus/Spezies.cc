@@ -160,7 +160,7 @@ std::list<MBEmlt> Spezies::getZauber() const
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="z")) continue;
-    cH_MidgardBasicElement z(&*cH_Zauber(i->name)); 
+    cH_MidgardBasicElement z(cH_Zauber(i->name)); 
     MBEmlt Z(z);
     L.push_back(Z);
    }
@@ -173,7 +173,7 @@ std::list<MBEmlt> Spezies::getAngFertigkeiten() const
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="af")) continue;
-    cH_MidgardBasicElement f(&*cH_Fertigkeit_angeborene(i->name)); 
+    cH_MidgardBasicElement f(cH_Fertigkeit_angeborene(i->name)); 
     MBEmlt F(f);
     F->setErfolgswert(i->erfolgswert);
     L.push_back(F);
@@ -187,7 +187,7 @@ std::list<MBEmlt> Spezies::getFertigkeiten(int &lp,const Grundwerte &Werte) cons
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="f")) continue;
-    cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
+    cH_MidgardBasicElement f(cH_Fertigkeit(i->name)); 
     MBEmlt F(f);
     F->setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte) );
     lp+=i->lp;
@@ -202,7 +202,7 @@ std::list<MBEmlt> Spezies::getFreiwilligeFertigkeiten(const Grundwerte &Werte) c
   for(std::vector<st_angebfert>::const_iterator i=vec_angebfert.begin();i!=vec_angebfert.end();++i)
    {
     if(!(i->art=="ff")) continue;
-    cH_MidgardBasicElement f(&*cH_Fertigkeit(i->name)); 
+    cH_MidgardBasicElement f(cH_Fertigkeit(i->name)); 
     MBEmlt F(f);
     F->setErfolgswert(i->erfolgswert + cH_Fertigkeit(f)->AttributBonus(Werte));
 //cout << i->erfolgswert<<' '<<cH_Fertigkeit(f)->AttributBonus(Werte)<<'\n';

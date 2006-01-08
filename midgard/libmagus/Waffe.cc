@@ -209,7 +209,7 @@ std::string WaffeBesitz::Schaden(const Abenteurer& A,const std::string& name) co
        !Waffe()->Min_St_Einhand(Werte)) sb2=sb;
   // Grundkenntnis fürs Einhändige Tragen dieser Waffe nicht erworben
   if(!Waffe()->ZweiteGrundkenntnis().empty() && 
-  	!MBEmlt(&*cH_WaffeGrund(Waffe()->ZweiteGrundkenntnis()))
+  	!MBEmlt(cH_WaffeGrund(Waffe()->ZweiteGrundkenntnis()))
       ->ist_gelernt(A.List_WaffenGrund())) sb=sb2;
 
   if (Waffe()->Art()!="Schußwaffe" && Waffe()->Art()!="Wurfwaffe") 
@@ -341,7 +341,7 @@ std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
    const Abenteurer &A)
 {
    std::list<H_WaffeBesitz> Verteidigungswaffen;
-//   MBEmlt wl(&*cH_Waffe("waffenloser Kampf"));
+//   MBEmlt wl(cH_Waffe("waffenloser Kampf"));
    cH_Waffe wl("waffenloser Kampf");
 
    cH_Waffe TESTwl("kleiner Schild");
@@ -443,8 +443,7 @@ cH_Waffe cH_Waffe::load(const Tag &t,bool &is_new)
 void Waffe_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t)
 {  bool is_new=false;
    cH_Waffe z=cH_Waffe::load(t,is_new);
-   // das &* dient dazu um aus einem cH_Waffe ein cH_MBE zu machen
-   if (is_new) list.push_back(&*z);
+   if (is_new) list.push_back(z);
 }
 
 cH_Waffe Waffe::WaffeVonBezeichnung(const std::string &name)

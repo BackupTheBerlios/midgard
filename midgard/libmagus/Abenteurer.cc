@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.36 2006/01/08 08:46:28 christof Exp $            
+// $Id: Abenteurer.cc,v 1.37 2006/01/08 08:48:07 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -111,7 +111,7 @@ const std::list<Abenteurer::st_universell> Abenteurer::List_Universell() const
      if(f->Ungelernt(*this)!=-99)
      UF.push_back(MBEmlt(*i));
    }
-  cH_MidgardBasicElement werfen(&*cH_Waffe("Werfen"));
+  cH_MidgardBasicElement werfen(cH_Waffe("Werfen"));
   UF.push_back(MBEmlt(werfen));
   UF.push_back(Ueberleben());
   UF.sort(sort_universell());
@@ -488,7 +488,7 @@ bool Abenteurer::laden(std::istream& datei)
    std::string ueberleben=Typ->getAttr("Überleben");
    if(ueberleben!="") 
      { 
-       MBEmlt M(&*cH_Fertigkeit(ueberleben,true));
+       MBEmlt M(cH_Fertigkeit(ueberleben,true));
        setUeberleben(M);
      }
    setMuttersprache(Typ->getAttr("Muttersprache"));
@@ -576,21 +576,21 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         }
       else if(sart=="Beruf")
         {
-         cH_MidgardBasicElement beruf(&*cH_Beruf(i->getAttr("Bezeichnung"),true));
+         cH_MidgardBasicElement beruf(cH_Beruf(i->getAttr("Bezeichnung"),true));
          MBEmlt B(beruf);
          B->setErfolgswert(i->getIntAttr("Wert"));
          List_Beruf().push_back(B);
         }
       else if(sart=="ang-Fertigkeit" || sart=="ang.Fertigkeit")
        {
-         cH_MidgardBasicElement fert_an(&*cH_Fertigkeit_angeborene(i->getAttr("Bezeichnung"),true));
+         cH_MidgardBasicElement fert_an(cH_Fertigkeit_angeborene(i->getAttr("Bezeichnung"),true));
          MBEmlt F(fert_an);
          F->setErfolgswert(i->getIntAttr("Wert"));
          List_Fertigkeit_ang().push_back(F);
        }    
       else if(sart=="Fertigkeit")
        {
-         cH_MidgardBasicElement fert(&*cH_Fertigkeit(i->getAttr("Bezeichnung"),true));
+         cH_MidgardBasicElement fert(cH_Fertigkeit(i->getAttr("Bezeichnung"),true));
          MBEmlt F(fert);
          F->setErfolgswert(i->getIntAttr("Wert"));
          F->setPraxispunkte(i->getIntAttr("Praxispunkte"));
@@ -605,7 +605,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
        }    
       else if(sart=="Waffe")
         {
-         cH_MidgardBasicElement waffe(&*cH_Waffe(i->getAttr("Bezeichnung"),true));
+         cH_MidgardBasicElement waffe(cH_Waffe(i->getAttr("Bezeichnung"),true));
          MBEmlt W(waffe);
          W->setErfolgswert(i->getIntAttr("Wert"));
          W->setPraxispunkte(i->getIntAttr("Praxispunkte"));
@@ -616,7 +616,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
 #endif
       else if(sart=="Zauber")
         {
-         cH_MidgardBasicElement zauber(&*cH_Zauber(i->getAttr("Bezeichnung"),true));
+         cH_MidgardBasicElement zauber(cH_Zauber(i->getAttr("Bezeichnung"),true));
          MBEmlt Z(zauber);
          if(zauber->ZusatzEnum(getVTyp()))
           { // zauber=new Zauber(*cH_Zauber(zauber));
@@ -626,14 +626,14 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         }
       else if(sart=="Zauberwerk")
         {
-          cH_MidgardBasicElement zauberwerk(&*cH_Zauberwerk(i->getAttr("Bezeichnung"),
+          cH_MidgardBasicElement zauberwerk(cH_Zauberwerk(i->getAttr("Bezeichnung"),
                       i->getAttr("Art"),i->getAttr("Stufe"),true));
           MBEmlt Z(zauberwerk);
           List_Zauberwerk().push_back(Z);
         }
       else if(sart=="KiDo")
         {
-          cH_MidgardBasicElement kido(&*cH_KiDo(i->getAttr("Bezeichnung"),true));
+          cH_MidgardBasicElement kido(cH_KiDo(i->getAttr("Bezeichnung"),true));
           MBEmlt K(kido);
           List_Kido().push_back(K) ;
         }
@@ -644,13 +644,13 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
            else if (bez=="ESchlagwaffe") bez="Einhandschlagwaffe";
            else if (bez=="ZSchlagwaffe") bez="Zweihandschlagwaffe";
            else if (bez=="Schilde") bez="Schild";
-           cH_MidgardBasicElement grund(&*cH_WaffeGrund(bez,true));
+           cH_MidgardBasicElement grund(cH_WaffeGrund(bez,true));
            MBEmlt G(grund);
            List_WaffenGrund().push_back(G);
         }
       else if(sart=="Sprache")
         {
-         cH_MidgardBasicElement sprache(&*cH_Sprache(i->getAttr("Bezeichnung"),true));
+         cH_MidgardBasicElement sprache(cH_Sprache(i->getAttr("Bezeichnung"),true));
          MBEmlt S(sprache);
          int wert=i->getIntAttr("Wert");
          if (xml_version<8)          {  switch (wert)
@@ -666,7 +666,7 @@ void Abenteurer::load_fertigkeiten(const Tag *tag, const Tag *waffen_b, int xml_
         }
       else if(sart=="Urschrift") 
         {
-         cH_MidgardBasicElement schrift(&*cH_Schrift(i->getAttr("Bezeichnung"),true));
+         cH_MidgardBasicElement schrift(cH_Schrift(i->getAttr("Bezeichnung"),true));
          MBEmlt S(schrift);
          int wert=i->getIntAttr("Wert");
          if (xml_version<8 && !wert) wert=12;

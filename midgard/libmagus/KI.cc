@@ -229,8 +229,8 @@ std::list<MBEmlt> MagusKI::KI_Prototypen_Liste(const MidgardBasicElement::MBEE w
   S.sort();
   std::list<MBEmlt> newL;
   if(S.empty()) return newL;
-  if     (was==MidgardBasicElement::FERTIGKEIT) newL.push_back(MBEmlt(&*cH_Fertigkeit(S.begin()->name)));
-  else if(was==MidgardBasicElement::ZAUBER) newL.push_back(MBEmlt(&*cH_Zauber(S.begin()->name)));
+  if     (was==MidgardBasicElement::FERTIGKEIT) newL.push_back(MBEmlt(cH_Fertigkeit(S.begin()->name)));
+  else if(was==MidgardBasicElement::ZAUBER) newL.push_back(MBEmlt(cH_Zauber(S.begin()->name)));
   return newL;
 }
 

@@ -1,4 +1,4 @@
-// $Id: LernListen.cc,v 1.11 2005/04/23 14:24:15 christof Exp $
+// $Id: LernListen.cc,v 1.12 2006/01/08 08:48:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -67,7 +67,7 @@ std::list<MBEmlt> LernListen::getMBEm(const Abenteurer& A,eMBE was,
          if(cH_Sprache(*i)->Alte_Sprache()) erlaubt=true;
          else continue;
       else erlaubt=true;
-      MBEmlt M(&**i);
+      MBEmlt M(*i);
       M->setLernArt(lernart+"_"+(*i)->Name());
       M->setErlaubt(erlaubt);
 
@@ -240,7 +240,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getSprachenZusatz(const 
   std::vector<MidgardBasicElement::st_zusatz> B;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Sprache.begin();i!=Datenbank.Sprache.end();++i)
    {
-     if(MBEmlt(&**i)->ist_gelernt(Aben.List_Sprache())) continue;
+     if(MBEmlt(*i)->ist_gelernt(Aben.List_Sprache())) continue;
 
      bool erlaubt=true;
      if((*MBE)->Name()=="Muttersprache" || (*MBE)->Name()=="Gastlandsprache")
@@ -264,7 +264,7 @@ std::vector<MidgardBasicElement::st_zusatz> LernListen::getSchriftenZusatz(const
   std::vector<MidgardBasicElement::st_zusatz> B;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=Datenbank.Schrift.begin();i!=Datenbank.Schrift.end();++i)
    {
-     if(MBEmlt(&**i)->ist_gelernt(Aben.List_Schrift())) continue;
+     if(MBEmlt(*i)->ist_gelernt(Aben.List_Schrift())) continue;
      if(!cH_Schrift(*i)->kann_Sprache(Aben.List_Sprache())) continue;
      bool erlaubt=true;
      if( (*MBE)->Name().find("Muttersprache") != std::string::npos)
@@ -339,7 +339,7 @@ std::list<H_WaffeBesitz> LernListen::getWaffenBesitz(const Abenteurer& Aben)
      const cH_Waffe w(*i);
      if (w->Grundkenntnis() == "Kampf ohne Waffen") continue;
      if (w->Grundkenntnis() == "Werfen") continue;
-     if (!MBEmlt(&*w)->ist_gelernt(Aben.List_Waffen())) continue;
+     if (!MBEmlt(w)->ist_gelernt(Aben.List_Waffen())) continue;
      L.push_back(new WaffeBesitz(w,w->Name(),0,0,"","")); 
      for(std::list<Waffe::st_alias>::const_iterator j=cH_Waffe(w)->Alias().begin();j!=cH_Waffe(w)->Alias().end();++j)
       {
@@ -393,7 +393,7 @@ std::vector<Beruf::st_vorteil> LernListen::getBerufsVorteil(const MBEmlt& beruf,
          (j->kat==3 && BKat.kat_III) || (j->kat==4 && BKat.kat_IV ) )
         {
           if(j->name!="Schmecken+10" && 
-             MBEmlt(&*cH_Fertigkeit(j->name))->ist_gelernt(A.List_Fertigkeit()))
+             MBEmlt(cH_Fertigkeit(j->name))->ist_gelernt(A.List_Fertigkeit()))
                 j->gelernt=true;
           else if(j->name=="Schreiben: Muttersprache(+12)") j->gelernt=true;
           F.push_back(*j);

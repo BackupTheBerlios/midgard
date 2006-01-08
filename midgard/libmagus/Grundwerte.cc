@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.22 2005/04/26 10:14:19 thoma Exp $               
+// $Id: Grundwerte.cc,v 1.23 2006/01/08 08:48:08 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -358,7 +358,7 @@ std::string Grundwerte::Ruestung_Abwehr_Verlust(const std::list<MBEmlt>& list_Fe
  int v1 = Ruestung(1)->AbwehrBonus_Verlust(bo_Ab());
  // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung"))->ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MBEmlt(cH_Fertigkeit("Kampf in Vollrüstung"))->ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
@@ -377,7 +377,7 @@ std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_F
  int v1 = Ruestung(1)->AngriffsBonus_Verlust(bo_An());
  // Abzug, wenn in Vollrüstung gekämpft wird, obwohl die
  // entsprechende Fertigkeit nicht beherrscht wird.
- bool kiv_gelernt=MBEmlt(&*cH_Fertigkeit("Kampf in Vollrüstung"))->ist_gelernt(list_Fertigkeit);
+ bool kiv_gelernt=MBEmlt(cH_Fertigkeit("Kampf in Vollrüstung"))->ist_gelernt(list_Fertigkeit);
  if(Ruestung(0)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
    v0 += Ruestung(0)->VollRuestungsAbzug();
  if(Ruestung(1)->VollRuestungsAbzug()!=0 && !kiv_gelernt)
@@ -443,7 +443,7 @@ void Grundwerte::setStadtLand(const std::string& _g)
 }
 
 Grundwerte::Grundwerte(bool initialize)
-	:  Ueberleben_angeboren(&*cH_Fertigkeit("Überleben Heimat",true)),
+	:  Ueberleben_angeboren(cH_Fertigkeit("Überleben Heimat",true)),
              raufen(),au(),pa(),sb(), wk(),
              b(),lp(),ap(),gg(),sg(),abwehr_wert(),abwehr_pp(),
              zaubern_wert(),zauber_pp(),pp_spezialzauber(),resistenz(),resistenz_pp(),
