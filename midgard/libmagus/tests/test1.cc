@@ -29,6 +29,7 @@ void progress(double d)
 
 int main(int argc,char **argv)
 {  magus_paths::init(argv[0]);
+   magus_paths::prepend_dir("../../xml/");
  try {  
    Datenbank::init(&progress);
    
