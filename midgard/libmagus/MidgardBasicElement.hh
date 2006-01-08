@@ -186,19 +186,13 @@ class MidgardBasicElement_mutable : public HandleContent
       MidgardBasicElement::st_zusatz zusatz; // Für Zusätze bei Fertigkeiten 
                               // (z.B. Abrichten, Sprache, Geheimzeichen...)
                               // und Zauber (Tiersprache)
-      bool gelernt; // Fürs Lernschema
-      bool pflicht;
-      bool erlaubt;
+      bool gelernt:1; // Fürs Lernschema
+      bool pflicht:1;
+      bool erlaubt:1;
       std::string lernart; // Fach- Allgemeinwissen, ungew. Fert.
       
    
  public: 
-#if 0 
-      MidgardBasicElement_mutable(const cH_MidgardBasicElement  &_mbe)
-         : mbe(_mbe),praxispunkte(),erfolgswert(),
-            lernpunkte(),gelernt(),pflicht() 
-           {setErfolgswert(mbe->Anfangswert());}
-#endif           
       template <class T>
        MidgardBasicElement_mutable(const Handle<T> &_mbe)
          : mbe(_mbe),praxispunkte(),erfolgswert(),
@@ -277,6 +271,9 @@ class H_MidgardBasicElement_mutable : public Handle<MidgardBasicElement_mutable>
       H_MidgardBasicElement_mutable(const cH_MidgardBasicElement  &_mbe)
          : Handle<MidgardBasicElement_mutable>(new MidgardBasicElement_mutable(_mbe))
                {}
+      
+      // duplizieren d.h. unabhängiges Element erzeugen
+      H_MidgardBasicElement_mutable dup() const;
 
    class sort {
       public:

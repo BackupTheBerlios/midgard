@@ -390,3 +390,7 @@ bool operator&(MidgardBasicElement::EP_t a, MidgardBasicElement::EP_t b)
 
 std::map<int,std::map<int,int> > MidgardBasicElement::waffen_steigern_nach_schwierigkeit;
 std::map<std::string,std::map<int,int> > MidgardBasicElement::sonstige_steigern_kosten;
+
+H_MidgardBasicElement_mutable H_MidgardBasicElement_mutable::dup() const
+{ return H_MidgardBasicElement_mutable(new MidgardBasicElement_mutable(**this));
+}
