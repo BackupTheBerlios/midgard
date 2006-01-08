@@ -45,6 +45,9 @@ int main(int argc,char **argv)
    { std::ofstream out("test1.magus");
      ch->getAbenteurer().speichern(out);
    }
+   { std::ofstream out("test1_orig.magus");
+     ch->begin()->abenteurer.speichern(out);
+   }
    return 0;
  } catch (...)
  { Ausgabe(Ausgabe::Error, "exception");  
