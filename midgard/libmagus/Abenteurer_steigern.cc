@@ -1,7 +1,7 @@
-// $Id: Abenteurer_steigern.cc,v 1.22 2006/01/08 08:48:07 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.23 2006/01/08 08:48:12 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
- *  Copyright (C) 2003-2004 Christof Petig
+ *  Copyright (C) 2003-2006 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@
 #include "Ausgabe.hh"
 #include "magustrace.h"
 #include <Misc/Trace.h>
+#include <algorithm>
 
 bool Abenteurer::ZauberSpruecheMitPP() const
 {
@@ -350,7 +351,7 @@ int Abenteurer::get_ab_re_za(const ResistenzUndCo::was_t was)
   int kosten;
   int grad=Grad();
   // diese Anweisung finde ich gewagt!
-  if(reduzieren) grad=--grad;
+  if(reduzieren) --grad;
 
   if(grad==0) kosten=0;
   else switch (was)
@@ -502,6 +503,13 @@ bool Abenteurer::steigere(MBEmlt &MBE)
   }      
   int stufen=1;
   int steigerkosten=MBE->Steigern(*this);
+  // Kopie anlegen, damit ältere Undo Schritte nicht erfasst werden
+  if (MBE->What()!=MidgardBasicElement::RESISTENZ_UND_CO)
+  { MBEmlt old=MBE;
+    MBE=MBE.dup();
+    std::list<MBEmlt> &L=getList(MBE->What());
+    std::replace(L.begin(),L.end(),old,MBE);
+  }
   if (!steigern_usp(steigerkosten,MBE,stufen)) return false;
   addGFP(steigerkosten); 
   MBE->addErfolgswert(stufen);
@@ -510,7 +518,15 @@ bool Abenteurer::steigere(MBEmlt &MBE)
 
 
 void Abenteurer::reduziere(MBEmlt &MBE)
-{ desteigern(MBE->Reduzieren(*this));
+{ 
+  // Kopie anlegen, damit ältere Undo Schritte nicht erfasst werden
+  if (MBE->What()!=MidgardBasicElement::RESISTENZ_UND_CO)
+  { MBEmlt old=MBE;
+    MBE=MBE.dup();
+    std::list<MBEmlt> &L=getList(MBE->What());
+    std::replace(L.begin(),L.end(),old,MBE);
+  }
+  desteigern(MBE->Reduzieren(*this));
   MBE->addErfolgswert(-1);
 }
 

@@ -1,7 +1,7 @@
-// $Id: Abenteurer.cc,v 1.37 2006/01/08 08:48:07 christof Exp $            
+// $Id: Abenteurer.cc,v 1.38 2006/01/08 08:48:12 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
- *  Copyright (C) 2003-2004 Christof Petig
+ *  Copyright (C) 2003-2006 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify  
  *  it under the terms of the GNU General Public License as published by
@@ -861,24 +861,6 @@ void Abenteurer::reset()
              Grundwerte::reset();
              setStandardAusruestung();
 }
-
-#if 0
-void Abenteurer::calculate_old_API(e_wie_steigern &wie, Enums::st_bool_steigern &bool_st)
-{ wie=Enums::eUnterweisung;
-  bool_st.mitEP=fpanteil>0;
-  bool_st.HausG1=getOptionen().HausregelCheck(Optionen::Gold).active;
-  bool_st.Spruchrolle= wie_steigern==ws_Spruchrolle;
-  bool_st.SpruchrolleAuto=true; // ???
-  bool_st.hoch_wie_geht=true;
-  bool_st.pp_verfallen= wie_steigern_variante==wsv_NurPraxispunkte;
-  bool_st.aep_fuellen= wie_steigern_variante==wsv_PraxispunkteFP;
-  bool_st.neue_sprache_pp= wie_steigern==ws_Praxispunkte;
-  if (wie_steigern==ws_Praxispunkte)
-    wie=Enums::ePraxis;
-  else if (wie_steigern==ws_Selbststudium)
-    wie=Enums::eSelbststudium;
-}
-#endif
 
    // true: funktioniert
 bool Abenteurer::Steigern(MBEmlt &MBE)
