@@ -10,7 +10,7 @@
   <Gesundheit AP="7" LP="15"/>
   <Beschreibung Alter="22" Gestalt="schlank" Gewicht="66" Größe="175" Herkunft="Alba" Stand="Volk"/>
   <Vermögen GS="200"/>
-  <Steigern AEP="30" KEP="40" ZEP="20">
+  <Steigern AEP="30" EPproGFP="0" GFP="100" KEP="40" ZEP="20" benötigte_Tage="10">
    <Praxispunkte/>
   </Steigern>
   <Text Größe="8"/>
@@ -41,6 +41,7 @@
    <Sinn Bezeichnung="Tasten" Wert="8"/>
    <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
    <Beruf Bezeichnung="Wundheilerin"/>
+   <Fertigkeit Bezeichnung="Musizieren" Praxispunkte="1" Wert="10" Zusatz="Längsflöte"/>
    <Fertigkeit Bezeichnung="Zauberkunde" Wert="6"/>
    <Fertigkeit Bezeichnung="Alchimie" Wert="6"/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
