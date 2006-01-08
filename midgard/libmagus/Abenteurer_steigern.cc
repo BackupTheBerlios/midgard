@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.17 2006/01/08 08:46:42 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.18 2006/01/08 08:46:45 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -304,59 +304,12 @@ int Abenteurer::stufen_auf_einmal_steigern_fuer_aep(const MBEmlt& _MBE,int &kost
   return stufen;
 }
 
-// eklige Funktion, lieber weg!!!
-void Abenteurer::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte)
-{
-  ManuProC::Trace(LibMagus::trace_channel,__FUNCTION__,modus,(*M)->Name(),zusatz->name,praxispunkte);
-  bool found=false;
-//  int c=0;
-//  while(true)
-   {
-     std::list<MBEmlt> *L=getList(M);
-//     if(c==0) L=&List_Fertigkeit();
-//     else if(c==1) L=&List_Zauber();
-//     else if(c==2) L=&List_Waffen();
-//     else if(c==3) L=&List_Sprache();
-//     else if(c==4) L=&List_Schrift();
-//     else assert(!"never get here\n");
-     for(std::list<MBEmlt>::iterator i=L->begin();i!=L->end();++i)
-      {
-        if((**i)->Name() == (*M)->Name() && (*i)->Zusatz()==(*M->Zusatz()))
-         {
-           found=true;
-           if(modus==PPmodus)
-             (*i)->setPraxispunkte(praxispunkte);
-           else if(modus==Zusatzmodus)
-            {
-              (*i)->setZusatz(zusatz);
-              if(zusatz.name==Herkunft()->Name()) // für alle Fertigkeiten?
-                (*i)->setErfolgswert(9);
-            }
-         }   
-      }      
-//    if(found) break;
-//    else ++c;
-   }
-  assert(found);
-}   
-    
 int Abenteurer::get_ausdauer(int grad)
 {
    int bonus_K=0, bonus_aK=0, bonus_Z=0;
    int kosten = Datenbank.GradAnstieg.get_AP_Kosten(grad);
    switch (grad)
    { case  1: bonus_K =  4, bonus_aK =  3; bonus_Z =  2; break;
-/*   
-     case  2: bonus_K =  6, bonus_aK =  4; bonus_Z =  2; break;
-     case  3: bonus_K =  9, bonus_aK =  6; bonus_Z =  3; break;
-     case  4: bonus_K = 12, bonus_aK =  8; bonus_Z =  4; break;
-     case  5: bonus_K = 15, bonus_aK = 10; bonus_Z =  5; break;
-     case  6: bonus_K = 18, bonus_aK = 12; bonus_Z =  6; break;
-     case  7: bonus_K = 21, bonus_aK = 14; bonus_Z =  7; break;
-     case  8: bonus_K = 24, bonus_aK = 16; bonus_Z =  8; break;
-     case  9: bonus_K = 27, bonus_aK = 18; bonus_Z =  9; break;
-     case 10: bonus_K = 30, bonus_aK = 20; bonus_Z = 10; break;
-*/     
      default: if (2 <= grad && grad <= 10)
        { bonus_K = 3*grad, bonus_aK = 2*grad; bonus_Z = grad;  }
        else if (grad >=11)  
