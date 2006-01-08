@@ -1,0 +1,1 @@
+LD_LIBRARY_PATH=/home/christof/berlios/magus2/ManuProC_Base/src/.libs:`pwd`/../.libs gdb .libs/test1
