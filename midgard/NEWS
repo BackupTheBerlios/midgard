@@ -3,6 +3,7 @@ Version 0.9.9.11
 - zum Steigern verfügbare FP werden nun angezeigt
 - Undo funktioniert jetzt beim Steigern und Reduzieren
 - Schriften erscheinen im Ausdruck wieder korrekt
+- spezielle Praxispunkte sind wieder eingebbar
 
 Version 0.9.9.10
 - Korrekter Pfad unter Windows XP

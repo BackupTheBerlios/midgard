@@ -77,6 +77,9 @@ bool Wizard::can_skip(const Abenteurer &A)
       case NAMEN: return A.Name_Abenteurer().substr(0,4)!="Neu ";
       case SPEICHERN: return false;
       case ZWEITER_TYP: return A.Typ2()->Valid();
+      case UEBERLEBEN: return (*A.Ueberleben())->Name()!="Überleben Heimat";
+      case ANGEBORENEFERTIGKEITEN: return !A.List_Fertigkeit_ang().empty();
+      case LERNPUNKTE: return !A.List_Fertigkeit().empty();
       default:
          return false;
    }
