@@ -42,6 +42,11 @@ int main(int argc,char **argv)
    MBEmlt f=ch->getAbenteurer().get_known(MidgardBasicElement::FERTIGKEIT,"Pyromantie");
    ch->getAbenteurer().steigere(f);
    ch->name_undo("nix passiert?");
+   ch->begin_undo();
+   ch->getAbenteurer().wie_steigern_variante=Abenteurer::wsv_PraxispunkteFP;
+   f=ch->getAbenteurer().get_known(MidgardBasicElement::FERTIGKEIT,"Pyromantie");
+   ch->getAbenteurer().steigere(f);
+   ch->name_undo("nix passiert2?");
    { std::ofstream out("test4.magus");
      ch->getAbenteurer().speichern(out);
    }

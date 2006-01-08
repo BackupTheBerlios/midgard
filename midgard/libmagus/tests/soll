@@ -1,0 +1,28 @@
+test1
+13c13
+<   <Steigern AEP="30" EPproGFP="0" GFP="100" KEP="40" ZEP="20" benötigte_Tage="10">
+---
+>   <Steigern AEP="30" EPproGFP="0" GFP="140" KEP="40" ZEP="20" benötigte_Tage="10.08">
+49c49
+<    <Fertigkeit Bezeichnung="Musizieren" Praxispunkte="1" Wert="9" Zusatz="Horn"/>
+---
+>    <Fertigkeit Bezeichnung="Musizieren" Wert="12" Zusatz="Horn"/>
+test2
+13c13
+<   <Steigern AEP="30" EPproGFP="0" GFP="100" KEP="40" ZEP="20" benötigte_Tage="10">
+---
+>   <Steigern AEP="30" EPproGFP="0" GFP="130" KEP="40" ZEP="20" benötigte_Tage="10.06">
+44c44
+<    <Fertigkeit Bezeichnung="Musizieren" Praxispunkte="1" Wert="10" Zusatz="Längsflöte"/>
+---
+>    <Fertigkeit Bezeichnung="Musizieren" Wert="11" Zusatz="Längsflöte"/>
+test3
+13c13
+<   <Steigern AEP="30" EPproGFP="0" GFP="100" KEP="40" ZEP="20" benötigte_Tage="10">
+---
+>   <Steigern AEP="30" EPproGFP="0" GFP="150" KEP="40" ZEP="10" benötigte_Tage="10.08">
+44c44
+<    <Fertigkeit Bezeichnung="Musizieren" Praxispunkte="1" Wert="10" Zusatz="Längsflöte"/>
+---
+>    <Fertigkeit Bezeichnung="Musizieren" Wert="12" Zusatz="Längsflöte"/>
+test4

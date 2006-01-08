@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.4 2006/01/08 08:46:56 christof Exp $
+# $Id: Makefile.am,v 1.5 2006/01/08 08:46:58 christof Exp $
 
 AM_CPPFLAGS=@COMMONXX_INCLUDES@ -I../..
 
@@ -16,3 +16,11 @@ test3_LDADD=$(test1_LDADD)
 test3_SOURCES=test3.cc
 test4_LDADD=$(test1_LDADD)
 test4_SOURCES=test4.cc
+
+diff: $(EXTRA_PROGRAMS)
+	-rm diff
+	for i in $(EXTRA_PROGRAMS) ; do ./$$i ; echo $$i >>diff \
+		; diff Ma.magus $$i.magus >>diff; done
+
+check: diff
+	diff diff soll

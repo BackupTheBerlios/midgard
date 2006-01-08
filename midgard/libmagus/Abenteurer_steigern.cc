@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.19 2006/01/08 08:46:47 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.20 2006/01/08 08:46:58 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -69,6 +69,7 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
     else if(ep_k > pp*(40/2))
     { Ausgabe(Ausgabe::Error,"Höchstens die Hälfte der GFP darf beim "
           "'Steigern mit PP' durch EP bestritten werden"); 
+      Ausgabe(Ausgabe::Error,"Es fehlen "+itos((ep_k+79)/80 - pp)+"PP");
       return false;
     }
 
