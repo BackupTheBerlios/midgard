@@ -4,6 +4,9 @@
 - PP Sprache?
 ####
 
+- Design von Undo Unsinn? Ein Abenteurer sollte Listen von MBE_mutable nicht
+	MBEmlt enthalten? Wieso ist das überhaupt ein Handle?
+
 - PP+EP: test2 steigert zu niedrig, test1-3 Wert zu hoch (doppelt erhöht)
 - PP: 200, 5PP: höchstens die Hälfte der GFP darf ... durch EP bestr. werden
       200, 3PP: Mindestens 5 PP erforderlich oder EP aufwenden
