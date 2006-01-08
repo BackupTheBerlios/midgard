@@ -1,5 +1,4 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
-- use APPDATA as default path
 ? Praxispunkte eingeben geht nicht
 - Steigern mit PP+EP
 - PP eingeben wird nicht angezeigt
@@ -7,12 +6,20 @@
 - PP
 ####
 
+- Schriften werden auf dem Ausdruck falsch dargestellt
+- Überleben erscheint nicht auf dem Ausdruck?
+- Schreiben: Alte Sprache(+4) 0LP für BS ? (nicht anwählbar ???)
+	als Allgemeinwissen und Ungew. ?
 - Anzeige FP+GS frei
 - Zauber durch Selbststudium?
-+ Praxispunkte/Scroll nicht richtig aktiv/inaktiv
-+ Baum klappt nicht bis zu gewählter Tiefe auf !!! (ist abgeschaltet)
 ? funktionieren Verzeichnisse unter Windows? (z.B. tmp)
 - Wizard
+	- Herkunftsland wenn abgeleitete Werte gewürfelt erscheint nicht?
+	- Überleben in welchem Geländetyp erscheint ständig
+	- Lernen nicht inaktiv wenn noch Lernpunkte zu vergeben!
+		(auch wenn man auf Steigern schaltet!)
+	- Lernpunkte würfeln wird nie inaktiv
+	- Geld, Beruf wird nicht lange inaktiv
 - (zuviel Refresh bei Gradanstieg etc?)
 - alle MBTrees sollten auf clicks reagieren (statt select)
 - statt on_leaf_selected_alte_fert2 kann MidgardBasicElement_leaf_alt genommen werden

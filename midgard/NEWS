@@ -1,3 +1,7 @@
+Version 0.9.9.10
+- Korrekter Pfad unter Windows XP
+
+
 Version 0.9.9
 - Es werden keine unnötigen Abenteurer mehr erzeugt
 - Begrüßungsfenster erscheint jetzt zu den richtigen Zeiten
