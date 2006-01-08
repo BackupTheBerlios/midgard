@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.18 2006/01/08 08:46:45 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.19 2006/01/08 08:46:47 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -255,7 +255,7 @@ void Abenteurer::PP_aufwenden(unsigned pp, const MBEmlt &MBE)
 { 
   if(MBE->What()!=MidgardBasicElement::RESISTENZ_UND_CO)
   { if ((*MBE).What()!=MidgardBasicElement::ZAUBER)
-      (*MBE)->setPraxispunkte(MBE->Praxispunkte()-pp);
+      MBE->setPraxispunkte(MBE->Praxispunkte()-pp);
 //      modify(PPmodus,MBE,MidgardBasicElement::st_zusatz(),MBE->Praxispunkte()-pp);
     else addSpezialPP(-pp);
     return;
