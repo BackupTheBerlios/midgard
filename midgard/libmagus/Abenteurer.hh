@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.32 2006/01/08 08:46:25 christof Exp $               
+// $Id: Abenteurer.hh,v 1.33 2006/01/08 08:46:42 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -207,9 +207,6 @@ private:
 
    // Beschreibung siehe .cc
    int stufen_auf_einmal_steigern_fuer_aep(const MBEmlt& MBE,int &kosten_out,int &aep) const;
-   // schüttel
-   enum modi_modus{Zusatzmodus,PPmodus};;
-   void modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte);
 
 public:
    void eigenschaften_steigern(int wurf=-1);

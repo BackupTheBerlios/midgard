@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.16 2004/12/10 23:24:32 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.17 2006/01/08 08:46:42 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -254,8 +254,9 @@ int Abenteurer::PP_vorrat(const MBEmlt &MBE) const
 void Abenteurer::PP_aufwenden(unsigned pp, const MBEmlt &MBE)
 { 
   if(MBE->What()!=MidgardBasicElement::RESISTENZ_UND_CO)
-  { if ((*MBE).What()!=MidgardBasicElement::ZAUBER) 
-      modify(PPmodus,MBE,MidgardBasicElement::st_zusatz(),MBE->Praxispunkte()-pp);
+  { if ((*MBE).What()!=MidgardBasicElement::ZAUBER)
+      (*MBE)->setPraxispunkte(MBE->Praxispunkte()-pp);
+//      modify(PPmodus,MBE,MidgardBasicElement::st_zusatz(),MBE->Praxispunkte()-pp);
     else addSpezialPP(-pp);
     return;
   }
@@ -303,22 +304,24 @@ int Abenteurer::stufen_auf_einmal_steigern_fuer_aep(const MBEmlt& _MBE,int &kost
   return stufen;
 }
 
+// eklige Funktion, lieber weg!!!
 void Abenteurer::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicElement::st_zusatz &zusatz,int praxispunkte)
 {
+  ManuProC::Trace(LibMagus::trace_channel,__FUNCTION__,modus,(*M)->Name(),zusatz->name,praxispunkte);
   bool found=false;
-  int c=0;
-  while(true)
+//  int c=0;
+//  while(true)
    {
-     std::list<MBEmlt> *L;
-     if(c==0) L=&List_Fertigkeit();
-     else if(c==1) L=&List_Zauber();
-     else if(c==2) L=&List_Waffen();
-     else if(c==3) L=&List_Sprache();
-     else if(c==4) L=&List_Schrift();
-     else assert(!"never get here\n");
+     std::list<MBEmlt> *L=getList(M);
+//     if(c==0) L=&List_Fertigkeit();
+//     else if(c==1) L=&List_Zauber();
+//     else if(c==2) L=&List_Waffen();
+//     else if(c==3) L=&List_Sprache();
+//     else if(c==4) L=&List_Schrift();
+//     else assert(!"never get here\n");
      for(std::list<MBEmlt>::iterator i=L->begin();i!=L->end();++i)
       {
-        if( (*i)->Zusatz().empty() && (*(*i))->Name() == (*M)->Name())
+        if((**i)->Name() == (*M)->Name() && (*i)->Zusatz()==(*M->Zusatz()))
          {
            found=true;
            if(modus==PPmodus)
@@ -331,9 +334,10 @@ void Abenteurer::modify(modi_modus modus,const MBEmlt &M,const MidgardBasicEleme
             }
          }   
       }      
-    if(found) break;
-    else ++c;
+//    if(found) break;
+//    else ++c;
    }
+  assert(found);
 }   
     
 int Abenteurer::get_ausdauer(int grad)
