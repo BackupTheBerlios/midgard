@@ -90,7 +90,7 @@ int main(int argc,char **argv)
             was|=Zufall::B_Spezies;
             break;
          case '?': std::cout << "Syntax: " << argv[0] << " [--Herkunft=Alba] [--Typ=Ma]"
-             "\n\t[--Spezies=Mensch] [--Name=Albert] [--Grad=3] [--GFP=850]\n"
+             "\n\t[--Spezies=Mensch] [--Name=Albert] [--Grad=3] [--GFP=850]\n";
             return 0;
       }
     }
