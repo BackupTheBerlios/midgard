@@ -1,4 +1,4 @@
-// $Id: Prototyp2.hh,v 1.5 2003/09/01 06:47:57 christof Exp $               
+// $Id: Prototyp2.hh,v 1.6 2006/01/08 08:46:28 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -25,7 +25,7 @@ class Tag;
 #include <Misc/Handles.h>
 #include <Misc/CacheStatic.h>
 #include <list>
-#include <Prozente100.hh>
+#include "Prozente100.hh"
 
 class cH_Prototyp2;
 

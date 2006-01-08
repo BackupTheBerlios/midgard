@@ -16,8 +16,11 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <fstream>
 #include <libmagus/AbenteurerAuswahl.h>
 #include <libmagus/magus_paths.h>
+#include <libmagus/Ausgabe.hh>
+#include <libmagus/Datenbank.hh>
 #include <Misc/itos.h>
 
 void progress(double d)
@@ -29,14 +32,16 @@ int main(int argc,char **argv)
  try {  
    Datenbank::init(&progress);
    
-   VAbenteurer::iterator ch=AbenteurerAuswahl::Chars.load("Ma.magus");
+   VAbenteurer::iterator ch=AbenteurerAuswahl::Chars->load("Ma.magus");
    ch->begin_undo();
-   ch->getAbenteurer()->wie_steigern=ws_Praxispunkte;
-   ch->getAbenteurer()->wie_steigern_variante=wsv_wsv_PraxispunkteFP;
-   MBEmlt f=ch->getAbenteurer()->get_known(MidgardBasicElement::FERTIGKEIT,"Musizieren","Horn");
-   ch->getAbenteurer()->steigere(f);
+   ch->getAbenteurer().wie_steigern=Abenteurer::ws_Praxispunkte;
+   ch->getAbenteurer().wie_steigern_variante=Abenteurer::wsv_PraxispunkteFP;
+   MBEmlt f=ch->getAbenteurer().get_known(MidgardBasicElement::FERTIGKEIT,"Musizieren","Horn");
+   ch->getAbenteurer().steigere(f);
    ch->name_undo("Horn gesteigert");
-   ch->getAbenteuter()->speichern("test1.magus");
+   { std::ofstream out("test1.magus");
+     ch->getAbenteurer().speichern(out);
+   }
    return 0;
  } catch (...)
  { Ausgabe(Ausgabe::Error, "exception");  

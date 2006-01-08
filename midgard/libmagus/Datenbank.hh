@@ -1,4 +1,4 @@
-// $Id: Datenbank.hh,v 1.17 2004/05/06 12:12:52 christof Exp $               
+// $Id: Datenbank.hh,v 1.18 2006/01/08 08:46:28 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -21,11 +21,11 @@
 #ifndef DATENBANKCLASS
 #define DATENBANKCLASS
 
-#include <MidgardBasicElement.hh>
 #include <vector>
 #include <string>
 #include <list>
 
+#include "MidgardBasicElement.hh"
 #include "Land.hh"   
 #include "Spezies.hh"
 #include "Typen.hh"

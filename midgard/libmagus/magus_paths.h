@@ -1,4 +1,4 @@
-// $Id: magus_paths.h,v 1.7 2004/08/30 13:17:56 christof Exp $
+// $Id: magus_paths.h,v 1.8 2006/01/08 08:46:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -23,7 +23,7 @@
 
 #include <string>
 #include <vector>
-#include <libmagus_dll.h>
+#include "libmagus_dll.h"
 
 // small class for determining file positions (originally part of midgard_CG)
 class magus_paths

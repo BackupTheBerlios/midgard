@@ -1,4 +1,4 @@
-// $Id: Ausgabe.hh,v 1.6 2004/08/30 13:17:56 christof Exp $
+// $Id: Ausgabe.hh,v 1.7 2006/01/08 08:46:28 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -21,7 +21,7 @@
 #  define _MIDGARD_AUSGABE_HH
 
 #include <string>
-#include <NotFound.h>
+#include "NotFound.h"
 
 // grundsätzlich in UTF-8 codiert
 

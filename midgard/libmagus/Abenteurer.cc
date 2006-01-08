@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.35 2006/01/08 08:46:25 christof Exp $            
+// $Id: Abenteurer.cc,v 1.36 2006/01/08 08:46:28 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -939,5 +939,6 @@ MBEmlt Abenteurer::get_known(MidgardBasicElement::MBEE was, std::string const& n
       else return *i;
     }
   }
+  // das &* ist zwar eklig, aber ich will die Klasse MBEmlt nicht deswegen ändern
   return &*Handle<MidgardBasicElement_mutable>();
 }

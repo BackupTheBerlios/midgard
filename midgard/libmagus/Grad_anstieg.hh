@@ -20,7 +20,7 @@
 #ifndef _GRADANSTIEG_HH
 #  define _GRADANSTIEG_HH
 #include <map>
-#include <Grundwerte.hh>
+#include "Grundwerte.hh"
 
 class Grad_anstieg{
 public:
