@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2003 Christof Petig
+ *  Copyright (C) 2003-2006 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -392,5 +392,18 @@ std::map<int,std::map<int,int> > MidgardBasicElement::waffen_steigern_nach_schwi
 std::map<std::string,std::map<int,int> > MidgardBasicElement::sonstige_steigern_kosten;
 
 H_MidgardBasicElement_mutable H_MidgardBasicElement_mutable::dup() const
-{ return H_MidgardBasicElement_mutable(new MidgardBasicElement_mutable(**this));
+{ return H_MidgardBasicElement_mutable((*this)->dup());
+}
+
+MidgardBasicElement_mutable *MidgardBasicElement_mutable::dup() const
+{ MidgardBasicElement_mutable *result=new MidgardBasicElement_mutable(mbe);
+  result->praxispunkte=praxispunkte;
+  result->erfolgswert=erfolgswert;
+  result->lernpunkte=lernpunkte;
+  result->zusatz=zusatz;
+  result->gelernt=gelernt;
+  result->pflicht=pflicht;
+  result->erlaubt=erlaubt;
+  result->lernart=lernart;
+  return result;
 }

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.20 2006/01/08 08:46:58 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.21 2006/01/08 08:47:06 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -38,6 +38,7 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
 {
  if (!fpanteil && !goldanteil) // Steigern OHNE EP/Gold/PP
  { if (wie_steigern==ws_Spruchrolle) 
+#warning das sieht mir nach Quatsch aus
      kosten=cH_Zauber(MBE->getMBE())->iStufe();
    set_lernzeit(kosten,MBE);
    return true;
@@ -275,7 +276,7 @@ void Abenteurer::PP_aufwenden(unsigned pp, const MBEmlt &MBE)
 // result: steigerbare Stufen
 int Abenteurer::stufen_auf_einmal_steigern_fuer_aep(const MBEmlt& _MBE,int &kosten,int &aep) const
 { kosten=0; // out parameter
-  MBEmlt MBE(_MBE);
+  MBEmlt MBE=_MBE.dup();
   int stufen=0;
   int steiger_kosten = MBE->Steigern(*this);
   int ew=MBE->Erfolgswert();

@@ -159,7 +159,6 @@ public:
       				const std::list<MBEmlt>& b,
                                    const Grundwerte& Werte,
                                    const std::vector<cH_Typen>& Typ);
-
 };
 
 
@@ -249,6 +248,7 @@ class MidgardBasicElement_mutable : public HandleContent
      int Reduzieren(const Abenteurer &A) const;
      int Verlernen(const Abenteurer &A) const; 
 
+      MidgardBasicElement_mutable *dup() const;
 // wird die Klasse hier gebraucht?
    class sort {
       public:
