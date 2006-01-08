@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.23 2006/01/08 08:48:12 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.24 2006/01/08 08:48:14 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -26,7 +26,7 @@
 #include "Datenbank.hh"
 #include "Ausgabe.hh"
 #include "magustrace.h"
-#include <Misc/Trace.h>
+#include <Misc/TraceNV.h>
 #include <algorithm>
 
 bool Abenteurer::ZauberSpruecheMitPP() const
@@ -276,7 +276,8 @@ void Abenteurer::PP_aufwenden(unsigned pp, const MBEmlt &MBE)
 // aep: out: Benötigte EP
 // result: steigerbare Stufen
 int Abenteurer::stufen_auf_einmal_steigern_fuer_aep(const MBEmlt& _MBE,int &kosten,int &aep) const
-{ kosten=0; // out parameter
+{ ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,(*_MBE)->Name(),aep);
+  kosten=0; // out parameter
   MBEmlt MBE=_MBE.dup();
   int stufen=0;
   int steiger_kosten = MBE->Steigern(*this);
@@ -290,20 +291,25 @@ int Abenteurer::stufen_auf_einmal_steigern_fuer_aep(const MBEmlt& _MBE,int &kost
 
     MBE->addErfolgswert(1);
     ew=MBE->Erfolgswert();
-    if(MBE->What()==MidgardBasicElement::FERTIGKEIT) 
+    if (MBE->What()==MidgardBasicElement::FERTIGKEIT) 
       ew=(*MBE)->FErfolgswert(*this,MBE);
-    steiger_kosten = MBE->Steigern(*this);
-    ManuProC::Trace(LibMagus::trace_channel,__FUNCTION__,steiger_kosten,
+    ManuProC::Trace(LibMagus::trace_channel,"",steiger_kosten,
                kosten,stufen,aep,ew,(*MBE)->MaxErfolgswert(*this));
+    steiger_kosten = MBE->Steigern(*this);
   }      
-  if((steiger_kosten/2)<aep && wie_steigern==ws_Praxispunkte
+  if((steiger_kosten/2)<=aep && wie_steigern==ws_Praxispunkte
             && wie_steigern_variante==wsv_PraxispunkteFP 
             && ew<(*MBE)->MaxErfolgswert(*this))
-  { ++stufen;
+  { ManuProC::Trace(LibMagus::trace_channel,"<=½",steiger_kosten,aep);
+    ++stufen;
     kosten+=steiger_kosten;
     aep=steiger_kosten-aep; // noch notwendige 
   }
-  else aep=0;
+  else 
+  { ManuProC::Trace(LibMagus::trace_channel,">½",steiger_kosten,aep);
+    aep=0;
+  }
+  ManuProC::Trace(LibMagus::trace_channel,"=",NV1(kosten),NV1(stufen),NV1(aep));
   return stufen;
 }
 

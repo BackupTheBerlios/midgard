@@ -4,14 +4,8 @@
 - PP Sprache?
 ####
 
-- Design von Undo Unsinn? Ein Abenteurer sollte Listen von MBE_mutable nicht
-	MBEmlt enthalten? Wieso ist das überhaupt ein Handle?
 
-- PP+EP: test2 steigert zu niedrig, test1-3 Wert zu hoch (doppelt erhöht)
-- PP: 200, 5PP: höchstens die Hälfte der GFP darf ... durch EP bestr. werden
-      200, 3PP: Mindestens 5 PP erforderlich oder EP aufwenden
 - PP eingeben: Steigern mit weg, aber auf Praxis stellen?
-- PP+EP: 200, 3PP: h d H d G d d E b w
 
 - Spezielle Spezies beim Laden zulassen?
 
@@ -160,6 +154,9 @@ was bedeutet:
 - pimpl idiom (see there)
 
 - Landeskunde etc. nicht mehr anbieten wenn alle Untertypen erlernt wurden.
+
+- Design von Undo komisch: Ein Abenteurer sollte Listen von MBE_mutable nicht
+	MBEmlt enthalten? Wieso sind das überhaupt Handles (aufgrund der GUI)
 
 -------------
 
