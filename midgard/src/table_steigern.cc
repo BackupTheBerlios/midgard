@@ -1,5 +1,5 @@
 /*  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2004-2005 Christof Petig
+ *  Copyright (C) 2004-2006 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -394,8 +394,9 @@ void table_steigern::Window2Abenteurer()
 
 bool table_steigern::pp_eingeben_click(GdkEventButton*)
 { if (!togglebutton_praxispunkte->get_active())
-  { togglebutton_praxispunkte->set_active(true);
-    vbox_praxispunkte->show();
+  { button_was_tun->set_index(Button_PP_eingeben);
+    togglebutton_praxispunkte->set_active(true);
+//    vbox_praxispunkte->show();
   }
   return false;
 }
@@ -415,6 +416,14 @@ void table_steigern::button_ppvar_changed()
 }
 void table_steigern::button_was_tun_changed()
 { Window2Abenteurer();
+  if (button_was_tun->get_index()==Button_PP_eingeben)
+  { frame_praxispunkte->show();
+    frame_lernen_mit->hide();
+  }
+  else 
+  { frame_praxispunkte->hide();
+    frame_lernen_mit->show();
+  }
 }
 
 void table_steigern::steigern_gtk()

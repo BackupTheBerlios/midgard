@@ -38,7 +38,7 @@ void table_steigern::on_togglebutton_praxispunkte_toggled()
 {
   if(togglebutton_praxispunkte->get_active())
    {
-     radiobutton_pp_fertigkeit->set_active(true);
+//     radiobutton_pp_abwehr->set_active(true);
      vbox_praxispunkte->show();
      if(hauptfenster->getAben().Typ1()->is_mage() || hauptfenster->getAben().Typ2()->is_mage()) 
          radiobutton_pp_zauber->set_sensitive(true);
@@ -116,8 +116,6 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
   spinbutton_pp_eingeben->update();
   int PPanz = spinbutton_pp_eingeben->get_value_as_int();
 
- if(!radiobutton_pp_fertigkeit->get_active())
-  {
     if(radiobutton_pp_abwehr->get_active())
        hauptfenster->getAben().setAbwehrPP(PPanz);
     else if(radiobutton_pp_zauber->get_active())
@@ -130,25 +128,6 @@ void table_steigern::on_spinbutton_pp_eingeben_activate()
 //    radiobutton_steigern->get_active();
     zeige_werte();
     return;
-  }   
-
- guint pagenr = notebook_lernen->get_current_page();
- try{
- const MBEmlt &M=getSelectedNotebookLernen();
-// modify(PP,M,MidgardBasicElement::st_zusatz(""),PPanz);
- M->setPraxispunkte(PPanz);
- }catch(SimpleTree::noRowSelected &e) {Ausgabe(Ausgabe::Debug,e.what()); Ausgabe(Ausgabe::Error,"Keine Zeile selektiert");}
-
-  if(pagenr==PAGE_FERTIGKEITEN)
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Fertigkeit(),alte_fert_tree,hauptfenster->getChar().actualIterator()); 
-  if(pagenr==PAGE_WAFFEN)
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Waffen(),alte_waffen_tree,hauptfenster->getChar().actualIterator()); 
-  if(pagenr==PAGE_SPRACHE)
-   {
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Sprache(),alte_sprache_tree,hauptfenster->getChar().actualIterator()); 
-     MidgardBasicTree::show_list_in_tree(hauptfenster->getAben().List_Schrift(),alte_schrift_tree,hauptfenster->getChar().actualIterator()); 
-   }
-  spinbutton_pp_eingeben->hide();
 }
 
 const MBEmlt &table_steigern::getSelectedNotebookLernen() throw(SimpleTree::noRowSelected)
