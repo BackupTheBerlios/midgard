@@ -75,4 +75,4 @@ AC_SUBST(NATIVE_BUILD)
 AC_OUTPUT(Makefile src/Makefile pixmaps/Makefile \
 	xml/Makefile libmagus/Makefile libmagusicons/Makefile \
 	src/magus.rc libmagus/libmagus.rc libmagusicons/libmagusicons.rc \
-	win32/magus.nsi )
+	win32/magus.nsi libmagus/tests/Makefile)

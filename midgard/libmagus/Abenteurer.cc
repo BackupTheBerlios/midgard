@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.34 2006/01/08 08:45:57 christof Exp $            
+// $Id: Abenteurer.cc,v 1.35 2006/01/08 08:46:25 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -927,4 +927,17 @@ unsigned Abenteurer::VerfuegbareFP() const
   if (GS<EP) EP=GS;
   if (EP==1000000) EP=0;
   return EP;
+}
+
+MBEmlt Abenteurer::get_known(MidgardBasicElement::MBEE was, std::string const& name, std::string const& zusatz)
+{ std::list<MBEmlt> l=get_known_list(was);
+  for (std::list<MBEmlt>::const_iterator i=l.begin();i!=l.end();++i)
+  { if ((**i)->Name()==name)
+    { if ((**i)->ZusatzEnum(getVTyp())!=MidgardBasicElement::ZNone)
+      { if ((*i)->Zusatz()==zusatz) return *i;
+      }  
+      else return *i;
+    }
+  }
+  return &*Handle<MidgardBasicElement_mutable>();
 }

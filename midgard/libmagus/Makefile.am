@@ -1,6 +1,8 @@
-# $Id: Makefile.am,v 1.55 2005/12/13 08:09:05 christof Exp $
+# $Id: Makefile.am,v 1.56 2006/01/08 08:46:25 christof Exp $
 
 SIGC_MAJOR=2
+
+SUBDIRS=tests
 
 if WINDOWS
 PORT_FILES=registry.cc TeX.cc
