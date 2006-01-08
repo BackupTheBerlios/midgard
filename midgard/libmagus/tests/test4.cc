@@ -39,10 +39,10 @@ int main(int argc,char **argv)
    ch->begin_undo();
    ch->getAbenteurer().wie_steigern=Abenteurer::ws_Praxispunkte;
    ch->getAbenteurer().wie_steigern_variante=Abenteurer::wsv_NurPraxispunkte;
-   MBEmlt f=ch->getAbenteurer().get_known(MidgardBasicElement::FERTIGKEIT,"Musizieren","Längsflöte");
+   MBEmlt f=ch->getAbenteurer().get_known(MidgardBasicElement::FERTIGKEIT,"Pyromantie");
    ch->getAbenteurer().steigere(f);
-   ch->name_undo("Flöte gesteigert");
-   { std::ofstream out("test3.magus");
+   ch->name_undo("nix passiert?");
+   { std::ofstream out("test4.magus");
      ch->getAbenteurer().speichern(out);
    }
    return 0;

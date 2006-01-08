@@ -33,7 +33,7 @@ int main(int argc,char **argv)
  try {  
    libmagus_init(argc,const_cast<const char**>(argv),&progress);
    VAbenteurer::iterator ch=AbenteurerAuswahl::Chars->load(argv[1]);
-   spielleiter_export_save(ch->getAbenteurer(),"/dev/stdout");
+   spielleiter_export_save(ch->getAbenteurer(),"/dev/stdout",false);
    return 0;
  } catch (...)
  { Ausgabe(Ausgabe::Error, "exception");  
