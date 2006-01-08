@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.56 2006/01/08 08:46:25 christof Exp $
+# $Id: Makefile.am,v 1.57 2006/01/08 08:46:53 christof Exp $
 
 SIGC_MAJOR=2
 
@@ -31,7 +31,7 @@ AM_LDFLAGS = @COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ $(WIN_LDFLAGS)
 
 CLEANFILES = *~
 
-bin_PROGRAMS= Zufallscharakter
+bin_PROGRAMS= Zufallscharakter magus2txt
 
 EXTRA_PROGRAMS= test readxml readxml2 model_test \
 	model_test2 OptionenTest model_test3 test_spec test_Undo
@@ -41,6 +41,7 @@ registry.cc: ../win32/registry.cc ; ln -sf ../win32/$@ .
 
 test_SOURCES=test.cc
 Zufallscharakter_SOURCES=Zufallscharakter.cc
+magus2txt_SOURCES=magus2txt.cc
 OptionenTest_SOURCES=OptionenTest.cc
 readxml_SOURCES=readxml.cc
 readxml2_SOURCES=readxml2.cc
@@ -77,14 +78,15 @@ libmagus_la_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 
 test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 Zufallscharakter_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
-OptionenTest_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 
+magus2txt_LDADD= $(Zufallscharakter_LDADD)
+OptionenTest_LDADD = $(Zufallscharakter_LDADD)
 readxml_LDADD = @COMMONXX_LIBS@ @SIGC_LIBS@
 #readxml2_LDADD = @XMLPP_LIBS@
-model_test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
-model_test2_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
-model_test3_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
-test_spec_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
-test_Undo_LDADD= libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
+model_test_LDADD = $(Zufallscharakter_LDADD)
+model_test2_LDADD = $(Zufallscharakter_LDADD)
+model_test3_LDADD = $(Zufallscharakter_LDADD)
+test_spec_LDADD = $(Zufallscharakter_LDADD)
+test_Undo_LDADD= $(Zufallscharakter_LDADD)
 
 BUILT_SOURCES= registry.h TeX.cc libmagus_sigc$(SIGC_MAJOR).def
 
