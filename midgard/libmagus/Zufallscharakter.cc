@@ -45,6 +45,7 @@ static struct option long_options[] = {
                    {"Name", 1, 0, OPT_NAME},
                    {"GFP", 1, 0, OPT_GFP},
                    {"Grad", 1, 0, OPT_GRAD},
+                   {"help", 0, 0, '?'},
                    {0, 0, 0, 0}};
 
 static void progress(double d)
@@ -64,7 +65,7 @@ int main(int argc,char **argv)
    int option_index;
    try
    {int c;
-    while ((c = getopt_long(argc, argv, "", long_options, &option_index))!=-1)
+    while ((c = getopt_long(argc, argv, "?", long_options, &option_index))!=-1)
     { switch (c)
       {  case OPT_NAME: vorgabe.setNameC(optarg);
             break;
@@ -88,6 +89,9 @@ int main(int argc,char **argv)
          case OPT_SPEZIES: vorgabe.setSpezies(cH_Spezies(optarg));
             was|=Zufall::B_Spezies;
             break;
+         case '?': std::cout << "Syntax: " << argv[0] << " [--Herkunft=Alba] [--Typ=Ma]"
+             "\n\t[--Spezies=Mensch] [--Name=Albert] [--Grad=3] [--GFP=850]\n"
+            return 0;
       }
     }
    }
