@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.30 2004/12/22 08:10:30 christof Exp $               
+// $Id: Abenteurer.hh,v 1.31 2006/01/08 08:45:57 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -214,6 +214,8 @@ public:
   
    bool SpruchVonSpruchrolleGelernt(const std::string &zauber);
    bool ZauberSpruecheMitPP() const;
+   
+   unsigned VerfuegbareFP() const;
 };
 
 #endif

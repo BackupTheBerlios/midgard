@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.33 2005/06/22 13:51:17 christof Exp $            
+// $Id: Abenteurer.cc,v 1.34 2006/01/08 08:45:57 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -914,4 +914,17 @@ bool Abenteurer::SpruchVonSpruchrolleGelernt(const std::string &zauber)
 
 bool Abenteurer::sort_universell::operator()(const st_universell &x,const st_universell &y) const
 { return (*(x.mbe))->Name() < (*(y.mbe))->Name() ;
+}
+
+unsigned Abenteurer::VerfuegbareFP() const
+{ int EP=AEP()+KEP()+ZEP();
+  int GS=Gold();
+  if (getOptionen().HausregelCheck(Optionen::Gold).active) GS*=10;
+  if (fpanteil.Value()>0) EP=EP*100/fpanteil.Value();
+  else EP=1000000;
+  if (goldanteil.Value()>0) GS=GS*10/goldanteil.Value();
+  else GS=1000000;
+  if (GS<EP) EP=GS;
+  if (EP==1000000) EP=0;
+  return EP;
 }

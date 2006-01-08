@@ -439,15 +439,8 @@ void table_steigern::steigern_gtk()
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
   std::string steigern_text=itos(A.GFP())+"GFP; "+
       itos(A.fpanteil.Value())+"%EP "+itos(A.goldanteil.Value())+"%GS";
-  int EP=A.AEP()+A.KEP()+A.ZEP();
-  int GS=A.Gold();
-  if (A.getOptionen().HausregelCheck(Optionen::Gold).active) GS*=10;
-  if (A.fpanteil.Value()>0) EP=EP*100/A.fpanteil.Value();
-  else EP=1000000;
-  if (A.goldanteil.Value()>0) GS=GS*10/A.goldanteil.Value();
-  else GS=1000000;
-  if (GS<EP) EP=GS;
-  if (EP<1000000) steigern_text+=" = "+itos(EP)+"FP";
+  int EP=A.VerfuegbareFP();
+  if (EP) steigern_text+=" = "+itos(EP)+"FP";
   handlebox_steigern_2->set_label(steigern_text);
   
   if (button_was_tun->get_index()!=Button_PP_eingeben)
