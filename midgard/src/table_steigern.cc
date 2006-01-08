@@ -88,8 +88,7 @@ void table_steigern::refresh_gesteigert()
       handlebox_steigern_4->set_label("Eigenschaftsanstieg möglich");
    else 
       handlebox_steigern_4->set_label(grad_GFP);
-#endif
-#if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
+
   handlebox_steigern_1->set_label(W.Spezies()->Name()+" "+W.Typ1()->Short()
       + "," + W.Typ2()->Short() + " Grad "+itos(W.Grad()));
 #endif
@@ -359,11 +358,15 @@ void table_steigern::Window2Abenteurer()
   switch (button_wie_tun->get_index())
   { case Button_Spruchrolle:
        A.wie_steigern=Grundwerte::ws_Spruchrolle;
+       A.wie_steigern_variante=hauptfenster->getChar().proxies.werte_eingeben
+         ?Grundwerte::wsv_SpruchrolleAlways
+         :Grundwerte::wsv_SpruchrolleRoll;
         A.goldanteil=0;
         A.fpanteil=10;
        break;
     case Button_Praxis:
        A.wie_steigern=Grundwerte::ws_Praxispunkte;
+       A.wie_steigern_variante=Grundwerte::wsv_PraxispunkteFP;
        A.goldanteil=0;
        A.fpanteil=100;
        break;
@@ -434,11 +437,24 @@ void table_steigern::steigern_gtk()
   }
   else vscale_EP_Gold->set_sensitive(false);
 #if GTKMM_MAJOR_VERSION==2 && GTKMM_MINOR_VERSION>2
-  handlebox_steigern_2->set_label(itos(A.GFP())+"GFP "+
-      itos(A.fpanteil.Value())+"%EP "+
-      itos(A.goldanteil.Value())+"%GS");
-  handlebox_steigern_3->set_label((A.reduzieren.Value()?"verlernen ":"lernen ")
+  std::string steigen_text=itos(A.GFP())+"GFP; "+
+      itos(A.fpanteil.Value())+"%EP "+itos(A.goldanteil.Value())+"%GS";
+  int EP=A.AEP()+A.KEP()+A.ZEP();
+  int GS=A.Gold();
+  if (A.optionen.HausregelCheck(Optionen::Gold).active) GS*=10;
+  if (A.fpanteil.Value()>0) EP=EP*100/A.fpanteil.Value();
+  else EP=1000000;
+  if (A.goldanteil.Value()>0) GS=GS*10/A.goldanteil.Value();
+  else GS=1000000;
+  if (GS<EP) EP=GS;
+  if (EP<1000000) steigern_text+=" = "+itos(EP)+"FP";
+  handlebox_steigern_2->set_label(steigern_text);
+  
+  if (button_was_tun->get_index()!=Button_PP_eingeben)
+    handlebox_steigern_3->set_label((A.reduzieren.Value()?"verlernen ":"lernen ")
       +Steigerntyp(A));
+  else
+    handlebox_steigern_3->set_label("Praxispunkte ändern");
 #endif
   block_update=false;
 }
