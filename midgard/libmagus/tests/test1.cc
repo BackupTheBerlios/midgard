@@ -19,6 +19,7 @@
 #include <fstream>
 #include <libmagus/AbenteurerAuswahl.h>
 #include <libmagus/magus_paths.h>
+#include <libmagus/libmagus.hh>
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/Datenbank.hh>
 #include <Misc/itos.h>
@@ -28,10 +29,11 @@ void progress(double d)
 }
 
 int main(int argc,char **argv)
-{  magus_paths::init(argv[0]);
-   magus_paths::prepend_dir("../../xml/");
+{  //libmagus_init0magus_paths::init(argv[0]);
  try {  
-   Datenbank::init(&progress);
+   libmagus_init0(argc,const_cast<const char**>(argv));
+   magus_paths::prepend_dir("../../xml/");
+   libmagus_init1(&progress);
    
    VAbenteurer::iterator ch=AbenteurerAuswahl::Chars->load("Ma.magus");
    ch->begin_undo();

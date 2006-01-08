@@ -31,17 +31,16 @@ void progress(double d)
 {  Ausgabe(Ausgabe::Warning, "Progress " +itos(int(d*100))+ "%");
 }
 
-int main(int argc,char **argv)
+int main(int argc,const char **argv)
 {  ManuProC::Tracer::Enable(LibMagus::trace_channel,true);
 //   Datenbank db;
    if (argc>1) TagStream::host_encoding=argv[1];
-   magus_paths::init(argv[0]);
  try {  
-   Datenbank::init(&progress); // db.load(&progress);
+   libmagus_init(argc,argv[0],&progress);
    
    std::ifstream fi("../../charaktere/Christof Petig/Aneren.magus");
    Abenteurer a;
-   if (!a.xml_import_stream(fi)) 
+   if (!a.load(fi)) 
       Ausgabe(Ausgabe::Error, "Laden fehlgeschlagen");
  } catch (NotFound &e)
  {  Ausgabe(Ausgabe::Error, "NotFound "+ e.Name());  }
