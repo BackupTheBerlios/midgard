@@ -351,7 +351,7 @@ void Zufall::setBeruf()
      bool zusatz=Beruf::Berufsfertigkeit(Aben,F[i]);
      if(zusatz) 
       {
-         MBEmlt M(cH_Fertigkeit(F[i].name));
+         MBEmlt M(make_value(cH_Fertigkeit(F[i].name)));
          getZusatz((*M)->ZusatzEnum(Aben.getVTyp()),M);
       }
      if(F[i].kat==3 || F[i].kat==4) break;
