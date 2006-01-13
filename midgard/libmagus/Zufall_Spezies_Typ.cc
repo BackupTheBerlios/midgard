@@ -84,7 +84,7 @@ MBEmlt Zufall::getMuttersprache() const
    }
   int i=Random::integer(0,V.size()-1);
 
-  MBEmlt sprache(cH_Sprache((*V[i])->Name()));
+  MBEmlt sprache(make_value(cH_Sprache((*V[i])->Name())));
   Sprache::setErfolgswertMuttersprache(sprache,Aben.In(),cH_Fertigkeit("Sprache")->AttributBonus(Aben));
         
   return sprache;   
@@ -94,7 +94,7 @@ MBEmlt Zufall::getUeberleben() const
 {
   std::vector<MidgardBasicElement::st_zusatz> V=LernListen::getUeberlebenZusatz();
   int i=Random::integer(0,V.size()-1);
-  MBEmlt M(cH_Fertigkeit(V[i].name));
+  MBEmlt M(make_value(cH_Fertigkeit(V[i].name)));
   return M;
 }
 
