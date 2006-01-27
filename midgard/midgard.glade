@@ -1685,7 +1685,7 @@
 			    <widget class="GtkEventBox" id="eventbox11">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Tage, die durch steigern/neulernen verstrichen sind und noch nicht dem Alter hinzuaddiert wurden.</property>
-			      <property name="visible_window">True</property>
+			      <property name="visible_window">False</property>
 			      <property name="above_child">False</property>
 
 			      <child>
@@ -1752,7 +1752,7 @@
 			    <widget class="GtkEventBox" id="eventbox12">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Göttliche Gnade</property>
-			      <property name="visible_window">True</property>
+			      <property name="visible_window">False</property>
 			      <property name="above_child">False</property>
 
 			      <child>
@@ -1819,7 +1819,7 @@
 			    <widget class="GtkEventBox" id="eventbox13">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Schicksalsgunst</property>
-			      <property name="visible_window">True</property>
+			      <property name="visible_window">False</property>
 			      <property name="above_child">False</property>
 
 			      <child>
@@ -1886,7 +1886,7 @@
 			    <widget class="GtkEventBox" id="eventbox14">
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">GesamtFertigkeitsPunkte</property>
-			      <property name="visible_window">True</property>
+			      <property name="visible_window">False</property>
 			      <property name="above_child">False</property>
 
 			      <child>
@@ -4889,7 +4889,7 @@ Werte</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Grundwerte</property>
-	      <property name="visible_window">True</property>
+	      <property name="visible_window">False</property>
 	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_grundwerte_button_release_event"/>
 
@@ -7314,7 +7314,7 @@ auswählen</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Lernschema</property>
-	      <property name="visible_window">True</property>
+	      <property name="visible_window">False</property>
 	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_lernen_button_release_event"/>
 
@@ -10047,8 +10047,7 @@ eingeben</property>
 			      <child>
 				<widget class="GtkEventBox" id="eventbox26">
 				  <property name="visible">True</property>
-				  <property name="events">GDK_BUTTON_PRESS_MASK</property>
-				  <property name="visible_window">True</property>
+				  <property name="visible_window">False</property>
 				  <property name="above_child">False</property>
 				  <signal name="button_press_event" handler="pp_eingeben_click" last_modification_time="Tue, 03 Jan 2006 21:43:40 GMT"/>
 
@@ -12436,7 +12435,7 @@ eingeben</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Steigern</property>
-	      <property name="visible_window">True</property>
+	      <property name="visible_window">False</property>
 	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_steigern_button_release_event"/>
 
@@ -13014,7 +13013,7 @@ Drucken</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Beschreibung des Abenteurers und/oder des Hintergrundes</property>
-	      <property name="visible_window">True</property>
+	      <property name="visible_window">False</property>
 	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_beschreibung_button_release_event"/>
 
@@ -14978,7 +14977,7 @@ speichern</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Ausrüstung</property>
-	      <property name="visible_window">True</property>
+	      <property name="visible_window">False</property>
 	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_ausruestung_button_release_event"/>
 
@@ -15605,7 +15604,7 @@ speichern</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Optionen</property>
-	      <property name="visible_window">True</property>
+	      <property name="visible_window">False</property>
 	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_optionen_button_release_event"/>
 
@@ -16418,7 +16417,7 @@ Christof Petig</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">Über dieses Programm</property>
-	      <property name="visible_window">True</property>
+	      <property name="visible_window">False</property>
 	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_credits_button_release_event"/>
 
@@ -16537,7 +16536,7 @@ Christof Petig</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">News &amp; Geschichte</property>
-	      <property name="visible_window">True</property>
+	      <property name="visible_window">False</property>
 	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_geschichte_button_release_event"/>
 
@@ -19149,7 +19148,7 @@ werk</property>
 	      <property agent="glademm" name="cxx_visibility">protected</property>
 	      <property name="visible">True</property>
 	      <property name="tooltip" translatable="yes">einen Abenteurer vollautomatisch erwürfeln</property>
-	      <property name="visible_window">True</property>
+	      <property name="visible_window">False</property>
 	      <property name="above_child">False</property>
 	      <signal name="button_release_event" handler="on_eventbox_zufall_button_release_event"/>
 
