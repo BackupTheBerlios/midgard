@@ -26,3 +26,10 @@ test3
 ---
 >    <Fertigkeit Bezeichnung="Musizieren" Wert="12" Zusatz="Längsflöte"/>
 test4
+test5
+13c13
+<   <Steigern AEP="30" EPproGFP="0" GFP="100" KEP="40" ZEP="20" benötigte_Tage="10">
+---
+>   <Steigern AEP="30" EPproGFP="0" GFP="140" KEP="40" ZEP="20" benötigte_Tage="10.08">
+60a61
+>    <Sprache Bezeichnung="Ffomorisch" Wert="7"/>

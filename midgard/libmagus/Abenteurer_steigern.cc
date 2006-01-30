@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.27 2006/01/30 07:33:58 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.28 2006/01/30 07:34:04 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -593,15 +593,18 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE, int bonus)
  
  int dummy=1;
  // nicht durch generelle Regel abgedeckt, da erst erlernt werden muss
- // Lernern neuer Sprache mit PP
+ // Lernen neuer Sprache mit PP
+ 
+ // wäre schöner, wenn das mit dem allgemeinen Code möglich wäre
  if((*MBE).What()==MidgardBasicElement::SPRACHE 
        && wie_steigern==ws_Praxispunkte)
- { set_lernzeit(40,MBE); // tatsächlich???
+ { kosten=40;
    // 10 (+4) + 10 (+5) + 10 (+6) + 10 (+7) = 40FP
-   // + 20 (+8) + 20 (+9) = 80FP (halbieren bei Grundf.)
-   if((*MBE)->Grundfertigkeit(*this))
-     MBE->setErfolgswert(9);
+   // + 20 (+8) + 20 (+9) = 80FP/2 (bei Grundf.)
+   if((*MBE)->Grundfertigkeit(*this)) MBE->setErfolgswert(9);
    else MBE->setErfolgswert(7);
+   set_lernzeit(kosten,MBE);
+   addGFP(kosten);
    return true;
  }
  if (!steigern_usp(kosten,MBE,dummy)) return false;
