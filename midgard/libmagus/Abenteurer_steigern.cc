@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.26 2006/01/30 07:33:53 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.27 2006/01/30 07:33:58 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -561,9 +561,6 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE, int bonus)
      { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Neue Sprachen können nur durch Unterweisung oder Praxis gelernt werden");
        return false;
      }
-    if (wie_steigern==ws_Praxispunkte && !MBE->Praxispunkte())
-    { MBE->addPraxispunkte(1); // Praxispunkt für Sprache annehmen, wenn der Benutzer das so will
-    }
   }   
  else if((*MBE).What()!=MidgardBasicElement::ZAUBER)
   { if (wie_steigern!=ws_Unterweisung)
