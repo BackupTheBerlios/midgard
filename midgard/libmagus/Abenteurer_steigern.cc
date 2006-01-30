@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.24 2006/01/08 08:48:14 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.25 2006/01/30 07:33:47 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -554,12 +554,21 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE, int bonus)
   }
  // Neue Dinge können nur durch Unterweisung gelernt werden
  // es sei denn es handelt sich um Zaubersprüche
- if((*MBE).What()!=MidgardBasicElement::ZAUBER)   
-  { if (wie_steigern!=ws_Unterweisung)
-     { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Neue Fertigkeiten, Waffen, Sprachen und Schriften können nur durch 'Unterweisung' gelernt werden");
+ if((*MBE).What()==MidgardBasicElement::SPRACHE)
+  { if (wie_steigern!=ws_Unterweisung && wie_steigern!=ws_Praxispunkte)
+     { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Neue Sprachen können nur durch Unterweisung oder Praxis gelernt werden");
        return false;
      }
+    if (wie_steigern==ws_Praxispunkte && !MBE->Praxispunkte())
+    { MBE->addPraxispunkte(1); // Praxispunkt für Sprache annehmen, wenn der Benutzer das so will
+    }
   }   
+ else if((*MBE).What()!=MidgardBasicElement::ZAUBER)
+  { if (wie_steigern!=ws_Unterweisung)
+     { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Neue Fertigkeiten, Waffen und Schriften können nur durch 'Unterweisung' gelernt werden");
+       return false;
+     }
+  }
  else // ==> (*MBE).What()==MidgardBasicElement::ZAUBER
   {
     // Nicht alle Abenteurerklassen können Zauber auch mit Praxispunkten lernen
