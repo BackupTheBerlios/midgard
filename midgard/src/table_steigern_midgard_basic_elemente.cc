@@ -95,7 +95,7 @@ void table_steigern::MidgardBasicElement_leaf_neu(const cH_RowDataBase &d)
  { if (/* (*MBE).What()!=MidgardBasicElement::FERTIGKEIT 
        || */ !(*MBE)->ZusatzEnum(hauptfenster->getAben().getVTyp()))
      getLearnTree((*MBE).What())->getModel().remove_line(d);
-#warning ist das das richtige Element?
+// dies ist das das richtige Element auch bei Zusaetzen (s.u.)
    getKnownTree((*MBE).What())->getModel().append_line(d);
    refresh_gesteigert();
  }

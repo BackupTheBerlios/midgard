@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.33 2006/01/08 08:46:42 christof Exp $               
+// $Id: Abenteurer.hh,v 1.34 2006/01/30 07:33:38 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -118,7 +118,8 @@ public:
    std::list<MBEmlt> &get_known_list(const MBEmlt &MBE);
    
    MBEmlt get_known(MidgardBasicElement::MBEE was, std::string const& name, std::string const& zusatz=std::string());
-   MBEmlt get_unknown(MidgardBasicElement::MBEE was, std::string const& name, std::string const& zusatz=std::string());
+//   MBEmlt get_unknown(MidgardBasicElement::MBEE was, std::string const& name, std::string const& zusatz=std::string());
+   MBEmlt get_unknown(cH_MidgardBasicElement was, std::string const& zusatz=std::string()) const;
    
    struct st_universell{MBEmlt mbe;bool voraussetzung;bool gelernt;
           st_universell(MBEmlt m) 

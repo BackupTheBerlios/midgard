@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.38 2006/01/08 08:48:12 christof Exp $            
+// $Id: Abenteurer.cc,v 1.39 2006/01/30 07:33:38 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -36,7 +36,7 @@
 #include "magustrace.h"
 #include "Datenbank.hh"
 #include "Ausgabe.hh"
-
+#include <libmagus/LernListen.hh>
 
 #include <Magus_Optionen.hh>
 Abenteurer::Abenteurer(bool initialize) : Grundwerte(initialize)
@@ -868,11 +868,10 @@ bool Abenteurer::Steigern(MBEmlt &MBE)
 //  return true;
 }
 
-#if 0
+// bonus???
 bool Abenteurer::Erlernen(MBEmlt &MBE)
-{ // Erlernen später ...
+{ return neu_lernen(MBE);
 }
-#endif
 
    // false: Fehlgeschlagen
 bool Abenteurer::ReduzierenVerlernen(MBEmlt &MBE, bool &verlernt)
@@ -923,4 +922,52 @@ MBEmlt Abenteurer::get_known(MidgardBasicElement::MBEE was, std::string const& n
   }
   // das &* ist zwar eklig, aber ich will die Klasse MBEmlt nicht deswegen ändern
   return &*Handle<MidgardBasicElement_mutable>();
+}
+
+// verwendet von LernListen::get_steigern_MBEm, daher muss für alle unlernbaren
+// Dinge null zurückgegeben werden
+MBEmlt Abenteurer::get_unknown(cH_MidgardBasicElement was, std::string const& zusatz) const
+{ static MBEmlt null=&*Handle<MidgardBasicElement_mutable>();
+  if (was->What()==MidgardBasicElement::FERTIGKEIT &&
+      (was->Name()=="Sprache" || was->Name()=="Schreiben" || was->Name()=="KiDo-Technik")) 
+        return null;
+  if (Spezies()->istVerboten(was)) return null;
+  if (was->Name()=="Zaubern" &&  is_mage() ) return null;
+  if (!was->ist_lernbar(getVTyp(),was->get_MapTyp())) return null;
+  if (!LernListen::region_check(*this,was->Region())) return null;
+  if (!LernListen::nsc_check(*this,was->NSC_only())) return null;
+  MBEmlt MBEm(was);
+  if (was->ZusatzEnum(getVTyp())!=MidgardBasicElement::ZNone
+      && MBEm->ist_gelernt(const_cast<Abenteurer*>(this)->get_known_list(was->What())))
+    return null; // schon erlernt
+  switch(was->What()) 
+  {
+   case MidgardBasicElement::FERTIGKEIT:
+      if (!was->Voraussetzung(*this)) return null;
+      MBEm->setErfolgswert(was->Anfangswert());
+      break;
+   case MidgardBasicElement::WAFFE:
+    { const cH_Waffe w(was);
+      if (!w->Grundkenntnis_vorhanden( List_WaffenGrund())) return null;
+      if (!was->Voraussetzung(*this)) return null;
+      if (w->Art()=="Verteidigung") MBEm->setErfolgswert(1);
+      else MBEm->setErfolgswert(4);
+      break;
+     }
+   case MidgardBasicElement::WAFFEGRUND:
+      if(!cH_WaffeGrund(was)->is_sinnvoll(Datenbank.Waffe,*this)) return null;
+      break;
+   case MidgardBasicElement::SPRACHE:
+      MBEm->setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
+      break;
+   case MidgardBasicElement::SCHRIFT:
+      if (!cH_Schrift(was)->kann_Sprache( List_Sprache())) return null;
+      MBEm->setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
+      break;
+   case MidgardBasicElement::ZAUBER:
+   case MidgardBasicElement::ZAUBERWERK:
+      break;
+   default : assert(!"get here");
+  }
+  return MBEm;
 }

@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.7 2004/11/29 17:26:50 christof Exp $
+// $Id: LernListen_steigern.cc,v 1.8 2006/01/30 07:33:38 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -41,63 +41,8 @@ std::list<MBEmlt> LernListen::get_steigern_MBEm(const Abenteurer& A,MidgardBasic
    }
   std::list<MBEmlt> V;
   for(std::list<cH_MidgardBasicElement>::const_iterator i=V_.begin();i!=V_.end();++i)
-   {
-     if ((*i)->Name()=="Sprache" || (*i)->Name()=="Schreiben" || (*i)->Name()=="KiDo-Technik") continue;
-     if(A.Spezies()->istVerboten(*i)) continue;
-     if ((*i)->Name()=="Zaubern" && A.is_mage() ) continue;
-     if (!(*i)->ist_lernbar(A.getVTyp(),(*i)->get_MapTyp())) continue;
-     if (!region_check(A,(*i)->Region()) ) continue;
-     if (!nsc_check(A,(*i)->NSC_only())) continue;
-     MBEmlt MBEm(*i);
-     switch(was) {
-       case MidgardBasicElement::FERTIGKEIT: { const cH_Fertigkeit f(*i);
-          if (MBEmlt(*i)->ist_gelernt(A.List_Fertigkeit()) && 
-              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
-          if (!f->Voraussetzung(A)) continue;
-          MBEm->setErfolgswert(f->Anfangswert());
-          break;
-         }
-       case MidgardBasicElement::WAFFE: { const cH_Waffe w(*i);
-          if (MBEm->ist_gelernt(A.List_Waffen()) && 
-              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
-          if (!w->Grundkenntnis_vorhanden(A.List_WaffenGrund())) continue;
-          if (!w->Voraussetzung(A)) continue;
-          if (w->Art()=="Verteidigung") MBEm->setErfolgswert(1);
-          else MBEm->setErfolgswert(4);
-          break;
-         }
-       case MidgardBasicElement::WAFFEGRUND: {
-          if(!cH_WaffeGrund(*i)->is_sinnvoll(Datenbank.Waffe,A)) continue;
-          if (MBEm->ist_gelernt(A.List_WaffenGrund()) && 
-              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
-          break;
-         }
-       case MidgardBasicElement::SPRACHE: {
-          if (MBEm->ist_gelernt(A.List_Sprache()) && 
-              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
-          MBEm->setErfolgswert(cH_Fertigkeit("Sprache")->Anfangswert());
-          break;
-         }
-       case MidgardBasicElement::SCHRIFT: {
-          if (MBEm->ist_gelernt(A.List_Schrift()) && 
-              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
-          if (!cH_Schrift(*i)->kann_Sprache(A.List_Sprache())) continue;
-          MBEm->setErfolgswert(cH_Fertigkeit("Schreiben")->Anfangswert());
-          break;
-         }
-       case MidgardBasicElement::ZAUBER: { 
-          if (MBEm->ist_gelernt(A.List_Zauber()) && 
-              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
-          break;
-         }
-       case MidgardBasicElement::ZAUBERWERK: { 
-          if (MBEm->ist_gelernt(A.List_Zauberwerk()) && 
-              (*i)->ZusatzEnum(A.getVTyp())==MidgardBasicElement::ZNone) continue ;
-          break;
-         }
-       default : assert(!"never get here\n");
-      }
-     V.push_back(MBEm);
+   { MBEmlt MBEm=A.get_unknown(*i);
+     if (!!MBEm) V.push_back(MBEm);
    }
   return V;
 }
