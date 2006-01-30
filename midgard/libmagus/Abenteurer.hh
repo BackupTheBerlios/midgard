@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.34 2006/01/30 07:33:38 christof Exp $               
+// $Id: Abenteurer.hh,v 1.35 2006/01/30 07:33:53 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -173,7 +173,7 @@ public:
    // neues Interface
    // true geklappt
    bool Steigern(MBEmlt &MBE);
-   // true: Besonderheiten ??
+   // true: zur gelernten Liste hinzufügen
    bool Erlernen(MBEmlt &MBE);
    // false: Fehlgeschlagen
    bool ReduzierenVerlernen(MBEmlt &MBE, bool &verlernt);
@@ -181,6 +181,7 @@ public:
    void reduziere(MBEmlt &MBE);
    void verlerne(MBEmlt &MBE);
    bool steigere(MBEmlt &MBE);
+   // Vorsicht: fügt nicht zur Liste hinzu
    bool neu_lernen(MBEmlt &MBE, int bonus=0);
    // (Kosten für) Ausdauer würfeln
    int get_ausdauer(int grad);

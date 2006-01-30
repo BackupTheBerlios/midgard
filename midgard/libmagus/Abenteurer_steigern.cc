@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.25 2006/01/30 07:33:47 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.26 2006/01/30 07:33:53 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -541,6 +541,8 @@ void Abenteurer::verlerne(MBEmlt &MBE)
 { desteigern(MBE->Verlernen(*this));  
 }
 
+// die Fertigkeit kann noch nicht zur Liste hinzugefügt werden, da 
+// im Nachhinein in magus der Zusatz gewählt wird (und dann erst hinzu kommt)
 bool Abenteurer::neu_lernen(MBEmlt &MBE, int bonus)
 {
  if(((*MBE).What()==MidgardBasicElement::FERTIGKEIT 
@@ -593,11 +595,13 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE, int bonus)
  /////////////////////////////////////////////////////////////////////////
  
  int dummy=1;
+ // nicht durch generelle Regel abgedeckt, da erst erlernt werden muss
  // Lernern neuer Sprache mit PP
  if((*MBE).What()==MidgardBasicElement::SPRACHE 
        && wie_steigern==ws_Praxispunkte)
  { set_lernzeit(40,MBE); // tatsächlich???
-   // hmmm
+   // 10 (+4) + 10 (+5) + 10 (+6) + 10 (+7) = 40FP
+   // + 20 (+8) + 20 (+9) = 80FP (halbieren bei Grundf.)
    if((*MBE)->Grundfertigkeit(*this))
      MBE->setErfolgswert(9);
    else MBE->setErfolgswert(7);

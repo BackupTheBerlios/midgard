@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.39 2006/01/30 07:33:38 christof Exp $            
+// $Id: Abenteurer.cc,v 1.40 2006/01/30 07:33:53 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -868,9 +868,11 @@ bool Abenteurer::Steigern(MBEmlt &MBE)
 //  return true;
 }
 
-// bonus???
 bool Abenteurer::Erlernen(MBEmlt &MBE)
-{ return neu_lernen(MBE);
+{ bool result=neu_lernen(MBE);
+  // als gelernt merken
+  if (result) get_known_list((*MBE).What()).push_back(MBE);
+  return result;
 }
 
    // false: Fehlgeschlagen

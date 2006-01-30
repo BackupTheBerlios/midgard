@@ -140,10 +140,9 @@ MagusKI::st_KI  MagusKI::NeuLernen(int &gfp,const MidgardBasicElement::MBEE was)
   if(!allowed_for_grad(M,eNeuLernen)) return st_KI((*M)->Name(),NotAllowedForGrad);
 
   Aben.wie_steigern=Abenteurer::ws_Unterweisung;
-  bool ok=Aben.neu_lernen(M);
+  bool ok=Aben.Erlernen(M);
   if(ok) 
    { gfp-=(*M)->Kosten(Aben);
-     Aben.get_known_list(was).push_back(M);
      return st_KI((*M)->Name(),(*M).Erfolgswert(),OK);
    }
  return st_KI((*M)->Name(),(*M).Erfolgswert(),NoSteigern); 
