@@ -1,3 +1,6 @@
+   file "libmagus/tests/original"
+execute "true"
+
    file "magus2_mt"
 execute "true"
 

@@ -1,0 +1,10 @@
+#!/bin/sh
+# Originaldatei herausfinden
+
+if fgrep -q 'Name="Magierin' $1
+then echo Ma.magus
+elif fgrep -q 'Name="Magierin' $1
+then echo Ma.magus
+else
+echo Ma.magus
+fi
