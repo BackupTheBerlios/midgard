@@ -21,11 +21,10 @@
    VAbenteurer::iterator ch=AbenteurerAuswahl::Chars->load("Ma.magus");
    ch->begin_undo();
    ch->getAbenteurer().wie_steigern=Abenteurer::ws_Praxispunkte;
-   ch->getAbenteurer().wie_steigern_variante=Abenteurer::wsv_PraxispunkteFP;
-   ch->getAbenteurer().setSpezialPP(1);
-   MBEmlt res=MBEmlt(ResistenzUndCo::Zaubern);
-   // geht auch steigere?
-   ch->getAbenteurer().get_ab_re_za(res);
+   ch->getAbenteurer().wie_steigern_variante=Abenteurer::wsv_NurPraxispunkte;
+   ch->getAbenteurer().setZaubernPP(1);
+   MBEmlt zau=MBEmlt(ResistenzUndCo::Zaubern);
+   ch->getAbenteurer().steigere(zau);
    ch->name_undo("Zaubern mit PP steigern");
    { std::ofstream out("test6.magus");
      ch->getAbenteurer().speichern(out);

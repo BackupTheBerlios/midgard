@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.35 2006/01/30 07:33:53 christof Exp $               
+// $Id: Abenteurer.hh,v 1.36 2006/01/31 23:52:47 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -173,7 +173,7 @@ public:
    // neues Interface
    // true geklappt
    bool Steigern(MBEmlt &MBE);
-   // true: zur gelernten Liste hinzufügen
+   // auch zur gelernten Liste hinzufügen ;-)
    bool Erlernen(MBEmlt &MBE);
    // false: Fehlgeschlagen
    bool ReduzierenVerlernen(MBEmlt &MBE, bool &verlernt);
@@ -181,14 +181,18 @@ public:
    void reduziere(MBEmlt &MBE);
    void verlerne(MBEmlt &MBE);
    bool steigere(MBEmlt &MBE);
+   
    // Vorsicht: fügt nicht zur Liste hinzu
    bool neu_lernen(MBEmlt &MBE, int bonus=0);
    // (Kosten für) Ausdauer würfeln
-   int get_ausdauer(int grad);
+   // ich empfehle MBEmlt m(ResistenzUndCo::Ausdauer); steigere(m);
+   __deprecated int get_ausdauer(int grad);
    // (Kosten für) Abwehr, Resistenz, Zaubern steigern
+   // ich empfehle MBEmlt m(ResistenzUndCo::Zaubern); steigere(m);
    __deprecated int get_ab_re_za(const ResistenzUndCo::was_t was);
-   int get_ab_re_za(const MBEmlt &was);
+   __deprecated int get_ab_re_za(const MBEmlt &was);
 
+   // komische public API ... CP
    void move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu);
 private:   
    void EP_aufwenden(MidgardBasicElement::EP_t ep_t,unsigned ep_k);

@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.28 2006/01/30 07:34:04 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.29 2006/01/31 23:52:47 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -491,7 +491,12 @@ void Abenteurer::Steigertage2Alter()
 }
 
 bool Abenteurer::steigere(MBEmlt &MBE)
-{
+{ if (MBE->What()==MidgardBasicElement::RESISTENZ_UND_CO)
+  { cH_ResistenzUndCo r(MBE->getMBE());
+    if (r->WasIstEs()==ResistenzUndCo::eAusdauer) 
+      return get_ausdauer(Grad())>0;
+    else return get_ab_re_za(MBE)>0;
+  }
   if ( MBE->Erfolgswert() >= (*MBE)->MaxErfolgswert(*this))
   { Ausgabe(Ausgabe::Error,(*MBE)->Name()+": Maximal möglicher Erfolgswert ("+itos((*MBE)->MaxErfolgswert(*this))+") erreicht");
     return false; }

@@ -1,4 +1,4 @@
-// $Id: ResistenzUndCo.hh,v 1.4 2004/11/29 17:26:50 christof Exp $               
+// $Id: ResistenzUndCo.hh,v 1.5 2006/01/31 23:52:47 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2004 Christof Petig
  *
@@ -32,13 +32,16 @@ private:
    
    ResistenzUndCo(was_t w) : MidgardBasicElement(What_str(w)), was_ist_es(w) {}
    static std::string What_str(was_t w);
-public: 
+public:
+   // Zaubern könnte auch cH_Fertigkeit("Zaubern") werden!
    static Handle<const ResistenzUndCo> Ausdauer,Abwehr,Zaubern,Resistenz;
    static Handle<const ResistenzUndCo> getMBE(was_t w);
    
    enum MBEE What() const {return MidgardBasicElement::RESISTENZ_UND_CO;}
    std::string What_str() const { return name; }
    was_t WasIstEs() const { return was_ist_es; }
+   // Kosten errechnen hier hinein (aus get_ausdauer & get_ab_re_za heraus)
+   // ebenso MaxWert
 };
 
 typedef Handle<const ResistenzUndCo> cH_ResistenzUndCo;
