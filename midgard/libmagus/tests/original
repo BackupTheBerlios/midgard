@@ -3,8 +3,8 @@
 
 if fgrep -q 'Name="Magierin' $1
 then echo Ma.magus
-elif fgrep -q 'Name="Magierin' $1
-then echo Ma.magus
+elif fgrep -q 'Name="Heiler' $1
+then echo Hl.magus
 else
 echo Ma.magus
 fi

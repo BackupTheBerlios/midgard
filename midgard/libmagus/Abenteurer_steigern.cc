@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.30 2006/01/31 23:53:00 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.31 2006/01/31 23:53:10 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -68,7 +68,7 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
         + " Praxispunkte erforderlich (oder EP aufwenden)");
       return false;
     }
-    else if(ep_k > pp*(40/2))
+    else if(ep_k > 2*pp*40)
     { Ausgabe(Ausgabe::Error,"Höchstens die Hälfte der GFP darf beim "
           "'Steigern mit PP' durch EP bestritten werden"); 
       Ausgabe(Ausgabe::Error,"Es fehlen "+itos((ep_k+79)/80 - pp)+"PP");
@@ -81,7 +81,9 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
     { stufen=1;
       use_pp = ep_k/40;
       ep_k  %= 40;
-      if (wie_steigern_variante==wsv_NurPraxispunkte && ep_k)
+      // wenn PP+FP angewählt, aber keine PP verwendet würden, trotzdem nehmen
+      // schließlich hat es der Benutzer so gewollt
+      if (!use_pp || (wie_steigern_variante==wsv_NurPraxispunkte && ep_k))
       { ++use_pp;
         ep_k=0;
       }

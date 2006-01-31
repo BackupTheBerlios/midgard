@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="1" Name="Heiler" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="Hl" Geschlecht="m" Hand="Rechtshänder" Muttersprache="Erainnisch" Spezies="Mensch" Stadt_Land="Stadt" Überleben="�&#x9C;berleben in der Wüste"/>
+  <Basiseigenschaften Gs="34" Gw="63" In="84" Ko="87" St="30" Zt="96"/>
+  <abgeleiteteEigenschaften Au="96" B="24" Sb="91" Wk="53" pA="22"/>
+  <Erfolgswerte Abwehr="11" ZauberResistenz="10" Zaubern="10"/>
+  <Gesundheit AP="9" LP="15"/>
+  <Beschreibung Alter="23" Gestalt="schlank" Gewicht="56" Größe="165" Herkunft="Erainn" Stand="Adel"/>
+  <Vermögen GS="36"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Bezeichnung="Priesterstab" Erfolgswert="0" Region="N"/>
+   <Gegenstand Bezeichnung="Körper" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" sichtbar="true"/>
+    <Gegenstand Besonderheit="Leder" Bezeichnung="Rucksack" sichtbar="true">
+     <Gegenstand Besonderheit="warm" Bezeichnung="Decke"/>
+     <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld"/>
+     <Gegenstand Bezeichnung="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="10"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="Gelehrter"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
+   <Fertigkeit Bezeichnung="Kräuterkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Heilkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Tanzen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Fangen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="4"/>
+   <Waffe Bezeichnung="Magierstab" Wert="4"/>
+   <Zauber Bezeichnung="Liniensicht"/>
+   <Zauber Bezeichnung="Tiersprache" Zusatz="Amphibien/Repilien"/>
+   <Zauber Bezeichnung="Handauflegen"/>
+   <Zauber Bezeichnung="Heilen von Krankheit"/>
+   <Grundkenntnis Bezeichnung="Zauberstäbe"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="19"/>
+   <Sprache Bezeichnung="Dvarskar" Wert="12"/>
+   <Sprache Bezeichnung="Feuerinseldialekte" Wert="19"/>
+   <Sprache Bezeichnung="Chryseisch" Wert="5"/>
+   <Urschrift Bezeichnung="Erainnisch" Buchstaben="Valianisches Alphabet" Wert="13"/>
+   <Urschrift Bezeichnung="Dvarskar" Buchstaben="Zwergenrunen Futhark" Wert="10"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Kompendium" Region="TuT"/>
+   <Region Name="Alba" Region="A"/>
+   <Region Name="Eschar" Region="E"/>
+   <Region Name="Nahuatlan" Region="N"/>
+   <Region Name="KanThaiPan" Region="K"/>
+   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
+   <Region Name="Abenteuer" Region="X"/>
+   <Region Name="Gildenbrief" Region="G"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="true"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
