@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.29 2006/01/31 23:52:47 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.30 2006/01/31 23:53:00 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -94,7 +94,7 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
       else use_pp=kosten/40;
     }
 
-    if (use_pp>pp)
+    if (use_pp>unsigned(pp))
     { ep_k+=40*(use_pp-pp);
       use_pp=pp;
     }   
@@ -492,7 +492,7 @@ void Abenteurer::Steigertage2Alter()
 
 bool Abenteurer::steigere(MBEmlt &MBE)
 { if (MBE->What()==MidgardBasicElement::RESISTENZ_UND_CO)
-  { cH_ResistenzUndCo r(MBE->getMBE());
+  { cH_ResistenzUndCo r(MBE->getHandle<const ResistenzUndCo>());
     if (r->WasIstEs()==ResistenzUndCo::eAusdauer) 
       return get_ausdauer(Grad())>0;
     else return get_ab_re_za(MBE)>0;
