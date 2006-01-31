@@ -16,25 +16,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <fstream>
-#include <libmagus/AbenteurerAuswahl.h>
-#include <libmagus/magus_paths.h>
-#include <libmagus/libmagus.hh>
-#include <libmagus/Ausgabe.hh>
-#include <libmagus/Datenbank.hh>
-#include <Misc/itos.h>
-
-void progress(double d)
-{  Ausgabe(Ausgabe::Warning, "Progress " +itos(int(d*100))+ "%");
-}
-
-int main(int argc,char **argv)
-{  //libmagus_init0magus_paths::init(argv[0]);
- try {  
-   libmagus_init0(argc,const_cast<const char**>(argv));
-   magus_paths::prepend_dir("../../xml/");
-   libmagus_init1(&progress);
-   
+#include "test_header.cc"   
    VAbenteurer::iterator ch=AbenteurerAuswahl::Chars->load("Ma.magus");
    ch->begin_undo();
    ch->getAbenteurer().wie_steigern=Abenteurer::ws_Praxispunkte;
@@ -45,9 +27,4 @@ int main(int argc,char **argv)
    { std::ofstream out("test2.magus");
      ch->getAbenteurer().speichern(out);
    }
-   return 0;
- } catch (...)
- { Ausgabe(Ausgabe::Error, "exception");  
-   return 1;
- }
-}
+TEST_FOOTER

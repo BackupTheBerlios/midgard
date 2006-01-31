@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.7 2006/01/30 07:33:47 christof Exp $
+# $Id: Makefile.am,v 1.8 2006/01/31 23:52:09 christof Exp $
 
 AM_CPPFLAGS=@COMMONXX_INCLUDES@ -I../..
 
@@ -23,7 +23,8 @@ diff: $(EXTRA_PROGRAMS)
 	-chmod a+x original
 	-rm diff
 	for i in $(EXTRA_PROGRAMS) ; do ./$$i ; echo $$i >>diff \
-		; diff `./original $$i.magus` $$i.magus >>diff; done
+		; diff `./original $$i.magus` $$i.magus >>diff; done ; true
 
 check: diff
 	diff diff soll
+	@echo --- Test successful. ---
