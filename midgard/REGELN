@@ -1,0 +1,31 @@
+--- Steigern ---
+
+Praxis 500FP/Tag
+Unterw. 10FP/Tag   5GS/Tag Lebensunterhalt
+Selbstst.5FP/Tag
+AP Max. 1Monat
+
+Zaubersprüche: Stufe höchstens eigener Grad, groß = Stufe 7
+ Magier: Spezialgebiet: Grad+1
+ Intelligenz: 11-30 St. 1-4
+ Intelligenz: 1-10  St. 1-2
+
+Lernen von Spruchrolle:
+ EW Lesen v. Zauberschrift
+   krit misslungen: Fehlschlag
+   misslungen -4
+   gelungen 0
+   krit Erfolg: +4
+ Magier Spezialgebiet +2
+ Ma Grund +1
+ Ma Ausnahme -1
+ sonst Ausnahme -2
+ - Stufe
+auf EW Zaubern
+  Fehlschlag => PW (In+Zt)/(Stufe+1)
+
+FP/10 in EP aufwenden
+
+Fehlschlag GFP += FP/10
+Erfolg GFP += FP/5
+                            3Tage/Stufe
