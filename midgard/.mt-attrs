@@ -1,4 +1,10 @@
+   file "autogen.sh"
+execute "true"
+
    file "libmagus/tests/original"
+execute "true"
+
+   file "magus2_cvs"
 execute "true"
 
    file "magus2_mt"
