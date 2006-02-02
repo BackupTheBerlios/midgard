@@ -1,4 +1,4 @@
-// $Id: Grundwerte.cc,v 1.23 2006/01/08 08:48:08 christof Exp $               
+// $Id: Grundwerte.cc,v 1.24 2006/02/02 13:48:28 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -391,9 +391,9 @@ std::string Grundwerte::Ruestung_Angriff_Verlust(const std::list<MBEmlt>& list_F
 }
 
 int Grundwerte::gold_kosten(int kosten) const
-{ // soll es nicht 100% ergeben, dann getrennt runden
+{ // soll es nicht 100% ergeben, dann getrennt rechnen
   if (fpanteil!=100-goldanteil) 
-     return int(kosten * (100-get_Steigern_EP_Prozent())/100. + 0.5);
+     return int(kosten * goldanteil/100. + 0.5);
   
   // damit es zu 100% aufgeht (Rundungsprobleme)
   return kosten-ep_kosten(kosten);

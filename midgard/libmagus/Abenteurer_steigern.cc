@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.31 2006/01/31 23:53:10 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.32 2006/02/02 13:48:28 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -35,24 +35,29 @@ bool Abenteurer::ZauberSpruecheMitPP() const
 }
 
 // dies ist die eigentliche Steigern Funktion
+// kosten sollte nach dieser Funktion die aufgewendeten GFP beinhalten (unnötig)
+// Stufen enhält die Anzahl der Steigerungen
 bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
 {
- if (!fpanteil && !goldanteil) // Steigern OHNE EP/Gold/PP
- { if (wie_steigern==ws_Spruchrolle) 
-#warning das sieht mir nach Quatsch aus
-     kosten=cH_Zauber(MBE->getMBE())->iStufe();
-   set_lernzeit(kosten,MBE);
-   return true;
- }
-
-  // genug GELD
-  int gold_k=genug_geld(kosten);
-  if (gold_k==-1) return false; // nicht genug Geld
-
   // EP
   MidgardBasicElement::EP_t ep_t=steigern_mit(MBE);
-
-  int ep_k = EP_kosten(kosten);
+  int ep_k = 0; ep_kosten(kosten);
+  switch (wie_steigern)
+  { case ws_Praxispunkte: ep_k=kosten; break;
+    case ws_Unterweisung:
+      if (fpanteil!=0 && (fpanteil<33 || fpanteil>67))
+      { Ausgabe(Ausgabe::Error,"Unterweisung: Ungültiger Anteil an FP "+itos(fpanteil)); 
+        return false;
+      }
+      if (goldanteil>67)
+      { Ausgabe(Ausgabe::Error,"Unterweisung: Ungültiger Anteil an Gold "+itos(fpanteil)); 
+        return false;
+      }
+      ep_k=ep_kosten(kosten);
+      break;
+    case ws_Selbststudium: goldanteil=0; fpanteil=133; ep_k=ep_kosten(kosten); break;
+    case ws_Spruchrolle: goldanteil=0; fpanteil=10; ep_k=(kosten+9)/10; break;
+  }
 
   if(wie_steigern==ws_Praxispunkte)
   { int pp = PP_vorrat(MBE);
@@ -81,19 +86,17 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
     { stufen=1;
       use_pp = ep_k/40;
       ep_k  %= 40;
-      // wenn PP+FP angewählt, aber keine PP verwendet würden, trotzdem nehmen
-      // schließlich hat es der Benutzer so gewollt
+      // wenn PP+FP angewählt, aber kein PP aufgebraucht würde, trotzdem einen 
+      // nehmen, schließlich hat es der Benutzer so gesagt
       if (!use_pp || (wie_steigern_variante==wsv_NurPraxispunkte && ep_k))
       { ++use_pp;
         ep_k=0;
       }
     }
     else 
-    { kosten = 0;
-      ep_k = 40*pp;
+    { ep_k = 40*pp;
       stufen=stufen_auf_einmal_steigern_fuer_aep(MBE,kosten,ep_k);
-      if (!ep_k) use_pp=(kosten+39)/40;
-      else use_pp=kosten/40;
+      use_pp=(kosten-ep_k+39)/40;
     }
 
     if (use_pp>unsigned(pp))
@@ -103,21 +106,25 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
 
     if(!genug_EP(ep_k,ep_t)) return false;
    
-    set_lernzeit(kosten,MBE); 
     PP_aufwenden(use_pp,MBE);
-    EP_aufwenden(ep_t,ep_k);
-    return true;
   }
-
-   
-  if(!genug_EP(ep_k,ep_t)) return false;
-
-  // jetzt darf gesteigert werden ...
-  addGold(-gold_k);
-  if(wie_steigern==ws_Spruchrolle) 
-    kosten=cH_Zauber(MBE->getMBE())->iStufe(); // ???
-  set_lernzeit(kosten,MBE);
+  else // Unterweisung, Selbststudium etc
+  { if(!genug_EP(ep_k,ep_t)) return false;
+    // genug GELD
+    int gold_k=genug_geld(kosten);
+    if (gold_k==-1) return false; // nicht genug Geld
+    addGold(-gold_k);
+  }
   EP_aufwenden(ep_t,ep_k);
+  set_lernzeit(kosten,MBE); 
+  if (wie_steigern==ws_Spruchrolle)
+  { addGFP(ep_k*2);
+    list_Gelernt_von_Spruchrolle.push_back(MBE->getMBE()->Name());
+  }
+  else 
+  { addGFP(kosten);
+    MBE->addErfolgswert(stufen);
+  }
   return true;  
 }
 
@@ -140,6 +147,7 @@ void Abenteurer::move_neues_element(MBEmlt &MBE,std::list<MBEmlt> *MyList_neu_)
  move_element(*MyList_neu_,getList((*MBE).What()),MBE);
 }
 
+// add_lernzeit wäre besser, oder?
 void Abenteurer::set_lernzeit(int kosten, const MBEmlt &was)
 {
   if(!!was && was->What()==MidgardBasicElement::RESISTENZ_UND_CO
@@ -149,7 +157,7 @@ void Abenteurer::set_lernzeit(int kosten, const MBEmlt &was)
   }
   switch (wie_steigern)
   { case ws_Spruchrolle:
-      addSteigertage(kosten*3);
+      addSteigertage(was->getHandle<const Zauber>()->iStufe()*3);
       break;
     case ws_Selbststudium:
       addSteigertage(kosten/5.);
@@ -230,11 +238,13 @@ bool Abenteurer::genug_EP(int ep_k,MidgardBasicElement::EP_t mit) const
   return true;
 }
 
+#if 0
 int Abenteurer::EP_kosten(int kosten) const
 { if(wie_steigern==ws_Unterweisung || wie_steigern==ws_Selbststudium) 
     return ep_kosten(kosten);
   else return kosten;
 }
+#endif
 
 int Abenteurer::PP_vorrat(const MBEmlt &MBE) const
 {
@@ -328,7 +338,7 @@ int Abenteurer::get_ausdauer(int grad)
        break;
    }
    if (!steigern_usp(kosten,ResistenzUndCo::eAusdauer)) return 0;
-   addGFP(kosten);
+//   addGFP(kosten);
    int ap=0;
    for (int i=0;i<grad;++i) ap += Random::W6();
 
@@ -400,7 +410,7 @@ int Abenteurer::get_ab_re_za(const ResistenzUndCo::was_t was)
   else if(!reduzieren)
    { // hier stand eAusdauer ... was ist sinnvoller - oder?
      if (!steigern_usp(kosten,was)) return 0;
-     addGFP(kosten);
+//     addGFP(kosten);
      if      (was==ResistenzUndCo::eAbwehr)    setAbwehr_wert(alter_wert+1);
      else if (was==ResistenzUndCo::eResistenz) setResistenz(alter_wert+1);  
      else if (was==ResistenzUndCo::eZaubern)   setZaubern_wert(alter_wert+1);
@@ -524,8 +534,8 @@ bool Abenteurer::steigere(MBEmlt &MBE)
     std::replace(L.begin(),L.end(),old,MBE);
   }
   if (!steigern_usp(steigerkosten,MBE,stufen)) return false;
-  addGFP(steigerkosten); 
-  MBE->addErfolgswert(stufen);
+//  addGFP(steigerkosten); 
+//  MBE->addErfolgswert(stufen);
   return true;
 }
 
@@ -594,8 +604,8 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE, int bonus)
  int kosten=(*MBE)->Kosten(*this);
 
  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
- if( (*MBE).What()==MidgardBasicElement::ZAUBER && wie_steigern==ws_Spruchrolle) 
-      kosten/=10;
+// if( (*MBE).What()==MidgardBasicElement::ZAUBER && wie_steigern==ws_Spruchrolle)
+//      kosten/=10;
  /////////////////////////////////////////////////////////////////////////
  
  int dummy=1;
@@ -614,18 +624,23 @@ bool Abenteurer::neu_lernen(MBEmlt &MBE, int bonus)
    addGFP(kosten);
    return true;
  }
- if (!steigern_usp(kosten,MBE,dummy)) return false;
-
- addGFP(kosten);
-     
-  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
-  if((*MBE).What()==MidgardBasicElement::ZAUBER && wie_steigern==ws_Spruchrolle)
-  {  if(wie_steigern_variante!=wsv_SpruchrolleAlways &&
-         !cH_Zauber(MBE->getMBE())->spruchrolle_wuerfeln(*this,bonus))
-       return false;
-     addGFP(kosten);
-     list_Gelernt_von_Spruchrolle.push_back(MBE->getMBE()->Name());
+  if((*MBE).What()==MidgardBasicElement::ZAUBER 
+    && wie_steigern==ws_Spruchrolle
+    && wie_steigern_variante!=wsv_SpruchrolleAlways 
+    && !MBE->getHandle<const Zauber>()->spruchrolle_wuerfeln(*this,bonus))
+  { // fehlgeschlagener 
+    MidgardBasicElement::EP_t ep_t=steigern_mit(MBE);
+    int ep_k = kosten/10;
+    if (genug_EP(ep_k,ep_t)) 
+    { EP_aufwenden(ep_t,ep_k);
+      addGFP(ep_k);
+      set_lernzeit(kosten,MBE);
+    }
+    return false;
   }
+     
+  if (!steigern_usp(kosten,MBE,dummy)) return false;
+  // Lernen mit Spruchrolle: ///////////////////////////////////////////////
   return true;
 }
 
