@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.32 2006/02/02 13:48:28 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.33 2006/02/03 07:43:47 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -82,7 +82,9 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
 
     unsigned use_pp=0; // soviel PP werden verwendet
     
-    if (MBE->What()==MidgardBasicElement::RESISTENZ_UND_CO)  // || immer genau EINE Stufe steigern
+    if (MBE->What()==MidgardBasicElement::RESISTENZ_UND_CO
+        || MBE->What()==MidgardBasicElement::ZAUBER)
+    // immer genau EINE Stufe steigern, bzw einfach erlernen
     { stufen=1;
       use_pp = ep_k/40;
       ep_k  %= 40;
@@ -105,7 +107,7 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
     }   
 
     if(!genug_EP(ep_k,ep_t)) return false;
-   
+    ManuProC::Trace(LibMagus::trace_channel,__FUNCTION__,NV1(use_pp),NV1(ep_k),NV1(stufen));
     PP_aufwenden(use_pp,MBE);
   }
   else // Unterweisung, Selbststudium etc
@@ -113,6 +115,7 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
     // genug GELD
     int gold_k=genug_geld(kosten);
     if (gold_k==-1) return false; // nicht genug Geld
+    ManuProC::Trace(LibMagus::trace_channel,__FUNCTION__,NV1(gold_k),NV1(ep_k));
     addGold(-gold_k);
   }
   EP_aufwenden(ep_t,ep_k);
@@ -121,10 +124,10 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
   { addGFP(ep_k*2);
     list_Gelernt_von_Spruchrolle.push_back(MBE->getMBE()->Name());
   }
-  else 
-  { addGFP(kosten);
+  else addGFP(kosten);
+  if (MBE->What()!=MidgardBasicElement::RESISTENZ_UND_CO
+        && MBE->What()!=MidgardBasicElement::ZAUBER) 
     MBE->addErfolgswert(stufen);
-  }
   return true;  
 }
 
@@ -271,7 +274,6 @@ void Abenteurer::PP_aufwenden(unsigned pp, const MBEmlt &MBE)
   if(MBE->What()!=MidgardBasicElement::RESISTENZ_UND_CO)
   { if ((*MBE).What()!=MidgardBasicElement::ZAUBER)
       MBE->setPraxispunkte(MBE->Praxispunkte()-pp);
-//      modify(PPmodus,MBE,MidgardBasicElement::st_zusatz(),MBE->Praxispunkte()-pp);
     else addSpezialPP(-pp);
     return;
   }
