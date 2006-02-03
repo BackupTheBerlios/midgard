@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.8 2006/01/30 07:33:38 christof Exp $
+// $Id: LernListen_steigern.cc,v 1.9 2006/02/03 07:44:14 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -55,16 +55,26 @@ std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
   for(std::list<MBEmlt>::const_iterator i=L_.begin();i!=L_.end();++i)
    {
      cH_Zauber z((*i)->getMBE());
-     if (z->Spruchrolle()) z->setSpruchrolleFaktor(0.1);
-     else z->setSpruchrolleFaktor(1);
-     if(alle) L.push_back(*i);
-     else
+     if(!alle)
       {
         if (z->Zauberart()=="Zaubersalz"   && !salz ) continue;
         if (z->Zauberart()=="Beschwörung"  && !beschwoerung) continue;
         if (!z->Spruchrolle()              && spruchrolle) continue;
-        L.push_back(*i);
+        // maximale Stufe
+        std::vector<std::string> standard=z->Standard(A);
+        int maxstufe=A.Grad();
+        if ((z->A.Typ1()->Short()=="Ma" 
+              && z->get_spezial_zauber_for_magier(A,standard[0]))
+            || (z->A.Typ2()->Short()=="Ma" 
+              && z->get_spezial_zauber_for_magier(A,standard[1])))
+          ++maxstufe;
+        if (A.In()<=10 && maxstufe>2) maxstufe=2;
+        else if (A.In()<=30 && maxstufe>4) maxstufe=4;
+        if (z->iStufe()>maxstufe) continue;
       }
+     if (z->Spruchrolle()) z->setSpruchrolleFaktor(0.1);
+     else z->setSpruchrolleFaktor(1);
+     L.push_back(*i);
    }
  return L;
 }
