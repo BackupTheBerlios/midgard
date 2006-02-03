@@ -1,4 +1,4 @@
-// $Id: LernListen_steigern.cc,v 1.9 2006/02/03 07:44:14 christof Exp $
+// $Id: LernListen_steigern.cc,v 1.10 2006/02/03 07:44:19 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -63,9 +63,9 @@ std::list<MBEmlt> LernListen::get_steigern_Zauberliste(const Abenteurer& A,
         // maximale Stufe
         std::vector<std::string> standard=z->Standard(A);
         int maxstufe=A.Grad();
-        if ((z->A.Typ1()->Short()=="Ma" 
+        if ((A.Typ1()->Short()=="Ma" 
               && z->get_spezial_zauber_for_magier(A,standard[0]))
-            || (z->A.Typ2()->Short()=="Ma" 
+            || (A.Typ2()->Short()=="Ma" 
               && z->get_spezial_zauber_for_magier(A,standard[1])))
           ++maxstufe;
         if (A.In()<=10 && maxstufe>2) maxstufe=2;
