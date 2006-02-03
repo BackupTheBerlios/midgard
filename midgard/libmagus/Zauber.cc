@@ -41,7 +41,9 @@ bool cH_Zauber::sort::operator() (MBEmlt _x,MBEmlt _y) const
 }
 
 int Zauber::iStufe() const 
-{  if (Stufe()=="groß") return 6; else return atoi(Stufe().c_str()); }
+{  if (Stufe()[0]=='g' || Stufe()[0]=='G') return 6; // oder 7? (minGrad)
+   else return atoi(Stufe().c_str()); 
+}
 
 cH_Zauber::cache_t cH_Zauber::cache;
 
