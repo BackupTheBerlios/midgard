@@ -16,12 +16,16 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <iostream>
 #include <libmagus/Zauber.hh>
 #include <libmagus/LernListen.hh>
 #include "test_header.cc"
    VAbenteurer::iterator ch=AbenteurerAuswahl::Chars->load("Hl.magus");
 //   std::list<MBEmlt> L=LernListen::getMBEm(ch->getAbenteurer(),LernListen::lZaub);
    std::list<MBEmlt> L=LernListen::get_steigern_Zauberliste(ch->getAbenteurer(),false,false,false,false);
+std::cerr << MBEmlt(cH_Zauber("Liniensicht"))
+  ->ist_gelernt(ch->getAbenteurer().get_known_list(MidgardBasicElement::ZAUBER)) << '\n';
+std::cerr << cH_Zauber("Liniensicht")->ZusatzEnum(ch->getAbenteurer().getVTyp()) << '\n';
    { std::ofstream out("lernliste.txt");
      for (std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
        out << (*i)->getHandle<const Zauber>()->Kosten(ch->getAbenteurer()) << ' '

@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.40 2006/01/30 07:33:53 christof Exp $            
+// $Id: Abenteurer.cc,v 1.41 2006/02/03 07:44:08 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -939,7 +939,7 @@ MBEmlt Abenteurer::get_unknown(cH_MidgardBasicElement was, std::string const& zu
   if (!LernListen::region_check(*this,was->Region())) return null;
   if (!LernListen::nsc_check(*this,was->NSC_only())) return null;
   MBEmlt MBEm(was);
-  if (was->ZusatzEnum(getVTyp())!=MidgardBasicElement::ZNone
+  if (was->ZusatzEnum(getVTyp())==MidgardBasicElement::ZNone
       && MBEm->ist_gelernt(const_cast<Abenteurer*>(this)->get_known_list(was->What())))
     return null; // schon erlernt
   switch(was->What()) 
