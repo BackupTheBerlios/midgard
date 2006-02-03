@@ -1,9 +1,9 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
-- PP Sprache?
++ PP Sprache?
 ####
 
-- Steigertage PP kontr.
-- Steigertage und Kosten Spruchrolle kontr.
++ Steigertage PP kontr.
++ Steigertage und Kosten Spruchrolle kontr.
 
 - Spezielle Spezies beim Laden zulassen?
 
@@ -47,7 +47,7 @@
 ######################################################################
 
 - WinFileReq sollte gtk 2.4 Requester nehmen
-- LICENSE.pdf
++ LICENSE.pdf
 - undosave _vor_ jeder Änderung (am Besten in libmagus selbst)
 * Region nach Herkunft automatisch einschalten
 * Mehrseitige Ausrüstungen
