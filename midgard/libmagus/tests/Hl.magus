@@ -10,7 +10,7 @@
   <Gesundheit AP="9" LP="15"/>
   <Beschreibung Alter="23" Gestalt="schlank" Gewicht="56" Größe="165" Herkunft="Erainn" Stand="Adel"/>
   <Vermögen GS="36"/>
-  <Steigern>
+  <Steigern ZEP="50">
    <Praxispunkte/>
   </Steigern>
   <Text Größe="8"/>

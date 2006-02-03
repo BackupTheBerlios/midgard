@@ -44,9 +44,17 @@ test6
 >   <Steigern AEP="30" EPproGFP="0" GFP="110" KEP="40" ZEP="20" benötigte_Tage="10.02">
 test7
 13c13
-<   <Steigern>
+<   <Steigern ZEP="50">
 ---
->   <Steigern GFP="30" benötigte_Tage="0.06">
+>   <Steigern GFP="30" ZEP="50" benötigte_Tage="0.06">
 55a56
 >    <Zauber Bezeichnung="Reinigen"/>
 test8
+13c13
+<   <Steigern ZEP="50">
+---
+>   <Steigern EPproGFP="10" GFP="6" ZEP="47" benötigte_Tage="3">
+55a56
+>    <Zauber Bezeichnung="Reinigen"/>
+63a65
+>   <Von Spruchrolle gelernt>Reinigen</Von Spruchrolle gelernt>

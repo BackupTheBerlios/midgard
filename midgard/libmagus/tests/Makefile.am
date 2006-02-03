@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.10 2006/01/31 23:53:10 christof Exp $
+# $Id: Makefile.am,v 1.11 2006/02/03 07:43:52 christof Exp $
 
 AM_CPPFLAGS=@COMMONXX_INCLUDES@ -I../..
 
@@ -23,7 +23,7 @@ test6_SOURCES=test6.cc
 test7_LDADD=$(test1_LDADD)
 test7_SOURCES=test7.cc
 test8_LDADD=$(test1_LDADD)
-test8_SOURCES=test7.cc
+test8_SOURCES=test8.cc
 
 diff: $(EXTRA_PROGRAMS)
 	-chmod a+x original
