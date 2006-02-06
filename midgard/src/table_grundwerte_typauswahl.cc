@@ -108,12 +108,12 @@ void table_grundwerte::typauswahl_button()
  else if(!hauptfenster->getAben().Typ1()->Stadt())
    {
      button_stadt_land->set_sensitive(false);
-     button_stadt_land->set_index(Button_Stadt);
+     button_stadt_land->set_index(Button_Land);
    }
  else if(!hauptfenster->getAben().Typ1()->Land())
    {
      button_stadt_land->set_sensitive(false);
-     button_stadt_land->set_index(Button_Land);
+     button_stadt_land->set_index(Button_Stadt);
    }
  else
    { button_stadt_land->set_sensitive(true);

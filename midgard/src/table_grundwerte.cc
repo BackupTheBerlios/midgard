@@ -44,8 +44,8 @@ void table_grundwerte::init(midgard_CG *h)
 
   abentaus->signal_anderer_abenteurer().connect(SigC::bind(SigC::slot(*this,&table_grundwerte::zeige_werte),true));
   abentaus->proxies.undo_changed.connect(SigC::bind(SigC::slot(*this,&table_grundwerte::zeige_werte),true));
-#warning wizard  
-//  zeige_werte(); // noch weg
+  abentaus->proxies.wizard.signal_changed().connect(SigC::slot(*this,&table_grundwerte::sync_wizard));
+  abentaus->proxies.wizard_mode.signal_changed().connect(SigC::slot(*this,&table_grundwerte::sync_wizard));
 }
 
 table_grundwerte::table_grundwerte(GlademmData *_data)
@@ -204,10 +204,13 @@ void table_grundwerte::sync_wizard(gpointer x)
    	|| between(pr.wizard.Value(),Wizard::SPEZIES,Wizard::GRUNDWERTE)
    	|| // !check_350()
    	false /* Wert unter 350 */ );
+   button_geschlecht->set_sensitive(always_sens 
+   	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));
    combo_typ->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));
-   combo_typ2->set_sensitive(always_sens 
-   	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));
+   combo_typ2->set_sensitive(true); // besser nachsehen, ob schon ein Typ gewählt
+// always_sens 
+//   	|| between(pr.wizard.Value(),Wizard::GESCHLECHT,Wizard::TYP));
    button_stadt_land->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::STADTLAND,Wizard::ABGELEITETEWERTE));
    button_abg_werte->set_sensitive(always_sens 
