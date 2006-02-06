@@ -24,6 +24,7 @@
 #include <libmagus/Ausgabe.hh>
 #include <libmagus/magus_paths.h>
 #include <Misc/itos.h>
+#include "WindowInfo.hh"
 
 // Vielleicht Anzahl an Sekunden einstellbar?
 void midgard_CG::set_status(const std::string &s,bool autoclean)
@@ -50,7 +51,7 @@ void midgard_CG::on_button_html_hilfe_clicked()
 }
 
 void midgard_CG::on_button_info_clicked()
-{  notebook_main->set_current_page(PAGE_INFO);
+{ InfoFenster->show();
 }
 
 bool midgard_CG::on_eventbox_MCG_button_press_event(GdkEventButton *event) 

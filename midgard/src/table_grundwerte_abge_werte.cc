@@ -1,6 +1,7 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.25 2006/02/06 07:26:54 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.26 2006/02/06 07:27:08 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2006 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

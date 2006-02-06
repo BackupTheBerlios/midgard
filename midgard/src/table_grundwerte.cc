@@ -1,6 +1,6 @@
 /*  MAGuS: Midgard Abenteurer Generieren Und Steigern
  *  Copyright (C) 2002 Malte Thoma
- *  Copyright (C) 2004-2005 Christof Petig
+ *  Copyright (C) 2004-2006 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -190,12 +190,14 @@ void table_grundwerte::zeige_werte(bool typ2_hide)
 
 const UniqueValue::value_t table_grundwerte::trace_channel
                   =ManuProC::Tracer::channels.get();
+static ManuProC::Tracer::Environment trace_channel_e("DEBUG_GRUNDWERTE",table_grundwerte::trace_channel);
 
 void table_grundwerte::sync_wizard(gpointer x)
 {  //edit_sensitive();
    VAbentModelProxy &pr=hauptfenster->getChar().proxies;
    bool always_sens=pr.wizard_mode.Value()<=Wizard::Hints
    	|| hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active;
+   ManuProC::Trace _t(trace_channel,__FUNCTION__,always_sens,pr.wizard.Value());
    combo_spezies->set_sensitive(always_sens 
    	|| between(pr.wizard.Value(),Wizard::SPEZIES,Wizard::GRUNDWERTE));
    button_grundwerte->set_sensitive(always_sens 
