@@ -180,3 +180,18 @@ on_leaf_selected_neue_zauberwerk -> MidgardBasicElement_leaf_neu
 ==7803==    by 0x6431E2: ManuProC::Association(Gtk::EventBox&, Gtk::Image&) (in /home/christof/berlios~1/magus2/midgard/src/.libs/magus)
 ==7803==    by 0x5E67AD: midgard_CG::midgard_CG(WindowInfo*, std::_List_iterator<AbenteurerListe::Item>) (in /home/christof/berlios~1/magus2/midgard/src/.libs/magus)
 ==7803==    by 0x5C2F06: main (in /home/christof/berlios~1/magus2/midgard/src/.libs/magus)
+
+----------------
+
+und die Anfrage, dass nachvollziehbar ist, wie wann gesteigert wurde ist
+dann auch erledigt. Die Datenmenge ist aber nicht von Pappe und ein
+XML-Datenformat ist auch nicht trivial:
+
+Liste von { alter Wert, benutzte PP, AEP, KEP, ZEP, GS, LP; Datum? }
+
+<Fertigkeit ...><gesteigert von="7" PP="2" AEP=10/><gesteigert von="6"
+AEP="20" GS="300"/><erlernt auf="5" LP="3"></Fertigkeit>
+<Zauber ...><erlernt AEP="20" Spruchrolle="true"></>
+
+Kommentare, Vorschläge? (Lernpunkte mit Typ? z.B. LP="3a" = allgemeine
+Fertigkeit)

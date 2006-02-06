@@ -176,6 +176,25 @@ class cH_MidgardBasicElement : public Handle<const MidgardBasicElement>
        	    : Handle<const MidgardBasicElement>(r){}
 };
 
+// noch nicht genutzt
+struct wie_erlernt
+{ enum wie_t { angeboren, lernen, beruf, unterweisung, selbststudium, 
+      spruchrolle, praxis };
+  enum lernen_t { fachkenntnis, allgemeinwissen, ungewoehnlich };
+  wie_t wie:4;
+  int neuer_wert:6; // [-32..31]
+  struct fp_t { int aep, zep, kep; };
+  struct praxis_t { unsigned praxispunkte:4; fp_t fp; };
+  struct lernen_det_t { lernen_t liste; int lp; };
+  struct unterweisung_t { unsigned gs; fp_t fp; } ;
+  union
+  { praxis_t praxis_detail;
+    lernen_det_t lernen_detail;
+    unterweisung_t unterweisung_detail; // +selbststudium
+    fp_t spruchrolle_detail;
+  };
+};
+
 // dies ist eine erlernte "Fertigkeit" d.h. sie hat Erfolgswert usw.
 class MidgardBasicElement_mutable : public HandleContent
 {
