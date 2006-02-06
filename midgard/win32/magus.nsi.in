@@ -18,6 +18,8 @@ OutFile "Magus_${VERSION}${WINVERSION}.exe"
 Icon "${SRCDIR}/win32/magus.ico"
 UninstallIcon "${SRCDIR}/win32/magus.ico"
 
+XPStyle on
+
 ; Some default compiler settings (uncomment and change at will):
 ; SetCompress auto ; (can be off or force)
 ; SetDatablockOptimize on ; (can be off)
@@ -87,6 +89,8 @@ Section "MAGuS" ; (default section)
  File "${BINDIR}\magus.exe"
 
  File "${BINDIR}\Zufallscharakter.exe"
+ File "${BINDIR}\magus2txt.exe"
+ File "${BINDIR}\magus2pdf.exe"
 
  File "${BINDIR}\exedebug.exe"
  File "${BINDIR}\exchndl.dll"
