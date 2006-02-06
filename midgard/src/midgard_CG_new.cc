@@ -40,7 +40,7 @@ void midgard_CG::on_neuer_charakter_clicked()
 
    table_lernschema->button_lernpunkte->set_sensitive(false);
    table_lernschema->togglebutton_lernpunkte_edit->set_sensitive(false);
-   label_wizard->hide();
+//   label_wizard->hide();
 
    table_lernschema->edit_lernpunkte(false);
    table_lernschema->frame_lernschema_zusatz->hide();

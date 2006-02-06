@@ -1,4 +1,4 @@
-// $Id: MagusAusgabe.hh,v 1.2 2003/10/14 07:33:05 christof Exp $
+// $Id: MagusAusgabe.hh,v 1.3 2006/02/06 07:26:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003 Christof Petig
  *
@@ -22,6 +22,7 @@
 
 #include <libmagus/Ausgabe.hh>
 #include <vector>
+#include <sigc++/signal.h>
 class WindowInfo;
 
 struct Magus_Ausgabe
@@ -38,6 +39,8 @@ struct Magus_Ausgabe
 	static void callback(Ausgabe::Level l,const std::string &text);
 	static void replay(const entry &e);
 	static void register_Ausgabe();
+	
+	static SigC::Signal2<void,Ausgabe::Level,std::string> sig_ausgabe;
 };
 
 #endif

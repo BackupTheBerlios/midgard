@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.352 2005/06/22 13:51:20 christof Exp $
+// $Id: midgard_CG.cc,v 1.353 2006/02/06 07:26:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -44,6 +44,7 @@ extern Glib::RefPtr<Gdk::Pixbuf> MagusImage(const std::string &name);
 #endif
 #include <Association.h>
 #include <int_ImageButton.hh>
+#include "MagusAusgabe.hh"
 
 static void ImageLabelKnopf(Gtk::Button *b, Glib::RefPtr<Gdk::Pixbuf> pb, const Glib::ustring &t)
 {  Gtk::VBox *vbox=manage(new Gtk::VBox());
@@ -66,11 +67,17 @@ void midgard_CG::call_any_wizard_change(void *p)
 //{  std::cerr << "change " << p << '\n';
 //}
 
+void midgard_CG::AusgabeImLabel(Ausgabe::Level l,std::string text)
+{ label_status->set_text(text);
+}
+
 midgard_CG::midgard_CG(WindowInfo *info,VAbenteurer::iterator i)
 : news_columns(), undo_menu(),menu_kontext(),
 	InfoFenster(info)
 { news_columns.attach_to(*list_news);
+  Magus_Ausgabe::sig_ausgabe.connect(sigc::mem_fun(*this,&midgard_CG::AusgabeImLabel));
   aktiver.setAbenteurer(i);
+  label_wizard->hide();
 
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
 

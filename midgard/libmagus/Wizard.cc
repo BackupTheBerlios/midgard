@@ -47,7 +47,7 @@ bool Wizard::can_skip(const Abenteurer &A)
          return (!A.Typ1()->Spezialgebiet() && !A.Typ2()->Spezialgebiet())
              || !A.Spezialgebiet()->Name().empty();
       case LERNSCHEMA_SEITE:
-         return true;
+         return false;
       case SPEZIES:
          return A.Spezies()->Name()!="Mensch" || A.St()>1 || A.Gw()>1;
       case GRUNDWERTE:
@@ -58,6 +58,7 @@ bool Wizard::can_skip(const Abenteurer &A)
          return A.Typ1()->Valid();
       case STADTLAND: // !=Enums::Stadt
       case ABGELEITETEWERTE:
+//std::cerr << A.Sb() << ' ' << A.Wk() << ' ' << A.B() << '\n';
          return A.Sb()>1 || A.Wk()>1 || A.B()>0; // A.Au()>1 || A.pA()>1;
       case HERKUNFT:
          return !A.Herkunft()->Name().empty();

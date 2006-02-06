@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.352 2005/06/22 13:51:20 christof Exp $
+// $Id: midgard_CG.hh,v 1.353 2006/02/06 07:26:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyrihgt (C) 2005 Christof Petig
@@ -29,6 +29,7 @@
 #include "Region_GUI.hh"
 #include <TreeViewUtility.h>
 #include <libmagus/AbenteurerAuswahl.h>
+#include <libmagus/Ausgabe.hh>
 #include <Misc/compiler_ports.h>
 //#include <TooltipView.h>
 class WindowInfo;
@@ -129,6 +130,7 @@ private:
         bool on_eventbox_steigern_button_release_event(GdkEventButton *event);
         bool on_eventbox_lernen_button_release_event(GdkEventButton *event);
         bool on_eventbox_grundwerte_button_release_event(GdkEventButton *event);
+        void AusgabeImLabel(Ausgabe::Level l,std::string text);
 
         // Oberfläche Menü
         void on_button_menu();

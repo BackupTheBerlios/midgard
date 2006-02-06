@@ -1,4 +1,4 @@
-// $Id: MagusAusgabe.cc,v 1.4 2004/11/24 08:20:17 christof Exp $
+// $Id: MagusAusgabe.cc,v 1.5 2006/02/06 07:26:53 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -31,10 +31,12 @@ void Magus_Ausgabe::attach(WindowInfo *w)
    remembered.clear();
 }
 
+// auch im Hauptfenster anzeigen ...
 void Magus_Ausgabe::callback(Ausgabe::Level l,const std::string &text)
 {  if (fenster) replay(entry(l,text));
    else 
       remembered.push_back(entry(l,text));
+   sig_ausgabe(l,text);
 }
 
 void Magus_Ausgabe::replay(const entry &e)
@@ -44,3 +46,5 @@ void Magus_Ausgabe::replay(const entry &e)
 void Magus_Ausgabe::register_Ausgabe()
 {  Ausgabe::set(&Magus_Ausgabe::callback);
 }
+
+SigC::Signal2<void,Ausgabe::Level,std::string> Magus_Ausgabe::sig_ausgabe;

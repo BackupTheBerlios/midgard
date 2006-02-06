@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.24 2003/09/10 07:15:43 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.25 2006/02/06 07:26:54 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -22,17 +22,18 @@
 #include <Misc/Trace.h>
 #include <libmagus/Random.hh>
 
+#warning das muss noch in libmagus!!!
+
 void table_grundwerte::on_abge_werte_setzen_clicked()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
-   {
-     combo_typ->set_sensitive(false);
-     combo_typ2->set_sensitive(false);
-   }   
-  hauptfenster->getChar().getWizard().done(Wizard::ABGELEITETEWERTE,hauptfenster->getAben());
-  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active) 
-      button_abg_werte->set_sensitive(false);
+//  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active)
+//   {
+//     combo_typ->set_sensitive(false);
+//     combo_typ2->set_sensitive(false);
+//   }   
+//  if(!hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active) 
+//      button_abg_werte->set_sensitive(false);
   hauptfenster->getAben().setGrad(1);
   { //Bewegungsweite
     int b = hauptfenster->getAben().Spezies()->B_Bonus();
@@ -138,6 +139,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
 //  hauptfenster->frame_lernschema->set_sensitive(true);
   zeige_werte();
   hauptfenster->getChar().undosave("Abgeleitete Werte gewürfelt");
+  hauptfenster->getChar().getWizard().done(Wizard::ABGELEITETEWERTE,hauptfenster->getAben());
 }
 
 
