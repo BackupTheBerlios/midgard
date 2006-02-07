@@ -109,13 +109,35 @@ Section "PDFLaTeX Umgebung" ; (default section)
  File /r "${BINDIR}\texmf"
 SectionEnd
 
+Section -StartMenu
+  !insertmacro MUI_STARTMENU_WRITE_BEGIN
+  SetShellVarContext all
+  CreateDirectory $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}
+  IfFileExists $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE} createIcons
+    SetShellVarContext current
+    CreateDirectory $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}
+ 
+  createIcons:
+    CreateShortcut "$SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\MAGuS.lnk" \
+	  $INSTDIR\magus.exe
+    CreateShortCut $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\Uninstall.lnk \
+	  $INSTDIR\Uninstall.exe
+    CreateShortCut $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\LICENSE.pdf \
+	  $INSTDIR\LICENSE.pdf
+  !insertmacro MUI_STARTMENU_WRITE_END
+SectionEnd
+ 
+Section "Desktop icon" SecDesktop
+  CreateShortcut "$DESKTOP\MAGuS.lnk" $INSTDIR\magus.exe
+SectionEnd
+ 
 Section -post
-; Register Uninstaller
-WriteRegStr HKEY_LOCAL_MACHINE "SOFTWARE\Magus" "" "$INSTDIR"
-WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\Magus" "DisplayName" "Magus (nur entfernen)"
-WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\Magus" "UninstallString" '"$INSTDIR\uninst.exe"'
-; write out uninstaller
-WriteUninstaller "$INSTDIR\uninst.exe"
+  ; Register Uninstaller
+  WriteRegStr HKEY_LOCAL_MACHINE "SOFTWARE\Magus" "" "$INSTDIR"
+  WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\Magus" "DisplayName" "Magus (nur entfernen)"
+  WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\Magus" "UninstallString" '"$INSTDIR\uninst.exe"'
+  ; write out uninstaller
+  WriteUninstaller "$INSTDIR\uninst.exe"
 SectionEnd ; end of default section
 
 
@@ -123,11 +145,24 @@ SectionEnd ; end of default section
 UninstallText "Dies deinstalliert Magus"
 
 Section Uninstall
-; add delete commands to delete whatever files/registry keys/etc you installed here.
-Delete "$INSTDIR\uninst.exe"
-DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Magus"
-DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Magus"
-RMDir "$INSTDIR"
+  ; add delete commands to delete whatever files/registry keys/etc you installed here.
+  Delete "$INSTDIR\uninst.exe"
+  DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Magus"
+  DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Magus"
+  RMDir "$INSTDIR"
+  
+  ReadRegStr $0 "${MUI_STARTMENUPAGE_REGISTRY_ROOT}" \
+    "${MUI_STARTMENUPAGE_REGISTRY_KEY}" "${MUI_STARTMENUPAGE_REGISTRY_VALUENAME}"
+ 
+  StrCmp $0 "" noshortcuts
+    Delete "$0\MAGuS.lnk"
+    Delete $0\LICENSE.pdf
+    Delete $0\Uninstall.exe
+    RMDir $0
+ 
+  noshortcuts:
+ 
+  Delete "$DESKTOP\MAGuS.lnk"
 SectionEnd ; end of uninstall section
 
 ; eof
