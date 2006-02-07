@@ -6,7 +6,7 @@
 !include "MUI.nsh"
 
 !define VERSION @VERSION@
-!define WINVERSION -3
+!define WINVERSION -0
 !define HOME F:
 !define SRCDIR ${HOME}/berlios/midgard
 !define BINDIR ${HOME}/winhome/magus2
