@@ -60,7 +60,6 @@ EXPORTS
 	_ZN10Abenteurer27SpruchVonSpruchrolleGelerntERKSs 
 	_ZN10Abenteurer5ladenERSi 
 	_ZN10Abenteurer5resetEv 
-	_ZN10Abenteurer6modifyENS_10modi_modusERK29H_MidgardBasicElement_mutableRKN19MidgardBasicElement9st_zusatzEi 
 	_ZN10Abenteurer7getListEN19MidgardBasicElement4MBEEE 
 	_ZN10Abenteurer8rekursivERSt4listI15AusruestungBaumSaIS1_EERKSs 
 	_ZN10Abenteurer8steigereER29H_MidgardBasicElement_mutable 
@@ -658,6 +657,7 @@ EXPORTS
 	_ZNK10Abenteurer12getUeberlastEv 
 	_ZNK10Abenteurer12SErfolgswertESs 
 	_ZNK10Abenteurer12steigern_mitERK29H_MidgardBasicElement_mutable 
+	_ZNK10Abenteurer13VerfuegbareFPEv
 	_ZNK10Abenteurer13getNormallastEv 
 	_ZNK10Abenteurer14getHoechstlastEv 
 	_ZNK10Abenteurer14speicherstreamERSo 
@@ -672,7 +672,6 @@ EXPORTS
 	_ZNK10Abenteurer5BerufEv 
 	_ZNK10Abenteurer5ValidEv 
 	_ZNK10Abenteurer8genug_EPEiN19MidgardBasicElement4EP_tE 
-	_ZNK10Abenteurer9EP_kostenEi 
 	_ZNK10Abenteurer9getRegionERK9cH_Region 
 	_ZNK10Abenteurer9PP_vorratERK29H_MidgardBasicElement_mutable 
 	_ZNK10Abenteurer9speichernERSo 

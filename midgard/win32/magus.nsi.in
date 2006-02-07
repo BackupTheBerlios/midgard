@@ -110,7 +110,7 @@ Section "PDFLaTeX Umgebung" ; (default section)
 SectionEnd
 
 Section -StartMenu
-  !insertmacro MUI_STARTMENU_WRITE_BEGIN
+  !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   SetShellVarContext all
   CreateDirectory $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}
   IfFileExists $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE} createIcons
@@ -122,7 +122,7 @@ Section -StartMenu
 	  $INSTDIR\magus.exe
     CreateShortCut $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\Uninstall.lnk \
 	  $INSTDIR\Uninstall.exe
-    CreateShortCut $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\LICENSE.pdf \
+    CreateShortCut $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\LICENSE.lnk \
 	  $INSTDIR\LICENSE.pdf
   !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
@@ -156,8 +156,8 @@ Section Uninstall
  
   StrCmp $0 "" noshortcuts
     Delete "$0\MAGuS.lnk"
-    Delete $0\LICENSE.pdf
-    Delete $0\Uninstall.exe
+    Delete $0\LICENSE.lnk
+    Delete $0\Uninstall.lnk
     RMDir $0
  
   noshortcuts:
