@@ -144,13 +144,13 @@ void table_steigern::load_for_page(guint pagenr)
          W.Typ1()->SpruecheMitPP() || W.Typ2()->SpruecheMitPP());
      button_wie_tun->set_index_sensitive(Button_Spruchrolle,
          MBEmlt(cH_Fertigkeit("Lesen von Zauberschrift"))->ist_gelernt(W.List_Fertigkeit()));
-     button_rolle->show();
+//     button_rolle->show();
    }
   else 
    { frame_zauber_zusatz->hide();
      button_wie_tun->set_index_sensitive(Button_Praxis,true);
      button_wie_tun->set_index_sensitive(Button_Spruchrolle,false);
-     button_rolle->hide();
+//     button_rolle->hide();
    }
 }
 
@@ -278,17 +278,17 @@ table_steigern::table_steigern(GlademmData *_data)
   button_sonder->add(MagusImage("NSC-Mode-32.xpm"),"ohne EP+Gold steigern");
   button_sonder->set_style(true,true);
   
-  button_rolle->set_tooltips(&_tooltips);
-  button_rolle->add(MagusImage("Automat-32.xpm"),"Der Erfolgswurf ist gelungen.");
-  button_rolle->add(MagusImage("Green-Dice-trans-50.xpm"),"MAGuS würfelt, ob das Lernen\n"
-  "von Spruchrolle erfolgreich ist.");
-  button_rolle->hide();
+//  button_rolle->set_tooltips(&_tooltips);
+//  button_rolle->add(MagusImage("Automat-32.xpm"),"Der Erfolgswurf ist gelungen.");
+//  button_rolle->add(MagusImage("Green-Dice-trans-50.xpm"),"MAGuS würfelt, ob das Lernen\n"
+//  "von Spruchrolle erfolgreich ist.");
+//  button_rolle->hide();
 
-  button_pp_variante->set_tooltips(&_tooltips);
-  button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Praxispunkte mit EP auffüllen");
-  button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Ausschließlich Praxispunkte verwenden\n"
-      "(angebrochene Praxispunkte verfallen)");
-  button_pp_variante->hide();
+//  button_pp_variante->set_tooltips(&_tooltips);
+//  button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Praxispunkte mit EP auffüllen");
+//  button_pp_variante->add(MagusImage("Learning_by_Doing-32.xpm"),"Ausschließlich Praxispunkte verwenden\n"
+//      "(angebrochene Praxispunkte verfallen)");
+//  button_pp_variante->hide();
 
   button_EP->set_tooltips(&_tooltips);
   button_EP->add(MagusImage("EP-Eingabe2-50.xpm"),"EP\neingeben",SigC::slot(*this,&table_steigern::on_button_EP_eingeben));

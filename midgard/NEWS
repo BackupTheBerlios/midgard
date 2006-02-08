@@ -2,6 +2,10 @@ Version 0.9.9.12
 - &amp; Fehler behoben
 - Praxispunkte für Abwehr können nun sehr einfach eingegeben werden
 - Spruchrolle: Wurf/automatisch von Eingeben/Würfeln abhängig
+- Praxispunkte: dass jemand nicht mit FP auffüllen möchte wenn möglich,
+	halte ich für so unwahrscheinlich, dass schon jemand danach
+	fragen muss, bevor ich einen zusätzlichen Knopf an zentraler
+	Stelle spendiere
 
 Version 0.9.9.11
 - schröcklichen Fehler behoben: Zusatzfertigkeiten mit PP steigern (schüttel)
