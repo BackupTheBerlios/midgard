@@ -1,8 +1,7 @@
-# generated 2001/2/2 8:41:25 CET by thoma@ig23.
-# using glademm V0.5_11c
+# $Id: configure.in,v 1.117 2006/02/08 17:09:26 christof Exp $
 
 AC_PREREQ(2.50)
-AC_INIT(magus, 0.9.9.11, [midgard-general@berlios.de])
+AC_INIT(magus, 0.9.9.12, [midgard-general@berlios.de])
 AM_INIT_AUTOMAKE
 AC_CONFIG_HEADERS(config.h)
 

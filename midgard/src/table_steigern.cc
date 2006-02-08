@@ -394,9 +394,10 @@ void table_steigern::Window2Abenteurer()
 
 bool table_steigern::pp_eingeben_click(GdkEventButton*)
 { if (!togglebutton_praxispunkte->get_active())
-  { button_was_tun->set_index(Button_PP_eingeben);
     togglebutton_praxispunkte->set_active(true);
-//    vbox_praxispunkte->show();
+  if (button_was_tun->get_index()!=Button_PP_eingeben)
+  { button_was_tun->set_index(Button_PP_eingeben);
+    button_was_tun_changed();
   }
   return false;
 }
