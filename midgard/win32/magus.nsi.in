@@ -36,6 +36,40 @@ InstallDirRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Magus" ""
 ;DirShow show ; (make this hide to not let the user change it)
 DirText "${NAME} in folgendem Verzeichnis installieren:"
 
+;----------------
+;Variables
+  Var MUI_TEMP
+  Var STARTMENU_FOLDER
+
+;--------------------------------
+;Interface Settings
+
+  !define MUI_ABORTWARNING
+
+;--------------------------------
+;Pages
+
+;  !insertmacro MUI_PAGE_LICENSE "${NSISDIR}\Docs\Modern UI\License.txt"
+  !insertmacro MUI_PAGE_COMPONENTS
+  !insertmacro MUI_PAGE_DIRECTORY
+  
+  ;Start Menu Folder Page Configuration
+  !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU" 
+  !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\MAGuS" 
+  !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
+  
+  !insertmacro MUI_PAGE_STARTMENU Application $STARTMENU_FOLDER
+  
+  !insertmacro MUI_PAGE_INSTFILES
+  
+  !insertmacro MUI_UNPAGE_CONFIRM
+  !insertmacro MUI_UNPAGE_INSTFILES
+
+;--------------------------------
+;Languages
+ 
+;  !insertmacro MUI_LANGUAGE "German"
+
 Section "diverse benötigte Bibliotheken" ; (default section)
  SetOutPath "$INSTDIR"
 ; File "${BINDIR}\charset.dll"
@@ -111,19 +145,13 @@ SectionEnd
 
 Section -StartMenu
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
-  SetShellVarContext all
-  CreateDirectory $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}
-  IfFileExists $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE} createIcons
-    SetShellVarContext current
-    CreateDirectory $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}
- 
-  createIcons:
-    CreateShortcut "$SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\MAGuS.lnk" \
-	  $INSTDIR\magus.exe
-    CreateShortCut $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\Uninstall.lnk \
-	  $INSTDIR\Uninstall.exe
-    CreateShortCut $SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\LICENSE.lnk \
-	  $INSTDIR\LICENSE.pdf
+
+  ; Create shortcuts
+  CreateDirectory $SMPROGRAMS\$STARTMENU_FOLDER
+  CreateShortcut "$SMPROGRAMS\$STARTMENU_FOLDER\MAGuS.lnk" $INSTDIR\magus.exe
+  CreateShortCut $SMPROGRAMS\$STARTMENU_FOLDER\Uninstall.lnk $INSTDIR\uninst.exe
+  CreateShortCut $SMPROGRAMS\$STARTMENU_FOLDER\LICENSE.lnk $INSTDIR\LICENSE.pdf
+
   !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
  
@@ -151,16 +179,24 @@ Section Uninstall
   DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Magus"
   RMDir "$INSTDIR"
   
-  ReadRegStr $0 "${MUI_STARTMENUPAGE_REGISTRY_ROOT}" \
-    "${MUI_STARTMENUPAGE_REGISTRY_KEY}" "${MUI_STARTMENUPAGE_REGISTRY_VALUENAME}"
+  !insertmacro MUI_STARTMENU_GETFOLDER Application $MUI_TEMP
+
+  Delete "$SMPROGRAMS\$MUI_TEMP\Uninstall.lnk"
+  
+  ;Delete empty start menu parent diretories
+  StrCpy $MUI_TEMP "$SMPROGRAMS\$MUI_TEMP"
  
-  StrCmp $0 "" noshortcuts
-    Delete "$0\MAGuS.lnk"
-    Delete $0\LICENSE.lnk
-    Delete $0\Uninstall.lnk
-    RMDir $0
- 
-  noshortcuts:
+  startMenuDeleteLoop:
+	ClearErrors
+    RMDir $MUI_TEMP
+    GetFullPathName $MUI_TEMP "$MUI_TEMP\.."
+    
+    IfErrors startMenuDeleteLoopDone
+  
+    StrCmp $MUI_TEMP $SMPROGRAMS startMenuDeleteLoopDone startMenuDeleteLoop
+  startMenuDeleteLoopDone:
+
+  DeleteRegKey /ifempty HKCU "Software\MAGuS"
  
   Delete "$DESKTOP\MAGuS.lnk"
 SectionEnd ; end of uninstall section
