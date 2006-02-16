@@ -1,6 +1,13 @@
-# $Id: Makefile.am,v 1.46 2003/09/01 06:47:58 christof Exp $
+# $Id: Makefile.am,v 1.47 2006/02/16 18:39:09 christof Exp $
 
 EXTRA_PROGRAMS = all_exp arkanum_exp 
+
+pkgdata_DATA = Alba.xml Arkanum.xml MeisterDerSphaeren.xml KanThaiPan.xml \
+	Rawindra.xml Eschar.xml Ikengabecken.xml Nahuatlan.xml Waeland.xml \
+	Kuestenstaaten.xml Minangpahit.xml AbenteuerBaende.xml \
+	HexenzauberDruidenkraft.xml HexenzauberDruidenkraftFinster.xml \
+	Kompendium.xml Gildenbrief.xml Regelwerk3.xml Regelwerk4.xml \
+	BarbarenWutRitterEhre.xml midgard.xml
 
 #MIDGARD3=$(shell if test `hostname` = "puck" ; then echo -DMIDGARD3 ; fi)
 

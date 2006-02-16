@@ -1,3 +1,6 @@
+Version 0.9.9.13
+-
+
 Version 0.9.9.12
 - &amp; Fehler behoben
 - Praxispunkte für Abwehr können nun sehr einfach eingegeben werden
@@ -16,6 +19,12 @@ Version 0.9.9.11
 - das Steigern/Erlernen mit PP und Spruchrollen geht jetzt (erstmalig?)
 - Wizard funktioniert (erstmalig in 0.9) wieder halbwegs (am Ende fehlt noch
 	ein wenig Anweisung)
+
+-------------- TODO ----------------
+
+<<<TODO>>>
+
+------------------------------------
 
 Version 0.9.9.10
 - Korrekter Pfad unter Windows XP
@@ -52,12 +61,6 @@ Version 0.9.8
 - viele Bugfixes
 - Grundwerte::setSinn("Sechster Sinn") brach ab, wird nun akzeptiert 
 	(erst einmal)
-
--------------- TODO ----------------
-
-<<<TODO>>>
-
-------------------------------------
 
 Version 0.9.7
 - Wizard/Würfeln Buttons in der Statusleiste neu gestaltet
