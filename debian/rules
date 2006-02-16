@@ -82,20 +82,15 @@ install-indep:
 	dh_installdirs -i
 
 	# Add here commands to install the indep part of the package into
-	# debian/<package>-doc.
+	# debian/magus-data/-help.
 	mkdir -p debian/magus-help/usr/share/doc/magus/Hilfe
 	cp -r midgard/docs/* debian/magus-help/usr/share/doc/magus/Hilfe
-	mkdir -p debian/magus-data/usr/share/magus
-	cp midgard/xml/*.xml debian/magus-data/usr/share/magus
-#	cp midgard/src/*.png debian/magus-data/usr/share/magus
-#	cp midgard/src/*.tex debian/magus-data/usr/share/magus
-#	mkdir -p debian/magus/usr/share/doc/magus
-#	cp midgard/src/LICENSE.pdf debian/magus/usr/share/doc/magus
+
+	cd midgard/xml && $(MAKE) install DESTDIR=$(CURDIR)/debian/magus-data
+	cd midgard/src && $(MAKE) install DESTDIR=$(CURDIR)/debian/magus-data
+
 	mkdir -p debian/magus/usr/share/pixmaps
 	cp midgard/pixmaps/MAGUS_Logo_Small.xpm debian/magus/usr/share/pixmaps/magus.xpm
-	cd midgard/src && $(MAKE) install DESTDIR=$(CURDIR)/debian/magus
-	mkdir -p debian/magus-data/usr/share/magus
-	mv debian/magus/usr/share/magus/* debian/magus-data/usr/share/magus
 	dh_install -i
 
 install-arch:
