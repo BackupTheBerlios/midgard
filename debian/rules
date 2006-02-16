@@ -88,6 +88,7 @@ install-indep:
 
 	cd midgard/xml && $(MAKE) install DESTDIR=$(CURDIR)/debian/magus-data
 	cd midgard/src && $(MAKE) install DESTDIR=$(CURDIR)/debian/magus-data
+	rm -r $(CURDIR)/debian/magus-data/usr/bin
 
 	mkdir -p debian/magus/usr/share/pixmaps
 	cp midgard/pixmaps/MAGUS_Logo_Small.xpm debian/magus/usr/share/pixmaps/magus.xpm
