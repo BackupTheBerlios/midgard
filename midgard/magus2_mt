@@ -10,6 +10,11 @@ checkout() {
   mt $DATABASE -bmidgard.berlios.de/debian co debian
 }
 
+deb() {
+  cd debian
+  dpkg-buildpackage -b -uc -rfakeroot
+}
+
 configure() {
   echo ========  ManuProC_Base ========
   ( cd ManuProC_Base && (./autogen.sh $* ; make ) )
@@ -24,14 +29,18 @@ configure() {
 if [ "_$1" = "_checkout" -o "_$1" = "_co" ] 
 then
   checkout
+elif [ "_$1" = "_deb" ]
+then
+  if test \! -e debian ; then checkout ; fi
+  deb
 elif [ "_$1" = "_configure" ]
 then
   configure $2 $3 $4 $5 $6 $7 $8 $9
 else
-  echo "Magus monotone Installierer, Gtk2, $Revision: 1.1 $"
+  echo "Magus monotone Installierer, Gtk2, $Revision: 1.2 $"
   echo
   echo "USAGE: $0 <Befehl>"
-  echo "Befehle: checkout co configure"
+  echo "Befehle: checkout co configure deb"
   echo
   echo "Vorsicht die Pakete werden in $PWD ausgepackt"
 fi
