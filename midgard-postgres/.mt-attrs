@@ -1,0 +1,11 @@
+   file "drop_all_varying"
+execute "true"
+
+   file "dump_one"
+execute "true"
+
+   file "grep-utf8"
+execute "true"
+
+   file "utf8-to-iso8859-1"
+execute "true"
