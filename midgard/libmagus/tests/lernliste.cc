@@ -18,14 +18,41 @@
 
 #include <iostream>
 #include <libmagus/Zauber.hh>
+#include <libmagus/Abenteurer.hh>
 #include <libmagus/LernListen.hh>
+
+void dump_Liste(std::ostream &os, Abenteurer const &a, LernListen::eMBE was, std::string const& swas)
+{ std::list<MBEmlt> L=LernListen::getMBEm(a,was,0,0,swas);
+  os << a.Name_Abenteurer() << ' ' << swas << '\n';
+  for (std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
+       os << (*i)->Lernpunkte() << "Lp +" << (*i)->Erfolgswert() << ' '
+         << (*i)->getMBE()->Name() << '\n';
+}
+
 #include "test_header.cc"
+   std::ofstream out("lernliste.txt");
    VAbenteurer::iterator ch=AbenteurerAuswahl::Chars->load("Hl.magus");
-//   std::list<MBEmlt> L=LernListen::getMBEm(ch->getAbenteurer(),LernListen::lZaub);
+   out << "Sprüche Heiler\n";
    std::list<MBEmlt> L=LernListen::get_steigern_Zauberliste(ch->getAbenteurer(),false,false,false,false);
-   { std::ofstream out("lernliste.txt");
-     for (std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
+   for (std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
        out << (*i)->getHandle<const Zauber>()->Kosten(ch->getAbenteurer()) << ' '
-         << (*i)->getHandle<const Zauber>()->Name() << '\n';
-   }
+         << (*i)->getMBE()->Name() << '\n';
+         
+   ch=AbenteurerAuswahl::Chars->push_back();
+   ch->getAbenteurer().setSt(50);
+   ch->getAbenteurer().setGs(50);
+   ch->getAbenteurer().setGw(50);
+   ch->getAbenteurer().setKo(50);
+   ch->getAbenteurer().setIn(50);
+   ch->getAbenteurer().setZt(50);
+   ch->getAbenteurer().Au_pA_wuerfeln();
+   ch->getAbenteurer().setTyp1(Typen::getTyp("Ma"));
+   ch->getAbenteurer().setNamen("Magier","test","");
+   ch->getAbenteurer().abge_werte_setzen();
+   ch->getAbenteurer().setHerkunft(cH_Land("Alba"));
+   dump_Liste(out,ch->getAbenteurer(),LernListen::lFach,"Fach");
+   dump_Liste(out,ch->getAbenteurer(),LernListen::lAllg,"Allg");
+   dump_Liste(out,ch->getAbenteurer(),LernListen::lUnge,"Unge");
+   dump_Liste(out,ch->getAbenteurer(),LernListen::lWaff,"Waff");
+   dump_Liste(out,ch->getAbenteurer(),LernListen::lZaub,"Zaub");
 TEST_FOOTER
