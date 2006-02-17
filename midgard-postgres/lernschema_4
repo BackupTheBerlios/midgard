@@ -380,7 +380,7 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 1	MMa	f	Nebel wecken	Zauberkünste	0
 1	MMa	f	Rechnen	Fachkenntnisse	8
 1	MMa	f	Scharfblick	Zauberkünste	0
-1	MMa	f	Schreiben: Alte Sprache(+4)	Fachkenntnisse	4
+1	MMa	f	Schreiben: Alte Sprache(+12)	Fachkenntnisse	12
 1	MMa	f	Schreiben: Muttersprache(+12)	Fachkenntnisse	12
 1	MMa	f	Windstoß	Zauberkünste	0
 1	Ny	f	+1 KiDo-Technik	Fachkenntnisse	\N
