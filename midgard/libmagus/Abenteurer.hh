@@ -1,4 +1,4 @@
-// $Id: Abenteurer.hh,v 1.36 2006/01/31 23:52:47 christof Exp $               
+// $Id: Abenteurer.hh,v 1.37 2006/02/17 08:34:06 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -66,6 +66,7 @@ public:
    
    const std::string LastSavedAt() const;
    void reset();
+   void Originalregeln(); // alle Zusätze (Regionen etc.) abschalten
    bool Valid() const;
 
    __deprecated Grundwerte &getWerte() {return *this;}

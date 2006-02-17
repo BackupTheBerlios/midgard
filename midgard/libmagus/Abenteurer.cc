@@ -1,4 +1,4 @@
-// $Id: Abenteurer.cc,v 1.41 2006/02/03 07:44:08 christof Exp $            
+// $Id: Abenteurer.cc,v 1.42 2006/02/17 08:34:06 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -45,11 +45,22 @@ Abenteurer::Abenteurer(bool initialize) : Grundwerte(initialize)
       regionen[i->first] = i->second;
     for(std::list<Optionen::st_Haus>::iterator i=getOptionen().getHausregeln().begin();
                   i!=getOptionen().getHausregeln().end();++i)
-      i->active=Programmoptionen->standard_erweiterungen[i->text];    
+      i->active=Programmoptionen->standard_erweiterungen[i->text];
     for(std::list<Optionen::st_OptionenCheck>::iterator i=getOptionen().getOptionenCheck().begin();
                   i!=getOptionen().getOptionenCheck().end();++i)
-      i->active=Programmoptionen->standard_erweiterungen[i->text];    
+      i->active=Programmoptionen->standard_erweiterungen[i->text];
   }
+}
+
+void Abenteurer::Originalregeln()
+{ for(Magus_Optionen::regionen_t::const_iterator i=Programmoptionen->standard_regionen.begin();i!=Programmoptionen->standard_regionen.end();++i) 
+      regionen[i->first] = false;
+  for(std::list<Optionen::st_Haus>::iterator i=getOptionen().getHausregeln().begin();
+                  i!=getOptionen().getHausregeln().end();++i)
+      i->active=false;
+  for(std::list<Optionen::st_OptionenCheck>::iterator i=getOptionen().getOptionenCheck().begin();
+                  i!=getOptionen().getOptionenCheck().end();++i)
+      i->active=i->index==Optionen::Original;
 }
 
 bool Abenteurer::Valid() const

@@ -25,8 +25,10 @@ void dump_Liste(std::ostream &os, Abenteurer const &a, LernListen::eMBE was, std
 { std::list<MBEmlt> L=LernListen::getMBEm(a,was,0,0,swas);
   os << a.Name_Abenteurer() << ' ' << swas << '\n';
   for (std::list<MBEmlt>::const_iterator i=L.begin();i!=L.end();++i)
+  { if ((*i)->Lernpunkte()<99)
        os << (*i)->Lernpunkte() << "Lp +" << (*i)->Erfolgswert() << ' '
          << (*i)->getMBE()->Name() << '\n';
+  }
 }
 
 #include "test_header.cc"
@@ -39,6 +41,8 @@ void dump_Liste(std::ostream &os, Abenteurer const &a, LernListen::eMBE was, std
          << (*i)->getMBE()->Name() << '\n';
          
    ch=AbenteurerAuswahl::Chars->push_back();
+   ch->getAbenteurer().Originalregeln();
+  try{
    ch->getAbenteurer().setSt(50);
    ch->getAbenteurer().setGs(50);
    ch->getAbenteurer().setGw(50);
@@ -46,7 +50,7 @@ void dump_Liste(std::ostream &os, Abenteurer const &a, LernListen::eMBE was, std
    ch->getAbenteurer().setIn(50);
    ch->getAbenteurer().setZt(50);
    ch->getAbenteurer().Au_pA_wuerfeln();
-   ch->getAbenteurer().setTyp1(Typen::getTyp("Ma"));
+   ch->getAbenteurer().setTyp1(Typen::getTyp("Magier"));
    ch->getAbenteurer().setNamen("Magier","test","");
    ch->getAbenteurer().abge_werte_setzen();
    ch->getAbenteurer().setHerkunft(cH_Land("Alba"));
@@ -55,4 +59,5 @@ void dump_Liste(std::ostream &os, Abenteurer const &a, LernListen::eMBE was, std
    dump_Liste(out,ch->getAbenteurer(),LernListen::lUnge,"Unge");
    dump_Liste(out,ch->getAbenteurer(),LernListen::lWaff,"Waff");
    dump_Liste(out,ch->getAbenteurer(),LernListen::lZaub,"Zaub");
+  } catch (NotFound &e) { std::cerr << e.what() << ' ' << e.Name() << '\n'; }
 TEST_FOOTER
