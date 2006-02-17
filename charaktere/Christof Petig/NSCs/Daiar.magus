@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="1" Name="Daiar" Spieler="Nina Korten" Zeitpunkt="Erschaffung"/>
+  <Typ Abkürzung="Tm" Geschlecht="f" Hand="Linkshänder" Muttersprache="Albisch" Spezies="Mensch" Stadt_Land="Stadt" Überleben="�&#x9C;berleben im Wald"/>
+  <Basiseigenschaften Gs="96" Gw="99" In="78" Ko="28" St="47" Zt="84"/>
+  <abgeleiteteEigenschaften Au="68" B="25" Sb="79" Wk="85" pA="61"/>
+  <Erfolgswerte Abwehr="11" ZauberResistenz="10" Zaubern="10"/>
+  <Gesundheit AP="9" LP="11"/>
+  <Beschreibung Alter="22" Gestalt="schlank" Gewicht="38" Größe="150" Herkunft="Alba" Stand="Mittelschicht"/>
+  <Vermögen GS="12"/>
+  <Steigern>
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>TR</Rüstung>
+   <Rüstung2>OR</Rüstung2>
+   <Waffe Bezeichnung="kleiner Schild" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Kurzschwert" Erfolgswert="0"/>
+   <Gegenstand Bezeichnung="Körper" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Gürtel" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" sichtbar="true"/>
+    <Gegenstand Besonderheit="Leder" Bezeichnung="Rucksack" sichtbar="true">
+     <Gegenstand Besonderheit="warm" Bezeichnung="Decke"/>
+     <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld"/>
+     <Gegenstand Bezeichnung="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <ang-Fertigkeit Bezeichnung="Robustheit" Wert="9"/>
+   <Fertigkeit Bezeichnung="Abrichten" Wert="8"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Wert="6"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="17"/>
+   <Fertigkeit Bezeichnung="Tierkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="4"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="12"/>
+   <Waffe Bezeichnung="Bogen" Wert="5"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="1"/>
+   <Waffe Bezeichnung="Kurzschwert" Wert="5"/>
+   <Waffe Bezeichnung="Dolch" Wert="5"/>
+   <Waffe Bezeichnung="leichter Speer" Wert="5"/>
+   <Waffe Bezeichnung="Wurfspeer" Wert="5"/>
+   <Zauber Bezeichnung="Macht über die belebte Natur"/>
+   <Zauber Bezeichnung="Wundersame Tarnung"/>
+   <Grundkenntnis Bezeichnung="Bögen"/>
+   <Grundkenntnis Bezeichnung="Schild"/>
+   <Grundkenntnis Bezeichnung="Spie�&#x9F;waffe"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Wurfspie�&#x9F;"/>
+   <Sprache Bezeichnung="Albisch" Wert="18"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="12"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Kompendium" Region="TuT"/>
+   <Region Name="Alba" Region="A"/>
+   <Region Name="Eschar" Region="E"/>
+   <Region Name="Nahuatlan" Region="N"/>
+   <Region Name="KanThaiPan" Region="K"/>
+   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
+   <Region Name="Abenteuer" Region="X"/>
+   <Region Name="Gildenbrief" Region="G"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="true"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
