@@ -238,7 +238,8 @@ Fertigkeiten_All::Fertigkeiten_All()
 
 Fertigkeit::Fertigkeit(const Tag &t)
       : MidgardBasicElement(t.getAttr("Name")),
-        lern_unge(),lern_land(),lern_stadt(),ungelernt(-99)
+        lern_unge(99),lern_land(99),lern_stadt(99),anfangswert0(),
+        ungelernt(-99), berufskategorie(), maxerfolgswert(), maxunterweisung()
 { load(t);
 }
 
@@ -268,3 +269,12 @@ void Fertigkeiten_All::load(std::list<cH_MidgardBasicElement> &list,const Tag &t
    cH_Fertigkeit z=cH_Fertigkeit::load(t,is_new);
    if (is_new) list.push_back(z);
 }
+
+Fertigkeit::st_Voraussetzung::st_Voraussetzung()
+   : st(),gw(),gs(),ko(),in(),zt(),au(),pa(),sb(),rw() 
+{} 
+Fertigkeit::st_Voraussetzung::st_Voraussetzung(int _st,int _gw,int _gs,int _ko,int _in,int _zt,int _au,int _pa,
+                       int _sb,int _rw,std::string _fert)
+   : st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
+              sb(_sb),rw(_rw),fert(_fert) 
+{}

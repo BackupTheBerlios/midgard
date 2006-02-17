@@ -1,4 +1,4 @@
-// $Id: Fertigkeiten.hh,v 1.8 2003/09/01 06:47:57 christof Exp $               
+// $Id: Fertigkeiten.hh,v 1.9 2006/02/17 08:34:23 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -32,13 +32,10 @@ class Fertigkeit : public MidgardBasicElement
          ungelernt,berufskategorie,maxerfolgswert,maxunterweisung;
      struct st_Voraussetzung {int st;int gw;int gs;int ko;int in;int zt;int au;int pa;
                            int sb;int rw;std::string fert;
-         st_Voraussetzung()
-            : st(0),gw(0),gs(0),ko(0),in(0),zt(0),au(0),pa(0),
-              sb(0),rw(0) {} 
+         st_Voraussetzung();
          st_Voraussetzung(int _st,int _gw,int _gs,int _ko,int _in,int _zt,int _au,int _pa,
-                       int _sb,int _rw,std::string _fert)
-            : st(_st),gw(_gw),gs(_gs),ko(_ko),in(_in),zt(_zt),au(_au),pa(_pa),
-              sb(_sb),rw(_rw),fert(_fert) {} };
+                       int _sb,int _rw,std::string _fert);
+      };
      st_Voraussetzung voraussetzung;
      std::vector<std::string> vec_voraussetzung;
 
