@@ -32,15 +32,17 @@ int main(int argc,const char **argv)
        =AbenteurerAuswahl::Chars->load
        ("../../../charaktere/Christof Petig/Aneren.magus");
 
-   i->undosave("steigern Klettern");
+   i->begin_undo(); 
    Enums::st_bool_steigern bs(false,false,false,false,false,false,false,false);
    MBEmlt f(cH_Fertigkeit("Klettern"));
    i->getAbenteurer().steigere(f,Enums::eUnterweisung,bs);
+   i->name_undo("steigern Klettern");
    i->getAbenteurer().speicherstream(std::cout);
 
-   i->undosave("steigern Suchen");
+   i->begin_undo();
    f=MBEmlt(cH_Fertigkeit("Suchen"));
    i->getAbenteurer().steigere(f,Enums::eUnterweisung,bs);
+   i->name_undo("steigern Suchen");
    i->getAbenteurer().speicherstream(std::cout);
    return 0;
 }

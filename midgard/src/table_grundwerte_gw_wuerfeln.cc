@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.52 2005/05/03 07:17:11 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.53 2006/02/19 21:46:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -56,23 +56,20 @@ void table_grundwerte::grundwerte_wuerfeln()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
 //  hauptfenster->set_status("");
-#warning an andere Stelle!     
-  hauptfenster->getChar().undosave("Grundwerte gewürfelt");
+  hauptfenster->getChar()->begin_undo();
   if(button_grundwerte->get_index()==Button_Standard)
      Eigenschaften_variante(Button_Standard);
   else if(button_grundwerte->get_index()==Button_Zuweisen)
      Eigenschaften_variante(Button_Zuweisen);
   else if(button_grundwerte->get_index()==Button_69)
      Eigenschaften_variante(Button_69);
+  hauptfenster->getChar().name_undo("Grundwerte gewürfelt");
 }
 
 void table_grundwerte::Eigenschaften_variante(int i)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
 #warning weg  
-  button_abg_werte->set_sensitive(true);
-  combo_typ->set_sensitive(true);
-  combo_typ2->set_sensitive(true);
   combo_typ->grab_focus();
   if (i==Button_Standard) 
    { gw_wuerfeln_2x();
@@ -114,7 +111,7 @@ void table_grundwerte::check_350(const std::vector<int>& a)
    }   
   if(sum<350)
    {  Ausgabe(Ausgabe::Warning,"Summe der Eigenschaftswerte "+itos(sum)+" kleiner als 350. Es darf (muß aber nicht) noch einmal gewürfelt werden.");
-      button_grundwerte->set_sensitive(true);
+//      button_grundwerte->set_sensitive(true);
    }
   hauptfenster->getAben().setAu(constraint_aw(
                                  hauptfenster->getAben().Spezies()->Au()) );
@@ -226,7 +223,7 @@ void table_grundwerte::gw_variante_2()
 void table_grundwerte::on_button_variante_2_clicked(Gtk::Button *button,e_eigen eigenschaft)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  button->set_sensitive(false);
+//  button->set_sensitive(false);
   set_Grundwerte(eigenschaft,actual_wurf);
   gw_variante_2_next();
 }
@@ -287,7 +284,7 @@ void table_grundwerte::gw_variante_3_next()
 void table_grundwerte::on_button_variante_3_clicked(Gtk::Button *button,int wert)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-  button->set_sensitive(false);
+//  button->set_sensitive(false);
   set_Grundwerte(actual_eigen->eigenschaft,wert);
   gw_variante_3_next();
 }

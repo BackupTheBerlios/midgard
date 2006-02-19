@@ -1,4 +1,4 @@
-// $Id: VAbenteurer.cc,v 1.20 2005/04/23 14:24:09 christof Exp $            
+// $Id: VAbenteurer.cc,v 1.21 2006/02/19 21:46:01 christof Exp $            
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -155,6 +155,7 @@ static VAbenteurer::Item::iterator unconstify(const VAbenteurer::Item::const_ite
 {  return reinterpret_cast<const VAbenteurer::Item::iterator &>(i);
 }
 
+#if 0
 // I recommend begin_undo
 void VAbenteurer::Item::undosave(const std::string &s)
 { ManuProC::Trace _t(LibMagus::trace_channel,__PRETTY_FUNCTION__,this,s);
@@ -169,6 +170,7 @@ void VAbenteurer::Item::undosave(const std::string &s)
   divert_proxy();
   signal_undo_list_changed()();
 }
+#endif
 
 void VAbenteurer::Item::setUndo(const_iterator it)
 {  ManuProC::Trace _t(LibMagus::trace_channel,__FUNCTION__,this,&*it);

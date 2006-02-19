@@ -185,11 +185,13 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
 {  
   if(!togglebutton_spezialwaffe->get_active() && 
      !togglebutton_gelernt_verlernen->get_active()) return;
+  hauptfenster->getChar()->begin_undo();
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MBEmlt MBE = dt->getMBE();
   if(togglebutton_spezialwaffe->get_active() && (*MBE).What()!= MidgardBasicElement::WAFFE)
       {
         Ausgabe(Ausgabe::Error,(*MBE).What_str()+" kann nicht als Spezialwaffe verwendet werden.");
+        hauptfenster->getChar()->cancel_undo();
         return;         
       }
   switch((*MBE).What()) {
@@ -199,11 +201,11 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
             { 
              cH_Waffe W(MBE->getMBE());
              if(W->Verteidigung())
-               { Ausgabe(Ausgabe::Error,"Eine Verteidingungswaffe kann keine Spezialwaffe werden."); return;}
+               { Ausgabe(Ausgabe::Error,"Eine Verteidingungswaffe kann keine Spezialwaffe werden."); hauptfenster->getChar()->cancel_undo(); return;}
              else if(W->Reichweite()=="" && (*MBE).Lernpunkte()>1 )
-               { Ausgabe(Ausgabe::Error,"Nahkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 1 Lernpunkte gekostet haben");return;}
+               { Ausgabe(Ausgabe::Error,"Nahkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 1 Lernpunkte gekostet haben");hauptfenster->getChar()->cancel_undo();return;}
              else if(W->Reichweite()!="" && (*MBE).Lernpunkte()>2 )
-               { Ausgabe(Ausgabe::Error,"Fernkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 2 Lernpunkte gekostet haben");return;}
+               { Ausgabe(Ausgabe::Error,"Fernkampfwaffen können nur dann eine Spezialwaffe werden wenn sie max. 2 Lernpunkte gekostet haben");hauptfenster->getChar()->cancel_undo();return;}
              else
                {  
                 hauptfenster->getAben().setSpezialisierung((*MBE)->Name());
@@ -291,9 +293,9 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
      show_lernschema();
   show_gelerntes();
   if((*MBE).What()==MidgardBasicElement::WAFFE && togglebutton_spezialwaffe->get_active())
-     hauptfenster->getChar().undosave("Spezialwaffe "+(*MBE)->Name()+" gewählt");
+     hauptfenster->getChar().name_undo("Spezialwaffe "+(*MBE)->Name()+" gewählt");
   else
-     hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" verlernt");
+     hauptfenster->getChar().name_undo((*MBE)->What_str()+" "+(*MBE)->Name()+" verlernt");
 }
  
 void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
@@ -301,16 +303,19 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
   Abenteurer &A=hauptfenster->getAben();
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MBEmlt MBE = dt->getMBE();
+  hauptfenster->getChar()->begin_undo();
   if(MBE->Gelernt()) 
    { 
      Ausgabe(Ausgabe::Error,"Diese Fertigkeit ist schon gelernt");
      tree_lernschema->get_selection()->unselect_all();
+     hauptfenster->getChar()->cancel_undo();
      return;
    }
  if(((*MBE).What()==MidgardBasicElement::FERTIGKEIT || (*MBE).What()==MidgardBasicElement::WAFFE)
    && !(*MBE)->Voraussetzung(A,false))
   {
     Ausgabe(Ausgabe::Error,"Erst muß "+(*MBE)->Voraussetzung()+" gelernt werden");
+    hauptfenster->getChar()->cancel_undo();
     return;
   }
   
@@ -321,6 +326,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
          { if(MBE->Lernpunkte()>vabenteurer->getLernpunkte().getLernpunkte().Allgemein() )
              { Ausgabe(Ausgabe::Error,"Nicht genug Lernpunkte");
                tree_lernschema->get_selection()->unselect_all();
+               hauptfenster->getChar()->cancel_undo();
                return;
              }
            vabenteurer->getLernpunkte().getLernpunkte().addWaffen(MBE->Lernpunkte());
@@ -336,6 +342,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         else if(MBE->Lernpunkte()>vabenteurer->getLernpunkte().getLernpunkte().Waffen())
           { Ausgabe(Ausgabe::Error,"Nicht genug Lernpunkte");
             tree_lernschema->get_selection()->unselect_all();
+            hauptfenster->getChar()->cancel_undo();
             return;
           }
        A.List_Waffen().push_back(MBE);
@@ -357,6 +364,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         if(MBE->Lernpunkte()>vabenteurer->getLernpunkte().getLernpunkte().Zauber())
           { Ausgabe(Ausgabe::Error,"Nicht genug Lernpunkte");
             tree_lernschema->get_selection()->unselect_all();
+            hauptfenster->getChar()->cancel_undo();
             return;
           }
         if(!(*MBE)->ZusatzEnum(A.getVTyp())) // Das macht 'lernen_zusatz' automatisch
@@ -374,6 +382,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
              MBE->Lernpunkte() > vabenteurer->getLernpunkte().getLernpunkte().Unge()))
           { Ausgabe(Ausgabe::Error,"Nicht genug Lernpunkte");      
             tree_lernschema->get_selection()->unselect_all();
+            hauptfenster->getChar()->cancel_undo();
             return;
           }
         if(!LernListen::SpracheSchrift(MBE->getMBE()))
@@ -404,9 +413,10 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     default : break;
    }
-  hauptfenster->getChar().undosave((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
+  hauptfenster->getChar().name_undo((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
   show_lernschema();
   show_gelerntes(); 
+#warning weg?  
   if(frame_lernschema_zusatz->is_visible()) scrolledwindow_lernen->set_sensitive(false);
 }
 

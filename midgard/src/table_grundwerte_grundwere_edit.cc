@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_grundwere_edit.cc,v 1.28 2004/01/30 23:29:46 christof Exp $
+// $Id: table_grundwerte_grundwere_edit.cc,v 1.29 2006/02/19 21:46:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -20,6 +20,7 @@
 #include "table_grundwerte.hh"
 #include "midgard_CG.hh"
 #include "libmagus/Datenbank.hh"
+#include <Misc/TemporaryValue.hh>
 
 static bool oldtyp_bool;
 
@@ -27,17 +28,16 @@ void table_grundwerte::on_togglebutton_edit_werte_toggled()
 {
   if(edit_werte)
    { 
-     bool m=combo_typ->is_sensitive();
-     oldtyp_bool=true;
+     TemporaryValue<bool> m(combo_typ->is_sensitive(),true);
      edit_sensitive(true);
-     oldtyp_bool=m;
+     hauptfenster->getChar()->begin_undo();
    }
   else 
     {
 //     set_all_entrys(); // eigentlich überflüssig (wg. focus_leaf_event)
      edit_sensitive(false);
      fill_typauswahl();
-     hauptfenster->getChar().undosave("Werte editiert");
+     hauptfenster->getChar().name_undo("Werte editiert");
     }
 }
 

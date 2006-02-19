@@ -47,11 +47,12 @@ int main(int argc,char **argv)
    
    AbenteurerListe::Item t;
    Abenteurer &a=t.getAbenteurer();
+   t.begin_undo();
    t.proxies.wizard.signal_changed().connect(SigC::bind(
    		SigC::slot(&print2),"proxies.wizard.signal_changed"));
    Model_ref<Wizard::esteps>(t.getWizard()).signal_changed()
            .connect(SigC::bind(SigC::slot(&print2),"old_t.getWizard"));
-   t.undosave("step");
+   t.name_undo("step");
    Model_ref<Wizard::esteps>(t.getWizard()).signal_changed()
            .connect(SigC::bind(SigC::slot(&print2),"new_t.getWizard"));
 std::cout << "proxies &t="<< &t << "\n";

@@ -1,4 +1,4 @@
-// $Id: table_lernschema_kido.cc,v 1.19 2004/08/31 16:58:28 christof Exp $
+// $Id: table_lernschema_kido.cc,v 1.20 2006/02/19 21:46:02 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2004 Christof Petig
@@ -75,9 +75,10 @@ void table_lernschema::on_tree_kido_lernschema_leaf_selected(cH_RowDataBase d)
 {
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   cH_MidgardBasicElement MBE = dt->getMBE()->getMBE();
+  vabenteurer->begin_undo();
   vabenteurer->getAbenteurer().List_Kido().push_back(MBE);
   --vabenteurer->getLernpunkte().MaxKido();
-  vabenteurer->undosave(MBE->Name()+" gelernt");
+  vabenteurer->name_undo(MBE->Name()+" gelernt");
   fill_kido_lernschema();
   show_gelerntes();      
 }

@@ -80,7 +80,6 @@ void table_grundwerte::on_combo_typ__changed()
 
 bool table_grundwerte::on_combo_typ__focus_out_event(GdkEventFocus *ev)
 {
-  hauptfenster->getChar().undosave("Typ gewählt");
   typauswahl_button();
   return false;
 }
@@ -90,12 +89,14 @@ enum { Button_Stadt, Button_Land };
 void table_grundwerte::typauswahl_button()
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+ hauptfenster->getChar()->begin_undo();
  std::string typ=combo_typ->get_entry()->get_text();
  try
  { if (typ.size()>2 && typ[0]=='(' && typ[typ.size()-1]==')')
      typ=typ.substr(1,typ.size()-2);
    hauptfenster->getAben().setTyp1(Typen::getTyp(typ));
  } catch (NotFound &n) { return; }
+ hauptfenster->getChar()->name_undo("Typ auf " + typ + " geändert");
 
  hauptfenster->getChar().getWizard().done(Wizard::TYP,hauptfenster->getAben());
 // if (Typ[0]->Short()=="dBe" || Typ[0]->Short()=="eBe") angeborene_zauber();
@@ -133,7 +134,6 @@ void table_grundwerte::on_combo_typ2__changed()
 
 bool table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
 {
-  hauptfenster->getChar().undosave("zweiter Typ gewählt");
   typauswahl_2_button();
   return false;
 }
@@ -141,17 +141,21 @@ bool table_grundwerte::on_combo_typ2_focus_out_event(GdkEventFocus *ev)
 void table_grundwerte::typauswahl_2_button()
 {
  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+ hauptfenster->getChar()->begin_undo();
  std::string typ=combo_typ2->get_entry()->get_text();
  try
  { hauptfenster->getAben().setTyp2(Typen::getTyp(typ));
- } catch (NotFound &n) { return; }
-// if (Typ[1]->Short()=="dBe" || Typ[1]->Short()=="eBe") angeborene_zauber();
+   hauptfenster->getChar()->name_undo("2. Typ auf " + typ + " geändert");
+ } catch (NotFound &n) 
+ { hauptfenster->getChar()->cancel_undo(); 
+   return; 
+ }
 }
 
 
 void table_grundwerte::fill_spezies()
 {
- ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
+  ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   std::vector<std::string> L;
   bool nsc_allowed = hauptfenster?bool(hauptfenster->getAben().getOptionen().OptionenCheck(Optionen::NSC_only).active):false;
   std::vector<cH_Spezies>V=LernListen::getSpezies(nsc_allowed);
@@ -187,10 +191,10 @@ void table_grundwerte::spezieswahl_button()
  std::string spezies=combo_spezies->get_entry()->get_text();
  if(!Spezies::get_Spezies_from_long(spezies))
    return;
+ hauptfenster->getChar()->begin_undo();
  hauptfenster->getAben().getWerte().reset(); // = Grundwerte(true);
  hauptfenster->getAben().setSpezies(Spezies::getSpezies(spezies));
-
-// hauptfenster->getChar().undosave("Spezies gewählt");
+ hauptfenster->getChar().name_undo("Spezies gewählt");
  fill_typauswahl();
 
  if (hauptfenster->getAben().Spezies()->Name()=="Elf")
@@ -225,6 +229,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
   if(block_changed) return;
+  hauptfenster->getChar()->begin_undo();
   hauptfenster->getChar().getWizard().done(Wizard::GESCHLECHT,hauptfenster->getAben());
   Enums::geschlecht oldG=hauptfenster->getAben().Geschlecht();
   hauptfenster->getAben().setGeschlecht(button_geschlecht->get_index() ? Enums::Frau : Enums::Mann);
@@ -240,7 +245,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
    }
   fill_typauswahl();
   fill_typauswahl_2();
-//  hauptfenster->getChar().undosave("Geschlecht gewählt");
+  hauptfenster->getChar().name_undo("Geschlecht gewählt");
 }
 
 /*
