@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Die Geschichte von MAGuS</title>
+</HEAD>
+Magus begann als Projekt von Malte Thoma um C++,
+Oberflächenprogrammierung und Datenbankanbindung zu erlernen. Sein
+damaliger Vorgesetzter Christof Petig ermunterte ihn, sich doch selbst
+eine Aufgabe auszudenken, an der er diese Fähigkeiten erlernen und
+erwerben und erproben könnte. So kam es dazu, dass er ein Programm
+schrieb, um seine Midgard Abenteurer am Rechner zu verwalten. Die erste
+Version ermöglichte es, einen Abenteurer einzugeben und in einer
+PostgreSQL Datenbank abzulegen. Die Vorgaben waren eindeutig: Das
+Programm musste unter Linux laufen, in C++ geschrieben sein, die
+Oberfläche mit glade erstellt und mit gtkmm programmiert sein.
+<p>
+Bereits zu Beginn konnten die Fertigkeiten aus einer Liste ausgewählt
+werden, schnell fanden sich weitere Begeisterte, die mithalfen, die
+Tabellen abzutippen. Alessandro malte Icons, Christof versprach, das
+Programm nach Windows zu portieren. Die ersten Grafiken wurden im xpm
+Format erstellt, das recht speicherhungrig ist und eine beschränkte
+Anzahl an Farben effizient erlaubt. Reste dieser Geschichte sind noch
+heute an Grafiken zu entdecken.
+<p>
+Die Portierung nach Windows brachte die Änderung nach XML und Unicode
+mit sich. Eine Windows Version von PostgreSQL existierte noch nicht
+(außer mittels der POSIX Umgebung Cygwin) und SQLite war noch in den
+Kinderschuhen. Daher wurden XML Dateien aus der Datenbank erzeugt und
+dann eingelesen. Die Unicode codierung einzig des Windows Ports bewirkte
+am Anfang auch einige nur unter Windows auftretende Probleme.
+<p>
+Compiliert wird die Windows Version mit dem MinGW (Minimal GNU Compiler
+for Windows) Compiler in der MSys (Minimal System) shell. Cygwin hätte
+bewirkt, dass die Dateinamen in der Unix Konvention (//c/windows)
+anzugeben gewesen wären, eine unzumutbare Hürde für den einfachen
+Nutzer. Wie die Linux Version verwendet die Windows Version LaTeX um den
+Abenteurer nach PDF zu wandeln. Ein Acrobat Reader um die Dateien zu
+drucken, dürfte auf jedem Windows Rechner vorhanden sein.
+<p>
+Ulf Kaiser stellte einige Icons in einem Windows gerechteren Design zur
+Verfügung, weitere Leute tippten die Daten aus Quellenbücher ab. Von
+Version 0.7 zu 0.8 wurde auf die vierte Ausgabe des Regelheftes umgestellt.
+<p>
+Auf Betreiben von Malte hin, sollte Magus zum Standard für Midgard
+Programme werden, und so wurde ein Vertrag mit Elsa Franke
+unterzeichnet,der Magus gestattet, die Daten auch im Internet zur
+Verfügung zu stellen und festschrieb, dass MAGuS unter der GPL
+erscheinen sollte.
+<p>
+Dann kam Christof auf die Idee, eine neuere Version von gtk zu
+verwenden, die auch unter Linux Unicode verwendet, JPG, PNG, GIF und SVG
+Grafiken verwenden kann, das Model-View-Controller Konzept anbietet und
+weitere Detailverbesserunge bot. Gleichzeitig wollte er den Code in eine
+Library ausgründen, die auch von anderen Projekten verwendet werden
+könnte. Zusätzlich sollte auch MAGuS das MVC Konzept und ein echte MDI
+(Multiple Document Interface) und Undo/Redo bekommen. Durch diese
+Umstellung kam die Weiterentwicklung des alten MAGuS 0.8 zum Erliegen.
+<p>
+Nach einigen Jahren (!) Entwicklungsarbeit stellte Christof dann die
+neue Version vor, die noch genügend Fehler aufwies, um nicht allgemein
+einsetzbar zu sein. Erst wiederum ein Jahr später (im Januar 2006)
+sollte die Version dann zufriedenstellend funktionieren, zu tiefgreifend
+waren die Umstellungen. Berufliche Veränderungen bei Christof und Malte
+behinderten die Arbeit zusätzlich.
+<p>
+Mitlerweile existieren automatische Tests und ein externes Programm um
+schnell Zufallscharaktere zu erzeugen. Eine weitergehende Verwendung der
+Library wird dadurch erschwert, dass sie in C++ mit dem Gnu Compiler
+übersetzt ist, eine COM Anbindung wäre möglich (Anfragen an Christof).
+Es ist zwar möglich, MAGuS weiterzuentwickeln oder seine Funktionen in
+eigenen Programmen zu nutzen, ohne zusätzliche Software zu kaufen (alles
+Notwendige ist kostenlos im Internet verfügbar), unter Windows hat
+allerdings noch niemand diesen Schritt gewagt.
+<p>
+Viele Merkwürdigkeiten der Oberfläche und Bedienung sind durch diese
+Geschichte bedingt und ein für Windows geschriebenes Programm würde mit
+Sicherheit besser mit anderen Anwendungen harmonieren, Christof bemüht
+sich aber nach Kräften um einen Kompromiss.
+</HTML>
