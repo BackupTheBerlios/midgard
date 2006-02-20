@@ -1,4 +1,4 @@
-// $Id: midgard_CG.hh,v 1.353 2006/02/06 07:26:53 christof Exp $
+// $Id: midgard_CG.hh,v 1.354 2006/02/20 08:08:54 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyrihgt (C) 2005 Christof Petig
@@ -191,6 +191,7 @@ private:
          void refresh();
          void refresh_char_list();
          enum_notebook_main get_current_page() const;
+         void set_current_page(enum_notebook_main e);
         // void refresh_undo_list();
 
 	// Nettigkeiten ?

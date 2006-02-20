@@ -293,9 +293,9 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
      show_lernschema();
   show_gelerntes();
   if((*MBE).What()==MidgardBasicElement::WAFFE && togglebutton_spezialwaffe->get_active())
-     hauptfenster->getChar().name_undo("Spezialwaffe "+(*MBE)->Name()+" gewählt");
+     hauptfenster->getChar()->name_undo("Spezialwaffe "+(*MBE)->Name()+" gewählt");
   else
-     hauptfenster->getChar().name_undo((*MBE)->What_str()+" "+(*MBE)->Name()+" verlernt");
+     hauptfenster->getChar()->name_undo((*MBE)->What_str()+" "+(*MBE)->Name()+" verlernt");
 }
  
 void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
@@ -413,7 +413,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
         break; }
     default : break;
    }
-  hauptfenster->getChar().name_undo((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
+  hauptfenster->getChar()->name_undo((*MBE)->What_str()+" "+(*MBE)->Name()+" gelernt");
   show_lernschema();
   show_gelerntes(); 
 #warning weg?  

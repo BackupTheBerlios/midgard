@@ -223,20 +223,21 @@ void table_grundwerte::sync_wizard(gpointer x)
       case Wizard::TYP: combo_typ->grab_focus(); break;
       case Wizard::STADTLAND: button_stadt_land->grab_focus(); break;
       case Wizard::ABGELEITETEWERTE: on_abge_werte_setzen_clicked(); break;
-      case Wizard::LERNSCHEMA_SEITE: hauptfenster->notebook_main->set_current_page(PAGE_LERNEN); break;
-      case Wizard::NAMEN: hauptfenster->notebook_main->set_current_page(PAGE_GRUNDWERTE);
+      case Wizard::LERNSCHEMA_SEITE: hauptfenster->set_current_page(midgard_CG::PAGE_LERNEN); break;
+      case Wizard::NAMEN: hauptfenster->set_current_page(midgard_CG::PAGE_GRUNDWERTE);
         edit_werte=true;
         entry_nameC->grab_focus();
         break;
-      case Wizard::SPEICHERN: hauptfenster->notebook_main->set_current_page(PAGE_GRUNDWERTE);
+      case Wizard::SPEICHERN: hauptfenster->set_current_page(midgard_CG::PAGE_GRUNDWERTE);
         hauptfenster->xml_export_auswahl();
         break;
       case Wizard::ZWEITER_TYP: // siehe unten
         break;
+      default: break;
     }
   }
   if (pr.wizard.Value()==Wizard::ZWEITER_TYP) 
-  { hauptfenster->notebook_main->set_current_page(PAGE_GRUNDWERTE);
+  { hauptfenster->set_current_page(midgard_CG::PAGE_GRUNDWERTE);
     combo_typ2->show();
     combo_typ2->grab_focus(); 
   }

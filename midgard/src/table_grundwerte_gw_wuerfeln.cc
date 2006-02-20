@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.53 2006/02/19 21:46:02 christof Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.54 2006/02/20 08:08:54 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -63,7 +63,7 @@ void table_grundwerte::grundwerte_wuerfeln()
      Eigenschaften_variante(Button_Zuweisen);
   else if(button_grundwerte->get_index()==Button_69)
      Eigenschaften_variante(Button_69);
-  hauptfenster->getChar().name_undo("Grundwerte gewürfelt");
+  hauptfenster->getChar()->name_undo("Grundwerte gewürfelt");
 }
 
 void table_grundwerte::Eigenschaften_variante(int i)
