@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_abge_werte.cc,v 1.27 2006/02/19 21:46:01 christof Exp $
+// $Id: table_grundwerte_abge_werte.cc,v 1.28 2006/02/20 08:19:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2006 Christof Petig
@@ -140,7 +140,7 @@ void table_grundwerte::on_abge_werte_setzen_clicked()
 //  hauptfenster->table_lernschema->button_herkunft->set_sensitive(true);
 //  hauptfenster->frame_lernschema->set_sensitive(true);
   zeige_werte();
-  hauptfenster->getChar().name_undo("Abgeleitete Werte gewürfelt");
+  hauptfenster->getChar()->name_undo("Abgeleitete Werte gewürfelt");
   hauptfenster->getChar().getWizard().done(Wizard::ABGELEITETEWERTE,hauptfenster->getAben());
 }
 

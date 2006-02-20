@@ -197,7 +197,7 @@ void table_grundwerte::spezieswahl_button()
  hauptfenster->getChar()->begin_undo();
  hauptfenster->getAben().getWerte().reset(); // = Grundwerte(true);
  hauptfenster->getAben().setSpezies(Spezies::getSpezies(spezies));
- hauptfenster->getChar().name_undo("Spezies gewählt");
+ hauptfenster->getChar()->name_undo("Spezies gewählt");
  fill_typauswahl();
 
  if (hauptfenster->getAben().Spezies()->Name()=="Elf")
@@ -248,7 +248,7 @@ void table_grundwerte::on_radiobutton_mann_toggled()
    }
   fill_typauswahl();
   fill_typauswahl_2();
-  hauptfenster->getChar().name_undo("Geschlecht gewählt");
+  hauptfenster->getChar()->name_undo("Geschlecht gewählt");
 }
 
 /*

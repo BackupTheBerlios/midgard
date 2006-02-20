@@ -1,4 +1,4 @@
-// $Id: midgard_CG.cc,v 1.354 2006/02/20 08:08:53 christof Exp $
+// $Id: midgard_CG.cc,v 1.355 2006/02/20 08:19:51 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -283,7 +283,7 @@ midgard_CG::enum_notebook_main midgard_CG::get_current_page() const
 {  return enum_notebook_main(notebook_main->get_current_page());
 }
 
-void midgard_CG::get_current_page(enum_notebook_main e)
+void midgard_CG::set_current_page(enum_notebook_main e)
 { notebook_main->set_current_page(int(e));
 }
 

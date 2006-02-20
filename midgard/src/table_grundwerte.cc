@@ -228,9 +228,11 @@ void table_grundwerte::sync_wizard(gpointer x)
         edit_werte=true;
         entry_nameC->grab_focus();
         break;
+#if 0 // muss in midgard_CG
       case Wizard::SPEICHERN: hauptfenster->set_current_page(midgard_CG::PAGE_GRUNDWERTE);
         hauptfenster->xml_export_auswahl();
         break;
+#endif        
       case Wizard::ZWEITER_TYP: // siehe unten
         break;
       default: break;
