@@ -109,7 +109,7 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
 
 void table_steigern::kaempfer_lernt_zaubern() 
 {
-  hauptfenster->getChar().getWizard.set(Wizard::ZWEITER_TYP);
+  hauptfenster->getChar().getWizard().set(Wizard::ZWEITER_TYP);
 #if 0
 // Wizard::ZWEITER_TYP
  Gtk::HBox *_b=manage(new Gtk::HBox());
