@@ -81,6 +81,7 @@ Section "diverse benötigte Bibliotheken" ; (default section)
  File "${BINDIR}\libtiff3.dll"
  File "${BINDIR}\zlib1.dll"
  File "${BINDIR}\mingwm10.dll"
+; File "${BINDIR}\libstdc++.dll"
 SectionEnd
 
 Section "gtk+ Bibliotheken" ; (default section)

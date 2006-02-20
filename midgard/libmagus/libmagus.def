@@ -66,7 +66,6 @@ EXPORTS
 	_ZN10Abenteurer8SteigernER29H_MidgardBasicElement_mutable 
 	_ZN10Abenteurer8verlerneER29H_MidgardBasicElement_mutable 
 	_ZN10Abenteurer9reduziereER29H_MidgardBasicElement_mutable 
-	_ZN10AbenteureraSERKS_ 
 	_ZN10AbenteurerC1ERKS_ 
 	_ZN10AbenteurerC1Eb 
 	_ZN10AbenteurerC2Eb 
@@ -317,7 +316,6 @@ EXPORTS
 	_ZN15AbenteurerListe4Item12divert_proxyEv 
 	_ZN15AbenteurerListe4Item4initEv 
 	_ZN15AbenteurerListe4Item7setUndoEN9__gnu_cxx17__normal_iteratorIPKNS_7st_undoESt6vectorIS3_SaIS3_EEEE 
-	_ZN15AbenteurerListe4Item8undosaveERKSs 
 	_ZN15AbenteurerListe4Item9name_undoERKSs 
 	_ZN15AbenteurerListe4ItemC1ERK10Abenteurerb 
 	_ZN15AbenteurerListe4ItemC1ERKS0_ 
