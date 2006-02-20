@@ -109,6 +109,8 @@ void table_steigern::on_leaf_selected_neue_fert(cH_RowDataBase d)
 
 void table_steigern::kaempfer_lernt_zaubern() 
 {
+  hauptfenster->getChar().getWizard.set(Wizard::ZWEITER_TYP);
+#if 0
 // Wizard::ZWEITER_TYP
  Gtk::HBox *_b=manage(new Gtk::HBox());
 
@@ -134,6 +136,7 @@ void table_steigern::kaempfer_lernt_zaubern()
  frame_spezielles->set_label("Zweite Abenteurerklasse auswählen");
  frame_spezielles->add(*_b);
  frame_spezielles->show_all();
+#endif
 // _ct->set_use_arrows(true);
 // _ct->set_use_arrows_always(false);
 }

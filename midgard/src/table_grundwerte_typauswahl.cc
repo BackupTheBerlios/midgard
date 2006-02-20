@@ -1,5 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
+ *  Copyright (C) 2006 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -52,7 +53,9 @@ void table_grundwerte::fill_typauswahl_fill(int typ_1_2)
   std::list<std::string> L;
   for(std::vector<std::pair<cH_Typen,bool> >::const_iterator i=T.begin();i!=T.end();++i)
    {
-#warning diese Logik scheint mir etwas unvollständig, CP
+// diese Logik scheint mir etwas unvollständig, CP
+// erste Combo: Kämpfer, zweite Combo: Zauberer
+#warning Zauberer wird zum Kämpfer fehlt!
      if(combo_typ2->is_visible() && typ_1_2==1 && i->first->Zaubern()=="z") continue;
      if(typ_1_2==2 && i->first->Zaubern()!="z") continue;
          {
