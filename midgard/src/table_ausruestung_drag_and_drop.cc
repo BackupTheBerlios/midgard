@@ -45,7 +45,7 @@ class table_ausruestung::MyTreeStore : public Gtk::TreeStore
 	virtual bool drag_data_received_vfunc(const TreeModel::Path& dest, const_selection_data_t selection_data);
 	table_ausruestung *container;
 public:
-	static Glib::RefPtr<MyTreeStore> MyTreeStore::create(const Gtk::TreeModelColumnRecord& cols, table_ausruestung *cont)
+	static Glib::RefPtr<MyTreeStore> create(const Gtk::TreeModelColumnRecord& cols, table_ausruestung *cont)
 	{  MyTreeStore *x=new MyTreeStore(cols,cont);
  	   x->reference();
 	   return Glib::RefPtr<MyTreeStore>(x);

@@ -1,20 +1,16 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
-+ PP Sprache?
 - wann wird große Magie als Stufe 6 wann als Stufe 7 behandelt?
 	iStufe ändern
 - InfoFenster in der Windows Version standardmäßig abschalten
 	(stört vermutlich eher, jetzt wo der Text wieder erscheint)
 ####
 
-+ Steigertage PP kontr.
-+ Steigertage und Kosten Spruchrolle kontr.
+- Thema durch OptionBox/Combo statt Radio auswählen
+
+- (neustarten/ zweites Fenster öffnen)
 
 - Spezielle Spezies beim Laden zulassen?
 
-+ Schriften werden auf dem Ausdruck falsch dargestellt
-+ Überleben erscheint nicht auf dem Ausdruck?
-- Schreiben: Alte Sprache(+4) 0LP für BS ? (nicht anwählbar ???)
-	als Allgemeinwissen und Ungew. ?
 - Zauber durch Selbststudium?
 - Wizard
 	- Herkunftsland wenn abgeleitete Werte gewürfelt erscheint nicht?
@@ -28,7 +24,6 @@
 - statt on_leaf_selected_alte_fert2 kann MidgardBasicElement_leaf_alt genommen werden
 		(abgesehen vom bool Rückgabewert)
 - View auf Programmoptionen (Execute etc.) statt OberSetzenFromMenu
-- Heimatverzeichnis unter XP stimmt nicht
 - Win32: SHAddToRecentDocs(SHARD_PATH, Datei);
 
 ? Dazu kommen sporadische Segfaults.
@@ -51,9 +46,7 @@
 ######################################################################
 
 - WinFileReq sollte gtk 2.4 Requester nehmen
-+ LICENSE.pdf
 - undosave _vor_ jeder Änderung (am Besten in libmagus selbst)
-* Region nach Herkunft automatisch einschalten
 * Mehrseitige Ausrüstungen
 * Setzen der Handle-Fenster-Positionen :-(
 * KI-Steigern nicht nur mit Unterweisung oder Selbststudium 
