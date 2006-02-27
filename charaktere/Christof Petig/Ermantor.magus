@@ -1,45 +1,61 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
-<Midgard-Charakter Version="7">
-  <Figur Name="Ermantor" Spieler="Christof Petig" Zeitpunkt="Erschaffung" Grad="2"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Ord"/>
-  <Basiseigenschaften St="79" Ge="95" Ko="85" In="96" Zt="68"/>
-  <abgeleiteteEigenschaften Au="58" pA="110" Sb="47" RW="91" HGW="79" B="27" KAW="4" WLW="70"/>
-  <Erfolgswerte Abwehr="12" Zaubern="11"/>
-  <Resistenzen Zauber="11"/>
-  <Gesundheit LP_Basis="11" LP="14" AP="15"/>
-  <Beschreibung Alter="23" Gestalt="normal" Gewicht="70" Größe="173" Stand="Unfrei" Herkunft="Clangadan" Glaube="(Leben)"/>
-  <Boni Ausdauer="2" Schaden="2" Abwehr="1" Zaubern="1">
-    <Resistenzen psy="2" phk="1" Gift="5"/>
-  </Boni>
-  <GFP>221</GFP>
-  <Vermögen GS="40" SS="8"/>
-  <Steigern AEP="1" Basiswerte="0"/>
-  <Ausrüstung>
-    <Rüstung>KR</Rüstung>
-    <Waffe Bezeichnung="Bihänder"/>
-    <Waffe Bezeichnung="Dolch"/>
-    <Waffe Bezeichnung="Langschwert"/>
-  </Ausrüstung>
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="3" Name="Ermantor" Spieler="Christof Petig" Zeitpunkt="Roter Ritter"/>
+  <Typ AbkÃ¼rzung="Or" Geschlecht="m" Hand="RechtshÃ¤nder" Muttersprache="Twynnedisch" Spezies="Mensch" Stadt_Land="Stadt" Ãœberleben="Ã&#x9C;berleben im Schnee"/>
+  <Basiseigenschaften Gs="95" Gw="91" In="96" Ko="85" St="79" Zt="68"/>
+  <abgeleiteteEigenschaften Au="58" B="27" Sb="47" Wk="54" pA="110"/>
+  <Erfolgswerte Abwehr="12" ZauberResistenz="11" Zaubern="13"/>
+  <Gesundheit AP="15" LP="14"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="70" Glaube="Dwiannon" GrÃ¶ÃŸe="173" Herkunft="Clanngadarn" Stand="Unfrei"/>
+  <VermÃ¶gen GS="1054" KS="2" SS="3"/>
+  <Steigern AEP="6" Basiswerte="0" EPproGFP="0" GFP="541" benÃ¶tigte_Tage="55.5">
+   <Praxispunkte/>
+  </Steigern>
+  <Text/>
+  <AusrÃ¼stung>
+   <RÃ¼stung>KR</RÃ¼stung>
+   <RÃ¼stung2>OR</RÃ¼stung2>
+   <Waffe Bezeichnung="BihÃ¤nder" Erfolgswert="8"/>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="5"/>
+   <Waffe Bezeichnung="Langschwert" Erfolgswert="7"/>
+  </AusrÃ¼stung>
   <Fertigkeiten>
-    <Beruf Bezeichnung="Wundheiler" Wert="10"/>
-    <Fertigkeit Bezeichnung="Erste Hilfe"/>
-    <Fertigkeit Bezeichnung="Kampf zu Pferd"/>
-    <Fertigkeit Bezeichnung="Kampftaktik" Wert="1"/>
-    <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
-    <Grundkenntnis Bezeichnung="ESchwert"/>
-    <Grundkenntnis Bezeichnung="Stichwaffe"/>
-    <Grundkenntnis Bezeichnung="ZSchwert"/>
-    <Grundkenntnis Bezeichnung="waffenloser Kampf"/>
-    <Sprache Bezeichnung="Erainnisch" Wert="2"/>
-    <Sprache Bezeichnung="Twyneddisch" Wert="4"/>
-    <Urschrift Bezeichnung="Seemeister"/>
-    <Waffe Bezeichnung="Bihänder" Wert="7"/>
-    <Waffe Bezeichnung="Dolch" Wert="5"/>
-    <Waffe Bezeichnung="Langschwert" Wert="7"/>
-    <Waffe Bezeichnung="waffenloser Kampf" Wert="5"/>
-    <Zauber Bezeichnung="Erkennen der Aura" Wert="12"/>
-    <Zauber Bezeichnung="Heilen von Wunden" Wert="12"/>
-    <Zauber Bezeichnung="Heiliger Zorn" Wert="12"/>
+   <Sinn Bezeichnung="Sehen" Wert="10"/>
+   <Sinn Bezeichnung="HÃ¶ren" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="2"/>
+   <Beruf Bezeichnung="Wundheiler" Wert="10"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="8"/>
+   <Fertigkeit Bezeichnung="Heilkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="Kampf in Schlachtreihe" Wert="5"/>
+   <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kampftaktik" Wert="8"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="16"/>
+   <Waffe Bezeichnung="BihÃ¤nder" Wert="8"/>
+   <Waffe Bezeichnung="Dolch" Wert="5"/>
+   <Waffe Bezeichnung="Langschwert" Wert="7"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="5"/>
+   <Zauber Bezeichnung="BannsphÃ¤re, Goldene"/>
+   <Zauber Bezeichnung="Erkennen der Aura"/>
+   <Zauber Bezeichnung="Heilen von Wunden"/>
+   <Zauber Bezeichnung="Heiliger Zorn"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Zweihandschwert"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="6"/>
+   <Sprache Bezeichnung="Twyneddisch" Wert="20"/>
+   <Urschrift Bezeichnung="Twyneddisch" Buchstaben="Valianisches Alphabet" Wert="12"/>
   </Fertigkeiten>
-</Midgard-Charakter>
+  <Optionen>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte Ã¼ber 100 zulassen" Wert="true"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
