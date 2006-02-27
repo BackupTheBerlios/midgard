@@ -96,7 +96,7 @@ class Waffe : public MidgardBasicElement
      // besser wäre noch <std::string,cH_Waffe>
      static std::map<std::string,std::string> Waffe_from_Alias;
      static void fill_map_alias_waffe(const Tag &t);
-     static std::string Waffe::get_Verteidigungswaffe(int ohne_waffe,
+     static std::string get_Verteidigungswaffe(int ohne_waffe,
          const std::list<MBEmlt>& list_Waffen,
          const std::list<H_WaffeBesitz>& list_Waffen_besitz,
          const Abenteurer &A);

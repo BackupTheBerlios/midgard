@@ -1,4 +1,4 @@
-// $Id: VAbentModelProxy.hh,v 1.8 2004/06/23 11:00:25 christof Exp $               
+// $Id: VAbentModelProxy.hh,v 1.9 2006/02/27 13:34:42 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2003-2004 Christof Petig
  *
@@ -53,7 +53,7 @@ struct VAbentModelProxy
    // dieses Signal feuert, wenn wie_steigern,goldanteil,fpanteil geändert wurde
 private:   
    std::vector<SigC::Connection> sg_conns;
-   VAbentModelProxy::VAbentModelProxy(const VAbentModelProxy &);
+   VAbentModelProxy(const VAbentModelProxy &);
    const VAbentModelProxy &operator=(const VAbentModelProxy &);
 public:   
    VAbentModelProxy() {}
