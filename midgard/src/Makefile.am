@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.243 2005/12/13 08:09:05 christof Exp $
+# $Id: Makefile.am,v 1.244 2006/03/01 09:06:48 christof Exp $
 
 bin_PROGRAMS = magus$(EXEEXT)
 noinst_PROGRAMS = text2c$(EXEEXT)
@@ -156,7 +156,8 @@ magus_SOURCES = $(PORT_FILES) \
    Midgard_Undo.cc \
    ProgressBar.cc \
    MagusDialog.cc MagusDialog_glade.cc \
-   Region_GUI.cc MagusAusgabe.cc prop-editor.c
+   Region_GUI.cc MagusAusgabe.cc prop-editor.c \
+   DialogAuswahl.cc 
 
 #AM_CXXFLAGS = @CXXFLAGS@ 
 AM_CPPFLAGS = @KOMPONENTEN2_INCLUDES@ -DUSE_XML $(WIN_INCLUDES) \
