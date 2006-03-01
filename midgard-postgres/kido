@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.kido DROP CONSTRAINT kido_pkey;
 DROP INDEX public.kido_name_orig;
 DROP TABLE public.kido;
 --
--- TOC entry 2 (OID 133858)
--- Name: kido; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE kido (
@@ -24,8 +22,6 @@ CREATE TABLE kido (
 
 
 --
--- Data for TOC entry 5 (OID 133858)
--- Name: kido; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY kido (name_orig, name, stufe, stil, fp, ap, effekt) FROM stdin;
@@ -79,16 +75,12 @@ YubeChian	Finger des Friedens	Eingeweihter	Sanfte Techniken	200	0	Im Handgemenge
 YuehSchu	Axt und Baum	Schüler	beide	60	0	Blockade und Angriff. Mißlingt der EW.KiDo: Nur Blockade.
 \.
 --
--- TOC entry 3 (OID 133911)
--- Name: kido_name_orig; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX kido_name_orig ON kido USING btree (name_orig);
 
 
 --
--- TOC entry 4 (OID 133912)
--- Name: kido_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY kido

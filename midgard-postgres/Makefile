@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.72 2006/03/01 18:03:30 christof Exp $
+# $Id: Makefile,v 1.73 2006/03/01 18:03:42 christof Exp $
 #PG_DUMP=pg_dump
 PG_DUMP=/usr/local/bin/pg_dump_sort
 
@@ -57,7 +57,7 @@ cleanup:
 	do \
 	  ./drop_all_varying <"$$i" >"$$i".novar ;\
 	  if cmp -s "$$i" "$$i".novar ; then rm "$$i".novar ; \
-	  else mv "$$i".novar "$$i" ; \
+	  else mv "$$i".novar "$$i" ; echo "$$i cleaned" ; \
 	  fi ; \
 	done
 	

@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.waffen_region_name DROP CONSTRAINT waffen_region_name_pk
 DROP INDEX public.waffen_region_name_alias;
 DROP TABLE public.waffen_region_name;
 --
--- TOC entry 2 (OID 138183)
--- Name: waffen_region_name; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE waffen_region_name (
@@ -25,8 +23,6 @@ CREATE TABLE waffen_region_name (
 
 
 --
--- Data for TOC entry 5 (OID 138183)
--- Name: waffen_region_name; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY waffen_region_name (name, alias, region, schaden, schaden_b, angriffs_mod, st, kosten_gs) FROM stdin;
@@ -91,16 +87,12 @@ Wurfspeer	YariNage	K	\N	\N	\N	\N	\N
 Wurfstern	Tschakram	R	\N	\N	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 138247)
--- Name: waffen_region_name_alias; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX waffen_region_name_alias ON waffen_region_name USING btree (alias);
 
 
 --
--- TOC entry 4 (OID 138248)
--- Name: waffen_region_name_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY waffen_region_name

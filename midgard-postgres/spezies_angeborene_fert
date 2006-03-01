@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.spezies_angeborene_fert DROP CONSTRAINT spezies_angebore
 DROP INDEX public.spezies_angeborene_fert_spezies;
 DROP TABLE public.spezies_angeborene_fert;
 --
--- TOC entry 2 (OID 158024)
--- Name: spezies_angeborene_fert; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE spezies_angeborene_fert (
@@ -22,8 +20,6 @@ CREATE TABLE spezies_angeborene_fert (
 
 
 --
--- Data for TOC entry 5 (OID 158024)
--- Name: spezies_angeborene_fert; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY spezies_angeborene_fert (spezies, art, name, erfolgswert, lp) FROM stdin;
@@ -366,16 +362,12 @@ Zwerg	v	Waldarbeiter	\N	\N
 Zwerg	v	Zureiter	\N	\N
 \.
 --
--- TOC entry 4 (OID 158366)
--- Name: spezies_angeborene_fert_spezies; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE INDEX spezies_angeborene_fert_spezies ON spezies_angeborene_fert USING btree (spezies);
 
 
 --
--- TOC entry 3 (OID 158367)
--- Name: spezies_angeborene_fert_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY spezies_angeborene_fert

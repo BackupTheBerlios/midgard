@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.berufe_voraussetzung_4 DROP CONSTRAINT berufe_voraussetz
 DROP INDEX public.berufe_voraussetzung_4_beruf;
 DROP TABLE public.berufe_voraussetzung_4;
 --
--- TOC entry 2 (OID 124074)
--- Name: berufe_voraussetzung_4; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE berufe_voraussetzung_4 (
@@ -29,8 +27,6 @@ CREATE TABLE berufe_voraussetzung_4 (
 
 
 --
--- Data for TOC entry 5 (OID 124074)
--- Name: berufe_voraussetzung_4; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY berufe_voraussetzung_4 (beruf, land, stadt, u, v, m, a, typ_k, typ_z, region, region_zusatz, geschlecht) FROM stdin;
@@ -276,16 +272,12 @@ Zollpächter	t	t	\N	t	t	\N	\N	\N	GBB	\N	\N
 Zureiter	t	\N	\N	t	t	t	t	\N	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 124319)
--- Name: berufe_voraussetzung_4_beruf; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX berufe_voraussetzung_4_beruf ON berufe_voraussetzung_4 USING btree (beruf);
 
 
 --
--- TOC entry 4 (OID 124320)
--- Name: berufe_voraussetzung_4_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY berufe_voraussetzung_4

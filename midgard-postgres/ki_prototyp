@@ -7,8 +7,6 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.ki_prototyp DROP CONSTRAINT ki_prototyp_pkey;
 DROP TABLE public.ki_prototyp;
 --
--- TOC entry 2 (OID 133914)
--- Name: ki_prototyp; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE ki_prototyp (
@@ -28,8 +26,6 @@ CREATE TABLE ki_prototyp (
 
 
 --
--- Data for TOC entry 4 (OID 133914)
--- Name: ki_prototyp; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY ki_prototyp (name, fertigkeit, zauber, waffen, waffen_grund, zauberwerk, sprache, schrift, fert_spezialist, waff_spezialist, spra_spezialist, schr_spezialist) FROM stdin;
@@ -38,8 +34,6 @@ Test	50	0	50	0	0	0	0	50	95	50	50
 Wissenschaftler	50	0	10	0	0	25	15	50	100	50	50
 \.
 --
--- TOC entry 3 (OID 133922)
--- Name: ki_prototyp_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY ki_prototyp

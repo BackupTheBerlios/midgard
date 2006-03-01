@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.zauber_typen DROP CONSTRAINT zauber_typen_pkey;
 DROP INDEX public.zauber_typen_name_typ;
 DROP TABLE public.zauber_typen;
 --
--- TOC entry 2 (OID 145963)
--- Name: zauber_typen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE zauber_typen (
@@ -21,8 +19,6 @@ CREATE TABLE zauber_typen (
 
 
 --
--- Data for TOC entry 5 (OID 145963)
--- Name: zauber_typen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY zauber_typen (name, typ, standard, agens) FROM stdin;
@@ -12081,16 +12077,12 @@ Zwingkreis, Silberner	ScW	A	\N
 Zwingkreis, Silberner	tBe	S	\N
 \.
 --
--- TOC entry 3 (OID 158021)
--- Name: zauber_typen_name_typ; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX zauber_typen_name_typ ON zauber_typen USING btree (name, typ);
 
 
 --
--- TOC entry 4 (OID 158022)
--- Name: zauber_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY zauber_typen

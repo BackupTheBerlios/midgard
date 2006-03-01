@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.waffen DROP CONSTRAINT waffen_pkey;
 DROP INDEX public.waffen_name;
 DROP TABLE public.waffen;
 --
--- TOC entry 2 (OID 138046)
--- Name: waffen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE waffen (
@@ -44,8 +42,6 @@ CREATE TABLE waffen (
 
 
 --
--- Data for TOC entry 5 (OID 138046)
--- Name: waffen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY waffen (name, st, gw, gs, grundkenntnisse, schwierigkeit, art, schaden, schaden_b, schaden_b2, art_2, waffenrang, wm_abwehr_leicht, wm_abwehr_schwer, zusatz, region, reichweite_0, reichweite_n, reichweite_m, reichweite_f, lern_land, lern_stadt, gewicht, kosten_gs, text, min_st_einhand, zweite_grundkenntnis) FROM stdin;
@@ -144,16 +140,12 @@ Wurfstern	\N	\N	61	Wurfscheibe	5	Wurfwaffe	W6	-3	\N	W	\N	\N	\N	\N	\N	0	5	10	15	\
 Zweizack	\N	\N	11	Spießwaffe	3	Angriff	W6	\N	\N	E	\N	\N	\N	\N	G	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 138144)
--- Name: waffen_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX waffen_name ON waffen USING btree (name);
 
 
 --
--- TOC entry 4 (OID 138145)
--- Name: waffen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY waffen

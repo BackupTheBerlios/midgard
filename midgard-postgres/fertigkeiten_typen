@@ -9,8 +9,6 @@ DROP INDEX public.fertigkeiten_typen_name_typ;
 DROP INDEX public.fertigkeiten_typen_name;
 DROP TABLE public.fertigkeiten_typen;
 --
--- TOC entry 2 (OID 125224)
--- Name: fertigkeiten_typen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE fertigkeiten_typen (
@@ -21,8 +19,6 @@ CREATE TABLE fertigkeiten_typen (
 
 
 --
--- Data for TOC entry 6 (OID 125224)
--- Name: fertigkeiten_typen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY fertigkeiten_typen (name, typ, standard) FROM stdin;
@@ -8590,24 +8586,18 @@ Zunge verschlucken	Wa	S
 Zunge verschlucken	wHx	S
 \.
 --
--- TOC entry 3 (OID 133791)
--- Name: fertigkeiten_typen_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE INDEX fertigkeiten_typen_name ON fertigkeiten_typen USING btree (name);
 
 
 --
--- TOC entry 4 (OID 133792)
--- Name: fertigkeiten_typen_name_typ; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX fertigkeiten_typen_name_typ ON fertigkeiten_typen USING btree (name, typ);
 
 
 --
--- TOC entry 5 (OID 133793)
--- Name: fertigkeiten_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY fertigkeiten_typen

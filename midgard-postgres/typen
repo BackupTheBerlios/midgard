@@ -9,8 +9,6 @@ DROP INDEX public.typen_typs;
 DROP INDEX public.typen_typnr;
 DROP TABLE public.typen;
 --
--- TOC entry 2 (OID 137280)
--- Name: typen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE typen (
@@ -41,8 +39,6 @@ CREATE TABLE typen (
 
 
 --
--- Data for TOC entry 6 (OID 137280)
--- Name: typen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY typen (typnr, typs, typl, typlw, typz, ausdauer, stand, sb, ruestung, region, geld, beruf, stadt_land, sprueche_mit_pp, nsc_only, st, gw, gs, "in", pa, kultwaffe, lernpflichten, schreiben_pflicht) FROM stdin;
@@ -105,24 +101,18 @@ COPY typen (typnr, typs, typl, typlw, typz, ausdauer, stand, sb, ruestung, regio
 58	MMa	Meeresmagier	Meeresmagierin	z	z	10	30	4	G	3	z	l	\N	\N	\N	\N	\N	21	\N	\N	Die Alte Sprache muß Maralinga sein. Schreiben: Valinga muß auf mindestens +9 gelernt werden, entweder als Fachkenntnis oder als Allgemeinwissen.	t
 \.
 --
--- TOC entry 4 (OID 137342)
--- Name: typen_typnr; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX typen_typnr ON typen USING btree (typnr);
 
 
 --
--- TOC entry 5 (OID 137343)
--- Name: typen_typs; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX typen_typs ON typen USING btree (typs);
 
 
 --
--- TOC entry 3 (OID 137344)
--- Name: typen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY typen

@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.lernschema_4 DROP CONSTRAINT lernschema_4_pkey;
 DROP INDEX public.lernschema_4_typ_name_wert;
 DROP TABLE public.lernschema_4;
 --
--- TOC entry 2 (OID 134021)
--- Name: lernschema_4; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE lernschema_4 (
@@ -23,8 +21,6 @@ CREATE TABLE lernschema_4 (
 
 
 --
--- Data for TOC entry 5 (OID 134021)
--- Name: lernschema_4; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
@@ -2145,16 +2141,12 @@ COPY lernschema_4 (lernpunkte, typ, pflicht, name, art, wert) FROM stdin;
 9	PM	f	waffenloser Kampf	Waffenfertigkeiten	4
 \.
 --
--- TOC entry 4 (OID 136141)
--- Name: lernschema_4_typ_name_wert; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX lernschema_4_typ_name_wert ON lernschema_4 USING btree (typ, name, wert);
 
 
 --
--- TOC entry 3 (OID 136142)
--- Name: lernschema_4_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY lernschema_4

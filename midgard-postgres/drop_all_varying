@@ -2,5 +2,6 @@
 
 grep -v '^-- Name: .*; Type: .*; Schema: .*; Owner: .*; Tablespace: .*$' \
 | grep -v '^-- Data for Name: .*; Type: TABLE DATA; Schema: .*; Owner: .*$' \
+| grep -v '^-- TOC entry .* (OID .*)$' \
 | grep -v '^-- Data for TOC entry .* (OID .*)$' \
-| grep -v '^-- Name: .*; Type .*; Schema: .*; Owner: .*$' 
+| grep -v '^-- Name: .*; Type: .*; Schema: .*; Owner: .*$' 

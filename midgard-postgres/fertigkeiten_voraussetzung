@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.fertigkeiten_voraussetzung DROP CONSTRAINT fertigkeiten_
 DROP INDEX public.fertigkeiten_voraussetzung_name;
 DROP TABLE public.fertigkeiten_voraussetzung;
 --
--- TOC entry 2 (OID 124990)
--- Name: fertigkeiten_voraussetzung; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE fertigkeiten_voraussetzung (
@@ -29,8 +27,6 @@ CREATE TABLE fertigkeiten_voraussetzung (
 
 
 --
--- Data for TOC entry 5 (OID 124990)
--- Name: fertigkeiten_voraussetzung; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY fertigkeiten_voraussetzung (name, st, gw, ko, "in", zt, au, pa, sb, rw, fertigkeit, gs) FROM stdin;
@@ -208,16 +204,12 @@ Zeichensprache	\N	\N	\N	31	\N	\N	\N	\N	\N	\N	31
 Zunge verschlucken	\N	\N	\N	\N	\N	\N	\N	61	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 125167)
--- Name: fertigkeiten_voraussetzung_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX fertigkeiten_voraussetzung_name ON fertigkeiten_voraussetzung USING btree (name);
 
 
 --
--- TOC entry 4 (OID 125168)
--- Name: fertigkeiten_voraussetzung_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY fertigkeiten_voraussetzung

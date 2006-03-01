@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.waffen_grund DROP CONSTRAINT waffen_grund_pkey;
 DROP INDEX public.waffen_grund_name;
 DROP TABLE public.waffen_grund;
 --
--- TOC entry 2 (OID 138147)
--- Name: waffen_grund; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE waffen_grund (
@@ -20,8 +18,6 @@ CREATE TABLE waffen_grund (
 
 
 --
--- Data for TOC entry 5 (OID 138147)
--- Name: waffen_grund; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY waffen_grund (name, fp, region) FROM stdin;
@@ -55,16 +51,12 @@ Zweihandschlagwaffe	600	\N
 Zweihandschwert	800	\N
 \.
 --
--- TOC entry 3 (OID 138180)
--- Name: waffen_grund_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX waffen_grund_name ON waffen_grund USING btree (name);
 
 
 --
--- TOC entry 4 (OID 138181)
--- Name: waffen_grund_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY waffen_grund

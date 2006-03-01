@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.schrift DROP CONSTRAINT schrift_pkey;
 DROP INDEX public.schrift_name;
 DROP TABLE public.schrift;
 --
--- TOC entry 2 (OID 136790)
--- Name: schrift; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE schrift (
@@ -24,8 +22,6 @@ CREATE TABLE schrift (
 
 
 --
--- Data for TOC entry 5 (OID 136790)
--- Name: schrift; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY schrift (name, typ, kosten, region, alt, kult, region_zusatz) FROM stdin;
@@ -56,16 +52,12 @@ Waelska	Runen	20	\N	\N	\N	\N
 Zwergenrunen Futhark	Runen	20	\N	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 136820)
--- Name: schrift_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX schrift_name ON schrift USING btree (name);
 
 
 --
--- TOC entry 4 (OID 136821)
--- Name: schrift_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY schrift

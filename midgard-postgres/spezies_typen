@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.spezies_typen DROP CONSTRAINT spezies_typen_pkey;
 DROP INDEX public.spezies_typen_spezies;
 DROP TABLE public.spezies_typen;
 --
--- TOC entry 2 (OID 136672)
--- Name: spezies_typen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE spezies_typen (
@@ -20,8 +18,6 @@ CREATE TABLE spezies_typen (
 
 
 --
--- Data for TOC entry 5 (OID 136672)
--- Name: spezies_typen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY spezies_typen (spezies, typen, maxgrad) FROM stdin;
@@ -86,16 +82,12 @@ Zwerg	Th	\N
 Zwerg	To	\N
 \.
 --
--- TOC entry 4 (OID 136736)
--- Name: spezies_typen_spezies; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE INDEX spezies_typen_spezies ON spezies_typen USING btree (spezies);
 
 
 --
--- TOC entry 3 (OID 136737)
--- Name: spezies_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY spezies_typen

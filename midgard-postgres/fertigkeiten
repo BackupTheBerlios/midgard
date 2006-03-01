@@ -8,8 +8,6 @@ ALTER TABLE ONLY public.fertigkeiten DROP CONSTRAINT fertigkeit_pkey;
 DROP INDEX public.fertigkeiten_fertigkeit_region;
 DROP TABLE public.fertigkeiten;
 --
--- TOC entry 2 (OID 124817)
--- Name: fertigkeiten; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE fertigkeiten (
@@ -32,8 +30,6 @@ CREATE TABLE fertigkeiten (
 
 
 --
--- Data for TOC entry 5 (OID 124817)
--- Name: fertigkeiten; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert, fp, region, region_zusatz, attribut, ungelernt, berufsklasse, maxwert, maxunterweisung, zusaetze) FROM stdin;
@@ -204,16 +200,12 @@ COPY fertigkeiten (lp, lp_land, lp_stadt, anfangswert0, fertigkeit, anfangswert,
 \N	\N	\N	5	Orakelkunst	4	60	E	\N	In	\N	\N	12	11	\N
 \.
 --
--- TOC entry 4 (OID 124987)
--- Name: fertigkeiten_fertigkeit_region; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX fertigkeiten_fertigkeit_region ON fertigkeiten USING btree (fertigkeit, region);
 
 
 --
--- TOC entry 3 (OID 124988)
--- Name: fertigkeit_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY fertigkeiten

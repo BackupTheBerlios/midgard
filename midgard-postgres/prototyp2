@@ -7,8 +7,6 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.prototyp2 DROP CONSTRAINT prototyp2_pkey;
 DROP TABLE public.prototyp2;
 --
--- TOC entry 2 (OID 158396)
--- Name: prototyp2; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE prototyp2 (
@@ -20,8 +18,6 @@ CREATE TABLE prototyp2 (
 
 
 --
--- Data for TOC entry 4 (OID 158396)
--- Name: prototyp2; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY prototyp2 (bezeichnung, name, art, faktor) FROM stdin;
@@ -304,8 +300,6 @@ Wissen	Zauberkunde	F	0.50
 Wissen	Zeichensprache	F	0.60
 \.
 --
--- TOC entry 3 (OID 158678)
--- Name: prototyp2_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY prototyp2
