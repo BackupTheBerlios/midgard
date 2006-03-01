@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.71 2005/03/30 15:41:13 christof Exp $
+# $Id: Makefile,v 1.72 2006/03/01 18:03:30 christof Exp $
 #PG_DUMP=pg_dump
 PG_DUMP=/usr/local/bin/pg_dump_sort
 
@@ -51,6 +51,16 @@ dump:
 	  $(PG_DUMP) $(PGDUMP_FLAGS) -t "$$i" midgard | ./drop_all_varying >"$$i" ; \
 	done
 
+# (re)drop varying parts from data
+cleanup:
+	@for i in $(INSTALLED_TABLES) ; \
+	do \
+	  ./drop_all_varying <"$$i" >"$$i".novar ;\
+	  if cmp -s "$$i" "$$i".novar ; then rm "$$i".novar ; \
+	  else mv "$$i".novar "$$i" ; \
+	  fi ; \
+	done
+	
 # extract tables for dist or cvs (user tables without data)
 
 # make distribution tar archive
