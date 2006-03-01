@@ -17,6 +17,7 @@
  */
 
 #include "DialogAuswahl.hh"
+#include "class_SimpleTree_LernschemaZusatz.hh"
 
 void DialogAuswahl::clicked(cH_RowDataBase const& row,int idx,bool &handled)
 { result=row;
@@ -27,13 +28,13 @@ void DialogAuswahl::clicked(cH_RowDataBase const& row,int idx,bool &handled)
 DialogAuswahl::DialogAuswahl(Gtk::Window *parent,int spalten,std::string const& text)
   : MagusDialog(parent), tree(spalten)
 { set_text(text);
-  vbox->pack_start(tree);
+  get_vbox()->pack_start(tree);
   set_style(b_Close);
   tree.signal_clicked().connect(sigc::mem_fun(*this,&DialogAuswahl::clicked));
 }
 
-cH_ValueBase DialogAuswahl::run()
-{ int response=MagusDialog::run();
+cH_RowDataBase DialogAuswahl::run()
+{ MagusDialog::run();
   return result;
 }
 
@@ -52,12 +53,12 @@ void DialogZusatz::einschraenkung_anwenden()
               datavec.push_back(*i);
         }
    }
-  get_tree()=datavec;
+  get_tree().getModel()=datavec;
 }
 
 DialogZusatz::DialogZusatz(Gtk::Window *parent,int spalten,std::string const& text)
  : DialogAuswahl(parent,spalten,text), cb("Beschränkung aufheben")
-{ vbox->pack_start(cb);
+{ get_vbox()->pack_start(cb);
   cb.signal_toggled().connect(sigc::mem_fun(*this,&DialogZusatz::einschraenkung_anwenden));
   einschraenkung_anwenden();
 }

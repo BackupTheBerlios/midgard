@@ -21,22 +21,25 @@
 
 #include "MagusDialog.hh"
 #include <SimpleTree.hh>
+#include <gtkmm/checkbutton.h>
 
 // Ein Dialog zur Auswahl aus einer Liste
 class DialogAuswahl : public MagusDialog
 { SimpleTree tree;
-  cH_ValueBase result;
+  cH_RowDataBase result;
   
   void clicked(cH_RowDataBase const& row,int idx,bool &handled);
 public:
   DialogAuswahl(Gtk::Window *parent,int spalten=1,std::string const& text="");
   SimpleTree &get_tree() { return tree; }
-  cH_ValueBase run();
+  cH_RowDataBase run();
 };
 
 class DialogZusatz : public DialogAuswahl
 { Gtk::CheckButton cb;
   std::vector<cH_RowDataBase> alles;
+  
+  void einschraenkung_anwenden();
 public:
   DialogZusatz(Gtk::Window *parent,int spalten=1,std::string const& text="");
 };
