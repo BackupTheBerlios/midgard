@@ -1,4 +1,4 @@
-// $Id: WindowInfo.cc,v 1.68 2004/05/18 13:26:58 christof Exp $
+// $Id: WindowInfo.cc,v 1.69 2006/03/01 09:06:42 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -57,7 +57,7 @@ void WindowInfo::AppendShow(const std::string& s,Ausgabe::Level l)
   LogWin->append(s,c);
   LogWin->scroll();
   if(!Programmoptionen->OberCheck(Magus_Optionen::NoInfoFenster).active
-  		&& l>=Ausgabe::ActionNeeded)
+  		&& l>=Ausgabe::Error)
      show();
 //  des = Glib::signal_timeout().connect(slot(this,&WindowInfo::timeout),4000);
 //  Flush();

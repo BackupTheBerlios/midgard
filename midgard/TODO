@@ -3,9 +3,16 @@
 	iStufe ändern
 - InfoFenster in der Windows Version standardmäßig abschalten
 	(stört vermutlich eher, jetzt wo der Text wieder erscheint)
+- beim Erlernen einer Fertigkeit wird der Wert bereits um 1 erhöht?
 ####
 
 - Thema durch OptionBox/Combo statt Radio auswählen
+
+- Thema des Ausdrucks (?)
+
+- grobere Einstellung des Aussehens
+
+- beim _Auswählen_ der angeborenen Fertigkeit geht es nicht weiter
 
 - (neustarten/ zweites Fenster öffnen)
 
