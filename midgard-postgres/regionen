@@ -7,8 +7,8 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.regionen DROP CONSTRAINT regionen_pkey;
 DROP TABLE public.regionen;
 --
--- TOC entry 2 (OID 30962)
--- Name: regionen; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 136739)
+-- Name: regionen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE regionen (
@@ -28,8 +28,8 @@ CREATE TABLE regionen (
 
 
 --
--- Data for TOC entry 4 (OID 30962)
--- Name: regionen; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 4 (OID 136739)
+-- Name: regionen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY regionen (nr, name, titel, abkuerzung, file, url, maintainer, "version", copyright, offiziell, pic, jahr) FROM stdin;
@@ -54,8 +54,8 @@ COPY regionen (nr, name, titel, abkuerzung, file, url, maintainer, "version", co
 99	Eigene Erweiterung	Eigene Erweiterung	EE	\N	\N	Malte Thoma	1.0	\N	f	99	\N
 \.
 --
--- TOC entry 3 (OID 30987)
--- Name: regionen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 136764)
+-- Name: regionen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY regionen

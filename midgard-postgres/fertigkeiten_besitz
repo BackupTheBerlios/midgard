@@ -7,8 +7,8 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.fertigkeiten_besitz DROP CONSTRAINT fertigkeiten_besitz_pkey;
 DROP TABLE public.fertigkeiten_besitz;
 --
--- TOC entry 2 (OID 19425)
--- Name: fertigkeiten_besitz; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 125202)
+-- Name: fertigkeiten_besitz; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE fertigkeiten_besitz (
@@ -20,8 +20,8 @@ CREATE TABLE fertigkeiten_besitz (
 
 
 --
--- Data for TOC entry 4 (OID 19425)
--- Name: fertigkeiten_besitz; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 4 (OID 125202)
+-- Name: fertigkeiten_besitz; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY fertigkeiten_besitz (name, gegenstand, min, "position") FROM stdin;
@@ -42,8 +42,8 @@ Trinken	Tonkrug mit Schnaps (1 Liter)	81	Rucksack
 Verkleiden	Ausrüstung für einfache Verkleidungen	6	Rucksack
 \.
 --
--- TOC entry 3 (OID 19445)
--- Name: fertigkeiten_besitz_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 125222)
+-- Name: fertigkeiten_besitz_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY fertigkeiten_besitz

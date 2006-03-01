@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.fertigkeiten_voraussetzungen_2 DROP CONSTRAINT fertigkei
 DROP INDEX public.fertigkeiten_voraussetzungen_2_;
 DROP TABLE public.fertigkeiten_voraussetzungen_2;
 --
--- TOC entry 2 (OID 19393)
--- Name: fertigkeiten_voraussetzungen_2; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 125170)
+-- Name: fertigkeiten_voraussetzungen_2; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE fertigkeiten_voraussetzungen_2 (
@@ -19,8 +19,8 @@ CREATE TABLE fertigkeiten_voraussetzungen_2 (
 
 
 --
--- Data for TOC entry 5 (OID 19393)
--- Name: fertigkeiten_voraussetzungen_2; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 125170)
+-- Name: fertigkeiten_voraussetzungen_2; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY fertigkeiten_voraussetzungen_2 (name, voraussetzung) FROM stdin;
@@ -50,16 +50,16 @@ Schwerttanz	Beidhändiger Kampf
 Tauchen	Schwimmen
 \.
 --
--- TOC entry 4 (OID 19422)
--- Name: fertigkeiten_voraussetzungen_2_; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 125199)
+-- Name: fertigkeiten_voraussetzungen_2_; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE INDEX fertigkeiten_voraussetzungen_2_ ON fertigkeiten_voraussetzungen_2 USING btree (name, voraussetzung);
 
 
 --
--- TOC entry 3 (OID 19423)
--- Name: fertigkeiten_voraus_2_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 125200)
+-- Name: fertigkeiten_voraus_2_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY fertigkeiten_voraussetzungen_2

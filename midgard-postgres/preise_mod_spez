@@ -6,8 +6,8 @@ SET search_path = public, pg_catalog;
 
 DROP TABLE public.preise_mod_spez;
 --
--- TOC entry 2 (OID 30845)
--- Name: preise_mod_spez; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 136622)
+-- Name: preise_mod_spez; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE preise_mod_spez (
@@ -18,8 +18,8 @@ CREATE TABLE preise_mod_spez (
 
 
 --
--- Data for TOC entry 3 (OID 30845)
--- Name: preise_mod_spez; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 3 (OID 136622)
+-- Name: preise_mod_spez; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY preise_mod_spez (modi_art, spezifikation, preis_faktor) FROM stdin;

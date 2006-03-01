@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.steigern_fertigkeiten_mit DROP CONSTRAINT steigern_ferti
 DROP INDEX public.steigern_fertigkeiten_mit_name;
 DROP TABLE public.steigern_fertigkeiten_mit;
 --
--- TOC entry 2 (OID 31308)
--- Name: steigern_fertigkeiten_mit; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 137085)
+-- Name: steigern_fertigkeiten_mit; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE steigern_fertigkeiten_mit (
@@ -19,8 +19,8 @@ CREATE TABLE steigern_fertigkeiten_mit (
 
 
 --
--- Data for TOC entry 5 (OID 31308)
--- Name: steigern_fertigkeiten_mit; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 137085)
+-- Name: steigern_fertigkeiten_mit; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY steigern_fertigkeiten_mit (name, ep) FROM stdin;
@@ -130,16 +130,16 @@ Zaubern	ZEP
 Zeichensprache	ZEP
 \.
 --
--- TOC entry 3 (OID 31417)
--- Name: steigern_fertigkeiten_mit_name; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 137194)
+-- Name: steigern_fertigkeiten_mit_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE INDEX steigern_fertigkeiten_mit_name ON steigern_fertigkeiten_mit USING btree (name);
 
 
 --
--- TOC entry 4 (OID 31418)
--- Name: steigern_fertigkeiten_mit_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 137195)
+-- Name: steigern_fertigkeiten_mit_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY steigern_fertigkeiten_mit

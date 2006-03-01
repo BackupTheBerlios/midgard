@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.land_nachbarland DROP CONSTRAINT land_nachbarland_pkey;
 DROP INDEX public.land_nachbarland_land_1_land_2;
 DROP TABLE public.land_nachbarland;
 --
--- TOC entry 2 (OID 28195)
--- Name: land_nachbarland; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 133972)
+-- Name: land_nachbarland; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE land_nachbarland (
@@ -19,8 +19,8 @@ CREATE TABLE land_nachbarland (
 
 
 --
--- Data for TOC entry 5 (OID 28195)
--- Name: land_nachbarland; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 133972)
+-- Name: land_nachbarland; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY land_nachbarland (land_1, land_2) FROM stdin;
@@ -67,16 +67,16 @@ Moravod	Waeland
 Tegarische Steppe	Valian
 \.
 --
--- TOC entry 3 (OID 28241)
--- Name: land_nachbarland_land_1_land_2; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 134018)
+-- Name: land_nachbarland_land_1_land_2; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX land_nachbarland_land_1_land_2 ON land_nachbarland USING btree (land_1, land_2);
 
 
 --
--- TOC entry 4 (OID 28242)
--- Name: land_nachbarland_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 134019)
+-- Name: land_nachbarland_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY land_nachbarland

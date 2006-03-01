@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.steigern_fertigkeiten DROP CONSTRAINT steigern_fertigkei
 DROP INDEX public.steigern_fertigkeiten_name;
 DROP TABLE public.steigern_fertigkeiten;
 --
--- TOC entry 2 (OID 31147)
--- Name: steigern_fertigkeiten; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 136924)
+-- Name: steigern_fertigkeiten; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE steigern_fertigkeiten (
@@ -19,8 +19,8 @@ CREATE TABLE steigern_fertigkeiten (
 
 
 --
--- Data for TOC entry 5 (OID 31147)
--- Name: steigern_fertigkeiten; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 136924)
+-- Name: steigern_fertigkeiten; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY steigern_fertigkeiten (name, wie) FROM stdin;
@@ -179,16 +179,16 @@ Zeichensprache	Zeichensprache
 Zunge verschlucken	Zunge verschlucken
 \.
 --
--- TOC entry 3 (OID 31305)
--- Name: steigern_fertigkeiten_name; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 137082)
+-- Name: steigern_fertigkeiten_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX steigern_fertigkeiten_name ON steigern_fertigkeiten USING btree (name);
 
 
 --
--- TOC entry 4 (OID 31306)
--- Name: steigern_fertigkeiten_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 137083)
+-- Name: steigern_fertigkeiten_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY steigern_fertigkeiten

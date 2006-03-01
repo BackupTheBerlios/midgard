@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.preise DROP CONSTRAINT "Preise_pkey";
 DROP INDEX public."Preise_name";
 DROP TABLE public.preise;
 --
--- TOC entry 2 (OID 30636)
--- Name: preise; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 136413)
+-- Name: preise; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE preise (
@@ -23,8 +23,8 @@ CREATE TABLE preise (
 
 
 --
--- Data for TOC entry 5 (OID 30636)
--- Name: preise; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 136413)
+-- Name: preise; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY preise (art, art2, name, gewicht, kosten, einheit) FROM stdin;
@@ -186,16 +186,16 @@ Waffenzubehör		verzierter Waffengürtel	1	3	GS
 Waffenzubehör		verzierte Schwertscheide	1	20	GS
 \.
 --
--- TOC entry 3 (OID 30797)
--- Name: Preise_name; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 136574)
+-- Name: Preise_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX "Preise_name" ON preise USING btree (name);
 
 
 --
--- TOC entry 4 (OID 30798)
--- Name: Preise_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 136575)
+-- Name: Preise_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY preise

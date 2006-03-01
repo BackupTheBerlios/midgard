@@ -7,8 +7,8 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.waffen_voraussetzung DROP CONSTRAINT waffen_voraussetzung_pkey;
 DROP TABLE public.waffen_voraussetzung;
 --
--- TOC entry 2 (OID 52592)
--- Name: waffen_voraussetzung; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 158369)
+-- Name: waffen_voraussetzung; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE waffen_voraussetzung (
@@ -19,8 +19,8 @@ CREATE TABLE waffen_voraussetzung (
 
 
 --
--- Data for TOC entry 4 (OID 52592)
--- Name: waffen_voraussetzung; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 4 (OID 158369)
+-- Name: waffen_voraussetzung; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY waffen_voraussetzung (name, voraussetzung, art) FROM stdin;
@@ -37,8 +37,8 @@ Wurfspeer	leichter Speer	W
 Wurfspieß	leichter Speer	W
 \.
 --
--- TOC entry 3 (OID 52608)
--- Name: waffen_voraussetzung_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 158385)
+-- Name: waffen_voraussetzung_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY waffen_voraussetzung

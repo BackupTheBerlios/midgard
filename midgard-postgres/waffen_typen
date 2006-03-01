@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.waffen_typen DROP CONSTRAINT waffen_typen_pkey;
 DROP INDEX public.waffen_typen_name_typ;
 DROP TABLE public.waffen_typen;
 --
--- TOC entry 2 (OID 32486)
--- Name: waffen_typen; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 138263)
+-- Name: waffen_typen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE waffen_typen (
@@ -20,8 +20,8 @@ CREATE TABLE waffen_typen (
 
 
 --
--- Data for TOC entry 5 (OID 32486)
--- Name: waffen_typen; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 138263)
+-- Name: waffen_typen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY waffen_typen (name, typ, standard) FROM stdin;
@@ -4193,16 +4193,16 @@ Zweizack	wHx	A
 Zweizack	Wi	S
 \.
 --
--- TOC entry 3 (OID 36657)
--- Name: waffen_typen_name_typ; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 142434)
+-- Name: waffen_typen_name_typ; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX waffen_typen_name_typ ON waffen_typen USING btree (name, typ);
 
 
 --
--- TOC entry 4 (OID 36658)
--- Name: waffen_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 142435)
+-- Name: waffen_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY waffen_typen

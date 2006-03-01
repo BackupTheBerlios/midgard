@@ -6,8 +6,8 @@ SET search_path = public, pg_catalog;
 
 DROP TABLE public.typen_herkunft;
 --
--- TOC entry 2 (OID 31659)
--- Name: typen_herkunft; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 137436)
+-- Name: typen_herkunft; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE typen_herkunft (
@@ -18,8 +18,8 @@ CREATE TABLE typen_herkunft (
 
 
 --
--- Data for TOC entry 3 (OID 31659)
--- Name: typen_herkunft; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 3 (OID 137436)
+-- Name: typen_herkunft; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY typen_herkunft (typ, land, kultwaffe) FROM stdin;

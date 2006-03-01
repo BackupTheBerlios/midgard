@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.zauber_typen DROP CONSTRAINT zauber_typen_pkey;
 DROP INDEX public.zauber_typen_name_typ;
 DROP TABLE public.zauber_typen;
 --
--- TOC entry 2 (OID 40186)
--- Name: zauber_typen; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 145963)
+-- Name: zauber_typen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE zauber_typen (
@@ -21,8 +21,8 @@ CREATE TABLE zauber_typen (
 
 
 --
--- Data for TOC entry 5 (OID 40186)
--- Name: zauber_typen; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 145963)
+-- Name: zauber_typen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY zauber_typen (name, typ, standard, agens) FROM stdin;
@@ -859,7 +859,6 @@ Bannen von Zauberwerk	To	S	\N
 Bannen von Zauberwerk	wHx	S	\N
 Bannrune	Ru	G	\N
 Bannrune	Sk	S	\N
-Bannspäre, Goldene	Hj	G	\N
 Bannsphäre, Blaue	dBe	G	\N
 Bannsphäre, Blaue	De	S	\N
 Bannsphäre, Blaue	Dr	A	\N
@@ -896,6 +895,7 @@ Bannsphäre, Goldene	Dr	A	\N
 Bannsphäre, Goldene	Dt	S	\N
 Bannsphäre, Goldene	eBe	A	\N
 Bannsphäre, Goldene	gHx	S	\N
+Bannsphäre, Goldene	Hj	G	\N
 Bannsphäre, Goldene	Hl	A	\N
 Bannsphäre, Goldene	Km	S	\N
 Bannsphäre, Goldene	Ma	S	\N
@@ -12081,16 +12081,16 @@ Zwingkreis, Silberner	ScW	A	\N
 Zwingkreis, Silberner	tBe	S	\N
 \.
 --
--- TOC entry 3 (OID 52244)
--- Name: zauber_typen_name_typ; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 158021)
+-- Name: zauber_typen_name_typ; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX zauber_typen_name_typ ON zauber_typen USING btree (name, typ);
 
 
 --
--- TOC entry 4 (OID 52245)
--- Name: zauber_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 158022)
+-- Name: zauber_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY zauber_typen

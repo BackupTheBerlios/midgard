@@ -6,8 +6,8 @@ SET search_path = public, pg_catalog;
 
 DROP TABLE public.zauber;
 --
--- TOC entry 2 (OID 17169)
--- Name: zauber; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 122946)
+-- Name: zauber; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE zauber (
@@ -38,8 +38,8 @@ CREATE TABLE zauber (
 
 
 --
--- Data for TOC entry 3 (OID 17169)
--- Name: zauber; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 3 (OID 122946)
+-- Name: zauber; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY zauber (name, kosten, ap, art, stufe, region, region_zusatz, element, zauberart, agens, prozess, reagens, zauberdauer, reichweite, wirkungsziel, wirkungsbereich, wirkungsdauer, ursprung, material, spruchrolle, thaumagram, zusaetze, nsc_only) FROM stdin;

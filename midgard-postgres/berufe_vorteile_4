@@ -7,8 +7,8 @@ SET search_path = public, pg_catalog;
 ALTER TABLE ONLY public.berufe_vorteile_4 DROP CONSTRAINT berufe_vorteile_4_pkey;
 DROP TABLE public.berufe_vorteile_4;
 --
--- TOC entry 2 (OID 18545)
--- Name: berufe_vorteile_4; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 124322)
+-- Name: berufe_vorteile_4; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE berufe_vorteile_4 (
@@ -19,8 +19,8 @@ CREATE TABLE berufe_vorteile_4 (
 
 
 --
--- Data for TOC entry 4 (OID 18545)
--- Name: berufe_vorteile_4; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 4 (OID 124322)
+-- Name: berufe_vorteile_4; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY berufe_vorteile_4 (beruf, vorteil, wert) FROM stdin;
@@ -514,8 +514,8 @@ Zureiter	Kampf zu Pferd	10
 Zureiter	Reiten	10
 \.
 --
--- TOC entry 3 (OID 19038)
--- Name: berufe_vorteile_4_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 124815)
+-- Name: berufe_vorteile_4_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY berufe_vorteile_4

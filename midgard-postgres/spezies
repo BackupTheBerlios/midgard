@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.spezies DROP CONSTRAINT spezies_pkey;
 DROP INDEX public.spezies_spezies;
 DROP TABLE public.spezies;
 --
--- TOC entry 2 (OID 30867)
--- Name: spezies; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 136644)
+-- Name: spezies; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE spezies (
@@ -51,8 +51,8 @@ CREATE TABLE spezies (
 
 
 --
--- Data for TOC entry 5 (OID 30867)
--- Name: spezies; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 136644)
+-- Name: spezies; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY spezies (nr, spezies, st, gs, gw, ko, "in", zt, sb, au, lp, hand_bonus, ap_bonus, ap_grad_fak, ap_prozent_gb51, psy, psy100, phs, phs100, phk, phk100, alter_fak, groesse_wanz, groesse_wuerfel, groesse_bonus, gewicht_wanz, gewicht_bonus, normgestalt, b_wanz, b_bonus, raufen, land, only_nsc, weiblich) FROM stdin;
@@ -64,16 +64,16 @@ COPY spezies (nr, spezies, st, gs, gw, ko, "in", zt, sb, au, lp, hand_bonus, ap_
 5	Zwerg	61	\N	-80	61	\N	\N	\N	-80	1	\N	\N	0	\N	4	4	4	4	\N	\N	2	1	6	130	4	-90	-70	3	12	1	\N	\N	Zwergin
 \.
 --
--- TOC entry 4 (OID 30878)
--- Name: spezies_spezies; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 136655)
+-- Name: spezies_spezies; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX spezies_spezies ON spezies USING btree (spezies);
 
 
 --
--- TOC entry 3 (OID 30879)
--- Name: spezies_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 136656)
+-- Name: spezies_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY spezies

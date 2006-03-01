@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.sprachen DROP CONSTRAINT sprachen_pkey;
 DROP INDEX public.sprachen_name;
 DROP TABLE public.sprachen;
 --
--- TOC entry 2 (OID 31046)
--- Name: sprachen; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 136823)
+-- Name: sprachen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE sprachen (
@@ -26,8 +26,8 @@ CREATE TABLE sprachen (
 
 
 --
--- Data for TOC entry 5 (OID 31046)
--- Name: sprachen; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 136823)
+-- Name: sprachen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, region_zusatz) FROM stdin;
@@ -76,16 +76,16 @@ COPY sprachen (fp, name, max_wert, alt, region, gruppe_1, gruppe_2, minderheit, 
 10	Waelska	20	\N	\N	8	\N	\N	\N
 \.
 --
--- TOC entry 3 (OID 31094)
--- Name: sprachen_name; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 136871)
+-- Name: sprachen_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX sprachen_name ON sprachen USING btree (name);
 
 
 --
--- TOC entry 4 (OID 31095)
--- Name: sprachen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 136872)
+-- Name: sprachen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY sprachen

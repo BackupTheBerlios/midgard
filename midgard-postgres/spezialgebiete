@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.spezialgebiete DROP CONSTRAINT spezialgebiete_pkey;
 DROP INDEX public.spezialgebiete_spezialgebiet;
 DROP TABLE public.spezialgebiete;
 --
--- TOC entry 2 (OID 40131)
--- Name: spezialgebiete; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 145908)
+-- Name: spezialgebiete; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE spezialgebiete (
@@ -22,8 +22,8 @@ CREATE TABLE spezialgebiete (
 
 
 --
--- Data for TOC entry 5 (OID 40131)
--- Name: spezialgebiete; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 145908)
+-- Name: spezialgebiete; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY spezialgebiete (typ, nr, spezialgebiet, spezial, spezial2) FROM stdin;
@@ -56,16 +56,16 @@ Ma	14	Adept des formbaren Chaos	Magan	\N
 Ma	15	Adept des Todes	Eis	\N
 \.
 --
--- TOC entry 4 (OID 40163)
--- Name: spezialgebiete_spezialgebiet; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 145940)
+-- Name: spezialgebiete_spezialgebiet; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX spezialgebiete_spezialgebiet ON spezialgebiete USING btree (spezialgebiet);
 
 
 --
--- TOC entry 3 (OID 40164)
--- Name: spezialgebiete_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 145941)
+-- Name: spezialgebiete_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY spezialgebiete

@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.zauber_beschreibung DROP CONSTRAINT zauber_beschreibung_
 DROP INDEX public.zauber_beschreibung_name;
 DROP TABLE public.zauber_beschreibung;
 --
--- TOC entry 2 (OID 38256)
--- Name: zauber_beschreibung; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 144033)
+-- Name: zauber_beschreibung; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE zauber_beschreibung (
@@ -19,8 +19,8 @@ CREATE TABLE zauber_beschreibung (
 
 
 --
--- Data for TOC entry 5 (OID 38256)
--- Name: zauber_beschreibung; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 144033)
+-- Name: zauber_beschreibung; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY zauber_beschreibung (name, beschreibung) FROM stdin;
@@ -416,16 +416,16 @@ Zweite Haut	Der Zauberer nutzt seine eigene körperliche Widerstandskraft gegen 
 Zwiesprache	Zauberer, die beide die magische 'Zwiesprache' beherrschen und sich seit der letzten Neumondnacht sechs Stunden Zeit genommen haben, um sich in einer gemeinsamen Meditation aufeinander einzustimmen, können sich mit diesem Zauber über eine Entfernung von bis zu 500m geistig verständigen. Metallwände oder engmaschige Metallgitter unterbinden die Verbindung. Während der Wirkungsdauer muß der Zauberer sich konzentrieren; er darf keine anderen Handlungen ausführen und bewegt sich mit B1.
 \.
 --
--- TOC entry 3 (OID 38651)
--- Name: zauber_beschreibung_name; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 144428)
+-- Name: zauber_beschreibung_name; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX zauber_beschreibung_name ON zauber_beschreibung USING btree (name);
 
 
 --
--- TOC entry 4 (OID 38652)
--- Name: zauber_beschreibung_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 144429)
+-- Name: zauber_beschreibung_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY zauber_beschreibung

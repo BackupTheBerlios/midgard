@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.waffen_grund_typen DROP CONSTRAINT waffen_grund_typen_pk
 DROP INDEX public.waffen_grund_typen_name_typ;
 DROP TABLE public.waffen_grund_typen;
 --
--- TOC entry 2 (OID 36660)
--- Name: waffen_grund_typen; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 142437)
+-- Name: waffen_grund_typen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE waffen_grund_typen (
@@ -20,8 +20,8 @@ CREATE TABLE waffen_grund_typen (
 
 
 --
--- Data for TOC entry 5 (OID 36660)
--- Name: waffen_grund_typen; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 142437)
+-- Name: waffen_grund_typen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY waffen_grund_typen (name, typ, standard) FROM stdin;
@@ -1615,16 +1615,16 @@ Zweihandschwert	wHx	A
 Zweihandschwert	Wi	S
 \.
 --
--- TOC entry 3 (OID 38253)
--- Name: waffen_grund_typen_name_typ; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 144030)
+-- Name: waffen_grund_typen_name_typ; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX waffen_grund_typen_name_typ ON waffen_grund_typen USING btree (name, typ);
 
 
 --
--- TOC entry 4 (OID 38254)
--- Name: waffen_grund_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 144031)
+-- Name: waffen_grund_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY waffen_grund_typen

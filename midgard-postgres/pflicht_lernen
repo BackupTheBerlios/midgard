@@ -7,8 +7,8 @@ SET search_path = public, pg_catalog;
 DROP INDEX public.pflicht_lernen_typ;
 DROP TABLE public.pflicht_lernen;
 --
--- TOC entry 2 (OID 30367)
--- Name: pflicht_lernen; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 136144)
+-- Name: pflicht_lernen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE pflicht_lernen (
@@ -22,8 +22,8 @@ CREATE TABLE pflicht_lernen (
 
 
 --
--- Data for TOC entry 4 (OID 30367)
--- Name: pflicht_lernen; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 4 (OID 136144)
+-- Name: pflicht_lernen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY pflicht_lernen (typ, pflicht, lernpunkte, verboten, spielbegin, erfolgswert) FROM stdin;
@@ -292,8 +292,8 @@ Zwerg	\N	\N	Wurfstern 	S	\N
 Zwerk	Trinken	1	\N	\N	12
 \.
 --
--- TOC entry 3 (OID 30635)
--- Name: pflicht_lernen_typ; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 136412)
+-- Name: pflicht_lernen_typ; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE INDEX pflicht_lernen_typ ON pflicht_lernen USING btree (typ);

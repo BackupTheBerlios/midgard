@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.ruestung DROP CONSTRAINT ruestung_pkey;
 DROP INDEX public.ruestung_ruestung_s;
 DROP TABLE public.ruestung;
 --
--- TOC entry 2 (OID 30989)
--- Name: ruestung; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 136766)
+-- Name: ruestung; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE ruestung (
@@ -30,8 +30,8 @@ CREATE TABLE ruestung (
 
 
 --
--- Data for TOC entry 5 (OID 30989)
--- Name: ruestung; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 136766)
+-- Name: ruestung; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY ruestung (ruestung, ruestung_s, lp_verlust, min_staerke, rw_verlust, b_verlust, region, abwehr_bonus_verlust, angriffs_bonus_verlust, vollruestung, kosten_gs, gewicht, behinderung_wie) FROM stdin;
@@ -53,16 +53,16 @@ Tschahaatha(VR)	VR(R)	5	0	0	8	R	\N	\N	2	\N	\N	PR
 Vollrüstung	VR	5	61	40	12	\N	2	1	2	600	45	VR
 \.
 --
--- TOC entry 4 (OID 31010)
--- Name: ruestung_ruestung_s; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 136787)
+-- Name: ruestung_ruestung_s; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX ruestung_ruestung_s ON ruestung USING btree (ruestung_s);
 
 
 --
--- TOC entry 3 (OID 31011)
--- Name: ruestung_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 136788)
+-- Name: ruestung_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY ruestung

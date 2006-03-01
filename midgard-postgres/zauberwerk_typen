@@ -8,8 +8,8 @@ ALTER TABLE ONLY public.zauberwerk_typen DROP CONSTRAINT zauberwerk_typen_pkey;
 DROP INDEX public.zauberwerk_typen_name_stufe_typ;
 DROP TABLE public.zauberwerk_typen;
 --
--- TOC entry 2 (OID 38824)
--- Name: zauberwerk_typen; Type: TABLE; Schema: public; Owner: thoma
+-- TOC entry 2 (OID 144601)
+-- Name: zauberwerk_typen; Type: TABLE; Schema: public; Owner: sandro
 --
 
 CREATE TABLE zauberwerk_typen (
@@ -22,8 +22,8 @@ CREATE TABLE zauberwerk_typen (
 
 
 --
--- Data for TOC entry 5 (OID 38824)
--- Name: zauberwerk_typen; Type: TABLE DATA; Schema: public; Owner: thoma
+-- Data for TOC entry 5 (OID 144601)
+-- Name: zauberwerk_typen; Type: TABLE DATA; Schema: public; Owner: sandro
 --
 
 COPY zauberwerk_typen (name, stufe, typ, standard, art) FROM stdin;
@@ -1268,16 +1268,16 @@ Zündletter (Schlüsselwort)	3	Sw	G	magische Letter
 Zündletter (Schlüsselwort)	3	Th	G	magische Letter
 \.
 --
--- TOC entry 3 (OID 40068)
--- Name: zauberwerk_typen_name_stufe_typ; Type: INDEX; Schema: public; Owner: thoma
+-- TOC entry 3 (OID 145845)
+-- Name: zauberwerk_typen_name_stufe_typ; Type: INDEX; Schema: public; Owner: sandro
 --
 
 CREATE UNIQUE INDEX zauberwerk_typen_name_stufe_typ ON zauberwerk_typen USING btree (name, stufe, typ, art);
 
 
 --
--- TOC entry 4 (OID 40069)
--- Name: zauberwerk_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: thoma
+-- TOC entry 4 (OID 145846)
+-- Name: zauberwerk_typen_pkey; Type: CONSTRAINT; Schema: public; Owner: sandro
 --
 
 ALTER TABLE ONLY zauberwerk_typen
