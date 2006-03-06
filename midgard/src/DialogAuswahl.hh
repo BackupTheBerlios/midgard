@@ -22,6 +22,7 @@
 #include "MagusDialog.hh"
 #include <SimpleTree.hh>
 #include <gtkmm/checkbutton.h>
+#include <libmagus/MidgardBasicElement.hh>
 
 // Ein Dialog zur Auswahl aus einer Liste
 class DialogAuswahl : public MagusDialog

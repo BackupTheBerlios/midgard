@@ -116,7 +116,7 @@ int DialogZusatz::spalten(MidgardBasicElement::eZusatz was)
 DialogZusatz::DialogZusatz(Gtk::Window *parent,MidgardBasicElement::eZusatz was, MBEmlt MBE)
  : DialogAuswahl(parent,spalten(was),text(was,MBE)), cb("Beschränkung aufheben")
 { get_vbox()->pack_start(cb);
-  tree.set_titles(titles(was,MBE));
+  get_tree().setTitles(titles(was,MBE));
   // Auswahl hinterlegen
   cb.signal_toggled().connect(sigc::mem_fun(*this,&DialogZusatz::einschraenkung_anwenden));
   einschraenkung_anwenden();
