@@ -56,9 +56,68 @@ void DialogZusatz::einschraenkung_anwenden()
   get_tree().getModel()=datavec;
 }
 
-DialogZusatz::DialogZusatz(Gtk::Window *parent,int spalten,std::string const& text)
- : DialogAuswahl(parent,spalten,text), cb("Beschränkung aufheben")
+// könnte auch in libmagus!
+std::string DialogZusatz::text(MidgardBasicElement::eZusatz was,MBEmlt MBE)
+{ switch (was)
+  { case MidgardBasicElement::ZHerkunft: return "Herkunftsland wählen";
+    case MidgardBasicElement::ZUeberleben: 
+       return "In welcher Gegend beherrscht dieser Abenteurer 'Überleben' "
+           "als Universelle Fertigkeit";
+    case MidgardBasicElement::ZWaffe: return "Fernkampfwaffe auswählen";
+      // FIXME: MBE name?
+    case MidgardBasicElement::ZTabelle: return "Zusatz auswählen";
+    case MidgardBasicElement::ZSchrift: return "Schrift auswählen";
+      // FIXME: Mutter ja/nein angeben!
+    case MidgardBasicElement::ZSprache: if ((*MBE)->Name()=="Muttersprache")
+        return "Muttersprache wählen";
+      return "Sprache auswählen";
+    default: return (*MBE)->Name()+" auswählen";
+  }
+}
+
+std::vector<std::string> DialogZusatz::titles(MidgardBasicElement::eZusatz was,MBEmlt MBE)
+{ std::vector<std::string> result;
+  switch (was)
+  { case MidgardBasicElement::ZHerkunft: result.push_back("Land");
+      result.push_back("Kontinent");
+      result.push_back("Sprache(n)");
+      return result;
+    case MidgardBasicElement::ZUeberleben: 
+    case MidgardBasicElement::ZWaffe:
+    case MidgardBasicElement::ZSchrift:
+    case MidgardBasicElement::ZSprache:
+    default: 
+      result.push_back((*MBE)->Name());
+      return result;
+    case MidgardBasicElement::ZTabelle:
+      result.push_back((*MBE)->Name());
+      // ""?
+      result.push_back("Region");
+      return result;
+  }
+}
+
+int DialogZusatz::spalten(MidgardBasicElement::eZusatz was)
+{ switch (was)
+  { case MidgardBasicElement::ZHerkunft:
+      return 3;
+    case MidgardBasicElement::ZUeberleben: 
+    case MidgardBasicElement::ZWaffe:
+    case MidgardBasicElement::ZSchrift:
+    case MidgardBasicElement::ZSprache:
+    default: 
+      return 1;
+    case MidgardBasicElement::ZTabelle:
+      return 2; // ?
+  }
+}
+
+// vermutlich brauche ich noch MBE (und Abent?)
+DialogZusatz::DialogZusatz(Gtk::Window *parent,MidgardBasicElement::eZusatz was, MBEmlt MBE)
+ : DialogAuswahl(parent,spalten(was),text(was,MBE)), cb("Beschränkung aufheben")
 { get_vbox()->pack_start(cb);
+  tree.set_titles(titles(was,MBE));
+  // Auswahl hinterlegen
   cb.signal_toggled().connect(sigc::mem_fun(*this,&DialogZusatz::einschraenkung_anwenden));
   einschraenkung_anwenden();
 }

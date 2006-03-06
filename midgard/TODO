@@ -1,16 +1,19 @@
 ##### DAS IST DAS WICHTIGSTE #########################################
 - wann wird große Magie als Stufe 6 wann als Stufe 7 behandelt?
 	iStufe ändern
-- InfoFenster in der Windows Version standardmäßig abschalten
-	(stört vermutlich eher, jetzt wo der Text wieder erscheint)
 - beim Erlernen einer Fertigkeit wird der Wert bereits um 1 erhöht?
 ####
+
+- wozu dient list_FertigkeitZusaetze? (scheint bereits gelerntes
+	auszublenden)
 
 - Thema durch OptionBox/Combo statt Radio auswählen
 
 - Thema des Ausdrucks (?)
 
 - grobere Einstellung des Aussehens
+
+- Beginner/Advanced/Professional
 
 - beim _Auswählen_ der angeborenen Fertigkeit geht es nicht weiter
 

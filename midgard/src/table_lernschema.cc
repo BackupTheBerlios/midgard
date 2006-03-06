@@ -385,24 +385,34 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
             hauptfenster->getChar()->cancel_undo();
             return;
           }
-        if(!LernListen::SpracheSchrift(MBE->getMBE()))
+//        if(!LernListen::SpracheSchrift(MBE->getMBE()))
           { 
             std::string::size_type st = (*MBE)->Name().find("KiDo-Technik");
             if(st!=std::string::npos) 
-               { ++vabenteurer->getLernpunkte().MaxKido(); list_FertigkeitZusaetze.push_back((*MBE)->Name());}
+            { ++vabenteurer->getLernpunkte().MaxKido(); 
+              list_FertigkeitZusaetze.push_back((*MBE)->Name());
+            }
             if(!(*MBE)->ZusatzEnum(A.getVTyp()) && st==std::string::npos)// Das 'push_back' macht 'lernen_zusatz' automatisch
                  A.List_Fertigkeit().push_back(MBE); 
-            if((*MBE)->Name()=="KiDo" && A.Typ1()->Short()=="Kd") vabenteurer->getLernpunkte().MaxKido()+=2;
+            if((*MBE)->Name()=="KiDo" && A.Typ1()->Short()=="Kd") 
+              vabenteurer->getLernpunkte().MaxKido()+=2;
             if(vabenteurer->getLernpunkte().MaxKido()>0 && MBEmlt(&*cH_Fertigkeit("KiDo"))->ist_gelernt(hauptfenster->getAben().List_Fertigkeit()))
                zeige_werte();
          }
+#if 0  // wie bitte? CP
         else
           { // Damit Sprachen und Schriften nicht doppelt angezeigt werden
             // später: nach einhelliger Meinung sollen sie das doch 
 //            list_FertigkeitZusaetze.push_back((*(*MBE))->Name());
           }
+#endif          
         if((*MBE)->ZusatzEnum(A.getVTyp())) 
+#if 1
           lernen_zusatz((*MBE)->ZusatzEnum(A.getVTyp()),MBE);
+#else
+        { std::string zus=DialogZusatz(hauptfenster,(*MBE)->ZusatzEnum(A.getVTyp())).run();
+        }
+#endif
 
         if(MBE->LernArt().find("Fach")!=std::string::npos)
            vabenteurer->getLernpunkte().getLernpunkte().addFach(-MBE->Lernpunkte());

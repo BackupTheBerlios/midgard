@@ -40,8 +40,12 @@ class DialogZusatz : public DialogAuswahl
   std::vector<cH_RowDataBase> alles;
   
   void einschraenkung_anwenden();
+  static int spalten(MidgardBasicElement::eZusatz was);
+  static std::string text(MidgardBasicElement::eZusatz was, MBEmlt MBE);
+  static std::vector<std::string> titles(MidgardBasicElement::eZusatz was, MBEmlt MBE);
 public:
-  DialogZusatz(Gtk::Window *parent,int spalten=1,std::string const& text="");
+  DialogZusatz(Gtk::Window *parent,MidgardBasicElement::eZusatz was,MBEmlt MBE);
+  std::string run();
 };
 
 #endif
