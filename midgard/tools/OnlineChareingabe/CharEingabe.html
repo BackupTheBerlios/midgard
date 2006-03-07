@@ -1,0 +1,1153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>MAGuS - Online Abenteurer Eingabe</title>
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- MAGuS Charaktereingabe: Startseite V0.4 060227 (c) by sandro@filippetti.de -->
+  <style type="text/css">
+   .finster 
+    {font-style:italic;}
+   .att
+    {color:#FF0022;}
+  </style>
+</head>
+<body>
+<h2>Abenteurereingabe</h2>
+
+Auf den folgenden Seiten kann ein bereits existierender, h&ouml;herstufiger Abenteurer
+eingegeben, und als Datei im MAGuS-Format (.magus) gespeichert werden.<br>
+<br>
+Die eingegebenen Daten werden nicht auf Plausibilit&auml;t oder Regelkonformit&auml;t &uuml;berpr&uuml;ft!<br>
+Es werden nur die notwendigen Daten zum Erstellen der .magus-Datei abgefragt. Beschreibungen und Ausr&uuml;tung, 
+sowie die aktuellen EP, Waffen und sonstiger Besitz m&uuml;ssen mit MAGuS selbst eingegeben werden.<br>
+<br>
+<br>
+Vor der eigentlichen Dateneingabe werden zun&auml;chsteinmal folgende Angaben ben&ouml;tigt, die Eingabe der 
+eigentlichen Daten erfolgt auf der folgenden Seite:<br>
+<font size="-1">Mit <font size="+0">&quot;<sup class="att">*</sup>&quot;</font> markierte Angaben sind notwendig)</font><br>
+<br>
+<form action="./MAGuS_Create_1.php" method="GET" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+<table bgcolor="#E0E4E7">
+  <tr>
+    <td>Doppelcharakter?</td>
+    <td align="left">
+      <select name="DCHAR" size="1">
+       <option value="NO">Nein</option>
+       <option value="YES">Ja</option>
+      </select>
+     </td>
+  </tr>
+  <tr>
+    <td>Anzahl der angeborenen Fertigkeiten:</td><td> <INPUT type="text" name="AnzAFert" size="5" maxlength="1" value="1"></td>
+  </tr>  
+  <tr>
+    <td><br><h4>Erlernte Fertigkeiten</h4></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td valign="top">Auswahl der Fertigkeiten:<sup class="att">*</sup><br>
+      <font size="-1">(f&uuml;r Mehrfachauswahl &#060;STRG&#062;-Taste gedr&uuml;ckt halten)</font>
+    </td>
+    <td>
+      <select name="SELFERT[]" size="5" multiple>
+        <option>Adlersprung</option>
+        <option>Akribie</option>
+        <option>Akrobatik</option>
+        <option>Alchimie</option>
+        <option>Askese</option>
+        <option>Astrologie</option>
+        <option>Athletik</option>
+        <option>Augensalbe herstellen</option>
+        <option>Balancieren</option>
+        <option>Ballista bedienen</option>
+        <option>Ballspiel</option>
+        <option>Baukunde</option>
+        <option>Beidh&#228;ndiger Kampf</option>
+        <option>Beredsamkeit</option>
+        <option>Beschatten</option>
+        <option>Bet&#228;uben</option>
+        <option>Bogenkampf zu Pferd</option>
+        <option>Brettspiel</option>
+        <option>D&#228;monenkunde</option>
+        <option>Dichten</option>
+        <option>Elefanten lenken</option>
+        <option>Erste Hilfe</option>
+        <option>Erz&#228;hlen</option>
+        <option>Fallen entdecken</option>
+        <option>Fallenmechanik</option>
+        <option>Fallenstellen</option>
+        <option>F&#228;lschen</option>
+        <option>Fangen</option>
+        <option>Fechten</option>
+        <option>Fechten tevarrischer Stil</option>
+        <option>Federflechten</option>
+        <option>FengSchui</option>
+        <option>FengTsu</option>
+        <option>Gassenwissen</option>
+        <option>Gaukeln</option>
+        <option>Geheimmechanismen &#246;ffnen</option>        
+        <option>Gel&#228;ndelauf</option>
+        <option>Geomantie</option>
+        <option>Gesch&#228;ftst&#252;chtigkeit</option>
+        <option>Geschenke machen</option>
+        <option>Giftmischen</option>
+        <option>Gl&#252;cksspiel</option>
+        <option>Heilkunde</option>
+        <option>Himmelskunde</option>
+        <option>Kamelreiten</option>
+        <option>Kampf in Dunkelheit</option>
+        <option>Kampf in Schlachtreihe</option>
+        <option>Kampf in Vollr&#252;stung</option>
+        <option>Kampf vom Streitwagen</option>
+        <option>Kampf zu Elefant</option>
+        <option>Kampf zu Kamel</option>
+        <option>Kampf zu Pferd</option>
+        <option>Kampftaktik</option>
+        <option>KarumiJutsu</option>
+        <option>Katapult bedienen</option>
+        <option>Kenntnis der f&#252;nf Klassiker</option>
+        <option>KentoYobu</option>
+        <option>KiDo</option>
+        <option>Klettern</option>
+        <option>K&#246;rperkontrolle</option>
+        <option>Kr&#228;uterkunde</option>
+        <option>KujKuri</option>
+        <option>KujNoIu</option>
+        <option>Laufen</option>
+        <option>Lesen von Geisterschrift</option>
+        <option>Lesen von Zauberrunen</option>
+        <option>Lesen von Zauberschrift</option>
+        <option>Lippenlesen</option>
+        <option>LiYao</option>
+        <option>Meditieren</option>
+        <option>Menschenkenntnis</option>
+        <option>Meucheln</option>
+        <option>MiChen</option>
+        <option>Mumifizieren</option>
+        <option>Naturkunde</option>
+        <option>Natya</option>
+        <option>NinJutsu</option>
+        <option>Orakelkunst</option>
+        <option>Pflanzenkunde</option>
+        <option>Pyromantie</option>
+        <option>Rechnen</option>
+        <option>Reiten</option>
+        <option>Rudern</option>
+        <option>Sagenkunde</option>
+        <option>Sch&#228;tzen</option>
+        <option>Schauspielern</option>
+        <option>Schie&#223;en vom Streitwagen</option>
+        <option>Schiffsf&#252;hrung</option>
+        <option>SchiyoKi</option>
+        <option>Schlachtruf</option>
+        <option>Schlangen beschw&#246;ren</option>
+        <option>Schleichen</option>
+        <option>Schlittenfahren</option>
+        <option>Schlittschuhlaufen</option>
+        <option>Schl&#246;sser &#246;ffnen</option>
+        <option>Schmerzen ertragen</option>
+        <option>Schwerttanz</option>
+        <option>Schwimmen</option>
+        <option>Seemannsgang</option>
+        <option>Seilkunst</option>
+        <option>Siebter Sinn</option>
+        <option>Singen</option>
+        <option>Skifahren</option>
+        <option>Springen</option>
+        <option>Spurenlesen</option>
+        <option>Srimara lenken</option>
+        <option>Stehlen</option>
+        <option>Steinabreibungen machen</option>
+        <option>Steuern</option>
+        <option>Stimmen nachahmen</option>
+        <option>Streitwagen lenken</option>
+        <option>Suchen</option>
+        <option>TaiTschi</option>
+        <option>Tanzen</option>
+        <option>Tarnen</option>
+        <option>T&#228;towieren</option>
+        <option>Tauchen</option>
+        <option>Teezeremonie</option>
+        <option>Thaumatographie</option>
+        <option>Tierkunde</option>
+        <option>Trinken</option>
+        <option>&#220;berleben im Dschungel</option>
+        <option>&#220;berleben im Gebirge</option>
+        <option>&#220;berleben im Schnee</option>
+        <option>&#220;berleben im Sumpf</option>
+        <option>&#220;berleben im Wald</option>
+        <option>&#220;berleben in der Steppe</option>
+        <option>&#220;berleben in der W&#252;ste</option>
+        <option>Verbergen</option>
+        <option>Verf&#252;hren</option>
+        <option>Verh&#246;ren</option>
+        <option>Verkleiden</option>
+        <option>Wagenlenken</option>
+        <option>Wahrnehmung</option>
+        <option>Wahrsagekalender f&#252;hren</option>
+        <option>Wetterkunde</option>
+        <option>Winden</option>
+        <option>YangScheng</option>
+        <option>YubeChian</option>
+        <option>Zauberkunde</option>
+        <option>Zeichensprache</option>
+        <option>Zunge verschlucken</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Auswahl der Fertigkeiten mit Zusatz<br>
+       <font size="-1">(f&uuml;r Mehrfachauswahl &#060;STRG&#062;-Taste gedr&uuml;ckt halten)</font><br>
+       <table>
+         <tr>
+           <td>Summe der Zus&#228;tze</td>
+           <td>&nbsp;<INPUT type="text" name="AnzFertZ" size="3" maxlength="2" value="1"></td>         
+         </tr>
+       </table>
+       
+    </td>
+    <td>
+      <select name="SELFERTZ[]" size="5" multiple>
+        <option>Abrichten</option>
+        <option>Geheimzeichen</option>
+        <option>Landeskunde</option>
+        <option>Musizieren</option>
+        <option>Scharfschie&#223;en</option>
+       </select> 
+    </td>
+  </tr>
+  <tr>
+    <td>Anzahl eigener, bzw. nicht aufgelisteter Fertigkeiten:</td>
+    <td> <INPUT type="text" name="AnzEFert" size="5" maxlength="2" value="0"></td>
+  </tr>
+  <tr>
+    <td><br><h4>Waffenfertigkeiten</h4></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td valign="top">Auswahl der Waffenfertigkeiten:<sup class="att">*</sup><br>
+      <font size="-1">(f&uuml;r Mehrfachauswahl &#060;STRG&#062;-Taste gedr&uuml;ckt halten)</font>
+    </td>
+    <td>
+      <select name="SELWAF[]" size="5" multiple>
+        <option>Anderthalbh&#228;nder</option>
+        <option>Bih&#228;nder</option>
+        <option>Blasrohr</option>
+        <option>Bo</option>
+        <option>Bogen</option>
+        <option>Bola</option>
+        <option>Buckler</option>
+        <option>BuKasa</option>
+        <option>DaDao</option>
+        <option>Dolch</option>
+        <option>Dreizack</option>
+        <option>Dreizackspeer</option>
+        <option>Faustkampf</option>
+        <option>Fuchtel</option>
+        <option>Garotte</option>
+        <option>Glefe</option>
+        <option>gro&#223;er Schild</option>
+        <option>GunSen</option>
+        <option>Handarmbrust</option>
+        <option>Handaxt</option>
+        <option>Hellebarde</option>
+        <option>HuSchou</option>
+        <option>Kampfgabeln</option>
+        <option>Kampfstab</option>
+        <option>Katana</option>
+        <option>Katana mit Meisterklinge</option>
+        <option>Ken</option>
+        <option>Ken mit Meisterklinge</option>
+        <option>Keule</option>
+        <option>Kharrata</option>
+        <option>kleiner Schild</option>
+        <option>Kompositbogen</option>
+        <option>Kriegsflegel</option>
+        <option>Kriegshammer</option>
+        <option>Krumms&#228;bel</option>
+        <option>Kurzbogen</option>
+        <option>Kurzschwert</option>
+        <option>KusariGama</option>
+        <option>Kyu</option>
+        <option>Langbogen</option>
+        <option>Langschwert</option>
+        <option>Lanze</option>
+        <option>Lasso</option>
+        <option>leichte Armbrust</option>
+        <option>leichter Speer</option>
+        <option>Magierstab</option>
+        <option>Magierstecken</option>
+        <option>Morgenstern</option>
+        <option>Naginata</option>
+        <option>Namisritra</option>
+        <option>Netz</option>
+        <option>NinYato</option>
+        <option>NinYato mit Meisterklinge</option>
+        <option>NoDachi</option>
+        <option>NoDachi mit Meisterklinge</option>
+        <option>NunChaku</option>
+        <option>Ochsenzunge</option>
+        <option>Ogerhammer</option>
+        <option>PaiPu</option>
+        <option>Parierdolch</option>
+        <option>Peitsche</option>
+        <option>Pilum</option>
+        <option>Rapier</option>
+        <option>Schlachtbeil</option>
+        <option>Schleuder</option>
+        <option>schwere Armbrust</option>
+        <option>Skhallanta</option>
+        <option>Speerschleuder</option>
+        <option>Stabkeule</option>
+        <option>Stielhammer</option>
+        <option>Stockschleuder</option>
+        <option>Sto&#223;speer</option>
+        <option>Streitaxt</option>
+        <option>Streitkolben</option>
+        <option>Tanto</option>
+        <option>Tanto mit Meisterklinge</option>
+        <option>TetsuBo</option>
+        <option>Tonfa</option>
+        <option>waffenloser Kampf</option>
+        <option>WakiZaschi</option>
+        <option>Werfen</option>
+        <option>Wurfaxt</option>
+        <option>Wurfeisen</option>
+        <option>Wurfhammer</option>
+        <option>Wurfkeule</option>
+        <option>Wurfmesser</option>
+        <option>Wurfpfeil</option>
+        <option>Wurfscheibe</option>
+        <option>Wurfspeer</option>
+        <option>Wurfspie&#223;</option>
+        <option>Wurfstern</option>
+        <option>Zweizack</option>
+      </select>
+  </tr>
+  <tr>
+    <td>Anzahl eigener, bzw. nicht aufgelisteter Waffenfertigkeiten:</td>
+    <td> <INPUT type="text" name="AnzEWaf" size="5" maxlength="2" value="0"></td>
+  </tr>
+<tr>
+    <td><br><h4>Sprachen &amp; Schriften</h4></td>
+    <td></td>
+  </tr> 
+  <tr>
+    <td valign="top">
+      Auswahl der gelernten Sprachen (ohne Muttersprache!):<sup class="att">*</sup><br>
+      <font size="-1">(f&uuml;r Mehrfachauswahl &#060;STRG&#062;-Taste gedr&uuml;ckt halten)</font>
+    </td>
+    <td>
+     <select name="SPRACHE[]" size="5" multiple>
+                <option>Albisch</option>
+                <option>Altoqua</option>
+                <option>Aranisch</option>
+                <option>Asadi</option>
+                <option>Berekusch</option>
+                <option>Bulugi</option>
+                <option>Chryseisch</option>
+                <option>Comentang</option>
+                <option>Dunathisch</option>
+                <option>Dunkle Sprache</option>
+                <option>Dvarskar</option>
+                <option>Eldalyn</option>
+                <option>Erainnisch</option>
+                <option>Ferangah</option>
+                <option>Feuerinseldialekte</option>
+                <option>Ffomorisch</option>
+                <option>Gnomenon</option>
+                <option>Halftan</option>
+                <option>Hochcoraniaid</option>
+                <option>Hurritisch</option>
+                <option>Ikengadialekte</option>
+                <option>KanThaiTun</option>
+                <option>Kelwisch</option>
+                <option>Luwisch</option>
+                <option>L&#228;inisch</option>
+                <option>Maralinga</option>
+                <option>Medjisisch</option>
+                <option>Meketisch</option>
+                <option>Minangpahitisch</option>
+                <option>Moravisch</option>
+                <option>Nahuatlanisch</option>
+                <option>Neu-Vallinga</option>
+                <option>Rawindi</option>
+                <option>Scharidisch</option>
+                <option>Stammesdialekte</option>
+                <option>Tegarisch</option>
+                <option>Toquinisch</option>
+                <option>Trll'ng</option>
+                <option>Tuskisch</option>
+                <option>Twyneddisch</option>
+                <option>Vallinga</option>
+                <option>Waelska</option>
+               </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Anzahl eigener, bzw. nicht aufgelisteter Sprachen:</td>
+    <td> <INPUT type="text" name="AnzESpra" size="5" maxlength="2" value="0"></td>
+  </tr>  
+  <tr>
+    <td>Anzahl der gelernten Schriften (einschl. Muttersprache):</td><td> <INPUT type="text" name="AnzSchri" size="5" maxlength="2" value="0"></td>
+  </tr>
+  <tr>
+    <td><br><h4>Zauberfertigkeiten</h4></td>
+    <td></td>
+  </tr>  
+  <tr>
+    <td valign="top">
+      Auswahl der Zauberfertigkeiten<br>
+      <font size="-1">(f&uuml;r Mehrfachauswahl &#060;STRG&#062;-Taste gedr&uuml;ckt halten)</font>
+    </td>
+    <td>
+      <select name="SELZAU[]" size="5" multiple>
+       <option>Abu es-Samum</option>
+       <option>Abwenden von Blicken
+       <option>Aggression</option>
+       <option>Ahnengeist beschw&#246;ren</option>
+       <option>Ahuatls Sturm</option>
+       <option>Ain es-Samum</option>
+       <option>Akbar fil-Ghadban</option>
+       <option>Al-Ghussat</option>
+       <option>Al-Karama</option>
+       <option>Allheilung</option>
+       <option>Al-Mahram</option>
+       <option>Al-Mutadid</option>
+       <option class="finster">Alptr&#228;ume &nbsp;(f)</option>
+       <option>Al-Tarka</option>
+       <option class="finster">Altern &nbsp;(f)</option>
+       <option>Angst</option>
+       <option>Anziehen</option>
+       <option>Aufladen</option>
+       <option>Aufl&#246;sung</option>
+       <option>Augenschleier</option>
+       <option>Austreibung des B&#246;sen</option>
+       <option>Austreibung des Guten</option>
+       <option>Automat schaffen</option>
+       <option>Ballade der Begierde</option>
+       <option>Ballade der besiegten Gier</option>
+       <option>Ballbalance</option>
+       <option>Bann der wahren Eigent&#252;merschaft</option>
+       <option>Bannen des Todes</option>
+       <option>Bannen von Dunebargen</option>
+       <option>Bannen von Dunkelheit</option>
+       <option>Bannen von Dvergar</option>
+       <option>Bannen von F&#228;ulnis</option>
+       <option>Bannen von Finsterwerk</option>
+       <option>Bannen von Gift</option>
+       <option>Bannen von G&#246;tterwerk</option>
+       <option>Bannen von Hrimfolk</option>
+       <option>Bannen von Hrimkin</option>
+       <option>Bannen von Hunar</option>
+       <option>Bannen von Hyrrfolk</option>
+       <option>Bannen von Hyrrkin</option>
+       <option>Bannen von J&#246;rdfolk</option>
+       <option>Bannen von J&#246;rdkin</option>
+       <option>Bannen von K&#228;lte</option>
+       <option>Bannen von Kaobargen</option>
+       <option>Bannen von Licht</option>
+       <option>Bannen von Vindfolk</option>
+       <option>Bannen von Vindskin</option>
+       <option>Bannen von Wisfolk</option>
+       <option>Bannen von Wiskin</option>
+       <option>Bannen von Zauberwerk</option>
+       <option>Bannrune</option>
+       <option>Bannsph&#228;re, Blaue</option>
+       <option>Bannsph&#228;re, Goldene</option>
+       <option>Bannsph&#228;re, Schwarze</option>
+       <option>Bannsph&#228;re, Silberne</option>
+       <option>B&#228;renst&#228;rke</option>
+       <option>B&#228;renwut</option>
+       <option>Baum</option>
+       <option>Baumk&#228;mpfer</option>
+       <option>Baumtor</option>
+       <option>Baumw&#228;chter</option>
+       <option>Becherrune</option>
+       <option>Beeinflussen</option>
+       <option>Befestigen</option>
+       <option>Belebungshauch</option>
+       <option>Bergeist beschw&#246;ren</option>
+       <option>Bergeist rufen</option>
+       <option>Berserkerrune</option>
+       <option>Bes&#228;nftigen</option>
+       <option>Beschleunigen</option>
+       <option>Binden des Vertrauten</option>
+       <option>Binden von Srimara</option>
+       <option>Bittersalz</option>
+       <option>Blenden</option>
+       <option>Blendwerk</option>
+       <option>Blicksalz</option>
+       <option>Blindsalz</option>
+       <option>Blitze schleudern</option>
+       <option>Blumen erschaffen</option>
+       <option>Blumenfee</option>
+       <option>Blumengeist betrachten</option>
+       <option>Blumen herbeizaubern</option>
+       <option>Blutmeisterschaft</option>
+       <option>Blutsbr&#252;derschaft stiften</option>
+       <option>Blutwandlung</option>
+       <option>B&#246;ser Blick</option>
+       <option>Brechsalz</option>
+       <option>Brot und Wasser</option>
+       <option>Bruchbann</option>
+       <option>Charivari Kl&#228;nge</option>
+       <option>Cheprus Sendbote</option>
+       <option>Coluscar 1 beschw&#246;ren</option>
+       <option>Coluscar 2 beschw&#246;ren</option>
+       <option>Coluscar 3 beschw&#246;ren</option>
+       <option>Coluscar 4 beschw&#246;ren</option>
+       <option>Dalail al-Khairat</option>
+       <option>Dalail ed-Dawahi</option>
+       <option>Damhsa an Duiseacht (Tanz des Erwachens)</option>
+       <option>Damhsa Claimh (Schwerttanz)</option>
+       <option>Damhsa Meallim (Locktanz)</option>
+       <option>D&#228;monenbann</option>
+       <option>D&#228;monen binden</option>
+       <option>D&#228;monenfeuer</option>
+       <option class="finster">D&#228;monenhand &nbsp;(f)</option>
+       <option class="finster">D&#228;monenkreis &nbsp;(f)</option>
+       <option>D&#228;monenschar beschw&#246;ren</option>
+       <option>D&#228;monische Eingebung</option>
+       <option>D&#228;monische Zaubermacht</option>
+       <option>Das Essen n&#228;hrt...</option>
+       <option>Das Lied der Feier</option>
+       <option>Das Lied der Liebe</option>
+       <option>Das Lied der Lockung</option>
+       <option>Das Lied der Macht</option>
+       <option>Das Lied der Magie</option>
+       <option>Das Lied der Ruhe</option>
+       <option>Das Lied der Tanzlust</option>
+       <option>Das Lied der Tapferkeit</option>
+       <option>Das Lied der verborgenen Kraft</option>
+       <option>Das Lied der Verf&#252;hrung</option>
+       <option>Das Lied der Verzweiflung</option>
+       <option>Das Lied der Zwietracht</option>
+       <option>Das Lied des Erinnerns</option>
+       <option>Das Lied des Fesselns</option>
+       <option>Das Lied des Friedens</option>
+       <option>Das Lied des Grauens</option>
+       <option>Das Lied des Spottes</option>
+       <option>Das Lied des Vergessens</option>
+       <option>Das Lied des Verstehens</option>
+       <option>Das Lied des Wagemuts</option>
+       <option>Das Lied des Wahnsinns</option>
+       <option>Das Lied des Zorns</option>
+       <option>Das Loblied</option>
+       <option>Dau ed-Datin</option>
+       <option>Dau ed-Din</option>
+       <option>Deckmantel</option>
+       <option>Der einschl&#228;fernde Gesang</option>
+       <option>Der frohlockende Gesang</option>
+       <option>Der Gesang Crescendis</option>
+       <option>Der Gro&#223;e Knall</option>
+       <option>Der gro&#223;e Seiltrick</option>
+       <option>Der gro&#223;e Seiltrick (Lied)</option>
+       <option>Der kleine Seiltrick</option>
+       <option>Der kleine Seiltrick (Lied)</option>
+       <option>Der traurige Gesang</option>
+       <option>Die Hymne der Ordnung</option>
+       <option>Die Kl&#228;nge der Genesung</option>
+       <option>Die Stimme der Gerechten</option>
+       <option>Die &#252;berzeugende Stimme</option>
+       <option>Die Wiesenheuschrecke zirpt...</option>
+       <option>Die Wirklichkeit des Vertrauten ist st&#228;rker als die Augen</option>
+       <option>Dinge aufsp&#252;ren</option>
+       <option>Dinge rufen</option>
+       <option>Dinge verbergen</option>
+       <option>Dinge wiederfinden</option>
+       <option>Donnerkeil</option>
+       <option>Doppelg&#228;nger schaffen</option>
+       <option>Drachenrune</option>
+       <option>Dschinn beschw&#246;ren</option>
+       <option>Dschinni-Auge</option>
+       <option>Dschinni-Horn</option>
+       <option>Dschinni-Ohr</option>
+       <option>Dschinn rufen</option>
+       <option>Dschungelwand</option>
+       <option>Dunebrast 1 beschw&#246;ren</option>
+       <option>Dunebrast 2 beschw&#246;ren</option>
+       <option>Dunebrast 3 beschw&#246;ren</option>
+       <option>Dunebrast 4 beschw&#246;ren</option>
+       <option>Dunkle Horde beschw&#246;ren</option>
+       <option>Dunskrat beschw&#246;ren</option>
+       <option>Durstsalz</option>
+       <option>Eichenzauber</option>
+       <option>Eifersucht</option>
+       <option>Eiselementargeist beschw&#246;ren</option>
+       <option>Eisenhaut</option>
+       <option>Eisiger Nebel</option>
+       <option>Eismeisterschaft</option>
+       <option>Eiswand</option>
+       <option>Eiswandlung</option>
+       <option>Eldring beschw&#246;ren</option>
+       <option>Elementarbann</option>
+       <option>Elementarwesen binden</option>
+       <option>Elementenwandlung</option>
+       <option>Elfenfeuer</option>
+       <option>Elfenklinge</option>
+       <option>Entfesseln</option>
+       <option>Entgiften</option>
+       <option>Erdbeben</option>
+       <option>Erdeelementargeist beschw&#246;ren</option>
+       <option>Erdfessel</option>
+       <option>Erdmeisterschaft</option>
+       <option class="finster">Erdrosseln &nbsp;(f)</option>
+       <option>Erdwandlung</option>
+       <option>Erheben der Toten</option>
+       <option>Erkennen der Aura</option>
+       <option>Erkennen von Besessenheit</option>
+       <option>Erkennen von Gift</option>
+       <option>Erkennen von Krankheit</option>
+       <option>Erkennen von Leben</option>
+       <option>Erkennen von Metall</option>
+       <option>Erkennen von Verdammten</option>
+       <option>Erkennen von Zauberei</option>
+       <option>Erkurku beschw&#246;ren</option>
+       <option>Erkurku rufen</option>
+       <option>Erscheinungen</option>
+       <option>F&#228;hrtenduft</option>
+       <option>Fainne ghuairne (Der wirbelnde Kreis)</option>
+       <option class="finster">Farbensalz &nbsp;(f)</option>
+       <option>Farbenspiel</option>
+       <option>F&#228;rbersalz</option>
+       <option class="finster">F&#228;ulnis &nbsp;(f)</option>
+       <option>Feenfluch</option>
+       <option>Feenzauber</option>
+       <option>Fehlleistung</option>
+       <option>Felldvegar beschw&#246;ren</option>
+       <option>Felldverg beschw&#246;ren</option>
+       <option>Felsenfaust</option>
+       <option>Fengrip beschw&#246;ren</option>
+       <option>Fesselbann</option>
+       <option>Fesselrune</option>
+       <option>Feuerelementargeist beschw&#246;ren</option>
+       <option>Feuerfinger</option>
+       <option>Feuerkugel</option>
+       <option>Feuerlanze</option>
+       <option>Feuerlauf</option>
+       <option>Feuermeisterschaft</option>
+       <option>Feuerregen</option>
+       <option>Feuerring</option>
+       <option>Feuerschild</option>
+       <option>Feuerspiel</option>
+       <option>Feuerwand</option>
+       <option>Fiebersalz</option>
+       <option class="finster">Finsterer Blick &nbsp;(f)</option>
+       <option class="finster">Firzars Zorn &nbsp;(f)</option>
+       <option>Fjalhune beschw&#246;ren</option>
+       <option>Flammende Hand</option>
+       <option>Flammenklinge</option>
+       <option>Flammenkreis</option>
+       <option>Flammenrune</option>
+       <option>Fliegen</option>
+       <option>Fliegensalz</option>
+       <option>Fluch des Hundes</option>
+       <option class="finster">Flucht des Geistes &nbsp;(f)</option>
+       <option>Fossemand beschw&#246;ren</option>
+       <option>Freundesauge</option>
+       <option>Friedensrune</option>
+       <option>Frostball</option>
+       <option>Fruchtbarkeit</option>
+       <option>Funkenflug</option>
+       <option>Funkenregen</option>
+       <option>Funkensalz</option>
+       <option>Geas</option>
+       <option>Geberrune</option>
+       <option>Geist beschw&#246;ren</option>
+       <option class="finster">Geister der Finsternis &nbsp;(f)</option>
+       <option>Geisterlauf</option>
+       <option>Geisterrune</option>
+       <option>Geistesschild</option>
+       <option class="finster">Geistesschl&#252;ssel &nbsp;(f)</option>
+       <option>Geizrune</option>
+       <option>Gelbe Glocke (1. Urton Kung)</option>
+       <option>Ger&#228;usche d&#228;mpfen</option>
+       <option>Geruch intensivieren</option>
+       <option>Geruchsverlust</option>
+       <option>Gesichtsrune</option>
+       <option>Ghussat el-Masin</option>
+       <option>Gjornhune beschw&#246;ren</option>
+       <option>Gletschergnom beschw&#246;ren</option>
+       <option>Gletschergnom rufen</option>
+       <option class="finster">Globus der Finsternis &nbsp;(f)</option>
+       <option>Gloddvegar beschw&#246;ren</option>
+       <option>Gloddverg beschw&#246;ren</option>
+       <option>Gl&#252;hsalz &nbsp;<i>(f)</i></option>
+       <option>Goldener Panzer</option>
+       <option>Golem schaffen</option>
+       <option>G&#246;tterarme</option>
+       <option>G&#246;ttliche Eingebung</option>
+       <option>G&#246;ttlicher Blitz</option>
+       <option>G&#246;ttlicher Schutz vor dem B&#246;sen</option>
+       <option>G&#246;ttlicher Schutz vor Magie</option>
+       <option>G&#246;ttliche Strafe</option>
+       <option>Graue Hand</option>
+       <option>Grenzenlose Freude</option>
+       <option>Gro&#223;er Hitzeschutz</option>
+       <option>Gr&#252;ne Fl&#246;te (5. Urton Ch&#252;eh)</option>
+       <option>Gr&#252;ne Hand</option>
+       <option>Haarsalz</option>
+       <option>Hagel</option>
+       <option>Hagelrune</option>
+       <option>Halebant 1 beschw&#246;ren</option>
+       <option>Halebant 2 beschw&#246;ren</option>
+       <option>Halebant 3 beschw&#246;ren</option>
+       <option>Halebant 4 beschw&#246;ren</option>
+       <option>Hammerhand</option>
+       <option>Handauflegen</option>
+       <option>Haram fil-Din</option>
+       <option>Hardlogi beschw&#246;ren</option>
+       <option>Harkarhune beschw&#246;ren</option>
+       <option>Harkbuar beschw&#246;ren</option>
+       <option>Hauch der Bet&#228;ubung</option>
+       <option>Hauch der Verwesung</option>
+       <option>Hauch der W&#252;ste</option>
+       <option>Hauch des Fr&#252;hlings</option>
+       <option>Hauch des Winters</option>
+       <option>Haugskadi beschw&#246;ren</option>
+       <option>Heilen schwerer Wunden</option>
+       <option>Heilen von Krankheit</option>
+       <option>Heilen von Wunden</option>
+       <option>Heiliger Zorn</option>
+       <option>Heiliges Wort</option>
+       <option>Heilsrune</option>
+       <option>Heimfeder</option>
+       <option>Heimstein</option>
+       <option>Heranholen</option>
+       <option>Herbeizwingen</option>
+       <option>Hexenhand</option>
+       <option>Hexenritt</option>
+       <option>Hexenschu&#223;</option>
+       <option>Hexensp&#252;ren</option>
+       <option>Hexenwirbel</option>
+       <option>Himmelsleiter</option>
+       <option>Hitzeschutz</option>
+       <option>Hitzsalz</option>
+       <option class="finster">H&#246;llenbote rufen &nbsp;(f)</option>
+       <option class="finster">H&#246;llenfeuer &nbsp;(f)</option>
+       <option class="finster">H&#246;llenglocke &nbsp;(f)</option>
+       <option>H&#246;ren der Geister</option>
+       <option>H&#246;ren von Fernem</option>
+       <option>H&#246;rnerklang</option>
+       <option>Hort der Natur</option>
+       <option>Hrimdvegar beschw&#246;ren</option>
+       <option>Hrimdverg beschw&#246;ren</option>
+       <option>Hrimhune beschw&#246;ren</option>
+       <option>Hungersalz</option>
+       <option>Hyrrbauti beschw&#246;ren</option>
+       <option>Ifrit beschw&#246;ren</option>
+       <option>Ifrit rufen</option>
+       <option>Incheper schaffen</option>
+       <option>Indruwal 1 beschw&#246;ren</option>
+       <option>Indruwal 2 beschw&#246;ren</option>
+       <option>Indruwal 3 beschw&#246;ren</option>
+       <option>Indruwal 4 beschw&#246;ren</option>
+       <option>Iquibalams Ruhm</option>
+       <option>Iquibalams Tapferkeit</option>
+       <option>Iquibalams Verachtung</option>
+       <option>Ising beschw&#246;ren</option>
+       <option>Ixtantzutuhs Ekstase</option>
+       <option>Ixtantzutuhs Sch&#246;nheit</option>
+       <option>Jadezauber</option>
+       <option>Jambani beschw&#246;ren</option>
+       <option>Jokulskadi beschw&#246;ren</option>
+       <option>J&#246;rdmand beschw&#246;ren</option>
+       <option>Jucksalz</option>
+       <option>Jurugu beschw&#246;ren</option>
+       <option>Jurugu rufen</option>
+       <option>Juwelenauge</option>
+       <option>Kaligin 1 beschw&#246;ren</option>
+       <option>Kaligin 2 beschw&#246;ren</option>
+       <option>Kaligin 3 beschw&#246;ren</option>
+       <option>Kaligin 4 beschw&#246;ren</option>
+       <option>Kallbjargi beschw&#246;ren</option>
+       <option>Kallrani beschw&#246;ren</option>
+       <option>K&#228;lterune</option>
+       <option>K&#228;lteschutz</option>
+       <option>Kammerdiener beschw&#246;ren</option>
+       <option>Karing beschw&#246;ren</option>
+       <option>Kernkleid</option>
+       <option>Klebesalz</option>
+       <option>Klingenrune</option>
+       <option>Knallsalz</option>
+       <option>Knochenbestie</option>
+       <option class="finster">Konvulsion &nbsp;(f)</option>
+       <option>Kopieren</option>
+       <option>Kraft entziehen</option>
+       <option>Kravyad-Schrei</option>
+       <option>Kreatur erschaffen</option>
+       <option>K&#252;hlsalz</option>
+       <option>Ku&#223; des Schlafes</option>
+       <option>Lachsalz</option>
+       <option>Lahmsalz</option>
+       <option>L&#228;hmung</option>
+       <option>Laufen wie der Wind</option>
+       <option>Lauschen</option>
+       <option>Lebenskeule</option>
+       <option>Lehrersuche</option>
+       <option>Leomies Birneneis</option>
+       <option>Lergris beschw&#246;ren</option>
+       <option>Leuchtspur</option>
+       <option>Levitation</option>
+       <option>Lichtbr&#252;cke</option>
+       <option>Lichtrunen</option>
+       <option>Liebesrune</option>
+       <option>Liebeszauber</option>
+       <option>Lindern von Entkr&#228;ftung</option>
+       <option>Liniensicht</option>
+       <option>Linienwanderung</option>
+       <option>Ljosfang beschw&#246;ren</option>
+       <option>L&#246;schsalz</option>
+       <option>L&#246;sen</option>
+       <option>L&#246;sungsrune</option>
+       <option>Luftelementargeist beschw&#246;ren</option>
+       <option>Luftlauf</option>
+       <option>Luftsph&#228;re</option>
+       <option>Luftspiegelung</option>
+       <option>Lustsalz</option>
+       <option class="finster">Macht der Finsternis &nbsp;(f)</option>
+       <option>Macht des Netzes</option>
+       <option>Macht &#252;ber das Selbst</option>
+       <option>Macht &#252;ber den Tod</option>
+       <option>Macht &#252;ber die belebte Natur</option>
+       <option>Macht &#252;ber die Sinne</option>
+       <option>Macht &#252;ber die Zeit</option>
+       <option>Macht &#252;ber Leben</option>
+       <option>Macht &#252;ber magische Wesen</option>
+       <option>Macht &#252;ber Menschen</option>
+       <option>Macht &#252;ber Mumien</option>
+       <option>Macht &#252;ber Unbelebtes</option>
+       <option>Magische Aura</option>
+       <option>Magischer Kreis des Bewachens</option>
+       <option>Magischer Kreis des Verschleierns</option>
+       <option>Magischer Kreis des Widerstehens</option>
+       <option>Magischer Kreis, klein</option>
+       <option>Magischer Spion</option>
+       <option>Manifestation des Ka</option>
+       <option>Marhune beschw&#246;ren</option>
+       <option>Marid beschw&#246;ren</option>
+       <option>Marid rufen</option>
+       <option>Marmennil beschw&#246;ren</option>
+       <option>Marmorhaut</option>
+       <option>Maskieren</option>
+       <option>Meeressegen</option>
+       <option>Megant 1 beschw&#246;ren</option>
+       <option>Megant 2 beschw&#246;ren</option>
+       <option>Megant 3 beschw&#246;ren</option>
+       <option>Megant 4 beschw&#246;ren</option>
+       <option>Meisterbann</option>
+       <option>Metallmeisterschaft</option>
+       <option>Mokkurbjargi beschw&#246;ren</option>
+       <option>Mumie erwecken</option>
+       <option>Myrknir beschw&#246;ren</option>
+       <option>Nahuahauquihs Preis</option>
+       <option>Nahuahauquihs Zorn</option>
+       <option>Namenloses Grauen</option>
+       <option>Naturgeist rufen</option>
+       <option>Nebelsalz</option>
+       <option>Nebel schaffen</option>
+       <option>Nebel wecken</option>
+       <option>Nefling beschw&#246;ren</option>
+       <option>Netz ahnen</option>
+       <option>Netzfeuer</option>
+       <option>Netzkontakt</option>
+       <option>Netzkraft</option>
+       <option>Netzschlinge</option>
+       <option>Netzschutz</option>
+       <option>Netzsehen</option>
+       <option>Netzversteck</option>
+       <option>Niessalz</option>
+       <option>N&#252;Quang</option>
+       <option>Oysteins kleine Prophezeiung</option>
+       <option>Paschuyana, der Weg des Tieres</option>
+       <option>Passieren</option>
+       <option>Person beschw&#246;ren</option>
+       <option>Person wiederfinden</option>
+       <option>Pestklaue</option>
+       <option>Pfeilrune</option>
+       <option>Pflanzenfessel</option>
+       <option>Pflanzenmann</option>
+       <option>PiPingQuang</option>
+       <option>PiYe&#250;Quang</option>
+       <option>Rauchbild</option>
+       <option>Rauchkringel</option>
+       <option>Rauchsalz</option>
+       <option>Rauchwolke</option>
+       <option>Rauschsalz</option>
+       <option>Regenrune</option>
+       <option>Regenzauber</option>
+       <option>Reinigen</option>
+       <option>Reise der Seele</option>
+       <option>Reise in die Zeit</option>
+       <option>Reiserune</option>
+       <option>Reise zu den Sph&#228;ren</option>
+       <option>Reizen</option>
+       <option>Reptilien rufen</option>
+       <option>Riechsalz</option>
+       <option>Rince an Coisreacan (Reigen der Weihe)</option>
+       <option>Rince na Daoine Maithe (Reigen des Feenvolks)</option>
+       <option>Rindenhaut</option>
+       <option>Ring des Lebens</option>
+       <option>Rost</option>
+       <option>Roter Pirol (2. Urton Chih)</option>
+       <option>R&#252;ckf&#252;hrung</option>
+       <option>Ruf des Herzens</option>
+       <option>Rutschsalz</option>
+       <option>Sadik es-Sidiki</option>
+       <option>Saeldvegar beschw&#246;ren</option>
+       <option>Saeldverg beschw&#246;ren</option>
+       <option>Saijidat el-Masin</option>
+       <option>Sandmeisterschaft</option>
+       <option>Sa rauben</option>
+       <option>Sa spenden</option>
+       <option>Schadd wa-Tarka</option>
+       <option>Scharade</option>
+       <option>Scharfblick</option>
+       <option>Schattenbruder</option>
+       <option>Schattenjaguar</option>
+       <option>Schattenrobe</option>
+       <option class="finster">Schattenro&#223; &nbsp;(f)</option>
+       <option>Schattenschrecken</option>
+       <option>Schatten verst&#228;rken</option>
+       <option>Scheintod</option>
+       <option>Schildrune</option>
+       <option>Schlachtenwahnsinn</option>
+       <option>Schlaf</option>
+       <option>Schlafsalz</option>
+       <option>Schlangenbi&#223;</option>
+       <option class="finster">Schleichende Verderbnis &nbsp;(f)</option>
+       <option>Schleichsalz</option>
+       <option>Schmerzen</option>
+       <option>Schmerzen sp&#252;ren</option>
+       <option>Schminken</option>
+       <option>Schneidenrune</option>
+       <option>Schnellrune</option>
+       <option>Sch&#246;ne Leiche</option>
+       <option>Schreiber beschw&#246;ren</option>
+       <option>Schrumpfen</option>
+       <option>Schutzgeist</option>
+       <option>Schutzgeste</option>
+       <option>Schutzkreis gegen D&#228;monen</option>
+       <option>Schutzkreis gegen Dunebargen</option>
+       <option>Schutzkreis gegen Dvergar</option>
+       <option>Schutzkreis gegen Elementarwesen</option>
+       <option>Schutzkreis gegen Geisterwesen</option>
+       <option>Schutzkreis gegen Hrimfolk</option>
+       <option>Schutzkreis gegen Hunar</option>
+       <option>Schutzkreis gegen Hyrrfolk</option>
+       <option>Schutzkreis gegen J&#246;rdfolk</option>
+       <option>Schutzkreis gegen Kaobargen</option>
+       <option>Schutzkreis gegen Untote</option>
+       <option>Schutzkreis gegen Vindfolk</option>
+       <option>Schutzkreis gegen Wisfolk</option>
+       <option>Schutzrune</option>
+       <option>Schw&#228;che</option>
+       <option>Schwarm</option>
+       <option>Schwarzes Horn (4. Urton Y&#252;)</option>
+       <option>Schwarze Zone</option>
+       <option>Schweben</option>
+       <option>Schwingenkeule</option>
+       <option>Seance</option>
+       <option>Seele finden</option>
+       <option>Seelenheilung</option>
+       <option>Seelenkompa&#223;</option>
+       <option>Seelenraub</option>
+       <option>Seelenschock</option>
+       <option>Segnen</option>
+       <option>Sehen in Dunkelheit</option>
+       <option>Sehen von Verborgenem</option>
+       <option>Serkefs Todesbote</option>
+       <option>Signalkugel</option>
+       <option>Silberstaub</option>
+       <option>Snaerhamir beschw&#246;ren</option>
+       <option>Sprachl&#228;hmung</option>
+       <option>Spruch intensivieren</option>
+       <option>Srimarameisterschaft I</option>
+       <option>Srimarameisterschaft II</option>
+       <option>St&#228;rke</option>
+       <option>St&#228;rkerune</option>
+       <option>Staubk&#228;mpfer</option>
+       <option>Steinkugel</option>
+       <option>Steinwand</option>
+       <option>Stigma</option>
+       <option>Stigma lokalisieren</option>
+       <option>Stille</option>
+       <option>Stimmenwerfen</option>
+       <option>Stolz zieht der Krieger...</option>
+       <option>Sto&#223;</option>
+       <option>Stottersalz</option>
+       <option>Sturmflut</option>
+       <option>Sturmhand</option>
+       <option>Sturmwind</option>
+       <option>Sumpfboden</option>
+       <option>Sutechs Heer</option>
+       <option>Svalgrim beschw&#246;ren</option>
+       <option>TaiQuang</option>
+       <option>Tausch des Ba</option>
+       <option>Thrymbar beschw&#246;ren</option>
+       <option>Thursenstein</option>
+       <option>Tibb al-Mumani</option>
+       <option>Tiefschlaf</option>       
+       <option>Tiergestalt</option>
+       <option>Tierisches Handeln</option>
+       <option>Tierrune</option>       
+       <option>Todeshauch</option>
+       <option>Todeskeule</option>
+       <option>Todeszauber</option>
+       <option>Tolucans Gabe</option>
+       <option>Tor schaffen</option>
+       <option>Torwandeln</option>
+       <option>Totenrune</option>
+       <option>Trampelsalz</option>
+       <option>Traumrune</option>
+       <option>Trockensalz</option>
+       <option>Trunk des Lebens</option>
+       <option>Truscan 1 beschw&#246;ren</option>
+       <option>Truscan 2 beschw&#246;ren</option>
+       <option>Truscan 3 beschw&#246;ren</option>
+       <option>Truscan 4 beschw&#246;ren</option>
+       <option>T&#252;chertanz</option>
+       <option>Umkehrschild</option>
+       <option>Unfruchtbarkeit</option>
+       <option>Ungeheuer rufen</option>
+       <option>Ungeheuerrune</option>
+       <option>Ungeziefer bannen</option>
+       <option>Ungeziefer rufen</option>
+       <option>Unheilsrune</option>
+       <option>Unsichtbarkeit</option>
+       <option class="finster">Unwetter rufen &nbsp;(f)</option>
+       <option>Verbl&#252;ffen</option>
+       <option>Verbotenes Wort</option>
+       <option>Verdorren</option>
+       <option>Vereisen</option>
+       <option>Verfluchen</option>
+       <option>Vergangenheit beschw&#246;ren</option>
+       <option>Vergiften</option>
+       <option>Verglasen &nbsp;<i>(f)</i></option>
+       <option>Vergr&#246;&#223;ern</option>
+       <option>Verj&#252;ngen</option>
+       <option>Verkleinern</option>
+       <option>Verlangsamen</option>
+       <option>Verletzung</option>
+       <option>Versetzen</option>
+       <option>Versteinern</option>
+       <option>Vertieren</option>
+       <option>Verursachen schwerer Wunden</option>
+       <option>Verursachen von Krankheit</option>
+       <option>Verursachen von Wunden</option>
+       <option>Verwandlung</option>
+       <option>Verwirren</option>
+       <option class="finster">Verw&#252;stung &nbsp;(f)</option>
+       <option>Verzweiflung</option>
+       <option>Vinddvegar beschw&#246;ren</option>
+       <option>Vinddverg beschw&#246;ren</option>
+       <option>Vindmand beschw&#246;ren</option>
+       <option>Vision</option>
+       <option>Wachsen</option>
+       <option>Wagemut</option>
+       <option>Wahnsinn</option>
+       <option>Wahrheitsrune</option>
+       <option>Wahrsehen</option>
+       <option>Waldluft</option>
+       <option>Wandelhand</option>
+       <option>Wandeln wie der Wind</option>
+       <option>Wandelsalz</option>
+       <option>Wandlung</option>
+       <option>Wandwandeln</option>
+       <option>Warnung</option>
+       <option>Wasseratmen</option>
+       <option>Wasser befreien</option>
+       <option>Wasserelementargeist beschw&#246;ren</option>
+       <option>Wasserlauf</option>
+       <option>Wassermeisterschaft</option>
+       <option>Wassersalz</option>
+       <option>Wasser sp&#252;ren</option>
+       <option>Wasserstrahl</option>
+       <option>Wasserwandlung</option>
+       <option>Wegzauber</option>
+       <option>Wehrrune</option>
+       <option>Wehsalz</option>
+       <option>Wei&#223;er Jadeklangstein (3. Urton Schang)</option>
+       <option>Weltentor schaffen</option>
+       <option>Wesen aufsp&#252;ren</option>
+       <option>Wetterrune</option>
+       <option>Wetterzauber</option>
+       <option>Wiederkehr</option>
+       <option>Wind des Todes</option>
+       <option>Windgunst</option>
+       <option>Windmeisterschaft</option>
+       <option>Windsto&#223;</option>
+       <option>Wirbelwind</option>
+       <option>Wittern</option>
+       <option>Wogenrune</option>
+       <option>Wolkenbruch</option>
+       <option>Wort der Trauer</option>
+       <option>Wort des Lebens</option>
+       <option>Wort des Todes</option>
+       <option>Wunden schlie&#223;en</option>
+       <option>Wundersame Tarnung</option>
+       <option>Wundrune</option>
+       <option>W&#252;stenwind</option>
+       <option>XiengBaQuang</option>
+       <option>YehKiQuang</option>
+       <option>Z&#228;hmen</option>
+       <option>Zauberauge</option>
+       <option>Zauberhand</option>
+       <option>Zaubermacht</option>
+       <option>Zauberschild</option>
+       <option>Zauberschlo&#223;</option>
+       <option>Zauberschl&#252;ssel</option>
+       <option>Zauberschmiede</option>
+       <option>Zaubersprung</option>
+       <option>Zauberstimme</option>
+       <option>Zaubert&#252;r</option>
+       <option>Zauberwirklichkeit</option>
+       <option>Zauberzunge</option>
+       <option>Zeichen des Chaos &nbsp;<i>(f)</i></option>
+       <option>Zielsuche</option>
+       <option>Zucksalz</option>
+       <option>Z&#252;ndersalz</option>
+       <option>Zur&#252;ckf&#252;hren</option>
+       <option>Zusammenf&#252;gen</option>
+       <option>Zweite Haut</option>
+       <option>Zwiesprache</option>
+       <option>Zwingkreis</option>
+       <option>Zwingkreis, Blauer</option>
+       <option>Zwingkreis, Silberner</option>            
+      </select>    
+    </td>  
+  </tr>  
+  <tr>
+    <td valign="top">Auswahl Zauber mit Zusatz<br>
+       <font size="-1">(f&uuml;r Mehrfachauswahl &#060;STRG&#062;-Taste gedr&uuml;ckt halten)</font><br>
+       <table>
+         <tr>
+           <td>Summe der Zus&#228;tze</td>
+           <td>&nbsp;<INPUT type="text" name="AnzZaubZ" size="3" maxlength="2" value="1"></td>         
+         </tr>
+       </table>
+       
+    </td>
+    <td>
+      <select name="SELZAUBZ[]" size="3" multiple>
+        <option>Tiere rufen</option>
+        <option>Tiersprache</option>
+       </select> 
+    </td>
+  </tr>
+  
+  <tr>
+    <td>Anzahl eigener, bzw. nicht aufgelisteter Zauber:</td><td> <INPUT type="text" name="AnzEZaub" size="5" maxlength="2" value="0"></td>
+  </tr> 
+  
+</table>
+<p align="center">
+   <input type="submit" value=" Weiter ">
+   <input type="reset" value=" Auswahl zur&uuml;cksetzen ">
+</p>
+</form>
+</body>
+</html>
+
