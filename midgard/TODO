@@ -4,6 +4,10 @@
 - beim Erlernen einer Fertigkeit wird der Wert bereits um 1 erhöht?
 ####
 
+- Wizard lässt sich nicht dauerhaft abschalten 8-O
+
+- wechselnde Tips im Startfenster
+
 - wozu dient list_FertigkeitZusaetze? (scheint bereits gelerntes
 	auszublenden)
 
@@ -203,8 +207,135 @@ Fertigkeit)
 
 ----
 
-Absturz beim Lernen von Fertigkeiten in Voraussetzungen:
-#5  0x00000000004d9616 in std::list<H_MidgardBasicElement_mutable, std::allocator<H_MidgardBasicElement_mutable> >::push_back ()
-#6  0x00002aaaaaeffd5e in Fertigkeit::Voraussetzung ()
-   from /home/christof/berlios/magus2/midgard/src/../libmagus/.libs/libmagus.so.0
-#7  0x0000000000518941 in table_lernschema::on_tree_lernschema_leaf_selected ()
+Wenn man (mit Wizard) einen Doppelcharakter erschaffen will, so werden
+nach der Bestätigung der Nachfrage automatischt die Grundwerte
+ausgewürfelt.
+An sich eigentlich nicht so schlimm, aber der Bug hat es in sich:
+Der Wert für Stärke beträgt immer "2".
+Ohne Wizard gibt es kein Problem.
+
+BTW: wenn noch 1 Lernpunkt übrig ist, aber nicht ausgegeben werden kann,
+lässt sich kein Beruf erlernen (Muss von Hand auf 0 zurück gesetzt werden.)
+
+ich bin darüber gestolpert, dass waffenloser Kampf eine Schwierigkeitsklasse
+zu hoch eingestuft ist (7 statt 6 in der Datenbank). Besonders wundert mich,
+dass der Fehler noch keinem anderen aufgefallen zu sein scheint.
+
+um Beschatten zu lernen, darf (wenn ich es richtig in Erinnerung habe)
+ein Char höchsten eine pA von 80 haben. Momentan sind es allerdings 81.
+Ist zwar kein großer Unterschied, wollte ich aber trotzdem mal zur
+Berichtigung einreichen.
+
+Redraw beim Verschieben der Unterfenstergrenze nach Links im
+Reiter "Lernschema" funktioniert nicht richtig.
+
+Bei Attributwürfelergebnis < 350 wird Neuauswürfeln nicht mehr
+automatisch angeboten
+
+Magus merkt sich anscheinend die Optionen wie z.B. "1 GS entspricht 1GFP"
+nicht. Pfade jedoch schon. Liegt das an meiner nicht-Installation (hab
+einfach die Dateien in ein Verzeichnis gepappt), oder kommt da was mit
+Magus 0.84 durcheinander?
+
+Die Ansichtsoptionen wirken erst nach einem Neustart. Ist das so gewollt?
+Wenn ja: kleiner dementsprechender Hinweis beim Ändern der Optionen wäre
+nett.
+
+Die Winzpfeile an den Buttons, um Auswahllisten anzuzeigen, sind viiieeel zu
+klein. Geht das nicht irgendwie anders, z.B. mit einem horizontal geteilten
+Knopf oder so?
+
+- Beim Speichern einer Figur: Es erfolgt keine Warnung beim
+ überschreiben einer existierenden Datei (mit speichern unter).
+- Eingabe von Praxispunkten: Zwar kein Bug, aber man muß sehr genau
+ hinsehen, um zu bemerken, dass durch einen Mausklick auf die
+ entsprechende Position (Fertigkeit/Spalte PP) die Eingabe aktiviert
+ wird (Ist eventuell skinabhängig) 
+
+---- (Bestätigung durch Matthias Hartwich)
+eine Frage, da ich nicht weis ob ich das Kompendium nicht verstehe oder
+Magus da falsch arbeitet. In Version 8.24 kostet den Waldläufer Bogen auf 12
+lernen 800 Punkte (Standard) Den Waldläufer/Heiler soll es 1600 kosten (S/A)
+Wenn ich das Kompendium richtig verstehe soll das Waffenlernen aber stets
+die Standardkosten verursachen, also 800 in diesem Fall.
+stammt der Fehler aus der Logik, daß Waldläuffer wie Kämpfertypen behandelt
+werden, die ja in der Regel Waffen als Grundfähigkeit haben und in dem Fall
+durch Verdopplung der Kosten der Standardpreis erreicht wird?
+Im übrigen scheint es so zu sein, daß ein Krieger/Magier (G/A) Waffen zu
+Grundfähigkeitspreisen steigert (Sprich 400 Punkte für Bogen auf 12)
+Sollte aber, wenn ich das richtig verstanden habe auch Standard zahlen.
+----
+
+- bei der Eingabe einer Klingenmagierin habe ich gerade bemerkt, dass die
+  Resistenz falsch als Kämpferin berechnet wird. Richtig wäre aber die
+  Einstufung als Zauberin.
+
+ist geplant den Zauberblattausdruck für Thaumaturgen ihren Spezifikationen
+entsprechend anzupassen? Bekanntlicherweise gibt es sowohl bei Wirkweise,
+Materialbedarf, Zauberdauer etc. einige Unterschiede.
+
+Ich habe festgestellt, daß der Ausdruck der Zaubersprüche einen kleinen 
+Schönheitsfehler enthält. Solange ein Feld dabei frei bleibt 
+(typischerweise die Materialkomponente) verschiebt MAGUS die 
+Beschreibung der Spalte nach links, sodaß die Spaltenbeschreibung nicht 
+mehr mit dem Inhalt übereinstimmt.
+
+Dazu ein link: Der alte Ausdruck, bevor ein Zauber mit Spruchkomponente
+existierte: <http://members.kabsi.at/Midgard/Ian.pdf> und dann mit
+Spruchkomponente: <http://members.kabsi.at/Midgard/Ian_neu.pdf>
+Man sieht IMHO auch, warum: Material und Prozeß scheinen mittig 
+angeordnet (bei den anderen sehe ich's nicht, und mit \LATEX kenne ich 
+mich nicht aus) die korrespondierende Spalte aber linksbündig. Ist 
+jetzt eine Spalte leer, wird alles nach links "gezogen".
+
+Für die Fertigkeit 'Abrichten' wurde für 'Tier' eine 91 gewürfelt. Nötig ist
+mindestens eine 91. ==> Das reicht NICHT
+
+kann es sein, daß Magus nur die Punkte der ersten Stufe auf die FP
+aufschlägt, wenn man mit einem Praxispunkt mehrere Stufen lernen kann?
+Zumindest scheint sich Windowsversion 8.24 so zu verhalten.
+
+die Gegenstandsliste mit selbst eingepflegten Objekten funktioniert
+irgendwie nicht mehr wie früher Jetzt: Windwos 9.4. Früher: Windwos 8.24.
+Zuerst einmal kann die neue Version die alte magus_preise.xml wohl nicht
+mehr interpretieren. (Reihenfolgeproblem? / Zeichensatzproblem?)
+Unangenehmerweise wird die alte Datei bei Neuanlage eines Gegenstandes
+schlicht überschrieben.
+
+Problem bei der Ausrüstung:
+Bei Programmstart sind folgende Standard-Werte bei Ausrüstung vorhanden:
++ Körper
+  - Hose
+  - Hemd
+  - Gürtel
+  - Schuhe
+  + Rucksack
+    - Decke
+    - Lederbeutel
+    - Geld
+Nach der Erschaffung des Charakters und Auswahl de Waffe sind diese Werte
+verschwunden und nur die erwürfelten Waffen und Ausrüstungsgegenstände zu
+sehen. Neue Gegenstände werden dann unter die Waffen eingehängt.  Löscht man
+jedoch die erwürfelten Gegenstände, so erscheinen wieder die ursprünglichen
+Einträge und man kann dann die Waffen und sonstige Ausrüstung normal
+hinzufügen.
+
+Stimmt, beim auswürfeln gehts nicht - dafür wird bei "auswählen"
+ausgewürfelt =:-O
+
+ja  nachdem ich das geschrieben hatte hab ich mich auch wieder dunkel daran
+erinnert. allerdings gibt es da noch einen weiteren sonderbaren effekt. und
+zwar habe ich die ganzen grafiken auf dem charakterbogen mittels
+TEX-Bastelei ersetzt. wenn ich nun eine Grafik in das Beschreibungsblatt
+einbaue, erscheint die aus unerfindlichen Gründen auch auf dem
+Charakterbogen an der Stelle des "Magier-Logos" Liegt aber vermutlich an
+meinen halbdiletantischen TEX-Modifikationen
+
+Ich hab noch einen kleinen(?) Vorschlag für den Öffnen-Button: Bei
+Speichern, Drucken etc. sind die Buttons ja mit Menüs unterlegt. Eigentlich
+böte es sich an, den Menü-Punkt "Zuletzt geladene Abenteurer" in den den
+"Öffnen-Button" zu integrieren.
+
+jede Menge strlen("zP") oder "zPL" "UTF-8" und "ISO-8859-1" und "" jede
+Menge Kopieren der Strings (wegen Wandlung) [Win32 Version]
+
