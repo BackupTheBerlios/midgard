@@ -408,7 +408,7 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
           }
 #endif          
         if((*MBE)->ZusatzEnum(A.getVTyp())) 
-#if 0
+#if 1
           lernen_zusatz((*MBE)->ZusatzEnum(A.getVTyp()),MBE);
 #else
         { std::string zus=DialogZusatz(hauptfenster,(*MBE)->ZusatzEnum(A.getVTyp()),MBE).run();
