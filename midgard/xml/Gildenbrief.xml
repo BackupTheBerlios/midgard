@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.20 $" Copyright="var." MAGUS-Bild="5" MAGUS-Index="13" Maintainer="Malte Thoma" Name="Gildenbrief" Region="G" Titel="Gildenbrief" Version="1.0">
+<MAGUS-data CVS="$Revision: 1.21 $" Copyright="var." MAGUS-Bild="5" MAGUS-Index="13" Maintainer="Malte Thoma" Name="Gildenbrief" Region="G" Titel="Gildenbrief" Version="1.0">
  <Fertigkeiten>
   <Fertigkeit Name="Abrichten">
    <Ausnahme Typ="MMa"/>
@@ -193,6 +193,9 @@
   </Fertigkeit>
   <Fertigkeit Name="Schreiben">
    <Grund Typ="MMa"/>
+  </Fertigkeit>
+  <Fertigkeit Name="Schreiben: Alte Sprache(+12)">
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
    <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="MMa"/>
@@ -460,8 +463,8 @@
   <Fertigkeit Name="Schlittschuhlaufen" Region="X">
    <Standard Typ="MMa"/>
   </Fertigkeit>
-  <Fertigkeit Name="Schreiben: Alte Sprache(+4)">
-   <Lernschema Erfolgswert="4" Lernpunkte="1" Typ="MMa"/>
+  <Fertigkeit Name="Schreiben: Alte Sprache(+12)">
+   <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="MMa"/>
   </Fertigkeit>
   <Fertigkeit Name="Schreiben: Muttersprache(+12)">
    <Lernschema Erfolgswert="12" Lernpunkte="1" Typ="MMa"/>

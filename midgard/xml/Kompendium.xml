@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.27 $" Copyright="Jürgen E. Franke" MAGUS-Bild="12" MAGUS-Index="1" Maintainer="Malte Thoma" Name="Kompendium" Region="TuT" Titel="Das Kompendium" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.28 $" Copyright="Jürgen E. Franke" MAGUS-Bild="12" MAGUS-Index="1" Maintainer="Malte Thoma" Name="Kompendium" Region="TuT" Titel="Das Kompendium" Version="1.0" offiziell="true">
  <Fertigkeiten>
   <Fertigkeit Anfangswert="5" Attribut="In" Erfolgswert="4" Lernkosten="100" Lernpunkte="4" MaximalMitUnterweisung="11" Maximalwert="12" Name="Geomantie" Region="TuT">
    <Grund Typ="De"/>
@@ -3645,6 +3645,7 @@
    <Standard Typ="Km"/>
   </Spruch>
   <Spruch Name="Bannsphäre, Goldene">
+   <Grund Typ="Hj"/>
    <Standard Typ="Km"/>
   </Spruch>
   <Spruch Name="Bannsphäre, Schwarze">

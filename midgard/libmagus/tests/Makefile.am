@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.13 2006/03/09 08:01:24 christof Exp $
+# $Id: Makefile.am,v 1.14 2006/03/09 23:17:56 christof Exp $
 
 AM_CPPFLAGS=@COMMONXX_INCLUDES@ -I../..
 
@@ -7,7 +7,7 @@ AM_LDFLAGS=@COMMONXX_LDFLAGS@ @COMMONGTK2_LDFLAGS@ -L..
 CLEANFILES = *~ test*.magus
 
 EXTRA_PROGRAMS= test1 test2 test3 test4 test5 test6 test7 test8 \
-	lernliste test9
+	lernliste test9 waffenschwierigkeit
 
 test1_LDADD=@COMMONXX_LIBS@ -lmagus @COMMONGTK2_ONLY@
 test1_SOURCES=test1.cc
@@ -29,6 +29,8 @@ test9_LDADD=$(test1_LDADD)
 test9_SOURCES=test9.cc
 lernliste_LDADD=$(test1_LDADD)
 lernliste_SOURCES=lernliste.cc
+waffenschwierigkeit_LDADD=$(test1_LDADD)
+waffenschwierigkeit_SOURCES=waffenschwierigkeit.cc
 
 diff: $(EXTRA_PROGRAMS)
 	-chmod a+x original

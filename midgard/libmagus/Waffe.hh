@@ -115,11 +115,12 @@ class cH_Waffe : public Handle<const Waffe>
     friend class std::map<std::string,cH_Waffe>;
  public:
     cH_Waffe(const Waffe *s) : Handle<const Waffe>(s) {};
+    cH_Waffe(Handle<const Waffe> h) : Handle<const Waffe>(h) {};
     cH_Waffe(const std::string& n,bool create=false);
     static cH_Waffe load(const Tag &t,bool &is_new);
 
     cH_Waffe(const cH_MidgardBasicElement &x) : Handle<const Waffe>
-      (dynamic_cast<const Waffe *>(&*x)){}
+      (x.cast_dynamic<const Waffe>()){}
 
 };
 

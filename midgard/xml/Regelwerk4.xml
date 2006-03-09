@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.43 $" Copyright="Jürgen E. Franke" Jahr="2001" MAGUS-Bild="10" MAGUS-Index="-2" Maintainer="Malte Thoma" Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.44 $" Copyright="Jürgen E. Franke" Jahr="2001" MAGUS-Bild="10" MAGUS-Index="-2" Maintainer="Malte Thoma" Name="Das Fantasy Rollenspiel" Titel="Das Fantasy Rollenspiel" Version="1.0" offiziell="true">
  <SteigernKosten>
   <Kosten Fertigkeit="Bewegung" Wert11="20" Wert12="20" Wert13="50" Wert14="50" Wert15="100" Wert16="200" Wert17="400" Wert18="800" Wert19="800" Wert20="800"/>
   <Kosten Fertigkeit="Lanzenstechen" Wert2="100" Wert3="100" Wert4="150" Wert5="150" Wert6="200" Wert7="200" Wert8="400"/>
@@ -6997,7 +6997,7 @@
    <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Ba"/>
    <Lernschema Erfolgswert="5" Lernpunkte="4" Typ="Wa"/>
   </Waffe>
-  <Waffe Grundkenntnisse="Zweihandschwert" Kategorie="Angriff" Klasse="Z" Name="Bihänder" Schaden="2W6" Schwierigkeit="6">
+  <Waffe Grundkenntnisse="Zweihandschwert" Kategorie="Angriff" Klasse="Z" Name="Bihänder" Schaden="2W6" Schwierigkeit="5">
    <Modifikationen Abwehr-leicht="1" Abwehr-schwer="-2" Waffenrang="-2"/>
    <Voraussetzungen Gs="31" St="81"/>
    <Reichweite/>
@@ -7939,7 +7939,7 @@
    <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Hä"/>
    <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sp"/>
   </Waffe>
-  <Waffe Grundkenntnisse="Zauberstäbe" Kategorie="Angriff" Klasse="E" Name="Magierstab" Schaden="W6" Schwierigkeit="3">
+  <Waffe Grundkenntnisse="Zauberstäbe" Kategorie="Angriff" Klasse="E" Name="Magierstab" Schaden="W6" Schwierigkeit="7">
    <Modifikationen/>
    <Voraussetzungen Gs="31"/>
    <Reichweite/>
@@ -7976,7 +7976,7 @@
    <Lernschema Erfolgswert="4" Lernpunkte="6" Typ="Th"/>
    <Lernschema Erfolgswert="4" Lernpunkte="6" Typ="wHx"/>
   </Waffe>
-  <Waffe Grundkenntnisse="Zauberstäbe" Kategorie="Angriff" Klasse="E" Name="Magierstecken" Schaden="W6" Schadensbonus="1" Schadensbonus2="1" Schwierigkeit="4">
+  <Waffe Grundkenntnisse="Zauberstäbe" Kategorie="Angriff" Klasse="E" Name="Magierstecken" Schaden="W6" Schadensbonus="1" Schadensbonus2="1" Schwierigkeit="7">
    <Modifikationen/>
    <Voraussetzungen Gs="61" St="31"/>
    <Reichweite/>
@@ -8054,7 +8054,7 @@
    <Lernschema Erfolgswert="4" Lernpunkte="4" Typ="PHe"/>
    <Lernschema Erfolgswert="4" Lernpunkte="4" Typ="PK"/>
   </Waffe>
-  <Waffe Grundkenntnisse="Stichwaffe" Kategorie="Angriff" Klasse="E" Name="Ochsenzunge" Schaden="2W6" Schadensbonus="-4" Schadensbonus2="-4" Schwierigkeit="3">
+  <Waffe Grundkenntnisse="Stichwaffe" Kategorie="Angriff" Klasse="E" Name="Ochsenzunge" Schaden="2W6" Schadensbonus="-4" Schadensbonus2="-4" Schwierigkeit="2">
    <Modifikationen Abwehr-leicht="-1" Abwehr-schwer="+1" Waffenrang="+2"/>
    <Voraussetzungen Gs="31"/>
    <Reichweite/>
@@ -8239,7 +8239,7 @@
    <Lernschema Erfolgswert="5" Lernpunkte="2" Typ="Sp"/>
    <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Hä"/>
   </Waffe>
-  <Waffe Grundkenntnisse="Zweihandschlagwaffe" Kategorie="Angriff" Klasse="Z" Name="Schlachtbeil" Schaden="W6" Schadensbonus="1" Schadensbonus2="3" Schwierigkeit="3" Text="(Einhändig|Beidhändig)" ZweiteGrundkenntnis="Einhandschlagwaffe">
+  <Waffe Grundkenntnisse="Zweihandschlagwaffe" Kategorie="Angriff" Klasse="Z" Name="Schlachtbeil" Schaden="W6" Schadensbonus="1" Schadensbonus2="3" Schwierigkeit="4" Text="(Einhändig|Beidhändig)" ZweiteGrundkenntnis="Einhandschlagwaffe">
    <Modifikationen Abwehr-leicht="+1" Abwehr-schwer="-2" Waffenrang="-2"/>
    <Voraussetzungen Gs="31" Min_St_Einhand="91" St="61"/>
    <Reichweite/>
@@ -8559,7 +8559,7 @@
    <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Ba"/>
    <Lernschema Erfolgswert="5" Lernpunkte="3" Typ="Wa"/>
   </Waffe>
-  <Waffe Grundkenntnisse="Kampf ohne Waffen" Kategorie="Angriff" Name="waffenloser Kampf" Schaden="speziell" Schwierigkeit="7">
+  <Waffe Grundkenntnisse="Kampf ohne Waffen" Kategorie="Angriff" Name="waffenloser Kampf" Schaden="speziell" Schwierigkeit="6">
    <Modifikationen Abwehr-leicht="-2" Abwehr-schwer="+2" Waffenrang="+2"/>
    <Voraussetzungen Gw="21" St="21"/>
    <Reichweite/>
@@ -8767,7 +8767,7 @@
    <Ausnahme Typ="Th"/>
    <Ausnahme Typ="wHx"/>
   </Waffe>
-  <Waffe Grundkenntnisse="Bögen" Kategorie="Schu�&#x9F;waffe" Klasse="S" Name="Kompositbogen" Schaden="W6" Schadensbonus="1" Schadensbonus2="1" Schwierigkeit="6">
+  <Waffe Grundkenntnisse="Bögen" Kategorie="Schu�&#x9F;waffe" Klasse="S" Name="Kompositbogen" Schaden="W6" Schadensbonus="1" Schadensbonus2="1" Schwierigkeit="5">
    <Modifikationen/>
    <Voraussetzungen Gs="61" St="61"/>
    <Reichweite fern="200" mittel="120" nah="30"/>
