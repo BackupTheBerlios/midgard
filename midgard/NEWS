@@ -1,5 +1,6 @@
 Version 0.9.9.14
 - Selbststudium 100% FP nehmen (statt fälschlicherweise 133%)
+- Lernschema Absturz behoben (begin_undo zerstört Abenteurer-Referenz)
 
 Version 0.9.9.13
 - make install unter Linux funktioniert wieder (oder erstmalig?)

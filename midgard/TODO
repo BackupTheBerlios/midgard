@@ -200,3 +200,11 @@ AEP="20" GS="300"/><erlernt auf="5" LP="3"></Fertigkeit>
 
 Kommentare, Vorschläge? (Lernpunkte mit Typ? z.B. LP="3a" = allgemeine
 Fertigkeit)
+
+----
+
+Absturz beim Lernen von Fertigkeiten in Voraussetzungen:
+#5  0x00000000004d9616 in std::list<H_MidgardBasicElement_mutable, std::allocator<H_MidgardBasicElement_mutable> >::push_back ()
+#6  0x00002aaaaaeffd5e in Fertigkeit::Voraussetzung ()
+   from /home/christof/berlios/magus2/midgard/src/../libmagus/.libs/libmagus.so.0
+#7  0x0000000000518941 in table_lernschema::on_tree_lernschema_leaf_selected ()

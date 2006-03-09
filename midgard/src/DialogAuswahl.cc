@@ -121,3 +121,10 @@ DialogZusatz::DialogZusatz(Gtk::Window *parent,MidgardBasicElement::eZusatz was,
   cb.signal_toggled().connect(sigc::mem_fun(*this,&DialogZusatz::einschraenkung_anwenden));
   einschraenkung_anwenden();
 }
+
+std::string DialogZusatz::run()
+{ cH_RowDataBase res=DialogAuswahl::run();
+  if (!res) throw Abbruch();
+  // gilt das immer (erste Spalte)?
+  return res->Value(0,0)->getStrVal();
+}

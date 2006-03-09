@@ -23,6 +23,7 @@
 #include <SimpleTree.hh>
 #include <gtkmm/checkbutton.h>
 #include <libmagus/MidgardBasicElement.hh>
+#include <stdexcept>
 
 // Ein Dialog zur Auswahl aus einer Liste
 class DialogAuswahl : public MagusDialog
@@ -45,6 +46,7 @@ class DialogZusatz : public DialogAuswahl
   static std::string text(MidgardBasicElement::eZusatz was, MBEmlt MBE);
   static std::vector<std::string> titles(MidgardBasicElement::eZusatz was, MBEmlt MBE);
 public:
+  struct Abbruch : std::exception {};
   DialogZusatz(Gtk::Window *parent,MidgardBasicElement::eZusatz was,MBEmlt MBE);
   std::string run();
 };

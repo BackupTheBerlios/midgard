@@ -31,6 +31,7 @@
 #include "LernListen.hh"
 #include <libmagus/Random.hh>
 #include <libmagus/Ausgabe.hh>
+#include "DialogAuswahl.hh"
 
 void table_lernschema::refresh()
 { 
@@ -300,10 +301,10 @@ void table_lernschema::on_tree_gelerntes_leaf_selected(cH_RowDataBase d)
  
 void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
 {
-  Abenteurer &A=hauptfenster->getAben();
+  hauptfenster->getChar()->begin_undo();
   const Data_SimpleTree *dt=dynamic_cast<const Data_SimpleTree*>(&*d);
   MBEmlt MBE = dt->getMBE();
-  hauptfenster->getChar()->begin_undo();
+  Abenteurer &A=hauptfenster->getAben();
   if(MBE->Gelernt()) 
    { 
      Ausgabe(Ausgabe::Error,"Diese Fertigkeit ist schon gelernt");
@@ -407,10 +408,10 @@ void table_lernschema::on_tree_lernschema_leaf_selected(cH_RowDataBase d)
           }
 #endif          
         if((*MBE)->ZusatzEnum(A.getVTyp())) 
-#if 1
+#if 0
           lernen_zusatz((*MBE)->ZusatzEnum(A.getVTyp()),MBE);
 #else
-        { std::string zus=DialogZusatz(hauptfenster,(*MBE)->ZusatzEnum(A.getVTyp())).run();
+        { std::string zus=DialogZusatz(hauptfenster,(*MBE)->ZusatzEnum(A.getVTyp()),MBE).run();
         }
 #endif
 
