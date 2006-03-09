@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.33 2006/02/03 07:43:47 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.34 2006/03/09 08:01:24 christof Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -55,7 +55,7 @@ bool Abenteurer::steigern_usp(int &kosten,MBEmlt MBE,int &stufen)
       }
       ep_k=ep_kosten(kosten);
       break;
-    case ws_Selbststudium: goldanteil=0; fpanteil=133; ep_k=ep_kosten(kosten); break;
+    case ws_Selbststudium: goldanteil=0; fpanteil=100; ep_k=ep_kosten(kosten); break;
     case ws_Spruchrolle: goldanteil=0; fpanteil=10; ep_k=(kosten+9)/10; break;
   }
 
@@ -653,7 +653,7 @@ void Abenteurer::desteigern(unsigned kosten)
       ep_k=kosten;
       break;
     case ws_Selbststudium:
-      ep_k=kosten*1.33;
+      ep_k=kosten;
       break;
     case ws_Spruchrolle:
       ep_k=kosten/10;

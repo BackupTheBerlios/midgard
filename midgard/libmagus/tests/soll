@@ -58,3 +58,13 @@ test8
 >    <Zauber Bezeichnung="Reinigen"/>
 63a65
 >   <Von Spruchrolle gelernt>Reinigen</Von Spruchrolle gelernt>
+lernliste
+test9
+13c13
+<   <Steigern ZEP="50">
+---
+>   <Steigern AEP="50" EPproGFP="100" GFP="100" benötigte_Tage="20">
+43c43
+<    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="6"/>
+---
+>    <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="7"/>

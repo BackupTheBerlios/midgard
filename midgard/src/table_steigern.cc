@@ -373,7 +373,7 @@ void table_steigern::Window2Abenteurer()
     case Button_Selbststudium:
       A.wie_steigern=Grundwerte::ws_Selbststudium;
       A.goldanteil=0;
-      A.fpanteil=133;
+      A.fpanteil=100;
       break;
     case Button_Unterweisung:
       Gtk::Adjustment *adj=vscale_EP_Gold->get_adjustment();
