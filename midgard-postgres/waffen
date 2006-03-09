@@ -47,7 +47,7 @@ CREATE TABLE waffen (
 COPY waffen (name, st, gw, gs, grundkenntnisse, schwierigkeit, art, schaden, schaden_b, schaden_b2, art_2, waffenrang, wm_abwehr_leicht, wm_abwehr_schwer, zusatz, region, reichweite_0, reichweite_n, reichweite_m, reichweite_f, lern_land, lern_stadt, gewicht, kosten_gs, text, min_st_einhand, zweite_grundkenntnis) FROM stdin;
 	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Anderthalbhänder	31	\N	21	Zweihandschwert	4	Angriff	W6	1	2	Z	-1	0	-1	\N	\N	\N	\N	\N	\N	\N	\N	4	200	(Einhändig|Beidhändig)	81	Einhandschwert
-Bihänder	81	\N	31	Zweihandschwert	6	Angriff	2W6	0	\N	Z	-2	1	-2	\N	\N	\N	\N	\N	\N	\N	\N	5	200	\N	\N	\N
+Bihänder	81	\N	31	Zweihandschwert	5	Angriff	2W6	0	\N	Z	-2	1	-2	\N	\N	\N	\N	\N	\N	\N	\N	5	200	\N	\N	\N
 Blasrohr	\N	\N	61	Blasrohr	5	Schußwaffe	Speziell	0	\N	S	\N	\N	\N	\N	\N	0	10	15	20	\N	\N	2	8	\N	\N	\N
 Bo	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N	2.5	10	\N	\N	\N
 Bogen	31	\N	31	Bögen	4	Schußwaffe	W6	0	\N	S	\N	\N	\N	\N	\N	0	30	100	180	\N	\N	0.59999999999999998	15	\N	\N	\N
@@ -77,7 +77,7 @@ Ken mit Meisterklinge	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	K	\N	\N	\N	\N	\N
 Keule	\N	\N	\N	Einhandschlagwaffe	1	Angriff	W6	-1	\N	E	\N	0	+2	\N	\N	\N	\N	\N	\N	\N	1	2	8	\N	\N	\N
 Kharrata	21	\N	81	Kharrata	3	Angriff	2W6	\N	\N	E	\N	\N	\N	\N		\N	\N	\N	\N	\N	\N	\N	-1	\N	\N	\N
 kleiner Schild	31	\N	11	Schild	0	Verteidigung	\N	-1	\N	V	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	10	\N	\N	\N
-Kompositbogen	61	\N	61	Bögen	6	Schußwaffe	W6	1	\N	S	\N	\N	\N	\N	\N	0	30	120	200	\N	\N	0.69999999999999996	-1	\N	\N	\N
+Kompositbogen	61	\N	61	Bögen	5	Schußwaffe	W6	1	\N	S	\N	\N	\N	\N	\N	0	30	120	200	\N	\N	0.69999999999999996	-1	\N	\N	\N
 Kriegsflegel	61	\N	31	Kettenwaffe	5	Angriff	2W6	-1	\N	Z	-3	+2	-2	\N	\N	\N	\N	\N	\N	\N	\N	7.5	30	\N	\N	\N
 Kriegshammer	61	\N	11	Einhandschlagwaffe	2	Angriff	W6	0	\N	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.5	12	\N	\N	\N
 Krummsäbel	31	\N	11	Einhandschwert	3	Angriff	W6	0	1	E	\N	0/-2	0/0	\N	\N	\N	\N	\N	\N	\N	\N	2.5	100	(Normal|Reiterwaffe)	\N	\N
@@ -91,8 +91,8 @@ Lanze	61	\N	11	Spießwaffe	4	Angriff	W6|2W6+2|3W6+3	0	\N	E	+1/+3	0/0	0/-2	\N	\N	
 Lasso	\N	\N	81	Fesselwaffe	7	Wurfwaffe	speziell	0	\N	E	\N	\N	\N	\N		3	6	10	15	\N	\N	1	2	\N	\N	\N
 leichte Armbrust	\N	\N	31	Armbrust	3	Schußwaffe	W6	0	\N	S	\N	\N	\N	\N	\N	0	30	120	220	\N	\N	2.5	40	\N	\N	\N
 leichter Speer	\N	\N	\N	Spießwaffe	2	Angriff	W6	-1	\N	E	+1	-1	+1	\N	\N	\N	\N	\N	\N	2	\N	1.5	6	\N	\N	\N
-Magierstab	\N	\N	31	Zauberstäbe	3	Angriff	W6	0	\N	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.5	15	\N	\N	\N
-Magierstecken	31	\N	61	Zauberstäbe	4	Angriff	W6	1	\N	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	20	\N	\N	\N
+Magierstab	\N	\N	31	Zauberstäbe	7	Angriff	W6	0	\N	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.5	15	\N	\N	\N
+Magierstecken	31	\N	61	Zauberstäbe	7	Angriff	W6	1	\N	E	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	20	\N	\N	\N
 Morgenstern	61	\N	61	Kettenwaffe	5	Angriff	W6	2	\N	E	-2	+1	-1	\N	\N	\N	\N	\N	\N	\N	\N	5	40	\N	\N	\N
 Naginata	11	\N	61	Stangenwaffe	5	Angriff	W6	2	\N	Z	+1/-3	\N	+2/-2	\N	K	\N	\N	\N	\N	\N	\N	3	30	\N	\N	\N
 Namisritra	\N	\N	\N	Namisritra	2	Angriff	W6	-1	\N	E	\N	\N	\N	waffenloser Kampf	R	\N	\N	\N	\N	\N	\N	\N	20	\N	\N	\N
@@ -102,14 +102,14 @@ NinYato mit Meisterklinge	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	K	\N	\N	\N	\
 NoDachi	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N	5	200	\N	\N	\N
 NoDachi mit Meisterklinge	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N	5	2000	\N	\N	\N
 NunChaku	31	\N	61	Kettenwaffe	7	Angriff	W6	-1	\N	E	+2	-1	+1	\N	K	\N	\N	\N	\N	\N	\N	0.5	10	\N	\N	\N
-Ochsenzunge	\N	\N	31	Stichwaffe	3	Angriff	2W6	-4	\N	E	+2	-1	+1	\N	\N	\N	\N	\N	\N	\N	\N	1	10	\N	\N	\N
+Ochsenzunge	\N	\N	31	Stichwaffe	2	Angriff	2W6	-4	\N	E	+2	-1	+1	\N	\N	\N	\N	\N	\N	\N	\N	1	10	\N	\N	\N
 Ogerhammer	91	\N	31	Zweihandschlagwaffe	4	Angriff	4W6	-3	0	Z	-4	+2	-3	\N	\N	\N	\N	\N	\N	\N	\N	10	70	(Normal|Sturmangriff zu Pferd)	\N	\N
 PaiPu	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N	1.5	15	\N	\N	\N
 Parierdolch	\N	\N	\N	Parierwaffe	0	Verteidigung	\N	-2	\N	V	\N	\N	\N	Dolch	\N	\N	\N	\N	\N	\N	\N	0.69999999999999996	8	\N	\N	\N
 Peitsche	21	\N	81	Peitsche	7	Angriff	W6	-3	\N	E	-1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	8	\N	\N	\N
 Pilum	61	\N	21	Wurfspieß	2	Wurfwaffe	W6	0	\N	W	\N	\N	\N	leichter Speer	3	0	10	20	30	\N	\N	2	8	\N	\N	\N
 Rapier	11	\N	51	Stichwaffe	4	Angriff	W6	0	\N	E	+3	-2	+1	\N	\N	\N	\N	\N	\N	\N	\N	1.5	70	\N	\N	\N
-Schlachtbeil	61	\N	31	Zweihandschlagwaffe	3	Angriff	W6	1	3	Z	-2	+1	-2	\N	\N	\N	\N	\N	\N	\N	\N	5	25	(Einhändig|Beidhändig)	91	Einhandschlagwaffe
+Schlachtbeil	61	\N	31	Zweihandschlagwaffe	4	Angriff	W6	1	3	Z	-2	+1	-2	\N	\N	\N	\N	\N	\N	\N	\N	5	25	(Einhändig|Beidhändig)	91	Einhandschlagwaffe
 Schleuder	\N	\N	61	Schleuder	5	Schußwaffe	W6	0	-1	S	\N	\N	\N	\N	\N	0	30	60	90	\N	\N	0.10000000000000001	1	(Bleigeschoß|Steine)	\N	\N
 schwere Armbrust	61	\N	31	Armbrust	4	Schußwaffe	2W6	-1	\N	S	\N	\N	\N	\N	\N	0	30	120	240	\N	\N	5	40	\N	\N	\N
 Skhallanta	21	\N	81	Armbrust	4	Schußwaffe	2*2W6	-3	\N	S	\N	\N	\N	\N	\N	0	30	120	220	\N	\N	3	-1	\N	\N	\N
@@ -124,7 +124,7 @@ Tanto	\N	\N	\N	\N	\N	Angriff	\N	\N	\N	\N	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N	0.5	5	\
 Tanto mit Meisterklinge	\N	\N	\N	\N	\N	Angriff	\N	\N	\N	\N	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N	0.5	200	\N	\N	\N
 TetsuBo	31	\N	61	Kampfstab	7	Angriff	W6	1	\N	E	\N	\N	+2	\N	K	\N	\N	\N	\N	\N	\N	5	15	\N	\N	\N
 Tonfa	21	\N	61	Kampf ohne Waffen	6	Angriff	W6	-2	\N	E	\N	\N	\N	\N	K	\N	\N	\N	\N	\N	\N	0.5	50	\N	\N	\N
-waffenloser Kampf	21	21	\N	Kampf ohne Waffen	7	Angriff	speziell	0	\N	\N	+2	-2	+2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+waffenloser Kampf	21	21	\N	Kampf ohne Waffen	6	Angriff	speziell	0	\N	\N	+2	-2	+2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 WakiZaschi	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.5	800	\N	\N	\N
 Werfen	\N	\N	21	Werfen	7	Wurfwaffe	variabel	0	\N		\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 Wurfaxt	31	\N	31	Stielwurfwaffe	2	Wurfwaffe	W6	0	\N	W	\N	\N	\N	Handaxt	\N	0	10	20	30	\N	\N	1.5	25	\N	\N	\N
