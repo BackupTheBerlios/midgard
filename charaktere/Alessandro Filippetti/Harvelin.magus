@@ -1,61 +1,79 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Grad="5" Name="Grimbald Harvelin" Zeitpunkt="Seelenkaefig"/>
-  <Typ Abkürzung="Sp" Geschlecht="m" Hand="Rechtshänder" Spezies="Halbling" Stadt_Land="Stadt" Überleben="Überleben Heimat"/>
+  <Figur Grad="6" Name="Grimbald Harvelin" Zeitpunkt="Sturm Ã¼ber Mokkattam"/>
+  <Typ AbkÃ¼rzung="Sp" Geschlecht="m" Hand="RechtshÃ¤nder" Spezies="Halbling" Stadt_Land="Stadt" Ãœberleben="Ã&#x9C;berleben Heimat"/>
   <Basiseigenschaften Gs="77" Gw="100" In="89" Ko="97" St="60" Zt="22"/>
-  <abgeleiteteEigenschaften Au="69" B="12" SG="5" Sb="14" Wk="93" pA="34"/>
-  <Erfolgswerte Abwehr="13" ZauberResistenz="12" Zaubern="2"/>
-  <Gesundheit AP="25" LP="15"/>
-  <Beschreibung Alter="21" Gestalt="breit" Gewicht="61" Glaube="Leomie" Größe="112" Herkunft="Halfdal" Stand="Volk"/>
-  <Vermögen GS="126" KS="7" SS="7"/>
-  <Steigern AEP="7" EPproGFP="33" GFP="2910" benötigte_Tage="29.16">
+  <abgeleiteteEigenschaften Au="69" B="12" GG="2" SG="8" Sb="14" Wk="93" pA="34"/>
+  <Erfolgswerte Abwehr="14" ZauberResistenz="13" Zaubern="2"/>
+  <Gesundheit AP="28" LP="15"/>
+  <Beschreibung Alter="22" Gestalt="breit" Gewicht="61" Glaube="Leomie" GrÃ¶ÃŸe="112" Herkunft="Halfdal" Merkmale="Versenkung Grad des: Schauens (+1), FÃ¼hlens (+13), Schweigens (+0), HÃ¶rens (+0)" Stand="Volk"/>
+  <VermÃ¶gen GS="495" KS="4" SS="3"/>
+  <Steigern AEP="194" EPproGFP="33" GFP="5130" KEP="39" benÃ¶tigte_Tage="283">
    <Praxispunkte/>
   </Steigern>
-  <Text>Dies ist die Geschichte von Grimald Harvelin, einem jungen Hobbit, der auszog, etwas anderes als das heimatliche Halfdahl kennen zu lernen.&#x0A;Es begab sich eines schönen morgens vor nicht allzu langer Zeit, dass Harvelin von seinem Onkel, dem alten &#x5C;textsc { Nordel }   zum Weinhändler&#x0A;in der nahen Stadt der Grosslinge geschickt wurde.&#x0A;&#x0A;Dies war der Anfang des Abenteuers &#x0A;&#x0A;Kaum hatte er den Weinhändler verlassen und sich eine {&#x5C;Large gemütliche Gaststätte } gesucht, als auch schon ein verwegen &#x0A;(wenigstens für die Augen eines Halblings) aussehender Menschenpulk die Gaststätte in Beschlag nahm.</Text>
-  <Ausrüstung>
-   <Rüstung>TR</Rüstung>
-   <Rüstung2>OR</Rüstung2>
-   <Waffe Bezeichnung="Dolch" Erfolgswert="11"/>
-   <Waffe Bezeichnung="Werfen" Erfolgswert="9"/>
-   <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Körper" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hose" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Hemd" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gürtel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="5 Liter-Wasserschlauch" Gewicht="0.1" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+  <Text>Dies ist die Geschichte von Grimald Harvelin, einem jungen Hobbit, der auszog, etwas anderes als das heimatliche Halfdahl kennen zu lernen.&#x0A;Es begab sich eines schÃ¶nen morgens vor nicht allzu langer Zeit, dass Harvelin von seinem Onkel, dem alten &#x5C;textsc { Nordel }   zum WeinhÃ¤ndler&#x0A;in der nahen Stadt der Grosslinge geschickt wurde.&#x0A;&#x0A;Dies war der Anfang des Abenteuers &#x0A;&#x0A;Kaum hatte er den WeinhÃ¤ndler verlassen und sich eine &#x5C;textit{ gemÃ¼tliche GaststÃ¤tte } gesucht, als auch schon ein verwegen &#x0A;(wenigstens fÃ¼r die Augen eines Halblings) aussehender Menschenpulk die GaststÃ¤tte in Beschlag nahm.&#x5C;&#x5C;&#x0A;&#x0A;--- &#x5C;&#x5C;&#x0A;&#x5C;begin {footnotesize}&#x0A;&#x5C;begin {tabular}{l l l l l l l}&#x0A;Abenteuer (SL)&#x09;&amp; Orte &amp;  Ereignisse&#x09;&amp; Gruppe &amp; Personen (+) &amp; Personen (-) &amp; Besonderes &#x5C;&#x5C;&#x0A;(?)  &amp;  &amp; &amp; &amp; &amp; Rattenvolk, Dunkelelfen &#x5C;&amp; Drache &amp;&#x5C;&#x5C;&#x0A;(Corinnis?) &amp; &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;Halblingsvolk im Gebirge&amp; &amp; &amp; &amp;&amp; &amp; DÃ¤monen-Drache &#x5C;&#x5C;&#x0A;(Kurbad) &amp; &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;Der Schwarze Turm  &amp; &amp; &amp; &amp; &amp; &amp; Orkbelagerung (Grenze zu Ywerdon)  &#x5C;&#x5C;&#x0A;(Andreas H)&amp; &amp; &amp; &amp; &amp; &amp;Wasserdrache, Maschinen, verletzter Drache  &#x5C;&#x5C;&#x0A;Der weinende Brunnen &amp; Corinnis &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;(Malte) &amp; &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;(Steffies Abenteuer) &amp; &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;Vier letzte Lieder &amp; Teamhair &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;Corinnis (Tom) &amp; &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;? &amp; &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;Crossing (Tom) &amp; &amp;&amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;Kinder des Tr&quot;aumers &amp; &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;Sturm Ã¼ber Mokkatam &amp; &amp; &amp; &amp; &amp; &amp; &#x5C;&#x5C;&#x0A;&#x5C;end {tabular}&#x0A;&#x5C;end {footnotesize}&#x0A;</Text>
+  <AusrÃ¼stung>
+   <RÃ¼stung>TR</RÃ¼stung>
+   <RÃ¼stung2>OR</RÃ¼stung2>
+   <Waffe Bezeichnung="Werfen" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="0"/>
+   <Gegenstand Bezeichnung="KÃ¶rper" sichtbar="true">
+    <Gegenstand Besonderheit="blau" Bezeichnung="Turban" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Besonderheit="grÃ¼n, Leinen, Mittelschicht" Bezeichnung="Umhang" sichtbar="true"/>
+    <Gegenstand Besonderheit="braun, reich verziert, mit Taschentuchtasche" Bezeichnung="Kaftan" sichtbar="true">
+     <Gegenstand Besonderheit="grÃ¼n, Seide, Mittelschicht" Bezeichnung="5 TaschentÃ¼cher" Region="EE"/>
     </Gegenstand>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="Leder" Bezeichnung="Rucksack" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true">
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="warm" Bezeichnung="Decke" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Lederbeutel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Geld" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Dietriche und Nachschlüssel" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Bälle, Reifen und Keulen zum Jonglieren" Gewicht="1" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="20m Seil" Gewicht="1.5" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="20m Garn" Gewicht="0" Region="" RüstungOhneGewicht="false"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="20m Angelschnur" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Gußeisentopf für 2 Liter" Gewicht="2" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Feuerstein und Zunder" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Laterne. abblendbar" Gewicht="1.5" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Angelhaken" Gewicht="0.05" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="3" Beschreibung="" Besonderheit="" Bezeichnung="Tischtuch, weiss, 1x1m" Gewicht="0.2" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="4" Beschreibung="" Besonderheit="" Bezeichnung="1/4 Liter Lampenöl" Gewicht="0.3" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Nähnadel" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="3" Beschreibung="" Besonderheit="" Bezeichnung="Serviette, weiss, 40x40cm" Gewicht="0" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="" Bezeichnung="Essgeschirr, Holz" Gewicht="0.5" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
-     <Gegenstand Anzahl="2" Beschreibung="" Besonderheit="" Bezeichnung="Handtuch, weiss" Gewicht="0.1" Region="EE" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+    <Gegenstand Besonderheit="rot" Bezeichnung="Schnabelschuhe" sichtbar="true"/>
+    <Gegenstand Bezeichnung="GÃ¼rtel" sichtbar="true">
+     <Gegenstand Besonderheit="ungefÃ¤rbt, Leder, Volk" Bezeichnung="Lederhandschuhe" sichtbar="true"/>
+     <Gegenstand Bezeichnung="5 Liter-Wasserschlauch" Gewicht="0.1" sichtbar="true"/>
     </Gegenstand>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="grün, Baumwolle, Mittelschicht" Bezeichnung="Weste" Gewicht="0.5" Region="EE" RüstungOhneGewicht="false" sichtbar="true">
-     <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="grün, Seide, Mittelschicht" Bezeichnung="5 Taschentücher" Gewicht="0" Region="EE" RüstungOhneGewicht="false"/>
+    <Gegenstand Besonderheit="Leder" Bezeichnung="Rucksack" sichtbar="true">
+     <Gegenstand Besonderheit="warm" Bezeichnung="Decke" sichtbar="true"/>
+     <Gegenstand Besonderheit="ungefÃ¤rbt, Leder, Volk" Bezeichnung="Stiefel (halbhoch)"/>
+     <Gegenstand Besonderheit="grÃ¼n, Baumwolle, Mittelschicht" Bezeichnung="Weste"/>
+     <Gegenstand Bezeichnung="Lederbeutel"/>
+     <Gegenstand Bezeichnung="Geld"/>
+     <Gegenstand Bezeichnung="Dietriche und NachschlÃ¼ssel"/>
+     <Gegenstand Anzahl="2" Bezeichnung="Magnetstein" Gewicht="0.1"/>
+     <Gegenstand Bezeichnung="BÃ¤lle, Reifen und Keulen zum Jonglieren" Gewicht="1" Region="EE" sichtbar="true"/>
+     <Gegenstand Bezeichnung="20m Seil" Gewicht="1.5" sichtbar="true"/>
+     <Gegenstand Bezeichnung="20m Garn"/>
+     <Gegenstand Bezeichnung="20m Angelschnur" sichtbar="true"/>
+     <Gegenstand Bezeichnung="GuÃ&#x9F;eisentopf fÃ¼r 2 Liter" Gewicht="2" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Feuerstein und Zunder" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Laterne. abblendbar" Gewicht="1.5" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Angelhaken"/>
+     <Gegenstand Anzahl="3" Bezeichnung="Tischtuch, weiss, 1x1m" Gewicht="0.2" Region="EE" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Tischtuch, geweiht, weiss, 1x1m" Gewicht="0.2" Region="EE" sichtbar="true"/>
+     <Gegenstand Anzahl="4" Bezeichnung="1/4 Liter LampenÃ¶l" Gewicht="0.3" sichtbar="true"/>
+     <Gegenstand Bezeichnung="NÃ¤hnadel"/>
+     <Gegenstand Anzahl="3" Bezeichnung="Serviette, weiss, 40x40cm" Region="EE" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Essgeschirr, Holz" Gewicht="0.5" Region="EE" sichtbar="true"/>
+     <Gegenstand Anzahl="2" Bezeichnung="Handtuch, weiss" Gewicht="0.1" Region="EE" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true">
+      <Gegenstand Bezeichnung="1/2 Pfund Pfeifenkraut" Gewicht="0.3"/>
+      <Gegenstand Bezeichnung="Pfeife"/>
+     </Gegenstand>
+     <Gegenstand Anzahl="5" Bezeichnung="Leinenbeutel" sichtbar="true">
+      <Gegenstand Bezeichnung="scharidisches Seesalz" Gewicht="0.1"/>
+      <Gegenstand Bezeichnung="Zucker" Gewicht="0.1"/>
+      <Gegenstand Bezeichnung="Zimt" Gewicht="0.1"/>
+      <Gegenstand Bezeichnung="Curry, gelb, rawindisch" Gewicht="0.1"/>
+      <Gegenstand Bezeichnung="Pfeffer, rot, aranisch" Gewicht="0.1"/>
+     </Gegenstand>
+     <Gegenstand Anzahl="7" Bezeichnung="KupferglÃ¶ckchen, schallgedÃ¤mpft verpackt"/>
     </Gegenstand>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="ungefärbt, Leder, Volk" Bezeichnung="Stiefel (halbhoch)" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="ungefärbt, Leder, Volk" Bezeichnung="Lederhandschuhe" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Beschreibung="" Besonderheit="grün, Leinen, Mittelschicht" Bezeichnung="Umhang" Gewicht="0" Region="" RüstungOhneGewicht="false" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Reitkamel" sichtbar="true"/>
    </Gegenstand>
-  </Ausrüstung>
+  </AusrÃ¼stung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="8"/>
-   <Sinn Bezeichnung="Hören" Wert="10"/>
+   <Sinn Bezeichnung="HÃ¶ren" Wert="10"/>
    <Sinn Bezeichnung="Riechen" Wert="8"/>
    <Sinn Bezeichnung="Schmecken" Wert="10"/>
    <Sinn Bezeichnung="Tasten" Wert="8"/>
@@ -63,47 +81,67 @@
    <Beruf Bezeichnung="Schmuggler"/>
    <ang-Fertigkeit Bezeichnung="Gute Reflexe" Wert="9"/>
    <Fertigkeit Bezeichnung="Akrobatik" Wert="10"/>
-   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="6"/>
-   <Fertigkeit Bezeichnung="Gaukeln" Wert="12"/>
-   <Fertigkeit Bezeichnung="Geländelauf" Wert="12"/>
-   <Fertigkeit Bezeichnung="Himmelskunde" Wert="5"/>
-   <Fertigkeit Bezeichnung="Klettern" Praxispunkte="1" Wert="13"/>
-   <Fertigkeit Bezeichnung="Landeskunde" Praxispunkte="1" Wert="4" Zusatz="Alba"/>
+   <Fertigkeit Bezeichnung="Balancieren" Wert="10"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Wert="9"/>
+   <Fertigkeit Bezeichnung="Fallen entdecken" Wert="5"/>
+   <Fertigkeit Bezeichnung="Fangen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Gaukeln" Wert="14"/>
+   <Fertigkeit Bezeichnung="Geheimzeichen" Wert="6" Zusatz="Zinken (Meer der fÃ¼nf Winde)"/>
+   <Fertigkeit Bezeichnung="GelÃ¤ndelauf" Wert="13"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Praxispunkte="1" Wert="6"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="15"/>
+   <Fertigkeit Bezeichnung="Kochen" Wert="10"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="4" Zusatz="Erainn"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Praxispunkte="1" Wert="7" Zusatz="Alba"/>
    <Fertigkeit Bezeichnung="Laufen" Wert="6"/>
    <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="6"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="10"/>
    <Fertigkeit Bezeichnung="Rudern" Wert="10"/>
    <Fertigkeit Bezeichnung="Sagenkunde" Wert="6"/>
    <Fertigkeit Bezeichnung="Schleichen" Praxispunkte="3" Wert="11"/>
-   <Fertigkeit Bezeichnung="Schlösser öffnen" Praxispunkte="1" Wert="8"/>
+   <Fertigkeit Bezeichnung="SchlÃ¶sser Ã¶ffnen" Praxispunkte="2" Wert="8"/>
    <Fertigkeit Bezeichnung="Schwimmen" Wert="11"/>
-   <Fertigkeit Bezeichnung="Seilkunst" Wert="7"/>
-   <Fertigkeit Bezeichnung="Stehlen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="10"/>
+   <Fertigkeit Bezeichnung="Springen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Stehlen" Wert="10"/>
    <Fertigkeit Bezeichnung="Steuern" Praxispunkte="1" Wert="11"/>
    <Fertigkeit Bezeichnung="Suchen" Wert="8"/>
    <Fertigkeit Bezeichnung="Tanzen" Wert="11"/>
    <Fertigkeit Bezeichnung="Tarnen" Wert="11"/>
-   <Fertigkeit Bezeichnung="Überleben im Wald" Wert="6"/>
    <Fertigkeit Bezeichnung="Verbergen" Wert="7"/>
+   <Fertigkeit Bezeichnung="Verkleiden" Wert="12"/>
+   <Fertigkeit Bezeichnung="Zeichensprache" Wert="5"/>
+   <Fertigkeit Bezeichnung="Ã&#x9C;berleben im Wald" Wert="7"/>
    <Waffe Bezeichnung="Dolch" Praxispunkte="1" Wert="11"/>
-   <Waffe Bezeichnung="Faustkampf" Wert="4"/>
-   <Waffe Bezeichnung="waffenloser Kampf" Wert="8"/>
-   <Waffe Bezeichnung="Werfen" Wert="9"/>
+   <Waffe Bezeichnung="Faustkampf" Wert="7"/>
+   <Waffe Bezeichnung="waffenloser Kampf" Wert="9"/>
+   <Waffe Bezeichnung="Werfen" Wert="10"/>
    <Grundkenntnis Bezeichnung="Werfen"/>
    <Grundkenntnis Bezeichnung="Kampf ohne Waffen"/>
    <Grundkenntnis Bezeichnung="Stichwaffe"/>
-   <Sprache Bezeichnung="Albisch" Praxispunkte="1" Wert="12"/>
-   <Sprache Bezeichnung="Comentang" Wert="5"/>
+   <Sprache Bezeichnung="Albisch" Praxispunkte="1" Wert="13"/>
+   <Sprache Bezeichnung="Altoqua" Wert="4"/>
+   <Sprache Bezeichnung="Chryseisch" Wert="7"/>
+   <Sprache Bezeichnung="Comentang" Wert="6"/>
+   <Sprache Bezeichnung="Erainnisch" Wert="8"/>
    <Sprache Bezeichnung="Halftan" Wert="19"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="7"/>
    <Sprache Bezeichnung="Twyneddisch" Wert="4"/>
+   <Urschrift Bezeichnung="Albisch" Buchstaben="Valianisches Alphabet" Wert="12"/>
+   <Urschrift Bezeichnung="Halftan" Buchstaben="Valianisches Alphabet" Wert="12"/>
   </Fertigkeiten>
   <Optionen>
    <Region Name="Kompendium" Region="TuT"/>
    <Region Name="Alba" Region="A"/>
+   <Region Name="Eschar" Region="E"/>
+   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
+   <Region Name="Abenteuer" Region="X"/>
+   <Region Name="Gildenbrief" Region="G"/>
    <CheckOptions Name="Originalregeln" Wert="false"/>
    <CheckOptions Name="NSC zulassen" Wert="false"/>
    <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
-   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Grundwerte Ã¼ber 100 zulassen" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>

@@ -1,95 +1,114 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
 
 <MAGUS-data>
  <Midgard-Abenteurer Version="10">
-  <Figur Name="Vladimir Rolveg" Zeitpunkt="Erschaffung" Grad="4"/>
-  <Typ Spezies="Mensch" Geschlecht="m" Abkürzung="Kr" Spezialisierung="Kriegshammer" Überleben="Überleben im Wald" Muttersprache="Moravisch" Stadt_Land="Stadt" Hand="Rechtshänder"/>
-  <Basiseigenschaften St="93" Gw="89" Gs="88" Ko="89" In="82" Zt="68"/>
-  <abgeleiteteEigenschaften Au="86" pA="97" Wk="69" Sb="10" B="25" SG="1"/>
-  <Erfolgswerte Abwehr="13" Zaubern="2" ZauberResistenz="12"/>
-  <Gesundheit LP="17" AP="29"/>
-  <Beschreibung Alter="21" Gestalt="normal" Gewicht="73" Größe="171" Stand="Mittelschicht" Herkunft="Moravod"/>
-  <Vermögen GS="475" SS="45"/>
-  <Steigern GFP="1088" AEP="24" EPproGFP="33" benötigte_Tage="152">
+  <Figur Grad="5" Name="Vladimir Rolveg" Zeitpunkt="Erschaffung"/>
+  <Typ AbkÃ¼rzung="Kr" Geschlecht="m" Hand="RechtshÃ¤nder" Muttersprache="Moravisch" Spezialisierung="Kriegshammer" Spezies="Mensch" Stadt_Land="Stadt" Ãœberleben="Ã&#x9C;berleben im Wald"/>
+  <Basiseigenschaften Gs="88" Gw="89" In="82" Ko="89" St="93" Zt="68"/>
+  <abgeleiteteEigenschaften Au="86" B="25" SG="2" Sb="10" Wk="69" pA="97"/>
+  <Erfolgswerte Abwehr="13" ZauberResistenz="12" Zaubern="2"/>
+  <Gesundheit AP="29" LP="17"/>
+  <Beschreibung Alter="21" Gestalt="normal" Gewicht="73" GrÃ¶ÃŸe="171" Herkunft="Moravod" Stand="Mittelschicht"/>
+  <VermÃ¶gen GS="15" SS="42"/>
+  <Steigern AEP="1" EPproGFP="42" GFP="2023" benÃ¶tigte_Tage="252.8">
    <Praxispunkte/>
   </Steigern>
-  <Text Größe="8"/>
-  <Ausrüstung>
-   <Rüstung>KR</Rüstung>
-   <Rüstung2>OR</Rüstung2>
-   <Waffe Erfolgswert="0" Bezeichnung="Bihänder"/>
-   <Waffe Erfolgswert="0" Bezeichnung="Kriegshammer" AngriffVerteidigung_Bonus="1" SchadenLebenspunkte_Bonus="1">Gegen Elfen: SB+3</Waffe>
-   <Waffe Erfolgswert="0" Bezeichnung="Langschwert"/>
-   <Waffe Erfolgswert="0" Bezeichnung="kleiner Schild">in bläuliches Metall eingearbeitete Drachenschuppe, Schutz gegen Drachenfeuer</Waffe>
-   <Gegenstand Anzahl="1" Bezeichnung="Körper" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-    <Gegenstand Anzahl="1" Bezeichnung="kleiner Schild" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="in bläuliches Metall eingepasste Drachenschuppe, Schutz gegen Drachenfeuer" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Hose" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="ungefärbt, Leder, Mittelschicht" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Hemd" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="ungefärbt, Leinen, Mittelschicht" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Gürtel" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="ungefärbt, Leder, Mittelschicht" sichtbar="true">
-     <Gegenstand Anzahl="1" Bezeichnung="5 Liter-Wasserschlauch" Beschreibung="" Region="" Gewicht="0.100000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+  <Text GrÃ¶ÃŸe="8"/>
+  <AusrÃ¼stung>
+   <RÃ¼stung>KR</RÃ¼stung>
+   <RÃ¼stung2>OR</RÃ¼stung2>
+   <Waffe Bezeichnung="BihÃ¤nder" Erfolgswert="9"/>
+   <Waffe AngriffVerteidigung_Bonus="1" Bezeichnung="Kriegshammer" Erfolgswert="12" SchadenLebenspunkte_Bonus="1">Gegen Elfen: SB+3</Waffe>
+   <Waffe Bezeichnung="Langschwert" Erfolgswert="8"/>
+   <Waffe Bezeichnung="kleiner Schild" Erfolgswert="3">in blÃ¤uliches Metall eingearbeitete Drachenschuppe, Schutz gegen Drachenfeuer</Waffe>
+   <Gegenstand Bezeichnung="KÃ¶rper" sichtbar="true">
+    <Gegenstand Besonderheit="in blÃ¤uliches Metall eingepasste Drachenschuppe, Schutz gegen Drachenfeuer" Bezeichnung="kleiner Schild" sichtbar="true"/>
+    <Gegenstand Besonderheit="ungefÃ¤rbt, Leder, Mittelschicht" Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Besonderheit="ungefÃ¤rbt, Leinen, Mittelschicht" Bezeichnung="Hemd" sichtbar="true"/>
+    <Gegenstand Besonderheit="ungefÃ¤rbt, Leder, Mittelschicht" Bezeichnung="GÃ¼rtel" sichtbar="true">
+     <Gegenstand Bezeichnung="5 Liter-Wasserschlauch" Gewicht="0.1" sichtbar="true"/>
     </Gegenstand>
-    <Gegenstand Anzahl="1" Bezeichnung="Stiefel (halbhoch)" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="ungefärbt, Leder, Mittelschicht" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Lederhandschuhe" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="ungefärbt, Leder, Mittelschicht" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="gepolstertes Unterkleid" Beschreibung="" Region="" Gewicht="2.500000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-    <Gegenstand Anzahl="1" Bezeichnung="Lederrucksack für 25" Beschreibung="" Region="" Gewicht="0.500000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-     <Gegenstand Anzahl="1" Bezeichnung="20m Angelschnur" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-      <Gegenstand Anzahl="1" Bezeichnung="Angelhaken" Beschreibung="" Region="" Gewicht="0.050000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Besonderheit="ungefÃ¤rbt, Leder, Mittelschicht" Bezeichnung="Stiefel (halbhoch)" sichtbar="true"/>
+    <Gegenstand Besonderheit="ungefÃ¤rbt, Leder, Mittelschicht" Bezeichnung="Lederhandschuhe" sichtbar="true"/>
+    <Gegenstand Bezeichnung="gepolstertes Unterkleid" Gewicht="2.5" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Lederrucksack fÃ¼r 25" Gewicht="0.5" sichtbar="true">
+     <Gegenstand Bezeichnung="20m Angelschnur" sichtbar="true">
+      <Gegenstand Bezeichnung="Angelhaken" Gewicht="0.05" sichtbar="true"/>
      </Gegenstand>
-     <Gegenstand Anzahl="1" Bezeichnung="wasserdichte Lederhülle für Schriftrollen" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Lederbeutel für 20 Münzen" Beschreibung="" Region="" Gewicht="0.000000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Bezeichnung="Laterne. abblendbar" Beschreibung="" Region="" Gewicht="1.500000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Bezeichnung="1/4 Liter Lampenöl" Beschreibung="" Region="" Gewicht="0.300000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+     <Gegenstand Bezeichnung="wasserdichte LederhÃ¼lle fÃ¼r Schriftrollen" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Lederbeutel fÃ¼r 20 MÃ¼nzen" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Laterne. abblendbar" Gewicht="1.5" sichtbar="true"/>
+     <Gegenstand Bezeichnung="1/4 Liter LampenÃ¶l" Gewicht="0.3" sichtbar="true"/>
     </Gegenstand>
-    <Gegenstand Anzahl="1" Bezeichnung="einfacher Waffengürtel" Beschreibung="" Region="" Gewicht="0.300000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true">
-     <Gegenstand Anzahl="1" Bezeichnung="einfache Dolchscheide" Beschreibung="" Region="" Gewicht="0.100000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
-     <Gegenstand Anzahl="1" Bezeichnung="einfache Schwertscheide" Beschreibung="" Region="" Gewicht="0.700000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="einfacher WaffengÃ¼rtel" Gewicht="0.3" sichtbar="true">
+     <Gegenstand Bezeichnung="einfache Dolchscheide" Gewicht="0.1" sichtbar="true"/>
+     <Gegenstand Bezeichnung="einfache Schwertscheide" Gewicht="0.7" sichtbar="true"/>
     </Gegenstand>
-    <Gegenstand Anzahl="1" Bezeichnung="20m Seil" Beschreibung="" Region="" Gewicht="1.500000" RüstungOhneGewicht="false" Besonderheit="" sichtbar="true"/>
+    <Gegenstand Bezeichnung="20m Seil" Gewicht="1.5" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Metallhelm ohne Visier" Gewicht="1.5" sichtbar="true"/>
    </Gegenstand>
-  </Ausrüstung>
+   <Gegenstand Bezeichnung="Pferd" sichtbar="true">
+    <Gegenstand Bezeichnung="Sattel" sichtbar="true">
+     <Gegenstand Bezeichnung="Satteltaschen" sichtbar="true"/>
+     <Gegenstand Bezeichnung="warme Decke" Gewicht="2" sichtbar="true"/>
+    </Gegenstand>
+    <Gegenstand Bezeichnung="Zaumzeug" sichtbar="true"/>
+   </Gegenstand>
+  </AusrÃ¼stung>
   <Fertigkeiten>
    <Sinn Bezeichnung="Sehen" Wert="8"/>
-   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="HÃ¶ren" Wert="8"/>
    <Sinn Bezeichnung="Riechen" Wert="8"/>
    <Sinn Bezeichnung="Schmecken" Wert="8"/>
    <Sinn Bezeichnung="Tasten" Wert="8"/>
    <Sinn Bezeichnung="Sechster Sinn" Wert="2"/>
    <Beruf Bezeichnung="Waffenschmied"/>
    <ang-Fertigkeit Bezeichnung="Richtungssinn" Wert="12"/>
-   <Fertigkeit Bezeichnung="Athletik" Wert="5"/>
-   <Fertigkeit Bezeichnung="Beidhändiger Kampf" Wert="5"/>
-   <Fertigkeit Bezeichnung="Geländelauf" Wert="10"/>
-   <Fertigkeit Bezeichnung="Kampf in Vollrüstung" Wert="10"/>
+   <Fertigkeit Bezeichnung="Athletik" Praxispunkte="1" Wert="6"/>
+   <Fertigkeit Bezeichnung="BeidhÃ¤ndiger Kampf" Wert="6"/>
+   <Fertigkeit Bezeichnung="GelÃ¤ndelauf" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kampf in VollrÃ¼stung" Wert="10"/>
    <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="12"/>
    <Fertigkeit Bezeichnung="Kampftaktik" Wert="6"/>
    <Fertigkeit Bezeichnung="Klettern" Wert="10"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="4" Zusatz="Alba"/>
    <Fertigkeit Bezeichnung="Reiten" Wert="14"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="10"/>
    <Fertigkeit Bezeichnung="Streitwagen lenken" Wert="10"/>
-   <Fertigkeit Bezeichnung="Überleben im Wald" Wert="6"/>
-   <Waffe Bezeichnung="Bihänder" Wert="8"/>
+   <Fertigkeit Bezeichnung="VerfÃ¼hren" Wert="6"/>
+   <Fertigkeit Bezeichnung="Ã&#x9C;berleben im Wald" Wert="8"/>
+   <Waffe Bezeichnung="leichter Speer" Wert="4"/>
+   <Waffe Bezeichnung="BihÃ¤nder" Wert="9"/>
    <Waffe Bezeichnung="Dolch" Wert="7"/>
-   <Waffe Bezeichnung="kleiner Schild" Wert="2"/>
-   <Waffe Bezeichnung="Kriegshammer" Wert="10"/>
-   <Waffe Bezeichnung="Langschwert" Wert="7"/>
+   <Waffe Bezeichnung="kleiner Schild" Wert="3"/>
+   <Waffe Bezeichnung="Kriegshammer" Wert="12"/>
+   <Waffe Bezeichnung="Langschwert" Wert="8"/>
    <Waffe Bezeichnung="Schlachtbeil" Wert="4"/>
    <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
    <Grundkenntnis Bezeichnung="Schild"/>
-   <Grundkenntnis Bezeichnung="Wurfspieß"/>
+   <Grundkenntnis Bezeichnung="WurfspieÃ&#x9F;"/>
    <Grundkenntnis Bezeichnung="Zweihandschwert"/>
    <Grundkenntnis Bezeichnung="Zweihandschlagwaffe"/>
    <Grundkenntnis Bezeichnung="Stichwaffe"/>
-   <Grundkenntnis Bezeichnung="Spießwaffe"/>
+   <Grundkenntnis Bezeichnung="SpieÃ&#x9F;waffe"/>
    <Grundkenntnis Bezeichnung="Einhandschwert"/>
-   <Sprache Bezeichnung="Albisch" Wert="10"/>
-   <Sprache Bezeichnung="Comentang" Wert="6"/>
+   <Sprache Bezeichnung="Albisch" Wert="12"/>
+   <Sprache Bezeichnung="Comentang" Wert="7"/>
    <Sprache Bezeichnung="Moravisch" Wert="19"/>
    <Sprache Bezeichnung="Rawindi" Wert="4"/>
+   <Urschrift Bezeichnung="Albisch" Buchstaben="Valianisches Alphabet" Wert="10"/>
   </Fertigkeiten>
   <Optionen>
+   <Region Name="Kompendium" Region="TuT"/>
+   <Region Name="Alba" Region="A"/>
+   <Region Name="Rawindra" Region="R"/>
+   <Region Name="Abenteuer" Region="X"/>
+   <Region Name="Gildenbrief" Region="G"/>
    <CheckOptions Name="Originalregeln" Wert="false"/>
    <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
    <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
-   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+   <Hausregeln Name="Grundwerte Ã¼ber 100 zulassen" Wert="false"/>
   </Optionen>
  </Midgard-Abenteurer>
 </MAGUS-data>
