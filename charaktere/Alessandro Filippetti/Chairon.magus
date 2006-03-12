@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="7" Name="Chairon (McAran)" Zeitpunkt="Crossing"/>
+  <Typ Abkürzung="Hä" Geschlecht="m" Hand="Rechtshänder" Muttersprache="Chryseisch" Spezies="Mensch" Stadt_Land="Stadt" Überleben="�&#x9C;berleben im Wald"/>
+  <Basiseigenschaften Gs="66" Gw="87" In="96" Ko="74" St="76" Zt="69"/>
+  <abgeleiteteEigenschaften Au="36" B="27" SG="5" Sb="30" Wk="32" pA="100"/>
+  <Erfolgswerte Abwehr="14" ZauberResistenz="13" Zaubern="2"/>
+  <Gesundheit AP="46" LP="17"/>
+  <Beschreibung Alter="23" Gestalt="normal" Gewicht="67" Glaube="Jackos" Größe="167" Herkunft="Chryseia" Merkmale="grünes Auge, links; braunes Auge, rechts; Verheiratet mit Gwynifer " Stand="Volk"/>
+  <Vermögen GS="10171" KS="5" SS="4"/>
+  <Steigern AEP="169" EPproGFP="33" GFP="11251" KEP="20" benötigte_Tage="116.14">
+   <Praxispunkte/>
+  </Steigern>
+  <Text Größe="8"/>
+  <Ausrüstung>
+   <Rüstung>PR(K)</Rüstung>
+   <Rüstung2>LR</Rüstung2>
+   <Waffe Bezeichnung="Dolch" Erfolgswert="0"/>
+   <Waffe Bezeichnung="Langschwert" Erfolgswert="0">aus Kanthei-Gruft</Waffe>
+   <Waffe Bezeichnung="Streitkolben" Erfolgswert="0"/>
+   <Gegenstand Bezeichnung="Körper" sichtbar="true">
+    <Gegenstand Besonderheit="magisches Auge, grün: Wahrsehen, ABW=1" Bezeichnung="künstliches Auge" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" sichtbar="true">
+     <Gegenstand Besonderheit="ungefärbt, Baumwolle, Mittelschicht" Bezeichnung="Hemd" sichtbar="true"/>
+    </Gegenstand>
+    <Gegenstand Bezeichnung="Gürtel" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" sichtbar="true">
+     <Gegenstand Besonderheit="ungefärbt, Leder, Mittelschicht" Bezeichnung="Stiefel (bis zum Knie)" sichtbar="true"/>
+    </Gegenstand>
+    <Gegenstand Besonderheit="Leder" Bezeichnung="Rucksack" sichtbar="true">
+     <Gegenstand Besonderheit="warm" Bezeichnung="Decke"/>
+     <Gegenstand Bezeichnung="Lederbeutel"/>
+     <Gegenstand Bezeichnung="Geld"/>
+     <Gegenstand Bezeichnung="Erste Hilfe Ausrüstung (Salben, Heilkräuter und Verbände)"/>
+     <Gegenstand Besonderheit="ungefärbt, Baumwolle, Mittelschicht" Bezeichnung="Kilt"/>
+     <Gegenstand Besonderheit="ungefärbt, Leder, Mittelschicht" Bezeichnung="Lederhandschuhe"/>
+     <Gegenstand Bezeichnung="warme Decke" Gewicht="2"/>
+     <Gegenstand Bezeichnung="Hammer" Gewicht="1.5"/>
+     <Gegenstand Bezeichnung="20m Seil" Gewicht="1.5" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Laterne. abblendbar" Gewicht="1.5"/>
+     <Gegenstand Bezeichnung="1/4 Liter Lampenöl" Gewicht="0.3"/>
+     <Gegenstand Bezeichnung="1/4 Liter Lampenöl" Gewicht="0.3"/>
+     <Gegenstand Bezeichnung="1/4 Liter Lampenöl" Gewicht="0.3"/>
+     <Gegenstand Bezeichnung="wasserdichte Lederhülle für Schriftrollen">
+      <Gegenstand Bezeichnung="Zeichenkohle" Gewicht="0.03"/>
+      <Gegenstand Bezeichnung="Schreibpinsel" Gewicht="0.02"/>
+      <Gegenstand Bezeichnung="1/20 Liter Tusche" Gewicht="0.05"/>
+      <Gegenstand Anzahl="4" Bezeichnung="30cmx30cm Papyrus" Gewicht="0.01"/>
+     </Gegenstand>
+     <Gegenstand Anzahl="5" Beschreibung="Kanthaipanische Feuerwerksraketen" Bezeichnung="Feuerwerksraketen" Gewicht="0.05" Region="EE" sichtbar="true"/>
+     <Gegenstand Anzahl="5" Beschreibung="Kanthaipanische Feuerhölzer" Bezeichnung="20 Feuerhölzer" Gewicht="0.01" Region="EE" sichtbar="true"/>
+    </Gegenstand>
+    <Gegenstand Bezeichnung="5 Liter-Wasserschlauch" Gewicht="0.1" sichtbar="true"/>
+    <Gegenstand Besonderheit="ungefärbt, Baumwolle, Mittelschicht" Bezeichnung="warme Oberbekleidung" sichtbar="true"/>
+    <Gegenstand Besonderheit="ungefärbt, Leder, Mittelschicht" Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Fernrohr (x2) " Gewicht="0.5" sichtbar="true"/>
+   </Gegenstand>
+  </Ausrüstung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="Hören" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="8"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn"/>
+   <Beruf Bezeichnung="Karawanenführer"/>
+   <ang-Fertigkeit Bezeichnung="Richtungssinn" Wert="12"/>
+   <Fertigkeit Bezeichnung="Heilkunde" Wert="4"/>
+   <Fertigkeit Bezeichnung="�&#x9C;berleben im Sumpf" Wert="6"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="6"/>
+   <Fertigkeit Bezeichnung="Beredsamkeit" Praxispunkte="1" Wert="12"/>
+   <Fertigkeit Bezeichnung="Eiskalte Geschäftstaktiken" Wert="4"/>
+   <Fertigkeit Bezeichnung="Erste Hilfe" Praxispunkte="1" Wert="8"/>
+   <Fertigkeit Bezeichnung="Fälschen" Praxispunkte="1" Wert="13"/>
+   <Fertigkeit Bezeichnung="Fallen entdecken" Wert="4"/>
+   <Fertigkeit Bezeichnung="Geländelauf" Wert="14"/>
+   <Fertigkeit Bezeichnung="Geschäftstüchtigkeit" Wert="15"/>
+   <Fertigkeit Bezeichnung="Glücksspiel" Wert="15"/>
+   <Fertigkeit Bezeichnung="Himmelskunde" Wert="7"/>
+   <Fertigkeit Bezeichnung="Kamelreiten" Wert="10"/>
+   <Fertigkeit Bezeichnung="Kampf zu Pferd" Wert="10"/>
+   <Fertigkeit Bezeichnung="Klettern" Wert="14"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="7" Zusatz="Alba"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="9" Zusatz="Chryseia"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="4" Zusatz="Eschar"/>
+   <Fertigkeit Bezeichnung="Landeskunde" Wert="5" Zusatz="KanThaiPan"/>
+   <Fertigkeit Bezeichnung="Laufen" Wert="5"/>
+   <Fertigkeit Bezeichnung="Menschenkenntnis" Wert="8"/>
+   <Fertigkeit Bezeichnung="Pflanzenkunde" Wert="5"/>
+   <Fertigkeit Bezeichnung="Rechnen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Reiten" Wert="15"/>
+   <Fertigkeit Bezeichnung="Rudern" Wert="14"/>
+   <Fertigkeit Bezeichnung="Sagenkunde" Wert="8"/>
+   <Fertigkeit Bezeichnung="Schätzen" Wert="11"/>
+   <Fertigkeit Bezeichnung="Schleichen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Schwimmen" Wert="14"/>
+   <Fertigkeit Bezeichnung="Seilkunst" Wert="10"/>
+   <Fertigkeit Bezeichnung="Singen" Wert="8"/>
+   <Fertigkeit Bezeichnung="Spurenlesen" Praxispunkte="1" Wert="8"/>
+   <Fertigkeit Bezeichnung="Steinabreibungen machen" Wert="4"/>
+   <Fertigkeit Bezeichnung="Stimmen nachahmen" Wert="12"/>
+   <Fertigkeit Bezeichnung="Suchen" Wert="9"/>
+   <Fertigkeit Bezeichnung="TaiTschi" Wert="4"/>
+   <Fertigkeit Bezeichnung="�&#x9C;berleben im Dschungel" Wert="6"/>
+   <Fertigkeit Bezeichnung="�&#x9C;berleben im Gebirge" Wert="6"/>
+   <Fertigkeit Bezeichnung="�&#x9C;berleben im Schnee" Wert="6"/>
+   <Fertigkeit Bezeichnung="�&#x9C;berleben im Wald" Wert="14"/>
+   <Fertigkeit Bezeichnung="�&#x9C;berleben in der Wüste" Wert="6"/>
+   <Fertigkeit Bezeichnung="Verführen" Wert="9"/>
+   <Fertigkeit Bezeichnung="Verhören" Wert="10"/>
+   <Fertigkeit Bezeichnung="Verkleiden" Wert="12"/>
+   <Fertigkeit Bezeichnung="Wahrnehmung" Wert="6"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="8"/>
+   <Waffe Bezeichnung="Dolch" Wert="11"/>
+   <Waffe Bezeichnung="Kriegshammer" Wert="10"/>
+   <Waffe Bezeichnung="Langschwert" Wert="9"/>
+   <Waffe Bezeichnung="Streitkolben" Wert="12"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschlagwaffe"/>
+   <Grundkenntnis Bezeichnung="Einhandschwert"/>
+   <Sprache Bezeichnung="Maralinga" Wert="7"/>
+   <Sprache Bezeichnung="Albisch" Wert="14"/>
+   <Sprache Bezeichnung="Chryseisch" Wert="20"/>
+   <Sprache Bezeichnung="Comentang" Wert="10"/>
+   <Sprache Bezeichnung="Gnomenon" Wert="6"/>
+   <Sprache Bezeichnung="KanThaiTun" Wert="14"/>
+   <Sprache Bezeichnung="Moravisch" Wert="10"/>
+   <Sprache Bezeichnung="Nahuatlantisch" Wert="6"/>
+   <Sprache Bezeichnung="Scharidisch" Wert="12"/>
+   <Urschrift Bezeichnung="Scharidisch" Buchstaben="Aranische Silbenschrift" Wert="5"/>
+   <Urschrift Bezeichnung="KanThaiTun(4)" Buchstaben="KanThaiTun(4)" Wert="4"/>
+   <Urschrift Bezeichnung="KanThaiTun(2)" Buchstaben="KanThaiTun(2)" Wert="4"/>
+   <Urschrift Bezeichnung="Moravisch" Buchstaben="Valianisches Alphabet" Wert="8"/>
+   <Urschrift Bezeichnung="KanThaiTun(1)" Buchstaben="KanThaiTun(1)" Wert="4"/>
+   <Urschrift Bezeichnung="Comentang" Buchstaben="Valianisches Alphabet" Wert="8"/>
+   <Urschrift Bezeichnung="Chryseisch" Buchstaben="Valianisches Alphabet" Wert="12"/>
+   <Urschrift Bezeichnung="Albisch" Buchstaben="Valianisches Alphabet" Wert="10"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Kompendium" Region="TuT"/>
+   <Region Name="Alba" Region="A"/>
+   <Region Name="Eschar" Region="E"/>
+   <Region Name="KanThaiPan" Region="K"/>
+   <Region Name="Abenteuer" Region="X"/>
+   <Region Name="Gildenbrief" Region="G"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="false"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte über 100 zulassen" Wert="false"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
