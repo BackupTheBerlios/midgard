@@ -50,16 +50,16 @@ Werte in wei&szlig;en Feldern k&ouml;nnen ge&auml;ndert werden (unver&auml;ndert
     <td>
       <table>
       <tr>
-        <td>Name:</td><td><INPUT type="text" class="must" name="CharNAME" size="30"></td>  
-        <td>Spieler</td><td><INPUT type="text" class="may" name="SPIELER" size="20"></td>  
+        <td>Name:</td><td><INPUT type="text" class="must" name="CharNAME" size="30" maxlength="30"></td>  
+        <td>Spieler</td><td><INPUT type="text" class="may" name="SPIELER" size="20" maxlength="30"></td>  
       </tr>
       <tr>
        <td>Grad</td><td><INPUT type="text" class="must" name="GRAD" size="2" maxlength="2"></td>       
-       <td>Beruf</td><td><INPUT type="text" class="may" name="BERUF" size="20"></td> 
+       <td>Beruf</td><td><INPUT type="text" class="may" name="BERUF" size="20" maxlength="20"></td> 
       </tr>
       <tr>
         <td></td><td></td>
-        <td>Glaube</td><td><INPUT type="text" class="may" name="RELIG" size="20"></td>
+        <td>Glaube</td><td><INPUT type="text" class="may" name="RELIG" size="20" maxlenght="20"></td>
       </tr>
       </table>
        <br>
@@ -437,7 +437,7 @@ Werte in wei&szlig;en Feldern k&ouml;nnen ge&auml;ndert werden (unver&auml;ndert
             "<td align=\"right\">+</td>",
             "<td><INPUT type=\"text\" class=\"must\" name=\"FERTIG[WERT][",$i,"]\" size=\"2\" maxlength=\"2\"></td>",
             "<td><INPUT type=\"text\" class=\"may\" name=\"FERTIG[PP][",$i,"]\" size=\"2\" maxlength=\"2\"></td>",
-            "<td><INPUT type=\"text\" class=\"must\" name=\"FERTIG[ZUSATZ][",$i,"]\" size=\"30\" maxlength=\"100\"></td>",
+            "<td><INPUT type=\"text\" class=\"must\" name=\"FERTIG[ZUSATZ][",$i,"]\" size=\"30\" maxlength=\"50\"></td>",
             "</tr>\n";
           $i++;
         }
@@ -448,11 +448,11 @@ Werte in wei&szlig;en Feldern k&ouml;nnen ge&auml;ndert werden (unver&auml;ndert
             
             echo "<tr>",
               "<td align=\"right\">",$i+1,".</td>",
-              "<td><INPUT type=\"text\" class=\"must\" name=\"FERTIG[NAME][",$i,"]\" size=\"30\" maxlength=\"100\"></td>",
+              "<td><INPUT type=\"text\" class=\"must\" name=\"FERTIG[NAME][",$i,"]\" size=\"30\" maxlength=\"50\"></td>",
               "<td align=\"right\">+</td>",
               "<td><INPUT type=\"text\" class=\"must\" name=\"FERTIG[WERT][",$i,"]\" size=\"2\" maxlength=\"2\"></td>",
               "<td><INPUT type=\"text\" class=\"may\" name=\"FERTIG[PP][",$i,"]\" size=\"2\" maxlength=\"2\"></td>",
-              "<td><INPUT type=\"text\" class=\"may\" name=\"FERTIG[ZUSATZ][",$i,"]\" size=\"30\" maxlength=\"100\"></td>",
+              "<td><INPUT type=\"text\" class=\"may\" name=\"FERTIG[ZUSATZ][",$i,"]\" size=\"30\" maxlength=\"50\"></td>",
             "</tr>\n";  
             $i++;  
           }
@@ -487,7 +487,7 @@ Werte in wei&szlig;en Feldern k&ouml;nnen ge&auml;ndert werden (unver&auml;ndert
         for ($j=0; $j<$AnzEWaf; $j++){
           echo "<tr>",
                 "<td align=\"right\">",$i+1,".</td>",
-                "<td><INPUT type=\"text\" class=\"must\" name=\"WAFFE[NAME][",$i,"]\" size=\"30\" maxlength=\"100\"></td>",
+                "<td><INPUT type=\"text\" class=\"must\" name=\"WAFFE[NAME][",$i,"]\" size=\"30\" maxlength=\"50\"></td>",
                 "<td>+</td>",
                 "<td><INPUT type=\"text\" class=\"must\" name=\"WAFFE[WERT][",$i,"]\" size=\"2\" maxlength=\"2\"></td>",
                 "<td><INPUT type=\"text\" class=\"may\" name=\"WAFFE[PP][",$i,"]\" size=\"2\" maxlength=\"2\"></td>",
@@ -624,7 +624,7 @@ Werte in wei&szlig;en Feldern k&ouml;nnen ge&auml;ndert werden (unver&auml;ndert
         for ($j=0; $j<$_GET["AnzESpra"]; $j++){
           echo "<tr>",
                 "<td align=\"right\">",$i+1,".</td>",
-                "<td><INPUT type=\"text\" class=\"must\" name=\"SPRACHE[NAME][",$i,"]\" size=\"30\" maxlength=\"100\"></td>",
+                "<td><INPUT type=\"text\" class=\"must\" name=\"SPRACHE[NAME][",$i,"]\" size=\"30\" maxlength=\"50\"></td>",
                 "<td>+</td>",
                 "<td><INPUT type=\"text\" class=\"must\" name=\"SPRACHE[WERT][",$i,"]\" size=\"2\" maxlength=\"2\"></td>",
                 "<td><INPUT type=\"text\" class=\"may\" name=\"SPRACHE[PP][",$i,"]\" size=\"2\" maxlength=\"2\"></td>",
@@ -805,7 +805,7 @@ Werte in wei&szlig;en Feldern k&ouml;nnen ge&auml;ndert werden (unver&auml;ndert
             "<td></td>",
             "<td></td>",
             "<td></td>",
-            "<td><INPUT type=\"text\" class=\"must\" name=\"ZAUBER[ZUSATZ][",$i,"]\" size=\"30\"></td>",
+            "<td><INPUT type=\"text\" class=\"must\" name=\"ZAUBER[ZUSATZ][",$i,"]\" size=\"30\" maxlenght=\"30\"></td>",
             "</tr>\n";
           $i++;
         }         
@@ -815,11 +815,11 @@ Werte in wei&szlig;en Feldern k&ouml;nnen ge&auml;ndert werden (unver&auml;ndert
           for ($j=0; $j<$AnzEZaub; $j++){
            echo "<tr>",
                 "<td align=\"right\">",$i+1,".</td>",
-                "<td><INPUT type=\"text\" class=\"must\" name=\"ZAUBER[NAME][",$i,"]\" size=\"30\" maxlength=\"100\"></td>", 
+                "<td><INPUT type=\"text\" class=\"must\" name=\"ZAUBER[NAME][",$i,"]\" size=\"30\" maxlength=\"50\"></td>", 
                 "<td></td>",
                 "<td></td>",
                 "<td></td>",
-                "<td><INPUT type=\"text\" class=\"may\" name=\"ZAUBER[ZUSATZ][",$i,"],\" size=\"30\" maxlength=\"100\"></td>",
+                "<td><INPUT type=\"text\" class=\"may\" name=\"ZAUBER[ZUSATZ][",$i,"],\" size=\"30\" maxlength=\"50\"></td>",
                "</tr>\n";
             $i++;
           }
