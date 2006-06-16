@@ -15,9 +15,10 @@
   </Steigern>
   <Text GrÃ¶ÃŸe="8"/>
   <AusrÃ¼stung>
-   <RÃ¼stung>OR</RÃ¼stung>
+   <RÃ¼stung>PR(K)</RÃ¼stung>
    <RÃ¼stung2>OR</RÃ¼stung2>
    <Waffe AngriffVerteidigung_Bonus="1" Bezeichnung="Rilok" Erfolgswert="0" Region="E" SchadenLebenspunkte_Bonus="1">(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤</Waffe>
+   <Waffe Bezeichnung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤"/>
    <Gegenstand Bezeichnung="KÃ¶rper" sichtbar="true">
     <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
     <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
