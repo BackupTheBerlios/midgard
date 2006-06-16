@@ -1,0 +1,81 @@
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
+
+<MAGUS-data>
+ <Midgard-Abenteurer Version="10">
+  <Figur Grad="1" Name="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Spieler="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Zeitpunkt="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤"/>
+  <Typ AbkÃ¼rzung="Ma" Geschlecht="f" Hand="RechtshÃ¤nder" Muttersprache="Albisch" Spezialgebiet="Adept der Bewegung" Spezialisierung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Spezies="Mensch" Stadt_Land="Stadt" Ãœberleben="Ã&#x9C;berleben im Sumpf"/>
+  <Basiseigenschaften Gs="88" Gw="54" In="94" Ko="95" St="40" Zt="99"/>
+  <abgeleiteteEigenschaften Au="54" B="22" Sb="33" Wk="43" pA="36"/>
+  <Erfolgswerte Abwehr="11" ZauberResistenz="10" Zaubern="10"/>
+  <Gesundheit AP="7" LP="15"/>
+  <Beschreibung Alter="22" Bezeichnung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Gestalt="schlank" Gewicht="66" Glaube="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" GrÃ¶ÃŸe="175" Herkunft="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Merkmale="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Stand="Volk"/>
+  <VermÃ¶gen GS="200"/>
+  <Steigern AEP="30" EPproGFP="0" GFP="100" KEP="40" ZEP="20" benÃ¶tigte_Tage="10">
+   <Praxispunkte/>
+  </Steigern>
+  <Text GrÃ¶ÃŸe="8"/>
+  <AusrÃ¼stung>
+   <RÃ¼stung>OR</RÃ¼stung>
+   <RÃ¼stung2>OR</RÃ¼stung2>
+   <Waffe AngriffVerteidigung_Bonus="1" Bezeichnung="Rilok" Erfolgswert="0" Region="E" SchadenLebenspunkte_Bonus="1">(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤</Waffe>
+   <Gegenstand Bezeichnung="KÃ¶rper" sichtbar="true">
+    <Gegenstand Bezeichnung="Hose" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Hemd" sichtbar="true"/>
+    <Gegenstand Bezeichnung="GÃ¼rtel" sichtbar="true"/>
+    <Gegenstand Bezeichnung="Schuhe" sichtbar="true"/>
+    <Gegenstand Besonderheit="Leder" Bezeichnung="Rucksack" sichtbar="true">
+     <Gegenstand Besonderheit="warm" Bezeichnung="Decke"/>
+     <Gegenstand Bezeichnung="Lederbeutel" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Geld"/>
+     <Gegenstand Besonderheit="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Bezeichnung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" sichtbar="true"/>
+     <Gegenstand Bezeichnung="magisches Horn" sichtbar="true"/>
+     <Gegenstand Bezeichnung="Erste Hilfe AusrÃ¼stung (Salben, HeilkrÃ¤uter und VerbÃ¤nde)" sichtbar="true"/>
+    </Gegenstand>
+   </Gegenstand>
+  </AusrÃ¼stung>
+  <Fertigkeiten>
+   <Sinn Bezeichnung="Sehen" Wert="8"/>
+   <Sinn Bezeichnung="HÃ¶ren" Wert="8"/>
+   <Sinn Bezeichnung="Riechen" Wert="10"/>
+   <Sinn Bezeichnung="Schmecken" Wert="8"/>
+   <Sinn Bezeichnung="Tasten" Wert="8"/>
+   <Sinn Bezeichnung="Sechster Sinn" Wert="3"/>
+   <Beruf Bezeichnung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤"/>
+   <Fertigkeit Bezeichnung="Musizieren" Praxispunkte="1" Wert="10" Zusatz="LÃ¤ngsflÃ¶te"/>
+   <Fertigkeit Bezeichnung="Zauberkunde" Wert="6"/>
+   <Fertigkeit Bezeichnung="Alchimie" Wert="6"/>
+   <Fertigkeit Bezeichnung="Lesen von Zauberschrift" Wert="13"/>
+   <Fertigkeit Bezeichnung="Schreiben: Alte Sprache(+4)"/>
+   <Fertigkeit Bezeichnung="Musizieren" Praxispunkte="1" Wert="9" Zusatz="Horn"/>
+   <Fertigkeit Bezeichnung="Ã&#x9C;berleben im Wald" Wert="7"/>
+   <Fertigkeit Bezeichnung="Pyromantie" Praxispunkte="1" Wert="6"/>
+   <Fertigkeit Bezeichnung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Wert="6"/>
+   <Waffe Bezeichnung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Wert="4"/>
+   <Zauber Bezeichnung="Sehen in Dunkelheit"/>
+   <Zauber Bezeichnung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤"/>
+   <Grundkenntnis Bezeichnung="Stichwaffe"/>
+   <Sprache Bezeichnung="Albisch" Wert="19"/>
+   <Sprache Bezeichnung="Rawindi" Wert="12"/>
+   <Sprache Bezeichnung="Medjisisch" Wert="19"/>
+   <Sprache Bezeichnung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Wert="10"/>
+   <Urschrift Bezeichnung="Albisch" Buchstaben="Valianisches Alphabet" Wert="13"/>
+   <Urschrift Bezeichnung="Rawindi" Buchstaben="Rawindisches Alphabet" Wert="10"/>
+   <Urschrift Bezeichnung="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Buchstaben="(&amp;&#x5C;&lt;{~^$â&#x82;¬â&#x88;&#x91;â&#x88;&#x9E;â&#x89;&#x88;â&#x89; â&#x89;¤" Wert="10"/>
+  </Fertigkeiten>
+  <Optionen>
+   <Region Name="Kompendium" Region="TuT"/>
+   <Region Name="Alba" Region="A"/>
+   <Region Name="Eschar" Region="E"/>
+   <Region Name="Nahuatlan" Region="N"/>
+   <Region Name="KanThaiPan" Region="K"/>
+   <Region Name="Hexenzauber &amp; Druidenkraft" Region="H&amp;D"/>
+   <Region Name="Abenteuer" Region="X"/>
+   <Region Name="Gildenbrief" Region="G"/>
+   <CheckOptions Name="Originalregeln" Wert="false"/>
+   <CheckOptions Name="NSC zulassen" Wert="false"/>
+   <CheckOptions Name="Zauberbeschreibung ausdrucken" Wert="true"/>
+   <Hausregeln Name="1 GS entspricht 1 GFP" Wert="true"/>
+   <Hausregeln Name="Grundwerte Ã¼ber 100 zulassen" Wert="true"/>
+  </Optionen>
+ </Midgard-Abenteurer>
+</MAGUS-data>
