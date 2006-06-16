@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.33 2006/01/08 08:48:18 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.34 2006/06/16 06:52:57 christof Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -330,13 +330,13 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
             if (A.Typ2()->Name(W.Geschlecht())!="") 
                styp += "/"+A.Typ2()->Name(W.Geschlecht());
           }
-        sfout += TeX::scale(styp,10,"2.2cm") ; 
+        sfout += TeX::scale(TeX::string2TeX(styp),10,"2.2cm") ; 
         break;
       }      
-     case emagusversion : sfout += VERSION; break;
+     case emagusversion : sfout += TeX::string2TeX(VERSION); break;
      case e_last_saved_time : sfout += A.LastSavedAt(); break;
-     case espezies : sfout += TeX::scale(W.Spezies()->Name(),10,"2cm") ; break;
-     case emerk :    sfout +=W.Merkmale(); break;
+     case espezies : sfout += TeX::scale(TeX::string2TeX(W.Spezies()->Name()),10,"2cm") ; break;
+     case emerk :    sfout +=TeX::string2TeX(W.Merkmale()); break;
      case est   : sfout += itos(W.St()); break ;
      case egs   : sfout += itos(W.Gs()); break ;
      case egw   : sfout += itos(W.Gw()) + W.Ruestung_RW_Verlust(); break ;
@@ -392,19 +392,19 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
           else if(A.ZaubernPP() || A.SpezialPP() ) sfout += itos(A.ZaubernPP())+"/"+itos(A.SpezialPP()); 
           break ;
      case ezauber:sfout += itos0p(W.Zaubern_wert(),0,true); break ;
-     case ehand:sfout += TeX::scale(W.Hand(),7,"1.2cm"); break ;
+     case ehand:sfout += TeX::scale(TeX::string2TeX(W.Hand()),7,"1.2cm"); break ;
      case eraufen:sfout += itos(W.Raufen()); break ;
      case ealter:sfout += itos(W.Alter()); break ;
      case egewicht:sfout += itos(W.Gewicht())+ "\\,kg"; break ;
-     case egestalt:sfout += TeX::scale(W.Gestalt(),5,"0.7cm"); break ;
+     case egestalt:sfout += TeX::scale(TeX::string2TeX(W.Gestalt()),5,"0.7cm"); break ;
      case ekoerpergroesse:sfout += TeX::scale(dtos(W.Groesse()/100.)+ "\\,m~\\scriptsize(" + W.GroesseBez()+")",8,"0.9cm"); break ;
      case egrad:sfout += itos(W.Grad()); break ;
-     case espezialisierung:sfout += TeX::scale(W.Spezialisierung(),10,"2.2cm") ; break ;
-     case estand:sfout += TeX::scale(W.Stand(),10,"1.5cm"); break ;
-     case eherkunft:sfout += TeX::scale(W.Herkunft()->Name(),10,"2.2cm"); break ;
-     case eglaube:sfout += TeX::scale(W.Glaube(),10,"2.5cm"); break ;
-     case enamecharakter:sfout += TeX::scale(W.Name_Abenteurer(),25,"4.5cm"); break ;
-     case enamespieler : sfout += TeX::scale(W.Name_Spieler(),25,"4.5cm"); break ;
+     case espezialisierung:sfout += TeX::scale(TeX::string2TeX(W.Spezialisierung()),10,"2.2cm") ; break ;
+     case estand:sfout += TeX::scale(TeX::string2TeX(W.Stand()),10,"1.5cm"); break ;
+     case eherkunft:sfout += TeX::scale(TeX::string2TeX(W.Herkunft()->Name()),10,"2.2cm"); break ;
+     case eglaube:sfout += TeX::scale(TeX::string2TeX(W.Glaube()),10,"2.5cm"); break ;
+     case enamecharakter:sfout += TeX::scale(TeX::string2TeX(W.Name_Abenteurer()),25,"4.5cm"); break ;
+     case enamespieler : sfout += TeX::scale(TeX::string2TeX(W.Name_Spieler()),25,"4.5cm"); break ;
      case egfp : sfout += EmptyInt_4TeX(W.GFP(),10); break ;
      case eaep : sfout += EmptyInt_4TeX(W.AEP(),10); break ;
      case ekep : sfout += EmptyInt_4TeX(W.KEP(),10); break ;
@@ -417,9 +417,9 @@ void LaTeX_drucken::write_grundwerte(const Abenteurer &A,std::ostream &fout,bool
      case egold   : sfout += EmptyInt_4TeX(W.Gold(),10); break ;
      case esilber : sfout += EmptyInt_4TeX(W.Silber(),10); break ;
      case ekupfer : sfout += EmptyInt_4TeX(W.Kupfer(),10); break ;
-     case eruestung : sfout += W.Ruestung()->Name(); break ;
+     case eruestung : sfout += TeX::string2TeX(W.Ruestung()->Name()); break ;
      case eruestunglp : sfout += itos(W.Ruestung()->LP_Verlust()); break ;
-     case eruestungb : sfout += W.Ruestung(1)->Name(); break ;
+     case eruestungb : sfout += TeX::string2TeX(W.Ruestung(1)->Name()); break ;
      case eruestunglpb : sfout += itos(W.Ruestung(1)->LP_Verlust()); break ;
      case esinnse : sfout += itos0p(W.Sehen(),0,true     ); break ;
      case esinnh  : sfout += itos0p(W.Hoeren(),0,true    ); break ;
@@ -813,13 +813,13 @@ void LaTeX_drucken::LaTeX_kopfzeile(const Abenteurer &A,std::ostream &fout,bool 
   {
     if(landscape)
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<TeX::scale(A.Name_Abenteurer(),25,"4.5cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<TeX::scale(A.Name_Spieler(),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<TeX::scale(TeX::string2TeX(A.Name_Abenteurer()),25,"4.5cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<TeX::scale(TeX::string2TeX(A.Name_Spieler()),25,"4.5cm") << "}\n";
      }
     else
      {
-       fout << "\\newcommand{\\namecharakter}{"  <<TeX::scale(A.Name_Abenteurer(),20,"4.cm") << "}\n";
-       fout << "\\newcommand{\\namespieler}{"  <<TeX::scale(A.Name_Spieler(),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namecharakter}{"  <<TeX::scale(TeX::string2TeX(A.Name_Abenteurer()),20,"4.cm") << "}\n";
+       fout << "\\newcommand{\\namespieler}{"  <<TeX::scale(TeX::string2TeX(A.Name_Spieler()),20,"4.cm") << "}\n";
      }
   }
  std::string     drache="9.9cm", namensbox="7cm";
@@ -997,8 +997,8 @@ void LaTeX_drucken::LaTeX_zauber(const Abenteurer &A,std::ostream &fout)
   for (std::list<MBEmlt>::const_iterator i=A.List_Zauber().begin();i!=A.List_Zauber().end();++i)
    {
      cH_Zauber z((*i)->getMBE());
-     fout << z->Name() ;
-     if(!(*i)->Zusatz().empty()) fout << " ("<<(*i)->Zusatz()<<")";
+     fout << TeX::string2TeX(z->Name()) ;
+     if(!(*i)->Zusatz().empty()) fout << " ("<<TeX::string2TeX((*i)->Zusatz())<<")";
      fout <<" & ";
      fout << z->Erfolgswert_Z(A) <<" & ";
      fout << TeX::string2TeX(z->Ap()) << " & ";
@@ -1010,8 +1010,9 @@ void LaTeX_drucken::LaTeX_zauber(const Abenteurer &A,std::ostream &fout)
      fout << TeX::string2TeX(z->Wirkungsbereich()) << " & ";
      fout << TeX::string2TeX(z->Wirkungsdauer()) << " & ";
      fout << TeX::string2TeX(z->Ursprung()) << " & " ;
-     fout << TeX::scale(z->Material(),20,"3cm") << " & " ;
-     fout << z->Agens(A.getVTyp()) <<" " <<z->Prozess() <<" "<<z->Reagens() ;
+     fout << TeX::scale(TeX::string2TeX(z->Material()),20,"3cm") << " & " ;
+     fout << TeX::string2TeX(z->Agens(A.getVTyp())) <<" " 
+       <<TeX::string2TeX(z->Prozess()) <<" "<<TeX::string2TeX(z->Reagens()) ;
      fout << "\\\\\n";
      if(A.getOptionen().OptionenCheck(Optionen::ZauberBeschreibungDrucken).active
          && !z->Beschreibung().empty() )
@@ -1029,10 +1030,10 @@ void LaTeX_drucken::LaTeX_zaubermittel(const Abenteurer &A,std::ostream &fout)
      cH_Zauberwerk z((*i)->getMBE());
 //     std::string wert ;//= itos((*i)->Wert());
 //     fout << wert <<" & ";
-     fout << z->Name()  <<" & ";
-     fout << z->Art()   <<" & ";
+     fout << TeX::string2TeX(z->Name())  <<" & ";
+     fout << TeX::string2TeX(z->Art())   <<" & ";
      fout << z->Stufe()   <<" & ";
-     fout << z->Zeitaufwand()  <<" & ";
+     fout << TeX::string2TeX(z->Zeitaufwand())  <<" & ";
      fout << z->Preis()   <<" \\\\\n ";
    }
 }
@@ -1083,8 +1084,8 @@ void LaTeX_drucken::LaTeX_kido(const Abenteurer &A,std::ostream &fout)
      if (stufe=="Eingeweihter") stufe="E";
      if (stufe=="Meister") stufe="M";
      fout << ap << " & ";
-     fout << kd->HoHo() << " & ";
-     fout << kd->Deutsch() << " & ";
+     fout << TeX::string2TeX(kd->HoHo()) << " & ";
+     fout << TeX::string2TeX(kd->Deutsch()) << " & ";
      fout << stufe << " & ";
      fout << TeX::string2TeX(kd->Effekt()) ;
      fout << "\\\\\n";
