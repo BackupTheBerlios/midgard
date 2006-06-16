@@ -1,3 +1,6 @@
+Version 0.9.9.15
+- quoting Bug behoben (nun kann man z.B. & überall verwenden)
+
 Version 0.9.9.14
 - Selbststudium 100% FP nehmen (statt fälschlicherweise 133%)
 - Lernschema Absturz behoben (begin_undo zerstört Abenteurer-Referenz)

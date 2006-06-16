@@ -1,7 +1,7 @@
-# $Id: configure.in,v 1.119 2006/02/27 13:34:37 christof Exp $
+# $Id: configure.in,v 1.120 2006/06/16 06:53:08 christof Exp $
 
 AC_PREREQ(2.50)
-AC_INIT(magus, 0.9.9.14, [midgard-general@berlios.de])
+AC_INIT(magus, 0.9.9.15, [midgard-general@berlios.de])
 AM_INIT_AUTOMAKE
 AC_CONFIG_HEADERS(config.h)
 
