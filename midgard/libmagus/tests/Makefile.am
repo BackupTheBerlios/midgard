@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.14 2006/03/09 23:17:56 christof Exp $
+# $Id: Makefile.am,v 1.15 2006/08/09 12:13:38 christof Exp $
 
 AM_CPPFLAGS=@COMMONXX_INCLUDES@ -I../..
 
@@ -35,8 +35,12 @@ waffenschwierigkeit_SOURCES=waffenschwierigkeit.cc
 diff: $(EXTRA_PROGRAMS)
 	-chmod a+x original
 	-rm diff
-	for i in $(EXTRA_PROGRAMS) ; do ./$$i ; echo $$i >>diff \
-		; diff `./original $$i.magus` $$i.magus >>diff; done ; true
+	for i in $(EXTRA_PROGRAMS) ; do ./$$i ; echo $$i >>diff ; \
+		if [ -e $$i.txt ] ; \
+		then diff $$i.soll $$i.txt ; \
+		else diff `./original $$i.magus` $$i.magus >>diff; \
+		fi ; \
+	done ; true
 
 check: diff
 	diff diff soll

@@ -17,14 +17,14 @@ Kurzschwert sehr leicht
 Langschwert normal
 Lanze normal
 leichter Speer sehr leicht
-Magierstab extrem schwer
-Magierstecken extrem schwer
+Magierstab leicht
+Magierstecken normal
 Morgenstern schwer
-Ochsenzunge sehr leicht
+Ochsenzunge leicht
 Ogerhammer normal
 Peitsche extrem schwer
 Rapier normal
-Schlachtbeil normal
+Schlachtbeil leicht
 Stabkeule leicht
 Stielhammer normal
 Stoßspeer leicht
@@ -34,7 +34,7 @@ waffenloser Kampf sehr schwer
 Blasrohr schwer
 Bogen normal
 Handarmbrust leicht
-Kompositbogen schwer
+Kompositbogen sehr schwer
 Kurzbogen leicht
 Langbogen schwer
 leichte Armbrust leicht
@@ -64,7 +64,7 @@ Wurfspieß extrem leicht
 Wurfstern schwer
  Verteidigung
 WakiZaschi Verteidigung
-Pilum -1
+Pilum Verteidigung
 Dreizack normal
 Zweizack leicht
 BuKasa schwer
