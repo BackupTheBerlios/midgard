@@ -41,8 +41,8 @@ cH_Preise::cH_Preise(const std::string& name ,bool create)
   if (create)
   {  Tag t2("Kaufpreis"); 
      t2.setAttr("Ware",name);
-     t2.setAttr("Art","?");
-     t2.setAttr("Art2","?");
+     t2.setAttr<std::string>("Art","?");
+     t2.setAttr<std::string>("Art2","?");
      *this=new Preise(t2);
   }
   else throw NotFound(name);

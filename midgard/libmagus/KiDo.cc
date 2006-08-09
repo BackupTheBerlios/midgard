@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002-2003 Christof Petig
+ *  Copyright (C) 2002-2006 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -73,8 +73,8 @@ cH_KiDo::cH_KiDo(const std::string& name ,bool create)
   if (create)
   {  Tag t2("KiDo"); 
      t2.setAttr("Name",name);
-     t2.setAttr("Übersetzung","?");
-     t2.setAttr("Stil","?");
+     t2.setAttr<std::string>("Übersetzung","?");
+     t2.setAttr<std::string>("Stil","?");
      *this=new KiDo(t2);
   }
   else throw NotFound(name);

@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001-2002 Malte Thoma
- *  Copyright (C) 2002-2004 Christof Petig 
+ *  Copyright (C) 2002-2006 Christof Petig 
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -57,12 +57,12 @@ cH_Zauber::cH_Zauber(const std::string& name, bool create)
   if (create)
   {  Tag t2("Spruch"); 
      t2.setAttr("Name",name);
-     t2.setAttr("Grad","?");
-     t2.setAttr("Typ","?");
-     t2.setAttr("Ursprung","?");
-     t2.setAttr("Zauberdauer","?");
-     t2.setAttr("Wirkungsziel","?");
-     t2.setAttr("Wirkungsbereich","?");
+     t2.setAttr<std::string>("Grad","?");
+     t2.setAttr<std::string>("Typ","?");
+     t2.setAttr<std::string>("Ursprung","?");
+     t2.setAttr<std::string>("Zauberdauer","?");
+     t2.setAttr<std::string>("Wirkungsziel","?");
+     t2.setAttr<std::string>("Wirkungsbereich","?");
      // Wirkungsdauer, Reichweite ???
      *this=new Zauber(t2); // und wie fügen wir den der Liste zu?
   }

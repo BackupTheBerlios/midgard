@@ -1,6 +1,6 @@
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
- *  Copyright (C) 2002-2003 Christof Petig
+ *  Copyright (C) 2002-2006 Christof Petig
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ cH_Schrift::cH_Schrift(const std::string& name ,bool create)
   if (create)
   {  Tag t2("Schrift"); 
      t2.setAttr("Name",name);
-     t2.setAttr("Typ","?");
+     t2.setAttr<std::string>("Typ","?");
      *this=new Schrift(name, t2);
   }
   else throw NotFound(name);
