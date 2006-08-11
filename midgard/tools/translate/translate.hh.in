@@ -1,0 +1,1 @@
+const std::string PACKAGE_DATA_DIR="@PACKAGE_DATA_DIR@";
