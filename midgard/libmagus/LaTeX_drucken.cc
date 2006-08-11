@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.36 2006/08/11 10:22:04 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.37 2006/08/11 13:54:40 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -539,7 +539,7 @@ void LaTeX_drucken::write_waffenbesitz(const Abenteurer &A, std::ostream &fout,c
                       A.RaufenSchaden(),"",""));
   for(std::list<H_WaffeBesitz>::const_iterator i=L.begin();i!=L.end();++i)
    {
-     std::string waffenname = (*i)->AliasName();
+     std::string waffenname = TeX::string2TeX((*i)->AliasName());
      if ((*i)->Magisch()!="" || (*i)->av_Bonus()!=0 || (*i)->sl_Bonus()!=0) 
          waffenname+="$^*$ "+(*i)->Bonus() ;
      std::string swert;
@@ -717,8 +717,13 @@ std::string LaTeX_drucken::LaTeX_scalemag(const std::string& is,
        const std::string& magisch,const std::string& reichweite)
 {
  std::string os;
+#if 0
  if (is.size() <= maxlength) os = TeX::string2TeX(is);
  else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+TeX::string2TeX(is)+"}" ;
+#else
+ if (is.size() <= maxlength) os = is;
+ else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+is+"}" ;
+#endif
   std::string l1=os,l2;
   if (magisch==""||magisch=="*") 
    {
