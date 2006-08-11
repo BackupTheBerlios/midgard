@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.58 2006/01/08 08:48:18 christof Exp $
+# $Id: Makefile.am,v 1.59 2006/08/11 10:22:04 thoma Exp $
 
 SIGC_MAJOR=2
 
@@ -75,7 +75,7 @@ libmagus_la_SOURCES=MidgardBasicElement.cc Zauber.cc KiDo.cc \
 	Prototyp.cc Prozente100.cc  Spezialgebiet.cc \
 	xml.cc Region.cc Optionen.cc Abenteurer.cc magustrace.cc \
 	Lernschema.cc Ausgabe.cc snprintf.c $(PORT_FILES) \
-	$(EXTRA_QUELLEN) Random.cc libmagus.cc
+	$(EXTRA_QUELLEN) Random.cc libmagus.cc CopyFile.cc
 
 test_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@
 Zufallscharakter_LDADD = libmagus.la @COMMONGTK2_ONLY@ @COMMONXX_LIBS@ @SIGC_LIBS@ 

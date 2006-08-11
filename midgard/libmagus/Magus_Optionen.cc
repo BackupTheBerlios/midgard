@@ -1,4 +1,4 @@
-// $Id: Magus_Optionen.cc,v 1.36 2006/08/09 12:14:02 christof Exp $
+// $Id: Magus_Optionen.cc,v 1.37 2006/08/11 10:22:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2005 Christof Petig
@@ -246,6 +246,7 @@ void Magus_Optionen::Ober_init()
  list_Ober.push_back(st_Ober(NoInfoFenster,"Kein automatisches Öffnen des Infofensters",false,false));
  list_Ober.push_back(st_Ober(BegruessungsFenster,"Automatisches Öffnen des Begrüssungsfensters",true));
  list_Ober.push_back(st_Ober(UTF8TeX,"LaTeX ucs (Unicode) verwenden",false));
+ list_Ober.push_back(st_Ober(TeX_translate_UK,"Print English LaTeX documents",false));
  list_Ober.push_back(st_Ober(AvoidDialogues,"Dialoge vermeiden",false));
 }
 

@@ -1,4 +1,4 @@
-# $Id: configure.in,v 1.120 2006/06/16 06:53:08 christof Exp $
+# $Id: configure.in,v 1.121 2006/08/11 10:22:03 thoma Exp $
 
 AC_PREREQ(2.50)
 AC_INIT(magus, 0.9.9.15, [midgard-general@berlios.de])
@@ -74,4 +74,5 @@ AC_SUBST(NATIVE_BUILD)
 AC_OUTPUT(Makefile src/Makefile pixmaps/Makefile \
 	xml/Makefile libmagus/Makefile libmagusicons/Makefile \
 	src/magus.rc libmagus/libmagus.rc libmagusicons/libmagusicons.rc \
-	win32/magus.nsi libmagus/tests/Makefile)
+	win32/magus.nsi libmagus/tests/Makefile \
+   tools/Makefile tools/translate/Makefile tools/translate/translate.hh)

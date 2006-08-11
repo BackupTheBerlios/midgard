@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.35 2006/06/16 06:53:01 christof Exp $
+// $Id: LaTeX_drucken.cc,v 1.36 2006/08/11 10:22:04 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -41,6 +41,7 @@
 #include <config.h>
 #include <Misc/TraceNV.h>
 #include <magustrace.h>
+#include "CopyFile.hh"
 
 static std::string defFileName(const std::string &s)
 {  std::string res;
@@ -82,6 +83,18 @@ void LaTeX_drucken::Ausdrucken(const Abenteurer &A,bool values)
 {   
  std::string installfile=magus_paths::with_path(get_latex_filename(A,TeX_MainDocument)+".tex");
  std::string filename=get_latex_pathname(TeX_tmp)+get_latex_filename(A,TeX_MainWerte);
+
+  if ((Programmoptionen->OberCheck(Magus_Optionen::TeX_translate_UK).active))
+    {
+      const std::string new_installfile = installfile+"_trans.tex";
+      if(!myCopyFile(installfile,new_installfile))
+         std::cerr << "Cannot copy "<<installfile<<" to "<<new_installfile
+                   << " translation will fail\n";
+      std::string tcmd="magus_translate "+new_installfile;
+      ManuProC::Trace(LibMagus::trace_channel,"system",tcmd);
+      system(tcmd.c_str());
+      installfile = new_installfile;
+    }
  
 //cout <<"LaTeX: "<< filename<<'\n';
  {
@@ -941,6 +954,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
   getcwd(currentwd,sizeof currentwd);
   
   std::string pdflatex="pdflatex";
+  std::string latex_translate="magus_translate";
   
 #ifdef __MINGW32__ // oder direkt mit Pfad aufrufen?
   static std::string TEXMF;
@@ -950,6 +964,7 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
   }
   ManuProC::Trace(LibMagus::trace_channel,"",NV("TEXMF",getenv("TEXMF")));
   pdflatex="\""+magus_paths::BinaryVerzeichnis()+"\\"+pdflatex+"\"";
+  latex_translate="\""+magus_paths::BinaryVerzeichnis()+"\\"+latex_translate+"\"";
 #define unlink(a) _unlink(a)
 #endif
 
@@ -962,6 +977,14 @@ void LaTeX_drucken::pdf_viewer(const std::string& file,const bool tex_two_times)
      chdir((file.substr(0,lastslash)).c_str());
      file2=file.substr(lastslash+1);
   }
+
+  if ((Programmoptionen->OberCheck(Magus_Optionen::TeX_translate_UK).active))
+    {
+      getcwd(currentwd,sizeof currentwd);
+      std::string tcmd="magus_translate "+file2+".tex";
+      ManuProC::Trace(LibMagus::trace_channel,"system",tcmd);
+      system(tcmd.c_str());
+    }
 
 // oder batchmode?
 //2x wg. longtable
