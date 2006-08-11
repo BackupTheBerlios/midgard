@@ -1,4 +1,4 @@
-// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.55 2006/08/11 14:04:57 thoma Exp $
+// $Id: table_grundwerte_gw_wuerfeln.cc,v 1.56 2006/08/11 14:20:51 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *
@@ -284,7 +284,7 @@ void table_grundwerte::gw_variante_3_next()
 void table_grundwerte::on_button_variante_3_clicked(Gtk::Button *button,int wert)
 {
   ManuProC::Trace _t(table_grundwerte::trace_channel,__FUNCTION__);
-//  button->set_sensitive(false);
+  button->set_sensitive(false);
   set_Grundwerte(actual_eigen->eigenschaft,wert);
   gw_variante_3_next();
 }
