@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.8 2004/12/21 08:17:45 thoma Exp $   
+// $Id: LaTeX_drucken_spielleiterbogen.cc,v 1.9 2006/08/17 13:00:24 thoma Exp $   
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003 Christof Petig
@@ -42,13 +42,16 @@ void LaTeX_drucken::Spielleiterbogen(VAbenteurer &VA)
  fout << "\\vspace*{-0cm}\n\n";
 
  fout << "\\scriptsize\n";
- fout << "\\begin{longtable}{|||l|||\n";
+ fout << "\\begin{longtable}{|||l|||";
  for(unsigned int i=0;i<VA.getList().size();++i)
    fout << "c|"; // Anzahl der Spalten/Abenteurer
+ const unsigned int mincol=6;
+ for(unsigned int i=VA.getList().size();i<mincol;++i)
+   fout << "c|"; // leere Spalten
  fout << "||}\\hline\\hline\\hline\n";
 
  for(ewhat was=enamecharakter;was<eMAX; was=ewhat(int(was)+1))
-   line(VA,fout,was);
+   line(VA,fout,was,mincol);
 
  fout << "\\end{longtable}\n";
 // fout << "}\n"; //scalebox
@@ -58,7 +61,7 @@ void LaTeX_drucken::Spielleiterbogen(VAbenteurer &VA)
  pdf_viewer(filename,true);
 }
 
-void LaTeX_drucken::line(const VAbenteurer &VA,std::ostream &fout,const ewhat &what)
+void LaTeX_drucken::line(const VAbenteurer &VA,std::ostream &fout,const ewhat &what,const unsigned int mincol)
 {
   std::string S;
   switch(what)
@@ -115,6 +118,8 @@ void LaTeX_drucken::line(const VAbenteurer &VA,std::ostream &fout,const ewhat &w
    {
      fout << "\\n "<<S;
      for_each(VA,fout,what);
+     for(unsigned int i=VA.getList().size();i<mincol;++i) 
+         fout << " & \\hspace*{2.2cm} ";
      fout << "\\\\\\hline\n";
    }
 }

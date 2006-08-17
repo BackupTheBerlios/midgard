@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.hh,v 1.10 2005/11/14 07:27:00 christof Exp $
+// $Id: LaTeX_drucken.hh,v 1.11 2006/08/17 13:00:24 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2004 Christof Petig
@@ -93,7 +93,7 @@ class LaTeX_drucken
     void ausruestung_druck(std::ostream &fout,bool unsichtbar,const std::list<AusruestungBaum> &AB,int deep);
     static void pdf_viewer(const std::string& file,const bool tex_two_times=false);
     
-    void line(const VAbenteurer &VA,std::ostream &fout,const ewhat &what);
+    void line(const VAbenteurer &VA,std::ostream &fout,const ewhat &what,const unsigned int mincol);
     void for_each(const VAbenteurer &VA,std::ostream &fout,const ewhat &what);
     void list_for_each(std::ostream &fout,const std::list<MBEmlt>& L,const int &maxlength,const std::string& cm);
     static void LaTeX_Bildboxen(std::ostream &fout,const std::string &file,const double width_of_abenteurer_cm);
