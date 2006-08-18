@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<MAGUS-data CVS="$Revision: 1.24 $" Copyright="Jürgen E. Franke" Jahr="2000" MAGUS-Bild="9" MAGUS-Index="-1" Maintainer="Malte Thoma" Name="Arkanum" Region="Arkanum" Titel="Das Arkanum" Version="1.0" offiziell="true">
+<MAGUS-data CVS="$Revision: 1.25 $" Copyright="Jürgen E. Franke" Jahr="2000" MAGUS-Bild="9" MAGUS-Index="-1" Maintainer="Malte Thoma" Name="Arkanum" Region="Arkanum" Titel="Das Arkanum" Version="1.0" offiziell="true">
  <Zauber>
   <Spruch AP="6" Agens="Holz" Grad="5" Lernkosten="2500" Name="Allheilung" Prozess="erschafft" Reagens="Erde" Reichweite="B" Typ="Geste" Ursprung="göttlich" Wirkungsbereich="1 Ws" Wirkungsdauer="0" Wirkungsziel="Körper" Zauberdauer="30 min">
    <Grund Typ="Hl"/>
@@ -1361,7 +1361,7 @@
    <Standard Typ="sHx"/>
    <Standard Typ="Th"/>
    <Standard Typ="wHx"/>
-   <Beschreibung>Der Zauberer erzeugt ein Netz aus transparenten, schwach goldenen leuchtenden Fäden magischer Energie, das den Körper des Opfers eng umschlie�&#x9F;t. Es kann seine Gliedma�&#x9F;en nicht bewegen, es ist aber nicht in der Lage, um Hilfe zu rufen oder wild um sich zu bei�&#x9F;en. Es besteht die Möglichkeit durch einen 'Kraftakt' das Netz zu zerrei�&#x9F;en (Fadenstück einer Riesenspinne; 8GS).</Beschreibung>
+   <Beschreibung>Der Zauberer erzeugt ein Netz aus transparenten, schwach goldenen leuchtenden Fäden magischer Energie, das den Körper des Opfers eng umschlie�&#x9F;t. Es kann seine Gliedma�&#x9F;en nicht bewegen, es ist aber in der Lage, um Hilfe zu rufen oder wild um sich zu bei�&#x9F;en. Es besteht die Möglichkeit durch einen 'Kraftakt' das Netz zu zerrei�&#x9F;en (Fadenstück einer Riesenspinne; 8GS).</Beschreibung>
   </Spruch>
   <Spruch AP="1" Agens="Feuer" Grad="1" Lernkosten="80" Name="Feuerfinger" Prozess="erschafft" Reagens="Feuer" Reichweite="0 m" Spruchrolle="true" Thaumagramm="Runenstab" Typ="Geste" Ursprung="elementar" Wirkungsbereich="Zauberer" Wirkungsdauer="2 min" Wirkungsziel="Umgebung" Zauberdauer="1 s">
    <Grund Typ="PHa"/>
@@ -2106,7 +2106,7 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Beschreibung>Spricht der Zauberer das 'Heilige Wort' mit der nötigen Konzentration und Betonung aus, so kann er mit Hilfe der Kräfte der Ordnung finsteren Kreaturen beträchtlichen Schaden zufügen. Finstere Wesen bis Grad 3 werden getötet; Wesen von Grad 4-6 werden 1W6*10min gelähmt; Wesen von Grad 7-9 werden 2W6*10sec geschwächt das sie quasi wehrlos sind und eine boni von -10 auf zaubern und -2 auf alle anderen Erfolgswürfe; Wesen ab Grad 10 erleiden 1W6*10sec einen Abzug von -2 auf alle Erfolgswürfe.</Beschreibung>
+   <Beschreibung>Spricht der Zauberer das 'Heilige Wort' mit der nötigen Konzentration und Betonung aus, so kann er mit Hilfe der Kräfte der Ordnung finsteren Kreaturen beträchtlichen Schaden zufügen. Finstere Wesen bis Grad 3 werden getötet; Wesen von Grad 4-6 werden 1W6*10min gelähmt; Wesen von Grad 7-9 werden 2W6*10sec geschwächt so das sie quasi wehrlos sind und einen Malus von -10 auf Zaubern und -2 auf alle anderen Erfolgswürfe erhalten; Wesen ab Grad 10 erleiden 1W6*10sec einen Abzug von -2 auf alle Erfolgswürfe.</Beschreibung>
   </Spruch>
   <Spruch AP="alle (mind 9)" Agens="Magan" Grad="G" Lernkosten="15000" Material="Edelmetalle (500 GS)" Name="Heimstein" Prozess="zerstört" Reagens="Magan" Reichweite="0 m" Thaumagramm="Siegel" Typ="Geste" Ursprung="dämonisch" Wirkungsbereich="50 m Uk" Wirkungsdauer="perm" Wirkungsziel="Umgebung" Zauberdauer="24 h">
    <Grund Typ="Ma"/>
@@ -4007,7 +4007,7 @@
    <Ausnahme Typ="ScN"/>
    <Ausnahme Typ="ScS"/>
    <Ausnahme Typ="ScW"/>
-   <Beschreibung>Spricht der Zauberer das 'Verbotene Wort' mit der nötigen Konzentration und Betonung aus, so kann er mit Hilfe der Mächte der Ordnung Kreaturen beträchtlichen Schaden zufügen, betroffen sind unter anderem Wei�&#x9F;e Hexer und Priester(au�&#x9F;er Chaospriester)ab Grad 7. Finstere Wesen bis Grad 3 werden getötet; Wesen von Grad 4-6 werden 1W6*10min gelähmt; Wesen von Grad 7-9 werden 2W6*10sec geschwächt so das sie quasi wehrlos sind und eine boni von -10 auf zaubern und -2 auf alle anderen Erfolgswürfe; Wesen ab Grad 10 erleiden 1W6*10sec und einen Abzug von -2 auf alle Erfolgswürfe.</Beschreibung>
+   <Beschreibung>Spricht der Zauberer das 'Verbotene Wort' mit der nötigen Konzentration und Betonung aus, so kann er mit Hilfe der Mächte der Finsternis entsprechenden Kreaturen beträchtlichen Schaden zufügen, betroffen sind unter anderem Wei�&#x9F;e Hexer und Priester (au�&#x9F;er Chaospriester) ab Grad 7. Wesen bis Grad 3 werden getötet; Wesen von Grad 4-6 werden 1W6*10min gelähmt; Wesen von Grad 7-9 werden 2W6*10sec geschwächt so das sie quasi wehrlos sind und einen Malus von -10 auf Zaubern und -2 auf alle anderen Erfolgswürfe erhalten; Wesen ab Grad 10 erleiden 1W6*10sec und einen Abzug von -2 auf alle Erfolgswürfe.</Beschreibung>
   </Spruch>
   <Spruch AP="5" Agens="Eis" Grad="3" Lernkosten="1000" Name="Verdorren" Prozess="verändert" Reagens="Erde" Reichweite="B" Spruchrolle="true" Typ="Geste" Ursprung="schwarzmagisch" Wirkungsbereich="1 Ws" Wirkungsdauer="perm" Wirkungsziel="Körper" Zauberdauer="1 s">
    <Grund Typ="gHx"/>
