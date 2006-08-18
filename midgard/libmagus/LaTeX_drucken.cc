@@ -1,4 +1,4 @@
-// $Id: LaTeX_drucken.cc,v 1.37 2006/08/11 13:54:40 thoma Exp $
+// $Id: LaTeX_drucken.cc,v 1.38 2006/08/18 07:49:09 thoma Exp $
 /*  Midgard Character Generator
  *  Copyright (C) 2001 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -717,13 +717,9 @@ std::string LaTeX_drucken::LaTeX_scalemag(const std::string& is,
        const std::string& magisch,const std::string& reichweite)
 {
  std::string os;
-#if 0
- if (is.size() <= maxlength) os = TeX::string2TeX(is);
- else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+TeX::string2TeX(is)+"}" ;
-#else
  if (is.size() <= maxlength) os = is;
  else  os = "\\resizebox*{"+scale+"}{1.5ex}{"+is+"}" ;
-#endif
+
   std::string l1=os,l2;
   if (magisch==""||magisch=="*") 
    {
