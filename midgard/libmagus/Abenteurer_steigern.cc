@@ -1,4 +1,4 @@
-// $Id: Abenteurer_steigern.cc,v 1.34 2006/03/09 08:01:24 christof Exp $               
+// $Id: Abenteurer_steigern.cc,v 1.35 2006/08/24 17:14:21 thoma Exp $               
 /*  Midgard Character Generator
  *  Copyright (C) 2002 Malte Thoma
  *  Copyright (C) 2003-2006 Christof Petig
@@ -214,11 +214,14 @@ int Abenteurer::genug_geld(const int kosten) const
    {
       int iw=Random::W20();
       int erg=gestu.first+iw;
-      Ausgabe(Ausgabe::Log,"EW:Geschäftstüchtigkeit = "+itos(gestu.first)+"+"+itos(iw)
-               +"="+itos(erg));
-      int gold_gespart = int(gold_k*0.9);
-      if(erg>=20) Ausgabe(Ausgabe::Log," => "+itos(gold_gespart)+" Gold gespart");
-      gold_k-=gold_gespart;
+      Ausgabe(Ausgabe::Log,"EW:Geschäftstüchtigkeit = "+itos(gestu.first)+"+"+itos(iw)+"="+itos(erg));
+      if(erg>=20) 
+       { 
+        int gold_gespart = int(gold_k*0.1);
+        Ausgabe(Ausgabe::Log," => "+itos(gold_gespart)+" Gold gespart");
+        gold_k-=gold_gespart;
+       }
+      else Ausgabe(Ausgabe::Log,"Das reicht nicht, kein Gold beim steigern gespart");
    }
 
   if (gold_k > Gold())
